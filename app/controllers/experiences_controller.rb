@@ -3,7 +3,13 @@ class ExperiencesController < ApplicationController
   # before_action :ngo?, only: [:destroy, :update, :create, :new, :edit]
 
   def index
-    @experiences = Experience.all
+    @experiences = Experience.where.not(latitude: nil, longitude: nil)
+
+    @markers = Gmaps4rails.build_markers(@experiences) do |experience, marker|
+      marker.lat experience.latitude
+      marker.lng experience.longitude
+      # marker.infowindow render_to_string(partial: "/flats/map_box", locals: { flat: flat })
+    end
   end
 
   def update
@@ -19,6 +25,7 @@ class ExperiencesController < ApplicationController
   end
 
   def show
+    @experience_coordinates = { lat: @experience.latitude, lng: @experience.longitude }
   end
 
   def destroy
@@ -47,31 +54,19 @@ class ExperiencesController < ApplicationController
         format.json { render json: @experience.errors, status: :unprocessable_entity }
       end
     end
-
   end
 
   def edit
   end
 
   private
-    def set_experience
-      @experience = Experience.find(params[:id])
-    end
+  def set_experience
+    @experience = Experience.find(params[:id])
+  end
 
-    def experience_params
-      params.require(:experience).permit(:short_description, :long_description, :title, :price, :capacity, :address)
-    end
-
+  def experience_params
+    params.require(:experience).permit(:short_description, :long_description, :title, :price, :capacity, :address, feature_ids: [])
+  end
 end
 
-
-  # def index_host
-  #   @user = current_user
-  #   @experiences = current_user.experiences
-  # end
-
-   # def ngo?
-    # user = current_user
-    #   user.ngo == true
-    # end
 

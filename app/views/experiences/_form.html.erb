@@ -6,7 +6,6 @@
     <%= f.input :capacity %>
     <%= f.input :short_description %>
     <%= f.input :long_description %>
-    <%= f.input :price %>
     <%= f.input :address %>
     <%= f.collection_check_boxes :feature_ids, Feature.all, :id, :name %>
   </div>
@@ -14,4 +13,8 @@
     <div class="form-actions text-center">
       <%= f.button :submit %>
     </div>
+<% end %>
+
+<%= content_for(:after_js) do %>
+  <script src="https://maps.googleapis.com/maps/api/js?libraries=places&amp;key=AIzaSyDANjx3bosEtIyzJaoWs50Wnt6nt_1rmxU"></script>
 <% end %>
