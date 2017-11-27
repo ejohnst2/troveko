@@ -7,3 +7,6 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 end
+
+
+#validates :terms_of_service, acceptance: { message: 'must be abided' }
