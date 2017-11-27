@@ -1,2 +1,7 @@
 <h1>Experiences#edit</h1>
 <p>Find me in app/views/experiences/edit.html.erb</p>
+
+<%= render 'form', experience: @experience %>
+
+<%= link_to 'See Your Experience', @experience %> |
+<%= link_to 'Go Back to All Experiences', experiences_path %>

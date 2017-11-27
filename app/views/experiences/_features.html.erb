@@ -1,0 +1,11 @@
+<% @experience.features.each do |feature| %>
+
+  <!-- icon for feature -->
+
+    <i class="fa <%= feature.fa_icon %> icon" aria-hidden="true"></i>
+
+  <!-- name for feature -->
+
+    <%= feature.name %>
+
+  <% end %>

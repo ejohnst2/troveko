@@ -1,0 +1,20 @@
+
+<!-- trip info page -->
+
+<p>Booking Date:  <%= @trip.booking_date %></p>
+<p>Start Date: <%= @trip.start_date %></p>
+<p>End Date:  <%= @trip.end_date %></p>
+<p>Length: <%= (@trip.end_date - @trip.start_date).to_i %> nights</p>
+<p>Price:  $<%=@trip.experience.price %></p>
+<p>Total: $<%= @trip.experience.price  *  (@trip.end_date - @trip.start_date).to_i %></p>
+
+
+<!-- traveler info -->
+
+ <%= @trip.user.first_name %>
+ <%= @trip.user.email %>
+
+
+<!-- links and paths for page -->
+
+<%= link_to @trip.experience.name, experience_path(@trip.experience) %>
