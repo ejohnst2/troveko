@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   resources :experiences do
+     resources :trips
   end
-  resources :trips
 
   devise_for :users
   root to: 'pages#home'
