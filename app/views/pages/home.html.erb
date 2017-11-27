@@ -1,5 +1,15 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+
+<%= link_to root_path, class: "home-banner" do %>
+    <%= image_tag "banner.png" %>
+  <% end %>
+
+<!-- <img src="banner.png"> -->
+<%= render 'shared/navbar' %>
+
+
+<!-- <h1>Pages#home</h1> -->
+<!-- <p>Find me in app/views/pages/home.html.erb</p> -->
 
 
 <%= link_to "List All Experiences", experiences_path, { :class => "button" } %>
+
