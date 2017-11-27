@@ -26,6 +26,7 @@ class ExperiencesController < ApplicationController
 
   def show
     @experience_coordinates = { lat: @experience.latitude, lng: @experience.longitude }
+    @review = Review.new
   end
 
   def destroy
@@ -60,13 +61,13 @@ class ExperiencesController < ApplicationController
   end
 
   private
-  def set_experience
-    @experience = Experience.find(params[:id])
-  end
+    def set_experience
+      @experience = Experience.find(params[:id])
+    end
 
-  def experience_params
-    params.require(:experience).permit(:short_description, :long_description, :title, :price, :capacity, :address, feature_ids: [])
-  end
+    def experience_params
+      params.require(:experience).permit(:short_description, :long_description, :title, :price, :capacity, :address, photos: [], feature_ids: [])
+    end
 end
 
 
