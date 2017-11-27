@@ -4,7 +4,7 @@ class Trip < ApplicationRecord
 
   validates :user, :experience, :start_date, :end_date, presence: true, allow_blank: false
   validate :start_date_cannot_be_in_the_past, :end_date_cannot_be_in_the_past
-  validates_date :start_date, :end_date
+  # validate :start_date, :end_date
 
   def start_date_cannot_be_in_the_past
     errors.add(:start_date, "Can't be in the past") if

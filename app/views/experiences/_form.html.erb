@@ -1,0 +1,17 @@
+<%= simple_form_for(@experience) do |f| %>
+  <%= f.error_notification %>
+  <div class="form-inputs">
+    <%= f.input :title %>
+    <%= f.input :price %>
+    <%= f.input :capacity %>
+    <%= f.input :short_description %>
+    <%= f.input :long_description %>
+    <%= f.input :price %>
+    <%= f.input :address %>
+    <%= f.collection_check_boxes :feature_ids, Feature.all, :id, :name %>
+  </div>
+
+    <div class="form-actions text-center">
+      <%= f.button :submit %>
+    </div>
+<% end %>
