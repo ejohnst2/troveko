@@ -2,7 +2,8 @@ class Experience < ApplicationRecord
   belongs_to :user
   has_and_belongs_to_many :features
 
-  validates :price, presence: true, numericality: { only_integer: true }
+  validates :price, presence: true
+  # numericality: { only_integer: true }
   validates :title, presence: true, length: { minimum: 10 }
   validates :short_description, presence:true, length: { maximum: 100 }
   validates :long_description, presence:true, length: { minimum: 100 }, length: { maximum: 1000 }

@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :experiences do
+  end
   resources :trips
 
   devise_for :users
