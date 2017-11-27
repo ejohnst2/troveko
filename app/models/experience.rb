@@ -1,5 +1,6 @@
 class Experience < ApplicationRecord
   belongs_to :user
+  has_many :reviews, dependent: :destroy
   has_and_belongs_to_many :features
 
   validates :price, presence: true

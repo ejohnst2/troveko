@@ -17,7 +17,21 @@
 
 <!-- features for experience -->
 
-<%= render 'features' %>
+<%#= render 'features' %>
+
+<!-- reviews for experience -->
+
+<div id="reviews">
+  <% if @experience.reviews.blank? %>
+    Be the first to leave a review for <%= @experience.title %>
+  <% else %>
+    <% @experience.reviews.each do |review| %>
+      <%= render 'reviews/show', review: review %>
+    <% end %>
+  <% end %>
+</div>
+
+<%= render 'reviews/form', experience: @experience, review: @review %>
 
 
 <!-- links for page -->
