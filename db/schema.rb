@@ -55,9 +55,27 @@ ActiveRecord::Schema.define(version: 20171127214105) do
     t.index ["feature_id"], name: "index_experiences_features_on_feature_id", using: :btree
   end
 
+<<<<<<< HEAD
   create_table "features", id: :bigserial, force: :cascade do |t|
     t.string   "name"
     t.string   "fa_icon"
+=======
+  create_table "reviews", force: :cascade do |t|
+    t.text "content"
+    t.bigint "experience_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "rating"
+    t.index ["experience_id"], name: "index_reviews_on_experience_id"
+  end
+
+  create_table "trips", force: :cascade do |t|
+    t.bigint "experience_id"
+    t.date "start_date"
+    t.date "end_date"
+    t.bigint "user_id"
+    t.boolean "status"
+>>>>>>> 8cdb1f3fa36420edb0122b5025aa30e55ce11e58
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

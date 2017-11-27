@@ -9,7 +9,11 @@
     <%= stylesheet_link_tag 'application', media: 'all' %>
   </head>
   <body>
+    <% unless params[:action] == "home" %>
+      <%= render 'shared/navbar' %>
+    <% end %>
     <%= yield %>
+    <%= render 'shared/footer' %>
     <%= javascript_include_tag 'application' %>
     <%= cloudinary_js_config %>
   </body>
