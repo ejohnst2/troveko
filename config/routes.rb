@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   resources :experiences do
+     resources :reviews, only: :create
      resources :trips
   end
 
