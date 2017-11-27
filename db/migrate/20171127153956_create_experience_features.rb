@@ -1,4 +1,4 @@
-class CreateExperienceFeatures < ActiveRecord::Migration[5.1]
+class CreateExperienceFeatures < ActiveRecord::Migration[5.0]
   def change
     create_table :experience_features do |t|
       t.references :feature, foreign_key: true
