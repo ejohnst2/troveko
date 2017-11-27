@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171127185601) do
+ActiveRecord::Schema.define(version: 20171127211713) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -45,6 +45,15 @@ ActiveRecord::Schema.define(version: 20171127185601) do
     t.string "fa_icon"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.text "content"
+    t.bigint "experience_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "rating"
+    t.index ["experience_id"], name: "index_reviews_on_experience_id"
   end
 
   create_table "trips", force: :cascade do |t|
@@ -88,6 +97,7 @@ ActiveRecord::Schema.define(version: 20171127185601) do
   add_foreign_key "experiences", "users"
   add_foreign_key "experiences_features", "experiences"
   add_foreign_key "experiences_features", "features"
+  add_foreign_key "reviews", "experiences"
   add_foreign_key "trips", "experiences"
   add_foreign_key "trips", "users"
 end
