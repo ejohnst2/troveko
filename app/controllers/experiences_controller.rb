@@ -37,6 +37,7 @@ class ExperiencesController < ApplicationController
 
     @experience = Experience.new(experience_params)
     @experience.user = current_user
+
     respond_to do |format|
       if @experience.save
         format.html { redirect_to @experience, notice: 'Experience was successfully created.' }
