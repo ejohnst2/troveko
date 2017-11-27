@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   resources :experiences do
+     resources :trips
   end
-  resources :trips
 
   devise_for :users,
     controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }

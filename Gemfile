@@ -18,7 +18,7 @@ gem 'uglifier'
 gem 'devise'
 gem 'figaro'
 gem 'omniauth-facebook'
-
+gem 'faker'
 group :development, :test do
   gem 'pry-byebug'
   gem 'pry-rails'
