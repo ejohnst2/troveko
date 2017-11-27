@@ -16,6 +16,8 @@ gem 'sass-rails'
 gem 'simple_form'
 gem 'uglifier'
 gem 'devise'
+gem 'figaro'
+gem 'omniauth-facebook'
 
 group :development, :test do
   gem 'pry-byebug'
