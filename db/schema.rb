@@ -10,26 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171127153956) do
+ActiveRecord::Schema.define(version: 20171127185601) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "experience_features", force: :cascade do |t|
-    t.bigint "feature_id"
-    t.bigint "experience_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["experience_id"], name: "index_experience_features_on_experience_id"
-    t.index ["feature_id"], name: "index_experience_features_on_feature_id"
-  end
 
   create_table "experiences", force: :cascade do |t|
     t.bigint "user_id"
     t.string "title"
     t.float "price"
     t.integer "capacity"
-    t.boolean "status"
+    t.boolean "status", default: false
     t.string "address"
     t.float "latitude"
     t.float "longitude"
@@ -38,6 +29,15 @@ ActiveRecord::Schema.define(version: 20171127153956) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_experiences_on_user_id"
+  end
+
+  create_table "experiences_features", force: :cascade do |t|
+    t.bigint "feature_id"
+    t.bigint "experience_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["experience_id"], name: "index_experiences_features_on_experience_id"
+    t.index ["feature_id"], name: "index_experiences_features_on_feature_id"
   end
 
   create_table "features", force: :cascade do |t|
@@ -72,13 +72,22 @@ ActiveRecord::Schema.define(version: 20171127153956) do
     t.inet "last_sign_in_ip"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "ngo"
+    t.boolean "admin"
+    t.string "provider"
+    t.string "uid"
+    t.string "facebook_picture_url"
+    t.string "first_name"
+    t.string "last_name"
+    t.string "token"
+    t.datetime "token_expiry"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "experience_features", "experiences"
-  add_foreign_key "experience_features", "features"
   add_foreign_key "experiences", "users"
+  add_foreign_key "experiences_features", "experiences"
+  add_foreign_key "experiences_features", "features"
   add_foreign_key "trips", "experiences"
   add_foreign_key "trips", "users"
 end

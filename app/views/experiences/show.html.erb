@@ -1,0 +1,30 @@
+<h1>Experiences#show</h1>
+<p>Find me in app/views/experiences/show.html.erb</p>
+
+<!-- info for page -->
+
+<%= @experience.price %>
+
+<%= @experience.short_description %>
+
+<%= @experience.long_description %>
+
+<%= @experience.address %>
+
+<%= @experience.capacity %>
+
+<%= @experience.title %>
+
+<!-- features for experience -->
+
+<%= render 'features' %>
+
+
+<!-- links for page -->
+
+<%= link_to 'View All Experiences', experiences_path %>
+<%= link_to 'Book This Experience', new_experience_trip_path(@experience) %>
+
+<% if @experience.user == @user %>
+        <%= link_to 'Edit Experience', edit_experience_path(@experience) %>
+<% end %>
