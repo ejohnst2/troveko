@@ -62,6 +62,16 @@ ActiveRecord::Schema.define(version: 20171128200112) do
     t.index ["attachinariable_type", "attachinariable_id", "scope"], name: "by_scoped_parent", using: :btree
   end
 
+  create_table "contributions", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "fund_id"
+    t.integer  "amount"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["fund_id"], name: "index_contributions_on_fund_id", using: :btree
+    t.index ["user_id"], name: "index_contributions_on_user_id", using: :btree
+  end
+
   create_table "conversations", force: :cascade do |t|
     t.integer  "sender_id"
     t.integer  "recipient_id"
@@ -102,6 +112,14 @@ ActiveRecord::Schema.define(version: 20171128200112) do
     t.string   "fa_icon"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "funds", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "funding_goal"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.index ["user_id"], name: "index_funds_on_user_id", using: :btree
   end
 
   create_table "messages", force: :cascade do |t|
@@ -167,9 +185,12 @@ ActiveRecord::Schema.define(version: 20171128200112) do
   add_foreign_key "activities_experiences", "experiences"
   add_foreign_key "areatypes_experiences", "areatypes"
   add_foreign_key "areatypes_experiences", "experiences"
+  add_foreign_key "contributions", "funds"
+  add_foreign_key "contributions", "users"
   add_foreign_key "experiences", "users"
   add_foreign_key "experiences_features", "experiences"
   add_foreign_key "experiences_features", "features"
+  add_foreign_key "funds", "users"
   add_foreign_key "messages", "conversations"
   add_foreign_key "messages", "users"
   add_foreign_key "reviews", "experiences"
