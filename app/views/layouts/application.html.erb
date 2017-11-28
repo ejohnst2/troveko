@@ -3,12 +3,15 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>TODO</title>
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro|Montserrat|Open+Sans|Roboto" rel="stylesheet">
+    <title>Troveko</title>
+    <link rel="icon" href="<%= image_path("small_logo2.png") %>">
     <%= csrf_meta_tags %>
     <%= action_cable_meta_tag %>
     <%= stylesheet_link_tag 'application', media: 'all' %>
   </head>
   <body>
+    <%= render 'shared/flashes' %>
     <% unless params[:action] == "home" %>
       <%= render 'shared/navbar' %>
     <% end %>

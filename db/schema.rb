@@ -10,10 +10,43 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171128164229) do
+
+ActiveRecord::Schema.define(version: 20171128182347) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "activities", force: :cascade do |t|
+    t.string   "name"
+    t.string   "fa_icon"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "activities_experiences", force: :cascade do |t|
+    t.integer  "activity_id"
+    t.integer  "experience_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.index ["activity_id"], name: "index_activities_experiences_on_activity_id", using: :btree
+    t.index ["experience_id"], name: "index_activities_experiences_on_experience_id", using: :btree
+  end
+
+  create_table "areatypes", force: :cascade do |t|
+    t.string   "name"
+    t.string   "fa_icon"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "areatypes_experiences", force: :cascade do |t|
+    t.integer  "areatype_id"
+    t.integer  "experience_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.index ["areatype_id"], name: "index_areatypes_experiences_on_areatype_id", using: :btree
+    t.index ["experience_id"], name: "index_areatypes_experiences_on_experience_id", using: :btree
+  end
 
   create_table "attachinary_files", force: :cascade do |t|
     t.string   "attachinariable_type"
@@ -75,6 +108,7 @@ ActiveRecord::Schema.define(version: 20171128164229) do
     t.datetime "updated_at", null: false
   end
 
+<<<<<<< HEAD
   create_table "funds", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "funding_goal"
@@ -84,8 +118,11 @@ ActiveRecord::Schema.define(version: 20171128164229) do
   end
 
   create_table "reviews", force: :cascade do |t|
+=======
+  create_table "reviews", id: :bigserial, force: :cascade do |t|
+>>>>>>> 50aae49b2595558504100da5c299982c332f42dc
     t.text     "content"
-    t.integer  "experience_id"
+    t.bigint   "experience_id"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
     t.integer  "rating"
@@ -130,8 +167,15 @@ ActiveRecord::Schema.define(version: 20171128164229) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
+
   add_foreign_key "contributions", "funds"
   add_foreign_key "contributions", "users"
+
+  add_foreign_key "activities_experiences", "activities"
+  add_foreign_key "activities_experiences", "experiences"
+  add_foreign_key "areatypes_experiences", "areatypes"
+  add_foreign_key "areatypes_experiences", "experiences"
+
   add_foreign_key "experiences", "users"
   add_foreign_key "experiences_features", "experiences"
   add_foreign_key "experiences_features", "features"

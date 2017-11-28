@@ -3,7 +3,10 @@ class Experience < ApplicationRecord
   belongs_to :user
   has_attachments :photos, maximum: 10
   has_many :reviews, dependent: :destroy
+
   has_and_belongs_to_many :features
+  has_and_belongs_to_many :activities
+  has_and_belongs_to_many :areatypes
 
 
   validates :price, presence: true
@@ -15,6 +18,7 @@ class Experience < ApplicationRecord
   validates :postal_code, presence: true, allow_blank: false, length: { minimum: 2 }
   validates :country, presence: true, allow_blank: false, length: { minimum: 2 }
   validates :capacity, presence:true, numericality: { only_integer: true }
+  validates :user, presence: true, allow_blank: false
 
   geocoded_by :full_address
   after_validation :geocode, if: :full_address_changed?

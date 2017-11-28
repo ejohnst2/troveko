@@ -9,7 +9,6 @@
 
 
     <!-- Links -->
-    <% if user_signed_in? %>
 
       <form action="<%= root_path %>" class="form-inline">
 
@@ -23,10 +22,11 @@
       <%= link_to "Messages", root_path, class: "navbar-troveko-item navbar-troveko-link" %>
 
       <!-- Avatar with dropdown menu -->
-      <div class="navbar-troveko-item">
+      <% if user_signed_in? %>
+    <div class="navbar-troveko-item">
         <div class="dropdown">
 
-          <%#= image_tag facebook_image(current_user), class: "avatar dropdown-toggle", id: "navbar-troveko-menu", "data-toggle" => "dropdown" %>
+          <%= image_tag facebook_image(current_user), class: "avatar dropdown-toggle", id: "navbar-troveko-menu", "data-toggle" => "dropdown" %>
 
           <ul class="dropdown-menu dropdown-menu-right navbar-troveko-dropdown-menu">
             <!-- <li>

@@ -1,0 +1,11 @@
+<% @experience.activities.each do |activity| %>
+
+  <!-- icon for activity -->
+
+    <i class="fa <%= activity.fa_icon %> icon" aria-hidden="true"></i>
+
+  <!-- name for activity -->
+
+    <%= activity.name %>
+
+  <% end %>
