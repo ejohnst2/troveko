@@ -45,7 +45,7 @@ features = [
   experience = Experience.new(
     title: "#{Faker::Zelda.location} experience",
     short_description: "#{Faker::LordOfTheRings.character}-style #{Faker::GameOfThrones.house} in #{Faker::LordOfTheRings.location}",
-    long_description: "#{Faker::Lorem.paragraphs} #{Faker::Lorem.paragraphs}",
+    long_description: "#{Faker::Lorem.paragraphs}",
     price: rand(40..1000),
     capacity: rand(1..10),
     address: addresses.sample,
@@ -63,7 +63,7 @@ end
   experience = Experience.new(
     title: "#{Faker::Zelda.location} experience",
     short_description: "#{Faker::LordOfTheRings.character}-style #{Faker::GameOfThrones.house} in #{Faker::LordOfTheRings.location}",
-    long_description: "#{Faker::Lorem.paragraphs} #{Faker::Lorem.paragraphs}",
+    long_description: "#{Faker::Lorem.paragraphs}",
     price: rand(40..1000),
     capacity: rand(1..10),
     address: addresses.sample,
