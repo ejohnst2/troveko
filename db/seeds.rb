@@ -45,7 +45,7 @@ features = [
   experience = Experience.new(
     title: "#{Faker::Zelda.location} experience",
     short_description: "#{Faker::LordOfTheRings.character}-style #{Faker::GameOfThrones.house} in #{Faker::LordOfTheRings.location}",
-    long_description: "#{Faker::Lorem.paragraphs} #{Faker::Lorem.paragraphs}",
+    long_description: "#{Faker::Lorem.paragraphs}",
     price: rand(40..1000),
     capacity: rand(1..10),
     address: addresses.sample,
@@ -55,7 +55,6 @@ features = [
   experience.features = features
   # experience.photo_urls = urls
   experience.save!
-  puts "======> created #{new_user_one.email} and #{experience.title}"
 end
 
 3.times do
@@ -63,7 +62,7 @@ end
   experience = Experience.new(
     title: "#{Faker::Zelda.location} experience",
     short_description: "#{Faker::LordOfTheRings.character}-style #{Faker::GameOfThrones.house} in #{Faker::LordOfTheRings.location}",
-    long_description: "#{Faker::Lorem.paragraphs} #{Faker::Lorem.paragraphs}",
+    long_description: "#{Faker::Lorem.paragraphs}",
     price: rand(40..1000),
     capacity: rand(1..10),
     address: addresses.sample,
@@ -73,7 +72,6 @@ end
   experience.features = features
   # experience.photo_urls = urls
   experience.save!
-  puts "======> created #{new_user_two.email} and #{experience.title}"
 end
 
   # create_table "experiences", force: :cascade do |t|

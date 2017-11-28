@@ -8,6 +8,7 @@
   align-items: center;
   justify-content: center;
 }
+
 .banner h1 {
   font-size: 50px;
   // font-weight: bold;
@@ -16,7 +17,7 @@
 }
 
 .banner h2{
-  color: rgb(255, 139, 45);
+  color: #ffc344;
   text-shadow: 0px 1px rgba(0, 0, 0, 0.5);
   font-family: 'futura', sans-serif;
   -o-transition:.5s;
@@ -27,7 +28,7 @@
 }
 
 .banner h2:hover {
-  color: #ff4d2d;
+  color: #ff6c52;
 }
 
 .banner p {
