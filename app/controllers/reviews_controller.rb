@@ -1,4 +1,6 @@
 class ReviewsController < ApplicationController
+    # skip_before_action :authenticate_user!, only: [:index, :show]
+
     def create
     @experience = Experience.find(params[:experience_id])
     @review = Review.new(review_params)

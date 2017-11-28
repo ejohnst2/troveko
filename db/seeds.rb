@@ -10,6 +10,7 @@
 Experience.destroy_all
 User.destroy_all
 Feature.destroy_all
+Activity.destroy_all
 
 
 new_user_one = User.new(email: 'trovekoboy@gmail.com', password: 'bunky123')
@@ -40,6 +41,21 @@ features = [
   Feature.create!(name: "Personal Chef", fa_icon: "fa-cutlery")
 ]
 
+activities = [
+  Activity.create!(name: "Hiking", fa_icon: "fa-sun-o"),
+  Activity.create!(name: "Trekking", fa_icon: "fa-thermometer-three-quarters"),
+  Activity.create!(name: "Cooking", fa_icon: "fa-wifi"),
+  Activity.create!(name: "Camping", fa_icon: "fa-bed"),
+  Activity.create!(name: "Fishing", fa_icon: "fa-tint"),
+  Activity.create!(name: "Handicrafts", fa_icon: "fa-cutlery")
+]
+
+areatypes = [
+  Areatype.create!(name: "Farm", fa_icon: "fa-sun-o"),
+  Areatype.create!(name: "Mountainous", fa_icon: "fa-thermometer-three-quarters"),
+  Areatype.create!(name: "Desert", fa_icon: "fa-wifi"),
+]
+
 3.times do
   # urls = [ pictures.sample, pictures.sample, pictures.sample ]
   experience = Experience.new(
@@ -52,7 +68,9 @@ features = [
     user: new_user_one
     )
   p experience
-  experience.features = features
+  experience.features << features
+  experience.activities << activities
+  experience.areatypes << areatypes
   # experience.photo_urls = urls
   experience.save!
 end
@@ -69,7 +87,9 @@ end
     user: new_user_two
     )
   p experience
-  experience.features = features
+  experience.features << features
+  experience.activities << activities
+  experience.areatypes << areatypes
   # experience.photo_urls = urls
   experience.save!
 end

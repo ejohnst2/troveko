@@ -1,21 +1,37 @@
 <%= simple_form_for(@experience) do |f| %>
   <%= f.error_notification %>
   <div class="form-inputs">
-    <%= f.input :title %>
-    <%= f.input :price %>
-    <%= f.input :capacity %>
-    <%= f.input :short_description %>
-    <%= f.input :long_description %>
+
+    <h3 class="form_section">The Experience</h3>
+    <%= f.input :title, hint: 'what is the experience?', placeholder: 'A Weekend in The Subak' %>
+    <%= f.input :short_description, hint: 'Sum up the experience in a compelling sentence', placeholder: 'Learn about the 1000-year history of the Balinese Subak with Pak Nyoman and his family' %>
+
+    <h3 class="form_section">Provide The Details of The Experience</h3>
+    <%= f.input :price, wrapper_html: { class: 'experience_section' }  %>
+    <%= f.input :capacity, placeholder: 'i.e. 3' %>
     <%= f.input :address %>
-    <%= f.collection_check_boxes :feature_ids, Feature.all, :id, :name %>
-    <%= f.input :photos, as: :attachinary %>
+    <%= f.input :city %>
+    <%= f.input :postal_code %>
+    <%= f.country_select :country, priority_countries: ["GB", "US", "DE"] %>
+
+    <h3 class="form_section">Tell Us A Story</h3>
+    <%= f.input :long_description, hint: 'No more than 1000 characters', placeholder: 'Tell the story of the host and their family? Describe what life is like? What makes this experience interesting?', wrapper_html: { class: 'experience_section', id: 'count_me' } %>
+
+    <h3 class="form_section">Amenities and Information</h3>
+    <%= f.collection_check_boxes :feature_ids, Feature.all, :id, :name, wrapper_html: { class: 'experience_section' }%>
+
+    <h3 class="form_section">Photos</h3>
+    <p>Show us the host, their family, a snapshot of their work, and a feel for where they're located</p>
+    <%= f.input :photos, as: :attachinary, wrapper_html: { id: 'photo_upload' } %>
   </div>
 
     <div class="form-actions text-center">
-      <%= f.button :submit %>
+      <%= f.button :submit, "Ready to Roll", class: "btn-primary btn-lg" %>
     </div>
 <% end %>
 
-<%= content_for(:after_js) do %>
-  <script src="https://maps.googleapis.com/maps/api/js?libraries=places&amp;key=AIzaSyDANjx3bosEtIyzJaoWs50Wnt6nt_1rmxU"></script>
-<% end %>
+<!--
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script type="text/javascript" src="jquery.charactercounter.js"></script>
+ -->
+

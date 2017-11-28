@@ -1,4 +1,7 @@
 
+  <h1><%= @experience.title %></h1>
+  <p><%= @experience.short_description %></p>
+
 <!-- images for experience -->
 
 <%# @experience.photos.each do |photo| %>
@@ -74,7 +77,9 @@
 </div>
 <!-- features for experience -->
 
-<%#= render 'features' %>
+<%= render 'features' %>
+<%= render 'activities' %>
+<%= render 'areatypes' %>
 
 <!-- reviews for experience -->
 

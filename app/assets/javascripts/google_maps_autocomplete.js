@@ -6,7 +6,7 @@ function onPlaceChanged() {
   experienceAddress.blur();
   experienceAddress.value = components.address;
 
-  document.getElementById('experience_zip_code').value = components.zip_code;
+  document.getElementById('experience_postal_code').value = components.postal_code;
   document.getElementById('experience_city').value = components.city;
 
   if (components.country_code) {
@@ -18,7 +18,7 @@ function onPlaceChanged() {
 function getAddressComponents(place) {
   var street_number = null;
   var route = null;
-  var zip_code = null;
+  var postal_code = null;
   var city = null;
   var country_code = null;
 
@@ -30,11 +30,11 @@ function getAddressComponents(place) {
       var type = component.types[j];
       if (type === 'street_number') {
         street_number = component.long_name;
-      } else if (type === 'route') {
+      } else if (type === 'route' || type === 'premise') {
         route = component.long_name;
       } else if (type === 'postal_code') {
-        zip_code = component.long_name;
-      } else if (type === 'locality') {
+        postal_code = component.long_name;
+      } else if (type === 'locality' || type === 'administrative_area_level_2') {
         city = component.long_name;
       } else if (type === 'postal_town' && city === null) {
         city = component.long_name;
@@ -46,7 +46,7 @@ function getAddressComponents(place) {
 
   return {
     address: street_number === null ? route : (street_number + ' ' + route),
-    zip_code: zip_code,
+    postal_code: postal_code,
     city: city,
     country_code: country_code
   };
