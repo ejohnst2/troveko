@@ -1,9 +1,10 @@
 class ExperiencesController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:index, :show, :new, :edit]
   before_action :set_experience, only: [:show, :edit, :update, :destroy]
   # before_action :ngo?, only: [:destroy, :update, :create, :new, :edit]
 
   def index
-    @experiences = Experience.where.not(latitude: nil, longitude: nil)
+    @experiences = Experience.search(params[:query]).where.not(latitude: nil, longitude: nil)
 
     @markers = Gmaps4rails.build_markers(@experiences) do |experience, marker|
       marker.lat experience.latitude
@@ -66,7 +67,7 @@ class ExperiencesController < ApplicationController
     end
 
     def experience_params
-      params.require(:experience).permit(:short_description, :long_description, :title, :price, :capacity, :address, photos: [], feature_ids: [])
+      params.require(:experience).permit(:short_description, :long_description, :title, :price, :capacity, :address, :city, :postal_code, :country, photos: [], feature_ids: [])
     end
 end
 

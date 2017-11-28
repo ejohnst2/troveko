@@ -70,7 +70,7 @@ Rails.application.configure do
 
   config.mailer_sender = 'eli@millinno.com'
 
-  config.action_mailer.default_url_options = { https://troveko.herokuapp.com }
+  config.action_mailer.default_url_options = { host: 'https://troveko.herokuapp.com' }
 
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
