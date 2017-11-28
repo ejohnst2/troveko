@@ -9,6 +9,7 @@
     <%= stylesheet_link_tag 'application', media: 'all' %>
   </head>
   <body>
+    <%= render 'shared/flashes' %>
     <% unless params[:action] == "home" %>
       <%= render 'shared/navbar' %>
     <% end %>
