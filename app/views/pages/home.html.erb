@@ -1,15 +1,81 @@
 
-<%= link_to root_path, class: "home-banner" do %>
-    <%= image_tag "banner.png" %>
-  <% end %>
+<div class="banner" style="background-image:     linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('<%= image_path("banner.jpg") %>');">
+  <div class="banner-content">
+    <h1>Impact Through Adventure</h1>
+    <h2>How it Works</h2>
+  </div>
+</div>
 
-<!-- <img src="banner.png"> -->
 <%= render 'shared/navbar' %>
+</div>
+
+<div class="container" id="experience">
+  <div class="row" id="experience">
+    <div class="col-l-4-xs-12 col-sm-4" id="picture">
+      <div class="hvrbox">
+        <img src="<%= image_path("family.jpg") %>" alt="Mountains" class="hvrbox-layer_bottom">
+          <div class="hvrbox-layer_top hvrbox-layer_slideup">
+            <div class="hvrbox-text">Experience life with local farmers and learn about traditional Balinese handicrafts.</div>
+          </div>
+        </div>
+    </div>
+    <div class="col-l-4-col-xs-12 col-sm-4" id="picture">
+    <div class="hvrbox">
+      <img src="<%= image_path("farmer.jpg") %>" alt="Mountains" class="hvrbox-layer_bottom">
+      <div class="hvrbox-layer_top hvrbox-layer_slideup">
+        <div class="hvrbox-text">Experience life with local farmers and learn about traditional Balinese handicrafts.</div>
+      </div>
+    </div>
+    </div>
+    <div class="col-l-4-col-xs-12 col-sm-4" id="picture">
+<div class="hvrbox">
+      <img src="<%= image_path("food.jpg") %>" alt="Mountains" class="hvrbox-layer_bottom">
+      <div class="hvrbox-layer_top hvrbox-layer_slideup">
+        <div class="hvrbox-text">Experience life with local farmers and learn about traditional Balinese handicrafts.</div>
+      </div>
+    </div>
+    </div>
+</div>
+</div>
+</div>
+
+<div class="placeholder">
+  <h1>Bali Experience</h1>
+</div>
+
+<div class="container" id="experience">
+  <div class="row" id="experience">
+    <div class="col-l-4-xs-12 col-sm-4" id="picture">
+      <div class="hvrbox">
+        <img src="<%= image_path("stones.JPG") %>" alt="Mountains" class="hvrbox-layer_bottom">
+          <div class="hvrbox-layer_top hvrbox-layer_slideup">
+            <div class="hvrbox-text">Experience life with local farmers and learn about traditional Balinese handicrafts.</div>
+          </div>
+        </div>
+    </div>
+    <div class="col-l-4-col-xs-12 col-sm-4" id="picture">
+    <div class="hvrbox">
+      <img src="<%= image_path("beach.JPG") %>" alt="Mountains" class="hvrbox-layer_bottom">
+      <div class="hvrbox-layer_top hvrbox-layer_slideup">
+        <div class="hvrbox-text">Experience life with local farmers and learn about traditional Balinese handicrafts.</div>
+      </div>
+    </div>
+    </div>
+    <div class="col-l-4-col-xs-12 col-sm-4" id="picture">
+<div class="hvrbox">
+      <img src="<%= image_path("bridge.JPG") %>" alt="Mountains" class="hvrbox-layer_bottom">
+      <div class="hvrbox-layer_top hvrbox-layer_slideup">
+        <div class="hvrbox-text">Experience life with local farmers and learn about traditional Balinese handicrafts.</div>
+      </div>
+    </div>
+    </div>
+</div>
+</div>
+</div>
+
+<div class="placeholder">
+  <h1>India Experience</h1>
+</div>
 
 
-<!-- <h1>Pages#home</h1> -->
-<!-- <p>Find me in app/views/pages/home.html.erb</p> -->
-
-
-<%= link_to "List All Experiences", experiences_path, { :class => "button" } %>
 
