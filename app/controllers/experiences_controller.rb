@@ -1,4 +1,5 @@
 class ExperiencesController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:index, :show, :new, :edit]
   before_action :set_experience, only: [:show, :edit, :update, :destroy]
   # before_action :ngo?, only: [:destroy, :update, :create, :new, :edit]
 

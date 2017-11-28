@@ -15,6 +15,7 @@ class Experience < ApplicationRecord
   validates :postal_code, presence: true, allow_blank: false, length: { minimum: 2 }
   validates :country, presence: true, allow_blank: false, length: { minimum: 2 }
   validates :capacity, presence:true, numericality: { only_integer: true }
+  validates :user, presence: true, allow_blank: false
 
   geocoded_by :full_address
   after_validation :geocode, if: :full_address_changed?
