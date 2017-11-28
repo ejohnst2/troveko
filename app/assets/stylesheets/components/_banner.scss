@@ -1,0 +1,46 @@
+.banner {
+  color: white;
+  text-align: center;
+  height: 80vh;
+  /* if you have a 70px navbar => height: calc(100vh - 70px); */
+  background-size: cover !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.banner h1 {
+  font-size: 50px;
+  // font-weight: bold;
+  text-shadow: 0px 1px rgba(0, 0, 0, 0.5);
+  font-family: 'futura';
+}
+
+.banner h2{
+  color: rgb(255, 139, 45);
+  text-shadow: 0px 1px rgba(0, 0, 0, 0.5);
+  font-family: 'futura', sans-serif;
+  -o-transition:.5s;
+  -ms-transition:.5s;
+  -moz-transition:.5s;
+  -webkit-transition:.5s;
+  transition:.5s;
+}
+
+.banner h2:hover {
+  color: #ff4d2d;
+}
+
+.banner p {
+  font-size: 25px;
+  font-weight: lighter;
+  color: rgb(255, 255, 255);
+  opacity: 0.6;
+  margin-bottom: 60px;
+}
+
+
+// font-family: 'Roboto', sans-serif;
+// font-family: 'Open Sans', sans-serif;
+// font-family: 'Lato', sans-serif;
+  // font-family: 'Montserrat', sans-serif;
+// font-family: 'Source Sans Pro', sans-serif;
