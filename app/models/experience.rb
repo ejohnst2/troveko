@@ -14,4 +14,21 @@ class Experience < ApplicationRecord
   validates :long_description, presence:true, length: { minimum: 100, maximum: 1000 }
   validates :address, presence: true, allow_blank: false, length: { minimum: 5 }
   validates :capacity, presence:true, numericality: { only_integer: true }
+
+
+  def self.search(query)
+    if query.present?
+      query = query.downcase
+      Experience.joins(:user).where("lower(experiences.name) LIKE ? OR
+                                           lower(users.first_name) LIKE ? OR
+                                           lower(users.ngo) LIKE ? OR
+                                           lower(users.last_name) LIKE ?",
+                                           "%#{query}%",
+                                           "%#{query}%",
+                                           "%#{query}%",
+                                           "%#{query}%")
+    else
+      Experience.all
+    end
+  end
 end

@@ -3,7 +3,7 @@ class ExperiencesController < ApplicationController
   # before_action :ngo?, only: [:destroy, :update, :create, :new, :edit]
 
   def index
-    @experiences = Experience.where.not(latitude: nil, longitude: nil)
+    @experiences = Experience.search(params[:query]).where.not(latitude: nil, longitude: nil)
 
     @markers = Gmaps4rails.build_markers(@experiences) do |experience, marker|
       marker.lat experience.latitude
