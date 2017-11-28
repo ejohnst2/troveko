@@ -19,7 +19,8 @@ gem 'devise'
 gem 'omniauth-facebook'
 gem 'faker'
 gem 'geocoder'
-gem "gmaps4rails"
+gem 'gmaps4rails'
+gem 'country_select'
 
 source 'https://rails-assets.org' do
   gem "rails-assets-underscore"

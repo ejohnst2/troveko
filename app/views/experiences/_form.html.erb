@@ -7,6 +7,9 @@
     <%= f.input :short_description %>
     <%= f.input :long_description %>
     <%= f.input :address %>
+    <%= f.input :city %>
+    <%= f.input :postal_code %>
+    <%= f.country_select :country, priority_countries: ["GB", "US", "DE"] %>
     <%= f.collection_check_boxes :feature_ids, Feature.all, :id, :name %>
     <%= f.input :photos, as: :attachinary %>
   </div>
@@ -16,6 +19,4 @@
     </div>
 <% end %>
 
-<%= content_for(:after_js) do %>
-  <script src="https://maps.googleapis.com/maps/api/js?libraries=places&amp;key=AIzaSyDANjx3bosEtIyzJaoWs50Wnt6nt_1rmxU"></script>
-<% end %>
+
