@@ -19,6 +19,22 @@ class Experience < ApplicationRecord
   geocoded_by :full_address
   after_validation :geocode, if: :full_address_changed?
 
+  def self.search(query)
+    if query.present?
+      query = query.downcase
+      Experience.joins(:user).where("lower(experiences.name) LIKE ? OR
+                                           lower(users.first_name) LIKE ? OR
+                                           lower(users.ngo) LIKE ? OR
+                                           lower(users.last_name) LIKE ?",
+                                           "%#{query}%",
+                                           "%#{query}%",
+                                           "%#{query}%",
+                                           "%#{query}%")
+    else
+      Experience.all
+    end
+  end
+
   def full_address
     "#{address}, #{postal_code} #{city} #{country}"
   end
