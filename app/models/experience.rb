@@ -1,6 +1,7 @@
 class Experience < ApplicationRecord
   geocoded_by :address
   after_validation :geocode
+  # check if need to implement chnanged method https://github.com/lewagon/google-maps-autocomplete/blob/323ef5fef39d094d042c7266466a10fb4b70c8b8/app/models/flat.rb
   belongs_to :user
   has_attachments :photos, maximum: 10
   has_many :reviews, dependent: :destroy
