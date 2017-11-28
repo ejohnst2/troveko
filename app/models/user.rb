@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  after_create :send_welcome_email
+
   extend Devise::Models
   has_many :trips, dependent: :destroy
   has_many :experiences
@@ -28,6 +30,12 @@ def self.find_for_facebook_oauth(auth)
     end
 
     return user
+  end
+
+  private
+
+  def send_welcome_email
+    UserMailer.welcome(self).deliver_now
   end
 
 end

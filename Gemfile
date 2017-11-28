@@ -19,8 +19,10 @@ gem 'devise'
 gem 'omniauth-facebook'
 gem 'faker'
 gem 'geocoder'
-gem 'gmaps4rails'
 gem 'country_select'
+gem "gmaps4rails"
+gem "letter_opener", group: :development
+gem 'postmark-rails'
 
 source 'https://rails-assets.org' do
   gem "rails-assets-underscore"
