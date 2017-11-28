@@ -1,0 +1,48 @@
+
+<!-- images for experience -->
+
+<%# @experience.photos.each do |photo| %>
+  <%#= cl_image_tag photo.path, width: 300, height: 200, crop: :fill %>
+<%# end %>
+
+<!-- info for page -->
+
+<%= @experience.price %>
+
+<%= @experience.short_description %>
+
+<%= @experience.long_description %>
+
+<%= @experience.address %>
+
+<%= @experience.capacity %>
+
+<%= @experience.title %>
+
+<!-- features for experience -->
+
+<%#= render 'features' %>
+
+<!-- reviews for experience -->
+
+<div id="reviews">
+  <% if @experience.reviews.blank? %>
+    Be the first to leave a review for <%= @experience.title %>
+  <% else %>
+    <% @experience.reviews.each do |review| %>
+      <%= render 'reviews/show', review: review %>
+    <% end %>
+  <% end %>
+</div>
+
+<%= render 'reviews/form', experience: @experience, review: @review %>
+
+
+<!-- links for page -->
+
+<%= link_to 'View All Experiences', experiences_path %>
+<%= link_to 'Book This Experience', new_experience_trip_path(@experience) %>
+
+<% if @experience.user == @user %>
+        <%= link_to 'Edit Experience', edit_experience_path(@experience) %>
+<% end %>

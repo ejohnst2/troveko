@@ -10,9 +10,109 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 20171127214105) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "attachinary_files", force: :cascade do |t|
+    t.string   "attachinariable_type"
+    t.integer  "attachinariable_id"
+    t.string   "scope"
+    t.string   "public_id"
+    t.string   "version"
+    t.integer  "width"
+    t.integer  "height"
+    t.string   "format"
+    t.string   "resource_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.index ["attachinariable_type", "attachinariable_id", "scope"], name: "by_scoped_parent", using: :btree
+  end
+
+  create_table "experiences", id: :bigserial, force: :cascade do |t|
+    t.bigint   "user_id"
+    t.string   "title"
+    t.float    "price"
+    t.integer  "capacity"
+    t.boolean  "status",            default: false
+    t.string   "address"
+    t.float    "latitude"
+    t.float    "longitude"
+    t.text     "long_description"
+    t.string   "short_description"
+    t.datetime "created_at",                        null: false
+    t.datetime "updated_at",                        null: false
+    t.index ["user_id"], name: "index_experiences_on_user_id", using: :btree
+  end
+
+  create_table "experiences_features", id: :bigserial, force: :cascade do |t|
+    t.bigint   "feature_id"
+    t.bigint   "experience_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.index ["experience_id"], name: "index_experiences_features_on_experience_id", using: :btree
+    t.index ["feature_id"], name: "index_experiences_features_on_feature_id", using: :btree
+  end
+
+  create_table "features", id: :bigserial, force: :cascade do |t|
+    t.string   "name"
+    t.string   "fa_icon"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.text     "content"
+    t.integer  "experience_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.integer  "rating"
+    t.index ["experience_id"], name: "index_reviews_on_experience_id", using: :btree
+  end
+
+  create_table "trips", id: :bigserial, force: :cascade do |t|
+    t.bigint   "experience_id"
+    t.date     "start_date"
+    t.date     "end_date"
+    t.bigint   "user_id"
+    t.boolean  "status"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.index ["experience_id"], name: "index_trips_on_experience_id", using: :btree
+    t.index ["user_id"], name: "index_trips_on_user_id", using: :btree
+  end
+
+  create_table "users", id: :bigserial, force: :cascade do |t|
+    t.string   "email",                  default: "", null: false
+    t.string   "encrypted_password",     default: "", null: false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",          default: 0,  null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.inet     "current_sign_in_ip"
+    t.inet     "last_sign_in_ip"
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
+    t.boolean  "ngo"
+    t.boolean  "admin"
+    t.string   "provider"
+    t.string   "uid"
+    t.string   "facebook_picture_url"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "token"
+    t.datetime "token_expiry"
+    t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+  end
+
+  add_foreign_key "experiences", "users"
+  add_foreign_key "experiences_features", "experiences"
+  add_foreign_key "experiences_features", "features"
+  add_foreign_key "reviews", "experiences"
+  add_foreign_key "trips", "experiences"
+  add_foreign_key "trips", "users"
 end

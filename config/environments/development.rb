@@ -31,6 +31,16 @@ Rails.application.configure do
 
   config.action_mailer.perform_caching = false
 
+  #to be changed
+
+  config.mailer_sender = 'eli@millinno.com'
+
+  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+
+  # Disable request forgery protection in test environment.
+  config.action_controller.allow_forgery_protection = false
+  config.action_mailer.perform_caching = false
+
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
 
