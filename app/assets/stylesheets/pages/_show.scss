@@ -40,6 +40,13 @@
   padding-bottom: 20px;
 }
 
+.stickycontent {
+  max-width: 85%;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
+
 body, html {
     height: 100%;
 }
@@ -52,10 +59,10 @@ h2 {
 
 h4{
   color: #898989;
+  font-size: 25px;
 }
 
 h3 {
-  font-family: 'montserrat';
   margin: 10px auto;
   width: auto;
   height: auto;

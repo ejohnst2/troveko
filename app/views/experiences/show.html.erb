@@ -1,7 +1,4 @@
 
-  <h1><%= @experience.title %></h1>
-  <p><%= @experience.short_description %></p>
-
 <!-- images for experience -->
 
 <%# @experience.photos.each do |photo| %>
@@ -27,7 +24,12 @@
         Address: <%= @experience.address %>
         <br><br>
         Capacity: <%= @experience.capacity %>
-        <br>
+        <br><br>
+        Features: <%= render 'features' %>
+        <br><br>
+        Activities: <%= render 'activities' %>
+        <br><br>
+        Area Types: <%= render 'areatypes' %>
         <br>
         <div id="reviews">
     <center><h2>Reviews</h2></center>
@@ -56,6 +58,7 @@
     </div>
     </div>
     <div class="col-lg-4 col-md-4 col-xs-4" style="margin-left: 66.5%;" id="stickycolumn">
+      <center><div class="stickycontent">
       <center><img src="<%= image_path("nonprofit.png") %>" alt="host" class="nonprofit"></center>
       <div class="info">
       <%= render 'shared/progressbar' %>
@@ -71,14 +74,11 @@
           <br>
           <input type="submit" class="button" value="Start Adventure">
         </form>
-      </div>
+      </div></center>
+    </div>
     </div>
     </div>
 </div>
-
-<%= render 'features' %>
-<%= render 'activities' %>
-<%= render 'areatypes' %>
 
 <!-- messaging test -->
 

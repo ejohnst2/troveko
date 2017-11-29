@@ -1,6 +1,29 @@
+<div class="container" id="picturerow">
+  <div class="row" id="experience">
+    <div class="col-l-4 col-md-6-col-xs-12 col-sm-4" id="picture">
+      <div class="hvrbox">
+        <img src="<%= image_path("stones.JPG") %>">
+        </div>
+    </div>
+    <div class="col-l-8-col-xs-12 col-sm-4" id="tripsummary">
+        <h1><%= @experience.title %></h1>
+        <h4><%= @experience.short_description %></h4>
+        <h3>You're much closer to meeting the host from [start date] to [end date]</h3>
+    </div>
+
+</div>
+</div>
+
+
+<div class="banner" style="background-image:     linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('<%= image_path("banner.jpg") %>');">
+  <div class="banner-content">
+    <h1>Impact Through Adventure</h1>
+    <h2>How it Works</h2>
+  </div>
+</div>
 
 <!-- trip info page -->
-
+<div
 <p>Booking Date:  <%= @trip.booking_date %></p>
 <p>Start Date: <%= @trip.start_date %></p>
 <p>End Date:  <%= @trip.end_date %></p>
