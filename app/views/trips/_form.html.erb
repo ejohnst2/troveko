@@ -3,8 +3,8 @@
     <%= simple_form_for [@experience, @trip], html: { class: "form-horizontal" } do |f| %>
     <%= f.error_notification %>
     <div class="form-inputs">
-      <%#= f.input :first_name, input_html: { value: current_user.first_name } %>
-      <%#= f.input :last_name, input_html: { value: current_user.last_name } %>
+      <%= f.input :first_name, input_html: { value: current_user.first_name } %>
+      <%= f.input :last_name, input_html: { value: current_user.last_name } %>
       <%= f.input :start_date, as: :string %>
       <%= f.input :end_date, as: :string %>
    </div>
