@@ -9,7 +9,14 @@ Rails.application.routes.draw do
 
   root to: 'pages#home'
 
+  resources :conversations do
+    resources :messages
+  end
+
+  resources :profiles, only: [:show]
+
   mount Attachinary::Engine => "/attachinary"
+  mount ActionCable.server => '/cable'
 
 end
 

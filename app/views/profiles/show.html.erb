@@ -1,0 +1,14 @@
+<div class="profile-wrapper">
+  <div class="container">
+    <div id="content">
+      <% if current_user.ngo? %>
+        <%= render 'ngo_profile', user: @user, trips: @trips, experiences: @ngo_experiences %>
+      <% else %>
+        <%= render 'traveller_profile', user: @user, trips: @trips, experiences: @experiences %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+
+
