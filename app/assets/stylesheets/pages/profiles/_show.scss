@@ -1,0 +1,105 @@
+/* ------------------------- Layout-------------------------- */
+
+.profile-wrapper {
+  margin: 100px;
+
+}
+
+.my-row {
+  display: flex;
+  margin-bottom: 30px;
+}
+
+.flex-item {
+  align-self: center;
+  flex: 0 0 auto;
+}
+
+/* -----------------------Profile info --------------------- */
+.profile-info {
+  background-color: white;
+  border-radius: 7px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px;
+}
+
+.profile-image {
+  border-radius: 50%;
+  width: 40%;
+  margin: 20px;
+}
+
+.edit-profile {
+  display: flex;
+}
+
+.profile-icon {
+  width: 50px;
+  margin-right: 20px;
+}
+
+.icon-label {
+  text-align: center;
+}
+
+/* -----------------------Activity tabs--------------------- */
+
+.profile-activity {
+  margin-left: 70px;
+}
+
+.activity {
+  background-color: white;
+  padding: 50px;
+  max-width: 600px;
+  border-radius: 7px;
+}
+
+
+.empty p {
+  opacity: 0.5;
+}
+
+.booking-content {
+  margin: 10px;
+}
+
+.pending {
+  color: gray;
+  margin-left: 30px;
+  font-weight: lighter;
+}
+
+
+#meal-button {
+  margin-top: 30px;
+}
+
+.meal-link {
+  margin-left: 10px;
+}
+
+.booking-row {
+  display: flex;
+  align-items: baseline;
+  margin: 10px;
+}
+
+.booking-confirm {
+  display: flex;
+  align-items: center;
+  margin: 10px;
+}
+
+.end {
+  margin-left: auto;
+}
+
+.date {
+  font-size: 10px;
+  font-weight: light;
+  color: gray;
+
+}

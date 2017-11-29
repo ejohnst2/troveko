@@ -1,0 +1,27 @@
+<!-- From Boostrap  - other features here https://getbootstrap.com/docs/3.3/javascript/#tabs
+ -->
+
+ <!-- Tab menu -->
+<ul class="nav nav-tabs" role="tablist">
+  <li role="presentation" class="active   "><a class="tab" href="#home" aria-controls="my-bookings" role="tab" data-toggle="tab">My bookings</a></li>
+  <li role="presentation"><a href="#profile" aria-controls="my-meals" role="tab" data-toggle="tab">My trips</a></li>
+</ul>
+
+ <!-- Tab content -->
+
+<div class="tab-content">
+  <div role="tabpanel" class="tab-pane active no-border" id="home">
+    <% if @trips.empty? %>
+    <%= render 'profiles/empty' %>
+    <% else %>
+    <%= render 'profiles/trip-summary', trips: @trips %>
+    <% end %>
+  </div>
+  <div role="tabpanel" class="tab-pane no-border" id="profile">
+    <% if @experience.empty? %>
+    <%= render 'profiles/empty_experience' %>
+    <% else %>
+    <%= render 'profiles/experiences-summary', experiences: @experiences %>
+    <% end %>
+  </div>
+</div>
