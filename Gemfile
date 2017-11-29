@@ -23,6 +23,7 @@ gem 'country_select'
 gem "gmaps4rails"
 gem "letter_opener", group: :development
 gem 'postmark-rails'
+gem 'money-rails'
 
 source 'https://rails-assets.org' do
   gem "rails-assets-underscore"

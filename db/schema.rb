@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171128200112) do
+ActiveRecord::Schema.define(version: 20171129180643) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -82,7 +82,7 @@ ActiveRecord::Schema.define(version: 20171128200112) do
   create_table "experiences", id: :bigserial, force: :cascade do |t|
     t.bigint   "user_id"
     t.string   "title"
-    t.float    "price"
+    t.float    "price_cents"
     t.integer  "capacity"
     t.boolean  "status",            default: false
     t.string   "address"
@@ -134,9 +134,9 @@ ActiveRecord::Schema.define(version: 20171128200112) do
     t.index ["user_id"], name: "index_messages_on_user_id", using: :btree
   end
 
-  create_table "reviews", id: :bigserial, force: :cascade do |t|
+  create_table "reviews", force: :cascade do |t|
     t.text     "content"
-    t.bigint   "experience_id"
+    t.integer  "experience_id"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
     t.integer  "rating"

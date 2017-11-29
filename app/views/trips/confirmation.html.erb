@@ -5,8 +5,8 @@
 <p>Start Date: <%= @trip.start_date %></p>
 <p>End Date:  <%= @trip.end_date %></p>
 <p>Length: <%= (@trip.end_date - @trip.start_date).to_i %> nights</p>
-<p>Price:  $<%=@trip.experience.price %></p>
-<p>Total: $<%= @trip.experience.price  *  (@trip.end_date - @trip.start_date).to_i %></p>
+<p>Price:  $<%= humanized_money_with_symbol(@trip.experience.price_cents) %></p>
+<p>Total: $<%= @trip.experience.price_cents  *  (@trip.end_date - @trip.start_date).to_i %></p>
 
 
 <!-- traveler info -->
