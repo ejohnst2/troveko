@@ -146,6 +146,7 @@ ActiveRecord::Schema.define(version: 20171129184720) do
   create_table "reviews", force: :cascade do |t|
     t.text     "content"
     t.integer  "experience_id"
+    t.bigint   "experience_id"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
     t.integer  "rating"
