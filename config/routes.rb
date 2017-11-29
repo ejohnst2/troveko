@@ -13,7 +13,10 @@ Rails.application.routes.draw do
     resources :messages
   end
 
+  resources :profiles, only: [:show]
+
   mount Attachinary::Engine => "/attachinary"
+  mount ActionCable.server => '/cable'
 
 end
 

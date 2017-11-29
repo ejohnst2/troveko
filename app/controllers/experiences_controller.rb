@@ -9,7 +9,11 @@ class ExperiencesController < ApplicationController
     @markers = Gmaps4rails.build_markers(@experiences) do |experience, marker|
       marker.lat experience.latitude
       marker.lng experience.longitude
-      # marker.infowindow render_to_string(partial: "/flats/map_box", locals: { flat: flat })
+      marker.infowindow render_to_string(partial: "map_box", locals: { experience: experience })
+    end
+    respond_to do |format|
+      format.html
+      format.js
     end
   end
 
