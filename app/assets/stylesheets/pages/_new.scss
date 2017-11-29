@@ -16,15 +16,116 @@
   margin-top: 20px;
 }
 
-// #count_me {
-//   limit: 1000
-// }
+.KW_progressContainer {
+  left:0;
+  width: 100%;
+  height: 0.4em;
+  margin-bottom: 0px;
+  position: fixed;
+  bottom: 0px;
+  overflow: hidden;
+  background-color: white;
+  content: "";
+  display: table;
+  table-layout: fixed;
+}
 
-// .layer {
-//     background-color: rgba(248, 247, 216, 0.7);
-//     position: absolute;
-//     top: 0;
-//     left: 0;
-//     width: 100%;
-//     height: 100%;
-// }
+.KW_progressBar {
+  width: 0%;
+  float: left;
+  height: 100%;
+  z-index:99;
+  max-width: 100%;
+  background-color:#FF6C52;
+  -webkit-transition: width .6s ease;
+  -o-transition: width .6s ease;
+  transition: width .6s ease;
+}
+
+#paymentinfo{
+  width: 60%;
+  max-width: 60%;
+}
+
+.credit-card-box .panel-title {
+    display: inline;
+    font-weight: bold;
+}
+.credit-card-box .form-control.error {
+    border-color: red;
+    outline: 0;
+    box-shadow: inset 0 1px 1px rgba(0,0,0,0.075),0 0 8px rgba(255,0,0,0.6);
+}
+.credit-card-box label.error {
+  font-weight: bold;
+  color: red;
+  padding: 2px 8px;
+  margin-top: 2px;
+}
+.credit-card-box .payment-errors {
+  font-weight: bold;
+  color: red;
+  padding: 2px 8px;
+  margin-top: 2px;
+}
+.credit-card-box label {
+    display: block;
+}
+/* The old "center div vertically" hack */
+.credit-card-box .display-table {
+    display: table;
+}
+.credit-card-box .display-tr {
+    display: table-row;
+}
+.credit-card-box .display-td {
+    display: table-cell;
+    vertical-align: middle;
+    width: 100%;
+}
+/* Just looks nicer */
+.credit-card-box .panel-heading img {
+    min-width: 180px;
+}
+
+
+#userdetails {
+  position: relative;
+  z-index: -1;
+  width: 100%;
+  -webkit-box-shadow: 0 4px 4px -2px #000000;
+   -moz-box-shadow: 0 4px 4px -2px #000000;
+        box-shadow: 0 4px 4px -2px #000000;
+  padding-left: 150px;
+  padding: 20px;
+}
+
+#tripdetails {
+  position: relative;
+  z-index: -1;
+  width: 100%;
+  -webkit-box-shadow: 0 4px 4px -2px #000000;
+   -moz-box-shadow: 0 4px 4px -2px #000000;
+        box-shadow: 0 4px 4px -2px #000000;
+  height: 700px;
+}
+
+#tripguide {
+  height: 70%;
+  width: 100%;
+  padding-left: 20px;
+}
+
+#tripsummary {
+  width: 66%;
+  padding-left: 0;
+  padding-right: 0;
+  position: relative;
+  padding-left: 15px;
+}
+
+
+h3 {
+  font-size: 30px;
+  font-family: "Barlow Condensed", "Helvetica", "sans-serif";
+}

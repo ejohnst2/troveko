@@ -62,9 +62,6 @@ ActiveRecord::Schema.define(version: 20171128200112) do
     t.index ["attachinariable_type", "attachinariable_id", "scope"], name: "by_scoped_parent", using: :btree
   end
 
-  create_table "experiences", force: :cascade do |t|
-    t.integer  "user_id"
-
   create_table "contributions", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "fund_id"
@@ -82,9 +79,8 @@ ActiveRecord::Schema.define(version: 20171128200112) do
     t.datetime "updated_at",   null: false
   end
 
-  create_table "experiences", id: :bigserial, force: :cascade do |t|
-    t.bigint   "user_id"
-
+  create_table "experiences", force: :cascade do |t|
+    t.integer  "user_id"
     t.string   "title"
     t.float    "price"
     t.integer  "capacity"
@@ -118,10 +114,6 @@ ActiveRecord::Schema.define(version: 20171128200112) do
     t.datetime "updated_at", null: false
   end
 
-<<<<<<< HEAD
-  create_table "reviews", force: :cascade do |t|
-    t.text     "content"
-=======
   create_table "funds", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "funding_goal"
@@ -144,7 +136,6 @@ ActiveRecord::Schema.define(version: 20171128200112) do
 
   create_table "reviews", force: :cascade do |t|
     t.text     "content"
->>>>>>> 9ca75e4ddac11142a5e814d5dac186436a145d57
     t.integer  "experience_id"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
