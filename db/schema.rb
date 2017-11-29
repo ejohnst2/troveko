@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171128200112) do
+ActiveRecord::Schema.define(version: 20171129184720) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -82,7 +82,7 @@ ActiveRecord::Schema.define(version: 20171128200112) do
   create_table "experiences", id: :bigserial, force: :cascade do |t|
     t.bigint   "user_id"
     t.string   "title"
-    t.float    "price"
+    t.float    "price_cents"
     t.integer  "capacity"
     t.boolean  "status",            default: false
     t.string   "address"
@@ -134,13 +134,19 @@ ActiveRecord::Schema.define(version: 20171128200112) do
     t.index ["user_id"], name: "index_messages_on_user_id", using: :btree
   end
 
-  create_table "reviews", id: :bigserial, force: :cascade do |t|
+  create_table "orders", force: :cascade do |t|
+    t.string   "state"
+    t.string   "experience_sku"
+    t.integer  "amount_cents",   default: 0, null: false
+    t.jsonb    "payment"
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+  end
+
+  create_table "reviews", force: :cascade do |t|
     t.text     "content"
-<<<<<<< HEAD
     t.integer  "experience_id"
-=======
     t.bigint   "experience_id"
->>>>>>> 9191b5b6c80a3d7592acede2ec674a112322a56c
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
     t.integer  "rating"

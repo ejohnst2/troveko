@@ -78,7 +78,7 @@ pictures = [
     title: "#{Faker::Zelda.location} experience",
     short_description: "#{Faker::LordOfTheRings.character}-style #{Faker::GameOfThrones.house} in #{Faker::LordOfTheRings.location}",
     long_description: "#{Faker::Lorem.paragraphs}",
-    price: rand(40..1000),
+    price_cents: rand(40..1000),
     capacity: rand(1..10),
     address: "1109 e 93 street",
     city: "brooklyn",

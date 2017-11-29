@@ -9,7 +9,7 @@ class Experience < ApplicationRecord
   has_and_belongs_to_many :areatypes
 
 
-  validates :price, presence: true
+  validates :price_cents, presence: true
   validates :title, presence: true, length: { minimum: 10 }
   validates :short_description, presence:true, length: { maximum: 100 }
   validates :long_description, presence:true, length: { minimum: 100, maximum: 1000 }
@@ -19,6 +19,8 @@ class Experience < ApplicationRecord
   validates :country, presence: true, allow_blank: false, length: { minimum: 2 }
   validates :capacity, presence:true, numericality: { only_integer: true }
   validates :user, presence: true, allow_blank: false
+
+  monetize :price_cents
 
   geocoded_by :full_address
   after_validation :geocode, if: :full_address_changed?
