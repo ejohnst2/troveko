@@ -11,7 +11,7 @@ Experience.destroy_all
 User.destroy_all
 Feature.destroy_all
 Activity.destroy_all
-
+Areatype.destroy_all
 
 new_user_one = User.new(email: 'trovekoboy@gmail.com', password: 'bunky123')
 new_user_one.save!
@@ -33,27 +33,35 @@ addresses = [
 ]
 
 features = [
-  Feature.create!(name: "Solar Power", fa_icon: "fa-sun-o"),
+  Feature.create!(name: "Power", fa_icon: "fa-plug"),
   Feature.create!(name: "Heating", fa_icon: "fa-thermometer-three-quarters"),
+  Feature.create!(name: "Cooling", fa_icon: "sfa-thermometer-quarter"),
   Feature.create!(name: "Wi-Fi", fa_icon: "fa-wifi"),
+  Feature.create!(name: "Mobile Connection", fa_icon: "fa-mobile"),
   Feature.create!(name: "Private Accomodation", fa_icon: "fa-bed"),
-  Feature.create!(name: "Fresh Water", fa_icon: "fa-tint"),
-  Feature.create!(name: "Personal Chef", fa_icon: "fa-cutlery")
+  Feature.create!(name: "Shared Accomodation", fa_icon: "fa-users"),
+  Feature.create!(name: "Fresh Water Supply", fa_icon: "fa-tint"),
+  Feature.create!(name: "Overhead Shower", fa_icon: "fa-shower")
 ]
 
 activities = [
   Activity.create!(name: "Hiking", fa_icon: "fa-sun-o"),
   Activity.create!(name: "Trekking", fa_icon: "fa-thermometer-three-quarters"),
-  Activity.create!(name: "Cooking", fa_icon: "fa-wifi"),
+  Activity.create!(name: "Cooking", fa_icon: "fa-cutlery"),
   Activity.create!(name: "Camping", fa_icon: "fa-bed"),
   Activity.create!(name: "Fishing", fa_icon: "fa-tint"),
-  Activity.create!(name: "Handicrafts", fa_icon: "fa-cutlery")
+  Activity.create!(name: "Handicrafts", fa_icon: "fa-cutlery"),
+  Activity.create!(name: "Cycling", fa_icon: "fa-bicycle")
 ]
 
 areatypes = [
   Areatype.create!(name: "Farm", fa_icon: "fa-sun-o"),
   Areatype.create!(name: "Mountainous", fa_icon: "fa-thermometer-three-quarters"),
-  Areatype.create!(name: "Desert", fa_icon: "fa-wifi"),
+  Areatype.create!(name: "Desert", fa_icon: "fa-sun-o"),
+  Areatype.create!(name: "Rainforest", fa_icon: "fa-wifi"),
+  Areatype.create!(name: "Jungle", fa_icon: "fa-wifi"),
+  Areatype.create!(name: "Woods", fa_icon: "fa-tree"),
+  Areatype.create!(name: "Plains", fa_icon: "fa-wifi"),
 ]
 
 3.times do
@@ -64,7 +72,10 @@ areatypes = [
     long_description: "#{Faker::Lorem.paragraphs}",
     price: rand(40..1000),
     capacity: rand(1..10),
-    address: addresses.sample,
+    address: "1109 E 93 street",
+    city: "Brooklyn",
+    country: "United States",
+    postal_code: "11236",
     user: new_user_one
     )
   p experience
@@ -75,6 +86,7 @@ areatypes = [
   experience.save!
 end
 
+<<<<<<< HEAD
 3.times do
   # urls = [ pictures.sample, pictures.sample, pictures.sample ]
   experience = Experience.new(
@@ -93,6 +105,27 @@ end
   # experience.photo_urls = urls
   experience.save!
 end
+=======
+# 3.times do
+#   # urls = [ pictures.sample, pictures.sample, pictures.sample ]
+#   experience = Experience.new(
+#     title: "#{Faker::Zelda.location} experience",
+#     short_description: "#{Faker::LordOfTheRings.character}-style #{Faker::GameOfThrones.house} in #{Faker::LordOfTheRings.location}",
+#     long_description: "#{Faker::Lorem.paragraphs}",
+#     price: rand(40..1000),
+#     capacity: rand(1..10),
+#     address: addresses.sample,
+#     user: new_user_two
+#     )
+#   p experience
+#   experience.features << features
+#   experience.activities << activities
+#   experience.areatypes << areatypes
+#   # experience.photo_urls = urls
+#   experience.save!
+#   puts "======> created #{new_user_two.email} and #{experience.title}"
+# end
+>>>>>>> 9ca75e4ddac11142a5e814d5dac186436a145d57
 
   # create_table "experiences", force: :cascade do |t|
   #   t.bigint "user_id"

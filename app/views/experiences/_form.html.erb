@@ -18,7 +18,15 @@
     <%= f.input :long_description, hint: 'No more than 1000 characters', placeholder: 'Tell the story of the host and their family? Describe what life is like? What makes this experience interesting?', wrapper_html: { class: 'experience_section', id: 'count_me' } %>
 
     <h3 class="form_section">Amenities and Information</h3>
+
+    <h5>What best describes the area?</h5>
+    <%= f.collection_check_boxes :areatype_ids, Areatype.all, :id, :name, wrapper_html: { class: 'experience_section' }%>
+
+    <h5>What does the accomodation have?</h5>
     <%= f.collection_check_boxes :feature_ids, Feature.all, :id, :name, wrapper_html: { class: 'experience_section' }%>
+
+    <h5>What activities are available?</h5>
+    <%= f.collection_check_boxes :activity_ids, Activity.all, :id, :name, wrapper_html: { class: 'experience_section' }%>
 
     <h3 class="form_section">Photos</h3>
     <p>Show us the host, their family, a snapshot of their work, and a feel for where they're located</p>
