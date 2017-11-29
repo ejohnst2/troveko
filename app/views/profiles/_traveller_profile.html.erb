@@ -54,7 +54,7 @@
               <% if trip.status? == true %>
               <%= cl_image_tag(trip.experience.photo, :class => "meal-image", :effect=>"auto_color", :width=>50) %>
               <%= trip.experience.name %>
-              <p> Price: $ <%= humanized_money_with_symbol(trip.experience.price_cents) %></p>
+              <p> Price: $ <%= money_without_cents_and_with_symbol(trip.experience.price) %></p>
               <%= link_to "Cancel" %>
               <% end %>
             </div>
