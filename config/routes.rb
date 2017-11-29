@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+
+  resources :funds do
+  end
+
   resources :experiences do
      resources :reviews, only: :create
      resources :trips do
