@@ -64,17 +64,25 @@ areatypes = [
   Areatype.create!(name: "Plains", fa_icon: "fa-wifi"),
 ]
 
-3.times do
-  # urls = [ pictures.sample, pictures.sample, pictures.sample ]
+pictures = [
+  "http://yourshot.nationalgeographic.com/u/fQYSUbVfts-T7odkrFJckdiFeHvab0GWOfzhj7tYdC0uglagsDQmfkyv8JBdgoks3HiyL0zo7bi4A3XodBJPUesqEy-0dgsZUaS7Y4Qpm67ypHveGo14D0K63HGKvjJ2P0MEjvptFQz0qXHpp1hKSjJJvoSmlO01hLNK_L-o_Qyfd0iVGOLu9cl0D8aXdSkQrPUYNGv6cntZIpbPTeEQJSom/",
+  "http://www.theblogismine.com/wp-content/uploads/2013/10/National-Geographic-Launches-YourShot-Photo-Sharing-Platform-01.jpg",
+  "http://naturephotojournal.com/wp-content/uploads/2013/10/12_prod-yourshot-321272-2071224.jpg",
+  "http://nnimgt-a.akamaihd.net/transform/v1/crop/frm/storypad-GJZ5TVpAk84wrTzsQfLQRB/cb8098bb-b1ea-4dcc-9959-d0f07e8e37ba.jpg/r0_182_3500_2150_w1200_h678_fmax.jpg",
+  "http://tekey.net/b/wp-content/uploads/2015/05/Maravillosas-tomas-de-la-vida-cotidiana-en-Indonesia-2.jpg"
+]
+
+8.times do
+  urls = [ pictures.sample ]
   experience = Experience.new(
     title: "#{Faker::Zelda.location} experience",
     short_description: "#{Faker::LordOfTheRings.character}-style #{Faker::GameOfThrones.house} in #{Faker::LordOfTheRings.location}",
     long_description: "#{Faker::Lorem.paragraphs}",
-    price: rand(40..1000),
+    price_cents: rand(40..1000),
     capacity: rand(1..10),
-    address: "1109 E 93 street",
-    city: "Brooklyn",
-    country: "United States",
+    address: "1109 e 93 street",
+    city: "brooklyn",
+    country: "united states",
     postal_code: "11236",
     user: new_user_one
     )
@@ -82,63 +90,7 @@ areatypes = [
   experience.features << features
   experience.activities << activities
   experience.areatypes << areatypes
-  # experience.photo_urls = urls
+  experience.photo_urls = urls
   experience.save!
 end
 
-<<<<<<< HEAD
-3.times do
-  # urls = [ pictures.sample, pictures.sample, pictures.sample ]
-  experience = Experience.new(
-    title: "#{Faker::Zelda.location} experience",
-    short_description: "#{Faker::LordOfTheRings.character}-style #{Faker::GameOfThrones.house} in #{Faker::LordOfTheRings.location}",
-    long_description: "#{Faker::Lorem.paragraphs}",
-    price: rand(40..1000),
-    capacity: rand(1..10),
-    address: addresses.sample,
-    user: new_user_two
-    )
-  p experience
-  experience.features << features
-  experience.activities << activities
-  experience.areatypes << areatypes
-  # experience.photo_urls = urls
-  experience.save!
-end
-=======
-# 3.times do
-#   # urls = [ pictures.sample, pictures.sample, pictures.sample ]
-#   experience = Experience.new(
-#     title: "#{Faker::Zelda.location} experience",
-#     short_description: "#{Faker::LordOfTheRings.character}-style #{Faker::GameOfThrones.house} in #{Faker::LordOfTheRings.location}",
-#     long_description: "#{Faker::Lorem.paragraphs}",
-#     price: rand(40..1000),
-#     capacity: rand(1..10),
-#     address: addresses.sample,
-#     user: new_user_two
-#     )
-#   p experience
-#   experience.features << features
-#   experience.activities << activities
-#   experience.areatypes << areatypes
-#   # experience.photo_urls = urls
-#   experience.save!
-#   puts "======> created #{new_user_two.email} and #{experience.title}"
-# end
->>>>>>> 9ca75e4ddac11142a5e814d5dac186436a145d57
-
-  # create_table "experiences", force: :cascade do |t|
-  #   t.bigint "user_id"
-  #   t.string "title"
-  #   t.float "price"
-  #   t.integer "capacity"
-  #   t.boolean "status", default: false
-  #   t.string "address"
-  #   t.float "latitude"
-  #   t.float "longitude"
-  #   t.text "long_description"
-  #   t.string "short_description"
-  #   t.datetime "created_at", null: false
-  #   t.datetime "updated_at", null: false
-#   t.index ["user_id"], name: "index_experiences_on_user_id"
-  # end
