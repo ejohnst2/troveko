@@ -4,6 +4,7 @@ class User < ApplicationRecord
   extend Devise::Models
   has_many :trips, dependent: :destroy
   has_many :experiences
+  has_many :messages, dependent: :destroy
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :omniauthable, omniauth_providers: [:facebook]

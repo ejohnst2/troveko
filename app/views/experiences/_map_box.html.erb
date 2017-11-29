@@ -5,7 +5,7 @@
     <div class="card_infobox" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path experience.photos[0].path; %>');">
       <div class="card-description">
        <p><%= experience.city %></p>
-        <p>$<%= experience.price %> per night</p>
+        <p><%= money_without_cents_and_with_symbol(experience.price) %> per night</p>
       </div>
       <%= link_to '', experience_path(experience), class: 'card-link' %>
     </div>
