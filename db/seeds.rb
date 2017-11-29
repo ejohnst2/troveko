@@ -92,9 +92,28 @@ pictures = [
   experience.areatypes << areatypes
   experience.photo_urls = urls
   experience.save!
-  puts "======> created #{new_user_one.email} and #{experience.title}"
 end
 
+<<<<<<< HEAD
+3.times do
+  # urls = [ pictures.sample, pictures.sample, pictures.sample ]
+  experience = Experience.new(
+    title: "#{Faker::Zelda.location} experience",
+    short_description: "#{Faker::LordOfTheRings.character}-style #{Faker::GameOfThrones.house} in #{Faker::LordOfTheRings.location}",
+    long_description: "#{Faker::Lorem.paragraphs}",
+    price: rand(40..1000),
+    capacity: rand(1..10),
+    address: addresses.sample,
+    user: new_user_two
+    )
+  p experience
+  experience.features << features
+  experience.activities << activities
+  experience.areatypes << areatypes
+  # experience.photo_urls = urls
+  experience.save!
+end
+=======
 # 3.times do
 #   # urls = [ pictures.sample, pictures.sample, pictures.sample ]
 #   experience = Experience.new(
@@ -114,6 +133,7 @@ end
 #   experience.save!
 #   puts "======> created #{new_user_two.email} and #{experience.title}"
 # end
+>>>>>>> 9ca75e4ddac11142a5e814d5dac186436a145d57
 
   # create_table "experiences", force: :cascade do |t|
   #   t.bigint "user_id"

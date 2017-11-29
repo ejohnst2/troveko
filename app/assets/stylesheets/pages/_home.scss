@@ -54,6 +54,15 @@
 //         box-shadow: 0 4px 4px -2px #000000;
 // }
 
+#experience {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+    -webkit-box-shadow: 0 4px 4px -2px #000000;
+   -moz-box-shadow: 0 4px 4px -2px #000000;
+        box-shadow: 0 4px 4px -2px #000000;
+}
+
 // div#picture.col-l-4-xs-12.col-sm-4
 // {
 //   height: 320px;
