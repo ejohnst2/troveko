@@ -1,17 +1,7 @@
 Rails.application.routes.draw do
-  get 'funds/index'
 
-  get 'funds/edit'
-
-  get 'funds/update'
-
-  get 'funds/create'
-
-  get 'funds/new'
-
-  get 'funds/destroy'
-
-  get 'funds/show'
+  resources :funds do
+  end
 
   resources :experiences do
      resources :reviews, only: :create

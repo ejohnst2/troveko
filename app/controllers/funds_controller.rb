@@ -39,6 +39,7 @@ class FundsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to funds_url, notice: 'Fund was successfully destroyed.' }
       format.json { head :no_content }
+    end
   end
 
   def show
@@ -46,6 +47,7 @@ class FundsController < ApplicationController
   end
 
   private
+
   def set_fund
     @fund = Fund.find(params[:id])
   end
@@ -53,4 +55,5 @@ class FundsController < ApplicationController
   def fund_params
     params.require(:fund).permit(:funding_goal, :title, :about, :use_of_funds)
   end
+
 end
