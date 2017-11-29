@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
   resources :experiences do
      resources :reviews, only: :create
-     resources :trips
+     resources :trips do
+      member do
+        get 'confirmation', to: "trips#confirmation"
+      end
+    end
   end
 
   devise_for :users,
