@@ -78,7 +78,7 @@ pictures = [
     title: "#{Faker::Zelda.location} experience",
     short_description: "#{Faker::LordOfTheRings.character}-style #{Faker::GameOfThrones.house} in #{Faker::LordOfTheRings.location}",
     long_description: "#{Faker::Lorem.paragraphs}",
-    price: rand(40..1000),
+    price_cents: rand(40..1000),
     capacity: rand(1..10),
     address: "1109 e 93 street",
     city: "brooklyn",
@@ -94,59 +94,3 @@ pictures = [
   experience.save!
 end
 
-<<<<<<< HEAD
-3.times do
-  # urls = [ pictures.sample, pictures.sample, pictures.sample ]
-  experience = Experience.new(
-    title: "#{Faker::Zelda.location} experience",
-    short_description: "#{Faker::LordOfTheRings.character}-style #{Faker::GameOfThrones.house} in #{Faker::LordOfTheRings.location}",
-    long_description: "#{Faker::Lorem.paragraphs}",
-    price: rand(40..1000),
-    capacity: rand(1..10),
-    address: addresses.sample,
-    user: new_user_two
-    )
-  p experience
-  experience.features << features
-  experience.activities << activities
-  experience.areatypes << areatypes
-  # experience.photo_urls = urls
-  experience.save!
-end
-=======
-# 3.times do
-#   # urls = [ pictures.sample, pictures.sample, pictures.sample ]
-#   experience = Experience.new(
-#     title: "#{Faker::Zelda.location} experience",
-#     short_description: "#{Faker::LordOfTheRings.character}-style #{Faker::GameOfThrones.house} in #{Faker::LordOfTheRings.location}",
-#     long_description: "#{Faker::Lorem.paragraphs}",
-#     price: rand(40..1000),
-#     capacity: rand(1..10),
-#     address: addresses.sample,
-#     user: new_user_two
-#     )
-#   p experience
-#   experience.features << features
-#   experience.activities << activities
-#   experience.areatypes << areatypes
-#   # experience.photo_urls = urls
-#   experience.save!
-#   puts "======> created #{new_user_two.email} and #{experience.title}"
-# end
->>>>>>> 9ca75e4ddac11142a5e814d5dac186436a145d57
-
-  # create_table "experiences", force: :cascade do |t|
-  #   t.bigint "user_id"
-  #   t.string "title"
-  #   t.float "price"
-  #   t.integer "capacity"
-  #   t.boolean "status", default: false
-  #   t.string "address"
-  #   t.float "latitude"
-  #   t.float "longitude"
-  #   t.text "long_description"
-  #   t.string "short_description"
-  #   t.datetime "created_at", null: false
-  #   t.datetime "updated_at", null: false
-#   t.index ["user_id"], name: "index_experiences_on_user_id"
-  # end
