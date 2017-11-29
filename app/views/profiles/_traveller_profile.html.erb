@@ -1,0 +1,67 @@
+<div class="row">
+  <div class="col-xs-12 col-md-4">
+    <div class="profile-info">
+      <h2> <%= @user.first_name %> </h2>
+        <%= image_tag facebook_image(@user), class: "profile-image" %>
+      <div class="edit_profile">
+        <p>Email: <%= @user.email %></p>
+        <%= link_to "Edit profile", root_path %>
+      </div>
+    </div>
+  </div>
+  <div class="col-xs-12 col-md-8">
+    <div class="profile-activity">
+      <div class="my-row">
+        <%= image_tag('http://fillmurray.com/100/100', :class => "profile-icon flex-item") %>
+        <h2 class="flex-item">My diner profile</h2>
+      </div>
+      <!-- From Boostrap  - other features here https://getbootstrap.com/docs/3.3/javascript/#tabs
+      -->
+      <!-- Tab menu -->
+      <ul class="nav nav-tabs" role="tablist">
+        <li role="presentation" class="active   "><a class="tab" href="#home" aria-controls="requests" role="tab" data-toggle="tab">Requests</a></li>
+        <li role="presentation"><a href="#profile" aria-controls="confirmed" role="tab" data-toggle="tab">Confirmed experiences</a></li>
+      </ul>
+      <!-- Tab content -->
+      <div class="tab-content">
+        <div role="tabpanel" class="tab-pane active no-border" id="home">
+          <% if @experiences.empty? %>
+          <div class="activity empty">
+            <p>Oh no you don't have any bookings yet 😢 </p> <br>
+            <p>Browse experiences <%= link_to "here", root_path %></p>
+          </div>
+          <% else %>
+          <div class="activity">
+            <% @trips.each do |trip| %>
+            <div class="booking">
+              <% if trip.status? == false %>
+              <div class="booking-row">
+               <%= cl_image_tag(trip.experience.photo, :class => "meal-image", :effect=>"auto_color", :width=>50) %>
+              <%= link_to "#{trip.experience.name}", experience_path(trip.experience), class: "meal-link" %>
+              <p class="pending end">Waiting for host confirmation</p>
+            </div>
+
+              <% end %>
+            </div>
+            <% end %>
+          </div>
+          <% end %>
+        </div>
+        <div role="tabpanel" class="tab-pane no-border" id="profile">
+          <div class="activity empty">
+            <% @trips.each do |trip| %>
+            <div class="booking">
+              <% if trip.status? == true %>
+              <%= cl_image_tag(trip.experience.photo, :class => "meal-image", :effect=>"auto_color", :width=>50) %>
+              <%= trip.experience.name %>
+              <p> Price: $ <%= trip.experience.price %></p>
+              <%= link_to "Cancel" %>
+              <% end %>
+            </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
