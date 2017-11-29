@@ -1,5 +1,7 @@
 {
   "name": "troveko",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "css-toggle-switch": "^4.1.0"
+  }
 }
