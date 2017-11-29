@@ -1,0 +1,19 @@
+<center><h1 class=highlight>Mailbox</h1></center>
+<br>
+<div class=”list-group”>
+  <div class=”list-group-item”>
+    <% @conversations.each do |conversation| %>
+    <% if conversation.sender_id == current_user.id || conversation.recipient_id == current_user.id %>
+    <% if conversation.sender_id == current_user.id %>
+    <% recipient = User.find(conversation.recipient_id) %>
+    <% else %>
+    <% recipient = User.find(conversation.sender_id) %>
+    <% end %>
+    <div class="message">
+      <%= image_tag facebook_image(recipient), class: "avatar-large" %>
+      <%= link_to 'View Conversation', conversation_messages_path(conversation)%>
+    </div>
+    <% end %>
+    <% end %>
+  </div>
+</div>

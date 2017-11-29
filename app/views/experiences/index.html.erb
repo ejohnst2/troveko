@@ -1,42 +1,45 @@
+<div class="container-fluid">
+
+  <center>
+    <h1>Where will your next adventure be?</h1>
+      <br>
+      <%= link_to 'Grid', experiences_path, remote: true, method: :get, class: 'btn-primary btn-xl' %>
+      <%= link_to 'Map', experiences_path(map: true), remote: true, method: :get, class: 'btn-primary btn-xl' %>
+      <br>
+  </center>
 
 
+  <div class="row" style="padding-top: 40px;">
+<!-- beginning of card loop -->
+    <%= render 'list' %>
+<!-- end of card loop -->
+  </div>
+</div>
 
 
 <!-- basic loop for index page -->
 
-<ol>
-<% @experiences.each do |experience| %>
+<!-- <ol>
+<%# @experiences.each do |experience| %>
 <li>
-  <%= experience.address %> |
-  <%= experience.title %> |
-  <%= experience.price %> |
-  <%= experience.user.email %> |
-  <%= link_to experience.title, experience_path(experience) %>
+  <%#= experience.address %> |
+  <%#= experience.title %> |
+  <%#= experience.price_cents %> |
+  <%#= experience.user.email %> |
+  <%#= link_to experience.title, experience_path(experience) %>
   </li>
-<% end %>
+<%# end %>
 </ol>
+ -->
 
-
-<div id="map" style="width: 100%; height: 600px;"></div>
-
-<% content_for(:after_js) do %>
-  <%= javascript_tag do %>
-    var handler = Gmaps.build('Google');
-    handler.buildMap({ internal: { id: 'map' } }, function() {
-      markers = handler.addMarkers(<%= raw @markers.to_json %>);
-      handler.bounds.extendWith(markers);
-      handler.fitMapToBounds();
-      if (markers.length == 0) {
-        handler.getMap().setZoom(2);
-      } else if (markers.length == 1) {
-        handler.getMap().setZoom(14);
-      }
-    });
-  <% end %>
-<% end %>
+<%#= render 'map' %>
 
 <!-- let ngos list new experience -->
 
 <%# if current_user.ngo? %>
         <%#= link_to "List New Experience", new_bunker_path, :class => "button" %>
 <%# end %>
+
+<!-- user avatar in card -->
+
+<%#= image_tag facebook_image(experience.user), class: "card-user" %>
