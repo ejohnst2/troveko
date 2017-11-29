@@ -10,17 +10,19 @@
 
     <!-- Links -->
 
-      <form action="<%= root_path %>" class="form-inline">
+      <!-- <form action="<%#= root_path %>" class="form-inline">
         <input type="text" name="query" placeholder="&nbsp Search">
-      </form>
+      </form> -->
 
       <%= link_to "Experiences", experiences_path, class: "navbar-troveko-item navbar-troveko-link" %>
-      <%= link_to "Messages", root_path, class: "navbar-troveko-item navbar-troveko-link" %>
+      <% if user_signed_in? %>
+        <%= link_to "Messages", conversations_path, class: "navbar-troveko-item navbar-troveko-link" %>
+      <% end %>
       <%= link_to "Blog", root_path, class: "navbar-troveko-item navbar-troveko-link" %>
 
       <!-- Avatar with dropdown menu -->
       <% if user_signed_in? %>
-    <div class="navbar-troveko-item">
+      <div class="navbar-troveko-item">
         <div class="dropdown">
 
           <%= image_tag facebook_image(current_user), class: "avatar dropdown-toggle", id: "navbar-troveko-menu", "data-toggle" => "dropdown" %>
@@ -51,10 +53,10 @@
       </div>
 
     <% else %>
-      <%= link_to new_user_session_path, class: "navbar-troveko-item navbar-wagon-link" do %>
+      <%= link_to new_user_session_path, class: "navbar-troveko-item navbar-troveko-link" do %>
         <strong>Sign in</strong>
       <% end %>
-      <%= link_to new_user_registration_path, class: "navbar-troveko-item navbar-wagon-link" do %>
+      <%= link_to new_user_registration_path, class: "navbar-troveko-item navbar-troveko-link" do %>
         <strong>Register</strong>
       <% end %>
     <% end %>
