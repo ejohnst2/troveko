@@ -1,17 +1,27 @@
 Rails.application.routes.draw do
 
+  get 'contributions/new'
+
+  get 'contributions/create'
+
+  get 'contributions/index'
+
   resources :funds do
   end
 
   resources :experiences do
      resources :reviews, only: :create
-     resources :trips do
+     resources :trips, only: [:new, :create] do
       member do
         get 'confirmation', to: "trips#confirmation"
       end
     end
   end
 
+  resources :trips, only: [:edit, :update, :destroy, :show, :index] do
+    patch 'status', to: "trips#status"
+    patch 'cancel', to: "trips#cancel"
+  end
   devise_for :users,
     controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
 

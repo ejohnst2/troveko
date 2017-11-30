@@ -17,7 +17,7 @@
       <div class="details">
         <h2><%= @experience.title %></h2>
         <h4><%= @experience.short_description %></h4>
-        Price: $<%= money_without_cents_and_with_symbol(@experience.price) %>
+        Price: <%= money_without_cents_and_with_symbol(@experience.price) %>
         <br><br>
         Details: <%= @experience.long_description %>
         <br><br>
@@ -25,12 +25,15 @@
         <br><br>
         Capacity: <%= @experience.capacity %>
         <br><br>
-        Features: <%= render 'features' %>
+        Features: <%= render 'experiences/features' %>
         <br><br>
-        Activities: <%= render 'activities' %>
+        Activities: <%= render 'experiences/activities' %>
         <br><br>
-        Area Types: <%= render 'areatypes' %>
+        Area Types: <%= render 'experiences/areatypes' %>
         <br>
+        Fund: <%= @experience.fund.title %>
+
+        <%= link_to "Book Now", new_experience_trip_path(@experience) %>
         <div id="reviews">
     <center><h2>Reviews</h2></center>
     <% if @experience.reviews.blank? %>
@@ -44,7 +47,9 @@
       <br>
       <%= link_to 'View All Experiences', experiences_path %>
       <%= link_to 'Book This Experience', new_experience_trip_path(@experience) %>
+      <%= link_to 'Message Host', conversations_path(sender_id: current_user.id, recipient_id: @experience.user.id), method: :post %>
       <% if @experience.user == @user %>
+    <!-- need to add permission for this depending on what user this is with pundit  -->
     <%= link_to 'Edit Experience', edit_experience_path(@experience) %>
   <% end %>
 
@@ -58,35 +63,17 @@
     </div>
     </div>
     <div class="col-lg-4 col-md-4 col-xs-4" style="margin-left: 66.5%;" id="stickycolumn">
-      <center><div class="stickycontent">
-      <center><img src="<%= image_path("nonprofit.png") %>" alt="host" class="nonprofit"></center>
-      <div class="info">
-      <%= render 'shared/progressbar' %>
-      <!-- Everything here will be sticky to the right! -->
-      <div class="booking">
-      <h3><%= money_without_cents_and_with_symbol(@experience.price) %>/night</h3>
-      </div>
-      <div class="form">
-        <form>
-          <input type="date" class="date">
-          <input type="date" class="date">
-          <input type="number" class="date" placeholder="Guests">
-          <br>
-          <input type="submit" class="button" value="Start Adventure">
-        </form>
-      </div></center>
-    </div>
-    </div>
+      <%= render 'sidebar' %>
     </div>
 </div>
 
 <!-- messaging test -->
 
-<%= link_to 'Message Host', conversations_path(sender_id: current_user.id, recipient_id: @experience.user.id), method: :post %>
-<%= form_tag orders_path do %>
-  <%= hidden_field_tag 'experience_id', @experience.id %>
-  <%= submit_tag 'Purchase', class: 'btn btn-primary' %>
-<% end %>
+
+<%#= form_tag orders_path do %>
+  <%#= hidden_field_tag 'experience_id', @experience.id %>
+  <%#= submit_tag 'Purchase', class: 'btn btn-primary' %>
+<%# end %>
 <!-- reviews for experience -->
 
 

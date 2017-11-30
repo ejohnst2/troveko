@@ -3,10 +3,12 @@ class Experience < ApplicationRecord
   belongs_to :user
   has_attachments :photos, maximum: 10
   has_many :reviews, dependent: :destroy
+  has_many :trips, dependent: :destroy
 
   has_and_belongs_to_many :features
   has_and_belongs_to_many :activities
   has_and_belongs_to_many :areatypes
+  belongs_to :fund
 
 
   validates :price_cents, presence: true

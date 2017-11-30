@@ -46,6 +46,11 @@ class FundsController < ApplicationController
     @fund = Fund.find(params[:id])
   end
 
+  def fund_percentage
+    raised = @experience.fund.contributions.sum(:amount)
+    goal = @experience.fund.funding_goal
+
+  end
   private
 
   def set_fund
@@ -53,7 +58,7 @@ class FundsController < ApplicationController
   end
 
   def fund_params
-    params.require(:fund).permit(:funding_goal, :title, :about, :use_of_funds)
+    params.require(:fund).permit(:amount)
   end
 
 end

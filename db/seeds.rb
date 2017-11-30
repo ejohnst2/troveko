@@ -13,10 +13,10 @@ Feature.destroy_all
 Activity.destroy_all
 Areatype.destroy_all
 
-new_user_one = User.new(email: 'trovekoboy@gmail.com', password: 'bunky123')
+new_user_one = User.new(email: 'trovekoboy@gmail.com', password: 'bunky123', ngo: true)
 new_user_one.save!
 
-new_user_two = User.new(email: 'trovekogirl@gmail.com', password: 'bunky123')
+new_user_two = User.new(email: 'trovekogirl@gmail.com', password: 'bunky123', ngo: true)
 new_user_two.save!
 
 addresses = [
