@@ -8,6 +8,7 @@ class Experience < ApplicationRecord
   has_and_belongs_to_many :features
   has_and_belongs_to_many :activities
   has_and_belongs_to_many :areatypes
+  belongs_to :fund
 
 
   validates :price_cents, presence: true

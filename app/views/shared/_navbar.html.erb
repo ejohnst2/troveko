@@ -20,6 +20,8 @@
       </form> -->
 
       <%= link_to "Experiences", experiences_path, class: "navbar-troveko-item navbar-troveko-link" %>
+      <%= link_to "About", '', class: "navbar-troveko-item navbar-troveko-link" %>
+      <%#= link_to "Messages", messages_path, class: "navbar-troveko-item navbar-troveko-link" %>
       <% if user_signed_in? %>
         <%= link_to "Messages", conversations_path, class: "navbar-troveko-item navbar-troveko-link" %>
       <% end %>

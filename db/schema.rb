@@ -95,6 +95,8 @@ ActiveRecord::Schema.define(version: 20171130172152) do
     t.string   "city"
     t.string   "postal_code"
     t.string   "country"
+    t.integer  "fund_id"
+    t.index ["fund_id"], name: "index_experiences_on_fund_id", using: :btree
     t.index ["user_id"], name: "index_experiences_on_user_id", using: :btree
   end
 
@@ -146,9 +148,9 @@ ActiveRecord::Schema.define(version: 20171130172152) do
     t.datetime "updated_at",                 null: false
   end
 
-  create_table "reviews", force: :cascade do |t|
+  create_table "reviews", id: :bigserial, force: :cascade do |t|
     t.text     "content"
-    t.integer  "experience_id"
+    t.bigint   "experience_id"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
     t.integer  "rating"
