@@ -46,6 +46,11 @@ class FundsController < ApplicationController
     @fund = Fund.find(params[:id])
   end
 
+  def fund_percentage
+    raised = @experience.fund.contributions.sum(:amount)
+    goal = @experience.fund.funding_goal
+
+  end
   private
 
   def set_fund

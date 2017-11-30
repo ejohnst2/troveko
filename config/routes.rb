@@ -18,8 +18,10 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :trips, only: [:edit, :update, :destroy, :show, :index]
-
+  resources :trips, only: [:edit, :update, :destroy, :show, :index] do
+    patch 'status', to: "trips#status"
+    patch 'cancel', to: "trips#cancel"
+  end
   devise_for :users,
     controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
 

@@ -44,6 +44,18 @@ class TripsController < ApplicationController
   def confirmation
   end
 
+  def status
+    @trip = Trip.find(params[:trip_id])
+    @trip.update(status: params[:status])
+    redirect_to profile_path(current_user)
+  end
+
+  def cancel
+    @trip = Trip.find(params[:trip_id])
+    @trip.update(cancel: params[:cancel])
+    redirect_to profile_path(current_user)
+  end
+
   def destroy
      @trip.destroy
   end
@@ -57,6 +69,6 @@ class TripsController < ApplicationController
   end
 
   def trip_params
-    params.require(:trip).permit(:start_date, :end_date, :first_name, :last_name, :status)
+    params.require(:trip).permit(:start_date, :end_date, :first_name, :last_name)
   end
 end

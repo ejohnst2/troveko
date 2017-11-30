@@ -22,6 +22,9 @@
     </div>
   </div>
 </div>
+
+<h2>Total Funded: $<%= @experience.fund.contributions.sum(:amount) %></h2>
+
 <h2>Funding Goal: $<%= @experience.fund.funding_goal %></h2>
 
 

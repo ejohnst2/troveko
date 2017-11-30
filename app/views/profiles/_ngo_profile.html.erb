@@ -8,7 +8,7 @@
 
       <div class="edit_profile">
         <p>Email: <%= current_user.email %></p>
-        <%= link_to "Edit profile", root_path %>
+        <%= link_to "Edit profile", edit_user_registration_path(@user) %>
       </div>
     </div>
   </div>
@@ -25,16 +25,16 @@
       <ul class="nav nav-tabs" role="tablist">
         <li role="presentation" class="active"><a class="tab" href="#booking" aria-controls="requests" role="tab" data-toggle="tab">Booking Requests</a></li>
         <li role="presentation"><a href="#confirmed" aria-controls="confirmed" role="tab" data-toggle="tab">Confirmed customers</a></li>
-        <li role="presentation"><a href="#meals" aria-controls="meals" role="tab" data-toggle="tab">My trips</a></li>
+        <li role="presentation"><a href="#meals" aria-controls="meals" role="tab" data-toggle="tab">My experiences</a></li>
 
       </ul>
       <!-- Tab content -->
       <div class="tab-content">
         <div role="tabpanel" class="tab-pane active no-border" id="booking">
-          <% if @ngo_trips.empty? %>
+          <% if @ngo_trips.select{ |x| x.status == false}.empty? %>
 
             <div class="activity empty">
-              <p>Oh no you don't have any bookings yet 😢 </p> <br>
+              <p>Oh no you don't have any pendineg bookings 😢 </p> <br>
               <p>Use social media to promote your experiences or create a new one <%= link_to "here", new_experience_path %></p>
             </div>
 
@@ -51,7 +51,7 @@
               <br>
 
 
-                <%= link_to "Confirm", trip_path(trip: trip, status: true), method: :patch, class: "meal-link btn btn-primary end" %>
+                <%= link_to "Confirm", trip_status_path(trip, status: true), method: :patch, class: "meal-link btn btn-primary end" %>
               </div>
                <p class="date"><%=  trip.created_at%></p>
 
@@ -72,9 +72,11 @@
                 <div class="booking-confirm">
                <%= cl_image_tag trip.experience.photos[0].path, {:class => "profile-image", :effect=>"auto_color", :width=>50} %>
               <%= link_to "#{trip.experience.title}", experience_path(trip.experience), class: "meal-link" %>
-
-
-                <%#= link_to "Cancel", booking_path(booking, cancel: true), method: :patch, class: "meal-link btn btn-info end" %>
+                <% if trip.cancel? == false %>
+                    <%= link_to "Cancel", trip_cancel_path(trip, cancel: true), method: :patch, class: "meal-link btn btn-primary end" %>
+                  <% else %>
+                    <p><%= "Cancellation pending please check email" %></p>
+                  <% end %>
               </div>
               <% end %>
               </div>
