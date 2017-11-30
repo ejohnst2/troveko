@@ -22,6 +22,9 @@ class TripsController < ApplicationController
     @trip.user = current_user
 
     if @trip.save
+      if params[:trip][:contribution].present?
+        Contribution.create!(user: current_user, fund: @trip.experience.fund, amount: params[:trip][:contribution] )
+      end
       redirect_to confirmation_experience_trip_path(@experience.id, @trip.id)
     else
       render 'new'

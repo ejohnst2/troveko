@@ -2,7 +2,7 @@
   <div class="row" id="experience">
     <div class="col-l-4 col-md-6-col-xs-12 col-sm-4" id="picture">
       <div class="hvrbox">
-        <img src="<%= image_path("stones.JPG") %>">
+        <img src="<%= cl_image_path @trip.experience.photos.first.path %>">
         </div>
     </div>
     <div class="col-l-8-col-xs-12 col-sm-4" id="tripsummary">
@@ -24,16 +24,6 @@
 
 <!-- trip info page -->
 
-
-
-
-<!-- <p>Booking Date:  <%= @trip.created_at %></p>
-<p>Start Date: <%= @trip.start_date %></p>
-<p>End Date:  <%= @trip.end_date %></p>
-<p>Length: <%= (@trip.end_date - @trip.start_date).to_i %> nights</p>
-<p>Price:  <%= money_without_cents_and_with_symbol(@trip.experience.price) %></p>
-<p>Total: <%= @trip.experience.price  *  (@trip.end_date - @trip.start_date).to_i %></p> -->
-
 <div>
   <div class="container">
     <div class="row">
@@ -54,21 +44,13 @@
         <strong><p>End Date:</strong>  <%= @trip.end_date %></p>
         <strong><p>Length:</strong> <%= (@trip.end_date - @trip.start_date).to_i %> nights</p>
         <strong><p>Price:</strong>  $<%=@trip.experience.price %></p>
-        <strong><p>Total:</strong> $<%= @trip.experience.price  *  (@trip.end_date - @trip.start_date).to_i %></p>
-<!--         <p>Contribution: <%= @trip.contribution %></p>
- -->
+        <strong><p>Trip:</strong> $<%= @trip.experience.price  *  (@trip.end_date - @trip.start_date).to_i %></p>
+        <p><%= @trip.contribution %></p>
+
       </div>
     </div>
     </div>
      </div>
-<!--
-    <div class="row">
-    <div class="col-md-8">
-      <% if @trip.experience.photos.any? %>
-      <%#= cl_image_tag @trip.experience.photos.first.path %>
-      <% end %>
-    </div>
-    </div> -->
 
   <br>
   <div class="row">
@@ -82,3 +64,12 @@
     <%= @trip.user.email %>
     <!-- links and paths for page -->
     <%= link_to @trip.experience.title, experience_path(@trip.experience) %>
+
+    <!--
+    <div class="row">
+    <div class="col-md-8">
+      <% if @trip.experience.photos.any? %>
+      <%#= cl_image_tag @trip.experience.photos.first.path %>
+      <% end %>
+    </div>
+    </div> -->

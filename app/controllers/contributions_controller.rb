@@ -6,12 +6,12 @@ class ContributionsController < ApplicationController
   def create
     @contribution = Contribution.new(contribution_params)
 
-    @trip = @contribution.trip
+    @trip = Trip.find(params[:trip_id])
     @contribution.user = current_user
-    @experience = @trip.experience
+    @contribution.fund = @trip.experience.fund
 
     if @contribution.save
-      redirect_to fund_path
+      redirect_to experience_trip_path(@trip)
     else
       render 'new'
     end
