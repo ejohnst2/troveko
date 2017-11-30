@@ -1,5 +1,5 @@
 class PaymentsController < ApplicationController
-  before_action :set_order, only: [:create, :capture]
+  before_action :set_order, only: [:new, :create]
 
   def new
   end
@@ -14,7 +14,7 @@ class PaymentsController < ApplicationController
       customer:     customer.id,   # You should store this customer id and re-use it.
       amount:       @order.amount_cents,
       description:  "Payment for experience #{@order.experience_sku} for order #{@order.id}",
-      currency:     @order.amount.currency
+      currency:     @order.amount.currency,
       capture:      false
     )
 
@@ -27,12 +27,13 @@ class PaymentsController < ApplicationController
   end
 
   def capture
-    @order = Order.where(state: 'paid').find(params[:order_id])
-    charge = Stripe::Charge.retrieve(@order.charge)
+    order = Order.where(state: 'paid').find(params[:order_id])
+    payment = JSON.parse(order.payment)
+    charge = Stripe::Charge.retrieve(payment["id"])
     charge.capture
 
-    @order.update(payment: charge.to_json, state: 'fulfilled')
-    redirect_to order_path(@order)
+    order.update(payment: charge.to_json, state: 'fulfilled')
+    redirect_to order_path(order)
   end
 
   private

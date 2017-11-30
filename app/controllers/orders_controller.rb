@@ -1,7 +1,7 @@
 class OrdersController < ApplicationController
   def create
-    experience = Experience.find(params[:experience_id])
-    order  = Order.create!(experience_sku: experience.title, amount: experience.price, state: 'pending')
+    trip = Trip.find(params[:trip_id])
+    order  = Order.create!(experience_sku: trip.experience.title, amount: trip.experience.price, state: 'pending', trip_id: trip.id)
 
     redirect_to new_order_payment_path(order)
   end

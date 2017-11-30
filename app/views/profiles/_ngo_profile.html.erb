@@ -34,7 +34,7 @@
           <% if @ngo_trips.select{ |x| x.status == false}.empty? %>
 
             <div class="activity empty">
-              <p>Oh no you don't have any pendineg bookings 😢 </p> <br>
+              <p>Oh no you don't have any pending bookings 😢 </p> <br>
               <p>Use social media to promote your experiences or create a new one <%= link_to "here", new_experience_path %></p>
             </div>
 
