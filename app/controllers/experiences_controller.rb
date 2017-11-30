@@ -4,7 +4,26 @@ class ExperiencesController < ApplicationController
   # before_action :ngo?, only: [:destroy, :update, :create, :new, :edit]
 
   def index
+    @features = Feature.all
+    @activities = Activity.all
+    @area_types = Areatype.all
+
     @experiences = Experience.search(params[:query]).where.not(latitude: nil, longitude: nil)
+
+    if params[:feature]
+      features = Feature.where(name: params[:feature])
+      @experiences = @experiences.joins(:experiences_features).where(experiences_features: { feature_id: features.map(&:id) })
+    end
+
+    if params[:activity]
+      activities = Activity.where(name: params[:activity])
+      @experiences = @experiences.joins("INNER JOIN activities_experiences ON activities_experiences.experience_id = experiences.id").where(activities_experiences: { activity_id: activities.map(&:id) })
+    end
+
+    if params[:area_type]
+      area_types = Areatype.where(name: params[:area_type])
+      @experiences = @experiences.joins("INNER JOIN areatypes_experiences ON areatypes_experiences.experience_id = experiences.id").where(areatypes_experiences: { areatype_id: area_types.map(&:id) })
+    end
 
     @markers = Gmaps4rails.build_markers(@experiences) do |experience, marker|
       marker.lat experience.latitude
