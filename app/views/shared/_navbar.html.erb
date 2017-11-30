@@ -5,28 +5,12 @@
   </form>
 
   <!-- Logo -->
-  <%= link_to root_path, class: "navbar-troveko-brand" do %>
+  <%= link_to root_path, class: " navbar-left navbar-troveko-brand" do %>
     <%= image_tag "troveko-logo.png" %>
   <% end %>
 
   <!-- Right Navigation -->
   <div class="navbar-troveko-right hidden-xs hidden-sm">
-
-
-    <!-- Links -->
-
-
-<!--
-      <form action="<%= root_path %>" class="form-inline">
-        <input type="text" name="query" placeholder="&nbsp Search">
-      </form> -->
-
-
-      <!--<form action="<%= root_path %>" class="form-inline">
-        <input type="text" name="query" placeholder="&nbsp Search">
-      </form> -->
-
-
       <%= link_to "Experiences", experiences_path, class: "navbar-troveko-item navbar-troveko-link" %>
       <%= link_to "About", '', class: "navbar-troveko-item navbar-troveko-link" %>
       <%#= link_to "Messages", messages_path, class: "navbar-troveko-item navbar-troveko-link" %>
@@ -90,3 +74,16 @@
     </div>
   </div>
 </div>
+
+    <!-- Links -->
+
+<!--
+      <form action="<%= root_path %>" class="form-inline">
+        <input type="text" name="query" placeholder="&nbsp Search">
+      </form> -->
+
+
+      <!--<form action="<%= root_path %>" class="form-inline">
+        <input type="text" name="query" placeholder="&nbsp Search">
+      </form> -->
+

@@ -1,11 +1,5 @@
 Rails.application.routes.draw do
 
-  get 'contributions/new'
-
-  get 'contributions/create'
-
-  get 'contributions/index'
-
   resources :funds do
   end
 
@@ -19,6 +13,7 @@ Rails.application.routes.draw do
   end
 
   resources :trips, only: [:edit, :update, :destroy, :show, :index] do
+    resources :contributions, only: :create
     patch 'status', to: "trips#status"
     patch 'cancel', to: "trips#cancel"
   end
