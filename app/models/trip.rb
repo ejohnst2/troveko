@@ -1,6 +1,7 @@
 class Trip < ApplicationRecord
   belongs_to :experience
   belongs_to :user
+  has_one :contribution
 
   validates :user, :experience, :start_date, :end_date, presence: true, allow_blank: false
   validate :start_date_cannot_be_in_the_past, :end_date_cannot_be_in_the_past, :end_date_cannot_be_before_start_date

@@ -32,6 +32,8 @@
         Area Types: <%= render 'experiences/areatypes' %>
         <br>
         Fund: <%= @experience.fund.title %>
+
+        <%= link_to "Book Now", new_experience_trip_path(@experience) %>
         <div id="reviews">
     <center><h2>Reviews</h2></center>
     <% if @experience.reviews.blank? %>
@@ -61,25 +63,7 @@
     </div>
     </div>
     <div class="col-lg-4 col-md-4 col-xs-4" style="margin-left: 66.5%;" id="stickycolumn">
-      <center><div class="stickycontent">
-      <center><img src="<%= image_path("nonprofit.png") %>" alt="host" class="nonprofit"></center>
-      <div class="info">
-      <%= render 'shared/progressbar' %>
-      <!-- Everything here will be sticky to the right! -->
-      <div class="booking">
-      <h3><%= money_without_cents_and_with_symbol(@experience.price) %>/night</h3>
-      </div>
-      <div class="form">
-        <form>
-          <input type="date" class="date">
-          <input type="date" class="date">
-          <input type="number" class="date" placeholder="Guests">
-          <br>
-          <input type="submit" class="button" value="Start Adventure">
-        </form>
-      </div></center>
-    </div>
-    </div>
+      <%= render 'sidebar' %>
     </div>
 </div>
 

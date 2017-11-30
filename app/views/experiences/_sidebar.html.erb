@@ -1,0 +1,53 @@
+<center>
+
+
+<div class="container-fluid">
+
+
+<img src="<%= image_path("nonprofit.png") %>" alt="host" class="nonprofit">
+<div class="info">
+ <div id="bar-1" class="bar-main-container">
+  <div class="wrap">
+    <p><%= @experience.fund.title %></p>
+    <div class="info">
+
+
+      <div class="bar-container">
+        <div class="bar">
+
+        </div>
+      </div>
+      <div class="bar-percentage" data-percentage="80">
+      </div>
+    </div>
+  </div>
+</div>
+<h2>Funding Goal: $<%= @experience.fund.funding_goal %></h2>
+
+
+<!-- <p class ="amount">Total Contributed: [get total of all contributions witht this fund id] </p> -->
+
+<!-- get this as a percentage of the crowdfunding goal -->
+
+
+
+  <div class="booking" style=" margin-top: 70px;">
+      <h3><%= money_without_cents_and_with_symbol(@experience.price) %> per night</h3>
+    </div>
+
+    <div class="form">
+      <form>
+        <input type="date" class="date">
+        <input type="date" class="date">
+        <input type="number" class="date" placeholder="Guests">
+        <br>
+        <input type="submit" class="button" value="Start Adventure">
+      </form>
+    </div>
+
+</div>
+
+
+<!-- </div>
+ -->
+</center>

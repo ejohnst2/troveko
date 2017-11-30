@@ -3,12 +3,20 @@
   <div class="row">
     <%= simple_form_for [@experience, @trip], html: { class: "form-horizontal" } do |f| %>
     <%= f.error_notification %>
+    <h3>Confirm Your Personal Details</h3>
     <div class="form-inputs">
       <%= f.input :first_name, input_html: { value: current_user.first_name } %>
       <%= f.input :last_name, input_html: { value: current_user.last_name } %>
       <%= f.input :start_date, as: :string %>
       <%= f.input :end_date, as: :string %>
-   </div>
+    </div>
+
+    <p>Trip Total: Price</p>
+
+    <div class="form-inputs">
+      <%= f.input :contribution, placeholder: "Suggested: $20" %>
+    </div>
+
 
 <!--   Body of Booking Page should be in here. -->
 
