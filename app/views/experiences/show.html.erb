@@ -2,7 +2,7 @@
 <!-- images for experience -->
 
 <%# @experience.photos.each do |photo| %>
-  <%#= cl_image_tag photo.path, width: 300, height: 200, crop: :fill %>
+<%#= cl_image_tag photo.path, width: 300, height: 200, crop: :fill %>
 <%# end %>
 
 <!-- info for page -->
@@ -17,54 +17,56 @@
       <div class="details">
         <h2><%= @experience.title %></h2>
         <h4><%= @experience.short_description %></h4>
-        Price: <%= money_without_cents_and_with_symbol(@experience.price) %>
-        <br><br>
+        <h4><%= @experience.city %>, <%= @experience.country %></h4>
+
+        <h2>Details</h2>
+        <p>Price: <%= money_without_cents_and_with_symbol(@experience.price) %></p>
+        <p>Capacity: <%= @experience.capacity %></p>
+
+        <h2>About the Host</h2>
         Details: <%= @experience.long_description %>
-        <br><br>
-        Address: <%= @experience.address %>
-        <br><br>
-        Capacity: <%= @experience.capacity %>
-        <br><br>
-        Features: <%= render 'experiences/features' %>
-        <br><br>
-        Activities: <%= render 'experiences/activities' %>
-        <br><br>
-        Area Types: <%= render 'experiences/areatypes' %>
         <br>
-        Fund: <%= @experience.fund.title %>
 
-        <%= link_to "Book Now", new_experience_trip_path(@experience) %>
+        <h2>About the Experience</h2>
+          Features: <%= render 'experiences/features' %>
+          <br><br>
+          Activities: <%= render 'experiences/activities' %>
+          <br><br>
+          Area Types: <%= render 'experiences/areatypes' %>
+          <br>
+
         <div id="reviews">
-    <center><h2>Reviews</h2></center>
-    <% if @experience.reviews.blank? %>
-      Be the first to leave a review for <%= @experience.title %>
-    <% else %>
-      <% @experience.reviews.each do |review| %>
-        <%= render 'reviews/show', review: review %>
-      <% end %>
-    <% end %>
-      <%= render 'reviews/form', experience: @experience, review: @review %>
-      <br>
-      <%= link_to 'View All Experiences', experiences_path %>
-      <%= link_to 'Book This Experience', new_experience_trip_path(@experience) %>
-      <%= link_to 'Message Host', conversations_path(sender_id: current_user.id, recipient_id: @experience.user.id), method: :post %>
-      <% if @experience.user == @user %>
-    <!-- need to add permission for this depending on what user this is with pundit  -->
-    <%= link_to 'Edit Experience', edit_experience_path(@experience) %>
-  <% end %>
+          <h2>Reviews</h2>
+          <% if @experience.reviews.blank? %>
+          Be the first to leave a review for <%= @experience.title %>
+          <% else %>
+          <% @experience.reviews.each do |review| %>
+          <%= render 'reviews/show', review: review %>
+          <% end %>
+          <% end %>
+          <%= render 'reviews/form', experience: @experience, review: @review %>
+          <br>
+          <%= link_to 'View All Experiences', experiences_path %>
+          <%= link_to 'Book This Experience', new_experience_trip_path(@experience) %>
+          <%= link_to 'Message Host', conversations_path(sender_id: current_user.id, recipient_id: @experience.user.id), method: :post %>
+          <% if @experience.user == @user %>
+          <!-- need to add permission for this depending on what user this is with pundit  -->
+          <%= link_to 'Edit Experience', edit_experience_path(@experience) %>
+          <% end %>
 
-    </div>
-</div>
-    </div>
+        </div>
       </div>
     </div>
-    </div>
   </div>
-    </div>
-    </div>
-    <div class="col-lg-4 col-md-4 col-xs-4" style="margin-left: 66.5%;" id="stickycolumn">
-      <%= render 'sidebar' %>
-    </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="col-lg-4 col-md-4 col-xs-4" style="margin-left: 66.5%;" id="stickycolumn">
+  <%= render 'sidebar' %>
+</div>
 </div>
 
 <!-- messaging test -->
