@@ -1,0 +1,44 @@
+<div class="navbar-filters">
+
+
+    <div class="dropdown show">
+      <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Features
+      </a>
+
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+        <% @features.each do |feature| %>
+          <div><a class="dropdown-item filters-item" href="<%= experiences_path(feature: feature.name) %>"><%= feature.name %></a></div>
+        <% end %>
+      </div>
+    </div>
+    <div class="dropdown show">
+      <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Activities
+      </a>
+
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+        <% @activities.each do |activity| %>
+          <div><a class="dropdown-item filters-item" href="<%= experiences_path(activity: activity.name) %>"><%= activity.name %></a></div>
+        <% end %>
+
+      </div>
+    </div>
+    <div class="dropdown show">
+      <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Area types
+      </a>
+
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+        <% @area_types.each do |area_type| %>
+          <div><a class="dropdown-item filters-item" href="<%= experiences_path(area_type: area_type.name) %>"><%= area_type.name %></a></div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+
+
