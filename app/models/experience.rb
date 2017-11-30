@@ -3,6 +3,7 @@ class Experience < ApplicationRecord
   belongs_to :user
   has_attachments :photos, maximum: 10
   has_many :reviews, dependent: :destroy
+  has_many :trips, dependent: :destroy
 
   has_and_belongs_to_many :features
   has_and_belongs_to_many :activities
@@ -29,14 +30,14 @@ class Experience < ApplicationRecord
   def self.search(query)
     if query.present?
       query = query.downcase
-      Experience.joins(:user).where("lower(experiences.name) LIKE ? OR
-                                           lower(users.first_name) LIKE ? OR
-                                           lower(users.ngo) LIKE ? OR
-                                           lower(users.last_name) LIKE ?",
-                                           "%#{query}%",
-                                           "%#{query}%",
-                                           "%#{query}%",
-                                           "%#{query}%")
+      Experience.joins(:user).where("lower(experiences.title) LIKE ? OR
+                                    lower(experiences.address) LIKE ? OR
+                                    lower(users.first_name) LIKE ? OR
+                                    lower(users.last_name) LIKE ?",
+                                    "%#{query}%",
+                                    "%#{query}%",
+                                    "%#{query}%",
+                                    "%#{query}%")
     else
       Experience.all
     end

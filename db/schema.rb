@@ -162,9 +162,9 @@ ActiveRecord::Schema.define(version: 20171130140835) do
     t.date     "start_date"
     t.date     "end_date"
     t.bigint   "user_id"
-    t.boolean  "status"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.boolean  "status",        default: false
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
     t.string   "first_name"
     t.string   "last_name"
     t.index ["experience_id"], name: "index_trips_on_experience_id", using: :btree
