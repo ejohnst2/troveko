@@ -1,7 +1,7 @@
 class TripsController < ApplicationController
   skip_before_action :authenticate_user!, only: :new
   before_action :set_trip, only: [:edit, :show, :update, :destroy, :confirmation]
-  before_action :set_experience, only: [:new, :create]
+  before_action :set_experience, only: [:new, :create, :confirmation]
 
   def index
     @trips = Trip.all
@@ -22,7 +22,7 @@ class TripsController < ApplicationController
     @trip.user = current_user
 
     if @trip.save
-      redirect_to confirmation_experience_trip_path(@experience.id,@trip.id)
+      redirect_to confirmation_experience_trip_path(@experience.id, @trip.id)
     else
       render 'new'
     end
@@ -41,6 +41,9 @@ class TripsController < ApplicationController
     end
   end
 
+  def confirmation
+  end
+
   def destroy
      @trip.destroy
   end
@@ -54,6 +57,6 @@ class TripsController < ApplicationController
   end
 
   def trip_params
-    params.require(:trip).permit(:start_date, :end_date, :first_name, :last_name)
+    params.require(:trip).permit(:start_date, :end_date, :first_name, :last_name, :status)
   end
 end

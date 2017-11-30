@@ -17,7 +17,7 @@
       <div class="details">
         <h2><%= @experience.title %></h2>
         <h4><%= @experience.short_description %></h4>
-        Price: $<%= money_without_cents_and_with_symbol(@experience.price) %>
+        Price: <%= money_without_cents_and_with_symbol(@experience.price) %>
         <br><br>
         Details: <%= @experience.long_description %>
         <br><br>
@@ -25,11 +25,11 @@
         <br><br>
         Capacity: <%= @experience.capacity %>
         <br><br>
-        Features: <%= render 'features' %>
+        Features: <%= render 'experiences/features' %>
         <br><br>
-        Activities: <%= render 'activities' %>
+        Activities: <%= render 'experiences/activities' %>
         <br><br>
-        Area Types: <%= render 'areatypes' %>
+        Area Types: <%= render 'experiences/areatypes' %>
         <br>
         <div id="reviews">
     <center><h2>Reviews</h2></center>
@@ -44,7 +44,9 @@
       <br>
       <%= link_to 'View All Experiences', experiences_path %>
       <%= link_to 'Book This Experience', new_experience_trip_path(@experience) %>
+      <%= link_to 'Message Host', conversations_path(sender_id: current_user.id, recipient_id: @experience.user.id), method: :post %>
       <% if @experience.user == @user %>
+    <!-- need to add permission for this depending on what user this is with pundit  -->
     <%= link_to 'Edit Experience', edit_experience_path(@experience) %>
   <% end %>
 
@@ -82,11 +84,11 @@
 
 <!-- messaging test -->
 
-<%= link_to 'Message Host', conversations_path(sender_id: current_user.id, recipient_id: @experience.user.id), method: :post %>
-<%= form_tag orders_path do %>
-  <%= hidden_field_tag 'experience_id', @experience.id %>
-  <%= submit_tag 'Purchase', class: 'btn btn-primary' %>
-<% end %>
+
+<%#= form_tag orders_path do %>
+  <%#= hidden_field_tag 'experience_id', @experience.id %>
+  <%#= submit_tag 'Purchase', class: 'btn btn-primary' %>
+<%# end %>
 <!-- reviews for experience -->
 
 
