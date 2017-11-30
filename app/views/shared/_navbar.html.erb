@@ -1,4 +1,9 @@
 <div class="<%= yield(:sticky_navbar).blank? ? 'navbar-troveko-sticky' : yield(:sticky_navbar) %> navbar-troveko">
+
+  <form action="<%= experiences_path %>" class="navbar-form navbar-left">
+    <input type="text" name="query" placeholder="&nbsp Search">
+  </form>
+
   <!-- Logo -->
   <%= link_to root_path, class: "navbar-troveko-brand" do %>
     <%= image_tag "troveko-logo.png" %>
@@ -10,7 +15,7 @@
 
     <!-- Links -->
 
-      <!-- <form action="<%#= root_path %>" class="form-inline">
+      <!--<form action="<%= root_path %>" class="form-inline">
         <input type="text" name="query" placeholder="&nbsp Search">
       </form> -->
 
