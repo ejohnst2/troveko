@@ -5,12 +5,14 @@ Rails.application.routes.draw do
 
   resources :experiences do
      resources :reviews, only: :create
-     resources :trips do
+     resources :trips, only: [:new, :create] do
       member do
         get 'confirmation', to: "trips#confirmation"
       end
     end
   end
+
+  resources :trips, only: [:edit, :update, :destroy, :show, :index]
 
   devise_for :users,
     controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }

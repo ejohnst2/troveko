@@ -17,7 +17,7 @@
       <div class="details">
         <h2><%= @experience.title %></h2>
         <h4><%= @experience.short_description %></h4>
-        Price: $<%= money_without_cents_and_with_symbol(@experience.price) %>
+        Price: <%= money_without_cents_and_with_symbol(@experience.price) %>
         <br><br>
         Details: <%= @experience.long_description %>
         <br><br>

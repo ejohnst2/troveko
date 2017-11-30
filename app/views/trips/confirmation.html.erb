@@ -8,7 +8,7 @@
     <div class="col-l-8-col-xs-12 col-sm-4" id="tripsummary">
         <h1><%= @experience.title %></h1>
         <h4><%= @experience.short_description %></h4>
-        <h3>You're much closer to meeting the host from [start date] to [end date]</h3>
+        <h3>You're much closer to meeting the host from <%= @trip.start_date %> to <%= @trip.start_date %></h3>
     </div>
 
 </div>
@@ -27,12 +27,12 @@
 
 
 <div
-<p>Booking Date:  <%= @trip.booking_date %></p>
+<p>Booking Date:  <%= @trip.created_at %></p>
 <p>Start Date: <%= @trip.start_date %></p>
 <p>End Date:  <%= @trip.end_date %></p>
 <p>Length: <%= (@trip.end_date - @trip.start_date).to_i %> nights</p>
-<p>Price:  $<%= money_without_cents_and_with_symbol(@trip.experience.price) %></p>
-<p>Total: $<%= @trip.experience.price  *  (@trip.end_date - @trip.start_date).to_i %></p>
+<p>Price:  <%= money_without_cents_and_with_symbol(@trip.experience.price) %></p>
+<p>Total: <%= @trip.experience.price  *  (@trip.end_date - @trip.start_date).to_i %></p>
 
 
 <div class="container">
@@ -64,8 +64,8 @@
     <!-- traveler info -->
 
     <div class="row">
-    <%= @trip.first_name %>
-    <%= @trip.last_name %>
+    <%= @trip.user.first_name %>
+    <%= @trip.user.last_name %>
     <%= @trip.user.email %>
 
 
