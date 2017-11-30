@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171129184720) do
+ActiveRecord::Schema.define(version: 20171130172152) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -95,6 +95,8 @@ ActiveRecord::Schema.define(version: 20171129184720) do
     t.string   "city"
     t.string   "postal_code"
     t.string   "country"
+    t.integer  "fund_id"
+    t.index ["fund_id"], name: "index_experiences_on_fund_id", using: :btree
     t.index ["user_id"], name: "index_experiences_on_user_id", using: :btree
   end
 
@@ -119,6 +121,9 @@ ActiveRecord::Schema.define(version: 20171129184720) do
     t.integer  "funding_goal"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+    t.string   "title"
+    t.text     "about"
+    t.text     "use_of_funds"
     t.index ["user_id"], name: "index_funds_on_user_id", using: :btree
   end
 
@@ -143,9 +148,9 @@ ActiveRecord::Schema.define(version: 20171129184720) do
     t.datetime "updated_at",                 null: false
   end
 
-  create_table "reviews", force: :cascade do |t|
+  create_table "reviews", id: :bigserial, force: :cascade do |t|
     t.text     "content"
-    t.integer  "experience_id"
+    t.bigint   "experience_id"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
     t.integer  "rating"
@@ -157,9 +162,12 @@ ActiveRecord::Schema.define(version: 20171129184720) do
     t.date     "start_date"
     t.date     "end_date"
     t.bigint   "user_id"
-    t.boolean  "status"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.boolean  "status",        default: false
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
+    t.string   "first_name"
+    t.string   "last_name"
+    t.boolean  "cancel",        default: false
     t.index ["experience_id"], name: "index_trips_on_experience_id", using: :btree
     t.index ["user_id"], name: "index_trips_on_user_id", using: :btree
   end
