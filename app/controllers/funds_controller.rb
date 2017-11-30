@@ -53,7 +53,7 @@ class FundsController < ApplicationController
   end
 
   def fund_params
-    params.require(:fund).permit(:funding_goal, :title, :about, :use_of_funds)
+    params.require(:fund).permit(:amount)
   end
 
 end

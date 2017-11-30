@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
 
+  get 'contributions/new'
+
+  get 'contributions/create'
+
+  get 'contributions/index'
+
   resources :funds do
   end
 
