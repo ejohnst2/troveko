@@ -1,5 +1,5 @@
 class PaymentsController < ApplicationController
-  before_action :set_order
+  before_action :set_order, only: [:create, :capture]
 
   def new
   end
@@ -15,6 +15,7 @@ class PaymentsController < ApplicationController
       amount:       @order.amount_cents,
       description:  "Payment for experience #{@order.experience_sku} for order #{@order.id}",
       currency:     @order.amount.currency
+      capture:      false
     )
 
     @order.update(payment: charge.to_json, state: 'paid')
@@ -23,6 +24,15 @@ class PaymentsController < ApplicationController
   rescue Stripe::CardError => e
     flash[:alert] = e.message
     redirect_to new_order_payment_path(@order)
+  end
+
+  def capture
+    @order = Order.where(state: 'paid').find(params[:order_id])
+    charge = Stripe::Charge.retrieve(@order.charge)
+    charge.capture
+
+    @order.update(payment: charge.to_json, state: 'fulfilled')
+    redirect_to order_path(@order)
   end
 
   private

@@ -15,7 +15,9 @@ Rails.application.routes.draw do
 
   resources :profiles, only: [:show]
   resources :orders, only: [:show, :create] do
-    resources :payments, only: [:new, :create]
+    resources :payments, only: [:new, :create] do
+
+    end
   end
 
   mount Attachinary::Engine => "/attachinary"
