@@ -50,7 +50,7 @@ class TripsController < ApplicationController
   def status
     @trip = Trip.find(params[:trip_id])
     @trip.update(status: params[:status])
-    redirect_to profile_path(current_user)
+    redirect_to order_payments_capture_path(@trip.order.id), method: :post
   end
 
   def cancel

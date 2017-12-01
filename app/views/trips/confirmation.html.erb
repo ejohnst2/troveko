@@ -48,6 +48,24 @@
     </div>
   </div>
 
+        <strong><p>Start Date:</strong> <%= @trip.start_date %></p>
+        <strong><p>End Date:</strong>  <%= @trip.end_date %></p>
+        <strong><p>Length:</strong> <%= (@trip.end_date - @trip.start_date).to_i %> nights</p>
+        <strong><p>Price:</strong>  $<%=@trip.experience.price %></p>
+        <strong><p>Total:</strong> $<%= @trip.experience.price  *  (@trip.end_date - @trip.start_date).to_i %></p>
+<!--         <p>Contribution: <%#= @trip.contribution %></p>
+ -->
+      </div>
+    </div>
+    </div>
+     </div>
+    <%= form_tag orders_path do %>
+    <%= hidden_field_tag 'trip_id', @trip.id %>
+    <%= submit_tag 'Purchase', class: 'btn btn-primary' %>
+    <% end %>
+
+
+<!--
     <!-- links and paths for page -->
 <!--
        <div class="row">
@@ -55,10 +73,10 @@
         <div class="col-md-4">
           <div class="centered-item">
             <h3>Booking Details</h3>
-            <strong><p>Length:</strong> <%= (@trip.end_date - @trip.start_date).to_i %> nights</p>
-            <strong><p>Price:</strong>  $<%=@trip.experience.price %></p>
-            <strong><p>Trip:</strong> $<%= @trip.experience.price  *  (@trip.end_date - @trip.start_date).to_i %></p>
-            <strong><p>Contribution:</strong> $<%= @trip.contribution.amount %></p>
+            <strong><p>Length:</strong> <%#= (@trip.end_date - @trip.start_date).to_i %> nights</p>
+            <strong><p>Price:</strong>  $<#%=@trip.experience.price %></p>
+            <strong><p>Trip:</strong> $<%#= @trip.experience.price  *  (@trip.end_date - @trip.start_date).to_i %></p>
+            <strong><p>Contribution:</strong> $<%#= @trip.contribution.amount %></p>
           </div>
         </div>
       </div>
