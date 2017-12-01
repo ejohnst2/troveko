@@ -1,3 +1,0 @@
-class ExperienceFeature < ApplicationRecord
-
-end

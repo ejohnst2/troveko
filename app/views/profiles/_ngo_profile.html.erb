@@ -87,8 +87,10 @@
             <div class="activity empty">
               <% @experiences.each do |experience| %>
                <div class="booking-content">
+
               <div class="experience-image"><%= cl_image_tag experience.photos[0].path, {:class => "host-image", :effect=>"auto_color", :width=>300} %></div>
               <div class="card-options">
+              <%= cl_image_tag trip.experience.photos[0].path, {:class => "profile-image", :effect=>"auto_color", :width=>50} %>
               <%= link_to "#{experience.title}", experience_path(experience), id: "meal-link" %>
               <%= link_to "| Edit experience", edit_experience_path(experience.id), id: "meal-link" %>
               </div>
