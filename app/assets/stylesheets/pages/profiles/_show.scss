@@ -74,7 +74,7 @@
 
 
 #meal-button {
-  margin-top: 30px;
+  margin: 30px;
 }
 
 .meal-link {
@@ -101,5 +101,13 @@
   font-size: 10px;
   font-weight: light;
   color: gray;
-
 }
+
+/* -----------------------ngo tabs--------------------- */
+
+.ngo-actions {
+display: flex;
+padding: 20px;
+justify-content: center;
+}
+
