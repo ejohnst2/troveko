@@ -18,12 +18,12 @@
         </div>
       </div>
 
-      <h2>Total Funded: $<%= @experience.fund.contributions.sum(:amount) %></h2>
-      <h2>Funding Goal: $<%= @experience.fund.funding_goal %></h2>
-      <h2><%= fund_percentage(@experience) %>% funded</h2>
+      <h2>$<%= @experience.fund.contributions.sum(:amount) %> of $<%= @experience.fund.funding_goal %> funded</h2>
+
+<div class="margin" style="padding-bottom: 100px; ">
 
 
-      <div class="booking" style=" margin-top: 70px;">
+ <div class="booking" style=" margin-top: 70px;">
       <h3><%= money_without_cents_and_with_symbol(@experience.price) %> per night</h3>
     </div>
 
@@ -37,6 +37,7 @@
       </form>
     </div>
   </div>
+</div>
 
 </div>
 
