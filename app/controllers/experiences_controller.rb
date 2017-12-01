@@ -51,6 +51,7 @@ class ExperiencesController < ApplicationController
   def show
     @experience_coordinates = { lat: @experience.latitude, lng: @experience.longitude }
     @review = Review.new
+    # @conversation = Conversation.new
   end
 
   def destroy
