@@ -17,13 +17,12 @@
 
 /* -----------------------Profile info --------------------- */
 .profile-info {
-  background-color: white;
+  background-color: transparent;
   border-radius: 7px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-bottom: 40px;
-  height: 100%;
+  padding: 20px;
 }
 
 .host-image {
@@ -33,8 +32,8 @@
 
 .profile-image {
   border-radius: 50%;
-  width: 40%;
-  margin: 20px;
+  width: 30%;
+  margin: 15px;
 }
 
 .edit-profile {
@@ -83,7 +82,7 @@
 
 
 #meal-button {
-  margin-top: 30px;
+  margin: 30px;
 }
 
 .meal-link {
@@ -110,5 +109,13 @@
   font-size: 10px;
   font-weight: light;
   color: gray;
-
 }
+
+/* -----------------------ngo tabs--------------------- */
+
+.ngo-actions {
+display: flex;
+padding: 20px;
+justify-content: center;
+}
+

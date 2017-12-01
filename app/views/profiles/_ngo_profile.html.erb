@@ -1,23 +1,33 @@
+<div class="row ngo-actions">
+  <%= button_to "Add New Experience", new_experience_path, :method => :get, class: "btn-lg btn-primary", id: "meal-button" %>
+  <%= button_to "Add New Fund", new_fund_path, :method => :get, class: "btn-lg btn-primary", id: "meal-button" %>
+  <%= button_to 'Add to Public Profile', new_experience_path, :method => :get, class: "btn-lg btn-primary", id: "meal-button" %>
+  <%= button_to 'See Your Balance', new_experience_path, :method => :get, class: "btn-lg btn-primary", id: "meal-button" %>
+</div>
+
+
 <div class="row">
 
-  <div class="col-xs-12 col-md-4">
-
+<!--   <div class="col-xs-12 col-md-4">
+ -->
     <div class="profile-info">
       <h2> <%= @user.first_name %> </h2>
-       <%= image_tag facebook_image(@user), class: "profile-image" %>
+      <%= image_tag facebook_image(@user), class: "profile-image" %>
 
       <div class="edit_profile">
+        <h2 class="flex-item">My Organization Profile</h2>
         <p>Email: <%= current_user.email %></p>
         <%= link_to "Edit profile", edit_user_registration_path(@user) %>
       </div>
     </div>
-  </div>
-  <div class="col-xs-12 col-md-8">
-    <div class="profile-activity">
-      <div class="my-row">
-        <%= image_tag('http://fillmurray.com/100/100', :class => "profile-icon flex-item") %>
-        <h2 class="flex-item">My host profile</h2>
-       </div>
+<!--   </div>
+ -->
+<!--   <div class="col-xs-12 col-md-8">
+ -->    <div class="profile-activity">
+<!--       <div class="my-row">
+ -->        <%#= image_tag('http://fillmurray.com/100/100', :class => "profile-icon flex-item") %>
+<!--         <h2 class="flex-item">My Organization Profile</h2>
+ -->     </div>
 
       <!-- From Boostrap  - other features here https://getbootstrap.com/docs/3.3/javascript/#tabs
       -->
@@ -40,34 +50,64 @@
 
           <% else %>
 
-            <div class="activity">
-
-              <% @ngo_trips.each do |trip| %>
-               <div class="booking">
-                <% if trip.status? == false %>
-                <div class="booking-confirm">
+          <div class="activity">
+            <% @ngo_trips.each do |trip| %>
+            <div class="booking">
+              <% if trip.status? == false %>
+              <div class="booking-confirm">
                <%= cl_image_tag trip.experience.photos[0].path, {:class => "profile-image", :effect=>"auto_color", :width=>50} %>
-              <%= link_to "#{trip.experience.title}", experience_path(trip.experience), class: "meal-link" %>
-              <br>
+               <%= link_to "#{trip.experience.title}", experience_path(trip.experience), class: "meal-link" %>
+               <br>
+               <%= link_to "Confirm", trip_status_path(trip, status: true), method: :patch, class: "meal-link btn btn-primary end" %>
+             </div>
+             <p class="date"><%=  trip.created_at%></p>
+             <% end %>
+           </div>
+           <% end %>
+         </div>
+         <% end %>
+       </div>
 
+       <div role="tabpanel" class="tab-pane no-border" id="confirmed">
+        <div class="activity empty">
+         <% @ngo_trips.each do |trip| %>
+         <div class="booking-content">
+          <% if trip.status? == true %>
+          <div class="booking-confirm">
+           <%= cl_image_tag trip.experience.photos[0].path, {:class => "profile-image", :effect=>"auto_color", :width=>50} %>
+           <%= link_to "#{trip.experience.title}", experience_path(trip.experience), class: "meal-link" %>
+           <% if trip.cancel? == false %>
+           <%= link_to "Cancel", trip_cancel_path(trip, cancel: true), method: :patch, class: "meal-link btn btn-primary end" %>
+           <% else %>
+           <p><%= "Cancellation pending please check email" %></p>
+           <% end %>
+         </div>
+         <% end %>
+       </div>
+       <% end %>
+     </div>
+   </div>
 
-                <%= link_to "Confirm", trip_status_path(trip, status: true), method: :patch, class: "meal-link btn btn-primary end" %>
-              </div>
-               <p class="date"><%=  trip.created_at%></p>
+   <div role="tabpanel" class="tab-pane no-border" id="meals">
+    <div class="activity empty">
+      <% @experiences.each do |experience| %>
+      <div class="booking-content">
+        <%= cl_image_tag experience.photos[0].path, {:class => "profile-image", :effect=>"auto_color", :width=>50} %>
+        <%= link_to "#{experience.title}", experience_path(experience), id: "meal-link" %>
+      </div>
+      <% end %>
 
-              <% end %>
-              </div>
+    </div>
+  </div>
+</div>
+</div>
+<!-- </div>
+ --><!-- </div>
+ -->
 
-              <% end %>
-
-            </div>
-          <% end %>
-        </div>
-          <div role="tabpanel" class="tab-pane no-border" id="confirmed">
-            <div class="activity empty">
-               <% @ngo_trips.each do |trip| %>
-               <div class="booking-content">
-                <% if trip.status? == true %>
+<%#= link_to 'Create a New Experience', new_experience_path %>
+<%#= link_to 'Create a New Fund', new_fund_path %>
+<%#= link_to 'Create your Public Profile' %>
 
                 <div class="booking-confirm">
                <%= cl_image_tag trip.experience.photos[0].path, {:class => "profile-image", :effect=>"auto_color", :width=>50} %>
