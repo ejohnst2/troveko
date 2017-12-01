@@ -11,7 +11,7 @@
   <div class="row">
     <div class="col-lg-8 col-md-8 col-xs-8" id="column">
       <div class="hostimages">
-        <img src="<%= image_path("hostfamily.jpg") %>" alt="host" class="photo">
+        <img src="<%= cl_image_path @experience.photos[0].path %>" alt="host" class="photo">
       </div>
       <%= render 'shared/navbarshow' %>
       <div class="details">
@@ -35,6 +35,8 @@
         Area Types: <%= render 'experiences/areatypes' %>
         <br>
 
+
+
         <div id="reviews">
           <h2>Reviews</h2>
           <% if @experience.reviews.blank? %>
@@ -46,8 +48,11 @@
           <% end %>
           <%= render 'reviews/form', experience: @experience, review: @review %>
           <br>
-          <%= link_to 'View All Experiences', experiences_path %>
-          <%= link_to 'Book This Experience', new_experience_trip_path(@experience) %>
+         <div class="row ngo-actions">
+            <%= button_to "Start Your Adventure", new_experience_trip_path(@experience), :method => :get, class: "btn-lg btn-primary", id: "meal-button" %>
+            <%= button_to "Message Organization", new_fund_path, :method => :get, class: "btn-lg btn-primary", id: "meal-button" %>
+            <%= button_to 'View All Experiences', experiences_path, :method => :get, class: "btn-lg btn-primary", id: "meal-button" %>
+          </div>
           <% if !@user.nil? %>
             <%= link_to 'Message Host', conversations_path(sender_id: current_user.id, recipient_id: @experience.user.id), method: :post %>
           <% end %>
