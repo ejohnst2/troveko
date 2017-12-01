@@ -58,30 +58,33 @@ areatypes = [
 ]
 
 pictures = [
-"https://static.boredpanda.com/blog/wp-content/uploads/2014/04/village-life-indonesia-herman-damar-4.jpg",
-"http://static.panoramio.com/photos/large/11506049.jpg",
-"http://www.villabalisale.com/uploads/images/post/2016-12-09-post-584a283cc65f9.jpg",
-"https://static.boredpanda.com/blog/wp-content/uploads/2014/04/village-life-indonesia-herman-damar-13.jpg",
-"https://www.wildfrontierstravel.com/media/cache/responsive/opengraph-1200/axum/Web%20Images%20-%20Axum-FTP/B-Suggested%20Itineraries%20Carousel%20%28New%29/Indian%20Subcontinent/Village%20India/Village-India-01.jpg",
-"https://d2391rlyg4hwoh.cloudfront.net/img/original/dscn4779.jpg",
-"http://s2.dmcdn.net/W-h5n/1280x720-m6-.jpg",
-"https://qph.ec.quoracdn.net/main-qimg-470373c785fb061e1a5b3d3baabc2f54-c",
-"http://www.planetware.com/photos-large/CAM/cambodia-tonle-sap-lake-floating-village.jpg",
-"https://s-i.huffpost.com/gadgets/slideshows/354802/slide_354802_3882730_free.jpg",
-"https://brittanydeseau.files.wordpress.com/2011/03/ladakhvillage.jpg",
-"https://photos.smugmug.com/Imagesofasia/PhotoStories/Meemure-Sri-Lanka-Village/i-s7K3h8m/0/21f9d767/L/Villagers%20having%20chat%20between%20them%20and%20walking%20a%20scenic%20road%20in%20Meemure%20village%20-%20Sri%20Lanka-L.jpg",
-"https://www.ulpotha.com/images/top-banner/4.jpg"
+  "https://static.boredpanda.com/blog/wp-content/uploads/2014/04/village-life-indonesia-herman-damar-4.jpg",
+  "http://static.panoramio.com/photos/large/11506049.jpg",
+  "http://www.villabalisale.com/uploads/images/post/2016-12-09-post-584a283cc65f9.jpg",
+  "https://static.boredpanda.com/blog/wp-content/uploads/2014/04/village-life-indonesia-herman-damar-13.jpg",
+  "https://www.wildfrontierstravel.com/media/cache/responsive/opengraph-1200/axum/Web%20Images%20-%20Axum-FTP/B-Suggested%20Itineraries%20Carousel%20%28New%29/Indian%20Subcontinent/Village%20India/Village-India-01.jpg",
+  "https://d2391rlyg4hwoh.cloudfront.net/img/original/dscn4779.jpg",
+  "http://s2.dmcdn.net/W-h5n/1280x720-m6-.jpg",
+  "https://qph.ec.quoracdn.net/main-qimg-470373c785fb061e1a5b3d3baabc2f54-c",
+  "http://www.planetware.com/photos-large/CAM/cambodia-tonle-sap-lake-floating-village.jpg",
+  "https://s-i.huffpost.com/gadgets/slideshows/354802/slide_354802_3882730_free.jpg",
+  "https://brittanydeseau.files.wordpress.com/2011/03/ladakhvillage.jpg",
+  "https://photos.smugmug.com/Imagesofasia/PhotoStories/Meemure-Sri-Lanka-Village/i-s7K3h8m/0/21f9d767/L/Villagers%20having%20chat%20between%20them%20and%20walking%20a%20scenic%20road%20in%20Meemure%20village%20-%20Sri%20Lanka-L.jpg",
+  "https://www.ulpotha.com/images/top-banner/4.jpg",
+  "http://proof.nationalgeographic.com/files/2015/03/150318-ken-garrett-07.jpg",
+  "http://photovide.com/wp-content/uploads/2014/04/Traveler/28b.jpg",
+  "http://proof.nationalgeographic.com/files/2015/12/151231-jessie-wender-nye-03.jpg"
 ]
 
 6.times do
   urls = [ pictures.sample, pictures.sample, pictures.sample ]
-  fund = Fund.create!(user_id: traveler.id, funding_goal: rand(2000000..4000000), title: Faker::ChuckNorris.fact, about: Faker::Lorem.sentence, use_of_funds: Faker::Lorem.paragraphs )
+  fund = Fund.create!(user_id: traveler.id, funding_goal: rand(20000..40000), title: "Building #{Faker::Educator.campus} for the Community", about: Faker::Lorem.sentence, use_of_funds: Faker::Lorem.paragraphs )
 
   experience = Experience.new(
     title: "#{Faker::Zelda.location} experience",
     short_description: "#{Faker::LordOfTheRings.character}-style #{Faker::GameOfThrones.house} in #{Faker::LordOfTheRings.location}",
     long_description: "#{Faker::Lorem.paragraphs}",
-    price_cents: rand(40000..100000),
+    price_cents: rand(4000..10000),
     capacity: rand(1..10),
     address: Faker::Address.street_address,
     city: Faker::Address.city,
@@ -93,9 +96,9 @@ pictures = [
     fund: fund
     )
   p experience
-  experience.features << features
-  experience.activities << activities
-  experience.areatypes << areatypes
+  experience.features << [features.sample, features.sample, features.sample, features.sample, features.sample]
+  experience.activities << [activities.sample, activities.sample, activities.sample, activities.sample]
+  experience.areatypes << [areatypes.sample]
   experience.photo_urls = urls
   experience.save!
 
@@ -103,7 +106,7 @@ pictures = [
 
   3.times do
     trip = Trip.create!(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name , experience_id: experience.id, status: true, start_date: start_date, end_date: start_date + rand(4..10).days, user: traveler)
-    contribution = Contribution.create(user_id: traveler.id, fund_id: fund.id, trip_id: trip.id, amount: [1500, 220, 415, 600].sample)
+    contribution = Contribution.create(user_id: traveler.id, fund_id: fund.id, trip_id: trip.id, amount: [1500, 420, 415, 600, 1800, 2000].sample)
   end
 end
 

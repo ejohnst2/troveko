@@ -9,7 +9,7 @@
       <h1><%= link_to @trip.experience.title, experience_path(@trip.experience) %></h1>
       <h2><%= @experience.short_description %></h2>
       <br>
-      <h3>You're much closer to meeting the host from <%= @trip.start_date.strftime("%m/%d/%y") %> to <%= @trip.start_date.strftime("%m/%d/%y") %></h3>
+      <h3>You're much closer to meeting the host from <%= @trip.start_date.strftime("%m/%d/%y") %> to <%= @trip.end_date.strftime("%m/%d/%y") %></h3>
       <h4><%= (@trip.end_date - @trip.start_date).to_i %> nights at $<%=@trip.experience.price %> per night</h4>
       <h4>Trip Total: $<%= total_paid(@trip) %> <h4>
       <h4>Fund Contribution: $<%= @trip.contribution.amount %> </h4>
