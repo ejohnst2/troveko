@@ -47,8 +47,8 @@ class FundsController < ApplicationController
   end
 
   def fund_percentage
-    raised = @experience.fund.contributions.sum(:amount_cents)
-    goal = @experience.fund.funding_goal
+    raised = @experience.fund.contributions.sum(:amount_cents).to_f
+    goal = @experience.fund.funding_goal_cents.to_f
     result = ((raised/goal)*100)
   end
 
