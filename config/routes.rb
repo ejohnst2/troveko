@@ -1,11 +1,29 @@
 Rails.application.routes.draw do
-  resources :experiences do
-     resources :reviews, only: :create
-     resources :trips
+
+  resources :funds do
   end
 
+  resources :experiences do
+     resources :reviews, only: :create
+     resources :trips, only: [:new, :create] do
+      member do
+        get 'confirmation', to: "trips#confirmation"
+      end
+    end
+  end
+
+<<<<<<< HEAD
   devise_for :users, class_name: 'FormUser',
     :controllers => { omniauth_callbacks: 'users/omniauth_callbacks', registrations: 'users/registrations'}
+=======
+  resources :trips, only: [:edit, :update, :destroy, :show, :index] do
+    resources :contributions, only: :create
+    patch 'status', to: "trips#status"
+    patch 'cancel', to: "trips#cancel"
+  end
+  devise_for :users,
+    controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
+>>>>>>> 5d2242676786564e458aef0cd06d0677778e4a6d
 
   root to: 'pages#home'
 
@@ -20,8 +38,10 @@ Rails.application.routes.draw do
 
   resources :profiles, only: [:show]
   resources :orders, only: [:show, :create] do
+    get 'payments/capture', to: "payments#capture"
     resources :payments, only: [:new, :create]
   end
+
 
   mount Attachinary::Engine => "/attachinary"
   mount ActionCable.server => '/cable'

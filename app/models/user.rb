@@ -5,8 +5,12 @@ class User < ApplicationRecord
   has_many :trips, dependent: :destroy
   has_many :experiences
   has_many :messages, dependent: :destroy
+<<<<<<< HEAD
   has_many :identities
 
+=======
+  has_many :funds
+>>>>>>> 5d2242676786564e458aef0cd06d0677778e4a6d
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :omniauthable, omniauth_providers: [:facebook, :twitter, :google, :instagram]

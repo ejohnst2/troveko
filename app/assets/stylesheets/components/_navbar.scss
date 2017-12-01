@@ -7,7 +7,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color:#606060;
+  background-color: black;
   color:white;
   // position: top;
 }
@@ -28,20 +28,20 @@ strong, b {
     font-family: 'Source Sans Pro';
 }
 
-// a {
-//   color: white;
-//   text-decoration: none;
-//   font-weight: 500 !important;
-//   -o-transition:.5s;
-//   -ms-transition:.5s;
-//   -moz-transition:.5s;
-//   -webkit-transition:.5s;
-//   transition:.5s;
-//   text-shadow: 0px 1px rgba(0, 0, 0, 0.5);
-// }
+.navbar a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500 !important;
+  -o-transition:.5s;
+  -ms-transition:.5s;
+  -moz-transition:.5s;
+  -webkit-transition:.5s;
+  transition:.5s;
+  text-shadow: 0px 1px rgba(0, 0, 0, 0.5);
+}
 
-a:hover {
-  color: #ff6c52;
+.navbar a:hover {
+  color: '$trov_red';
   text-decoration: none;
 }
 
@@ -62,8 +62,6 @@ input {
   height: 35px;
   -webkit-filter: drop-shadow(12px 12px 25px rgba(0,0,0,0.5));
   filter: url(#drop-shadow);
-  -ms-filter: "progid:DXImageTransform.Microsoft.Dropshadow(OffX=12, OffY=12, Color='#444')";
-  filter: "progid:DXImageTransform.Microsoft.Dropshadow(OffX=12, OffY=12, Color='#444')";
   transform: translateX(-50%);
   left: 50%;
   position: absolute;
@@ -103,7 +101,7 @@ input {
 }
 
 .navbar-troveko-link:hover {
-  color: #353535;
+  // color: #353535;
   text-decoration: none;
   -webkit-filter: drop-shadow(12px 12px 25px rgba(0,0,0,0.5));
 }
