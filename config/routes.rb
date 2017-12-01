@@ -28,8 +28,10 @@ Rails.application.routes.draw do
 
   resources :profiles, only: [:show]
   resources :orders, only: [:show, :create] do
+    get 'payments/capture', to: "payments#capture"
     resources :payments, only: [:new, :create]
   end
+
 
   mount Attachinary::Engine => "/attachinary"
   mount ActionCable.server => '/cable'
