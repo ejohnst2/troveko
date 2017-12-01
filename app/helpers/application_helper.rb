@@ -4,11 +4,11 @@ module ApplicationHelper
   end
 
   def fund_percentage(experience)
-    experience.fund.contributions.sum(:amount)/experience.fund.funding_goal.to_f * 100
+    (experience.fund.contributions.sum(:amount_cents).to_f / experience.fund.funding_goal_cents.to_f) * 100
   end
 
   def contribution_percentage(trip)
-    (trip.contribution.amount)/(trip.experience.fund.funding_goal).to_f * 100
+    (trip.contribution.amount_cents.to_f / trip.experience.fund.funding_goal_cents.to_f) * 100
   end
 
   def total_paid(trip)

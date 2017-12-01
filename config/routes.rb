@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   resources :funds do
   end
 
@@ -12,13 +13,13 @@ Rails.application.routes.draw do
     end
   end
 
+  devise_for :users, class_name: 'FormUser',
+    :controllers => { omniauth_callbacks: 'users/omniauth_callbacks', registrations: 'users/registrations'}
   resources :trips, only: [:edit, :update, :destroy, :show, :index] do
     resources :contributions, only: :create
     patch 'status', to: "trips#status"
     patch 'cancel', to: "trips#cancel"
   end
-  devise_for :users,
-    controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
 
   root to: 'pages#home'
 
@@ -26,10 +27,17 @@ Rails.application.routes.draw do
     resources :messages
   end
 
+  devise_scope :user do
+    get '/users/auth/:provider/upgrade' => 'omniauth_callbacks#upgrade', as: :user_omniauth_upgrade
+    get '/users/auth/:provider/setup', :to => 'omniauth_callbacks#setup'
+  end
+
   resources :profiles, only: [:show]
   resources :orders, only: [:show, :create] do
+    get 'payments/capture', to: "payments#capture"
     resources :payments, only: [:new, :create]
   end
+
 
   mount Attachinary::Engine => "/attachinary"
   mount ActionCable.server => '/cable'

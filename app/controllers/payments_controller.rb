@@ -1,5 +1,5 @@
 class PaymentsController < ApplicationController
-  before_action :set_order
+  before_action :set_order, only: [:new, :create]
 
   def new
   end
@@ -14,7 +14,8 @@ class PaymentsController < ApplicationController
       customer:     customer.id,   # You should store this customer id and re-use it.
       amount:       @order.amount_cents,
       description:  "Payment for experience #{@order.experience_sku} for order #{@order.id}",
-      currency:     @order.amount.currency
+      currency:     @order.amount.currency,
+      capture:      false
     )
 
     @order.update(payment: charge.to_json, state: 'paid')

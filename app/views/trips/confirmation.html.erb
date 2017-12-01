@@ -38,7 +38,7 @@
      <center><i class="fa fa-thumbs-o-up fa-5x" aria-hidden="true"></i></center>
 
     <center>
-      <h3>You've contributed $<%= @trip.contribution.amount %>, bringing the community <%= contribution_percentage(@trip) %>% closer to <%= @trip.experience.fund.title %></h3>
+      <h3>You've contributed <%= money_without_cents_and_with_symbol(@trip.contribution.amount) %>, bringing the community <%= contribution_percentage(@trip).round(2) %>% closer to <%= @trip.experience.fund.title %></h3>
     </center>
 
     <br>
@@ -48,6 +48,24 @@
     </div>
   </div>
 
+        <strong><p>Start Date:</strong> <%= @trip.start_date %></p>
+        <strong><p>End Date:</strong>  <%= @trip.end_date %></p>
+        <strong><p>Length:</strong> <%= (@trip.end_date - @trip.start_date).to_i %> nights</p>
+        <strong><p>Price:</strong>  <%= money_without_cents_and_with_symbol(@trip.experience.price) %></p>
+        <strong><p>Total:</strong> <%= money_without_cents_and_with_symbol(@trip.experience.price  *  (@trip.end_date - @trip.start_date).to_i) %></p>
+<!--         <p>Contribution: <%#= @trip.contribution %></p>
+ -->
+      </div>
+    </div>
+    </div>
+     </div>
+    <%= form_tag orders_path do %>
+    <%= hidden_field_tag 'trip_id', @trip.id %>
+    <%= submit_tag 'Purchase', class: 'btn btn-primary' %>
+    <% end %>
+
+
+<!--
     <!-- links and paths for page -->
 <!--
        <div class="row">
@@ -55,10 +73,10 @@
         <div class="col-md-4">
           <div class="centered-item">
             <h3>Booking Details</h3>
-            <strong><p>Length:</strong> <%= (@trip.end_date - @trip.start_date).to_i %> nights</p>
-            <strong><p>Price:</strong>  $<%=@trip.experience.price %></p>
-            <strong><p>Trip:</strong> $<%= @trip.experience.price  *  (@trip.end_date - @trip.start_date).to_i %></p>
-            <strong><p>Contribution:</strong> $<%= @trip.contribution.amount %></p>
+            <strong><p>Length:</strong> <%#= (@trip.end_date - @trip.start_date).to_i %> nights</p>
+            <strong><p>Price:</strong>  $<#%=@trip.experience.price %></p>
+            <strong><p>Trip:</strong> $<%#= @trip.experience.price  *  (@trip.end_date - @trip.start_date).to_i %></p>
+            <strong><p>Contribution:</strong> $<%#= money_without_cents_and_with_symbol(@trip.contribution.amount) %></p>
           </div>
         </div>
       </div>

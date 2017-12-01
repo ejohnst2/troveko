@@ -2,5 +2,6 @@ class Fund < ApplicationRecord
   belongs_to :user
   has_one :experience
   has_many :contributions
-  validates :funding_goal, presence: true
+  monetize :funding_goal_cents
+  validates :funding_goal_cents, presence: true
 end

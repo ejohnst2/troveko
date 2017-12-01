@@ -16,7 +16,15 @@ gem 'sass-rails'
 gem 'simple_form'
 gem 'uglifier'
 gem 'devise'
+gem 'omniauth'
 gem 'omniauth-facebook'
+gem 'omniauth-twitter'
+gem 'omniauth-instagram'
+gem 'twitter'
+gem 'instagram'
+gem 'omniauth-google-oauth2'
+# gem 'google-api-client', require: 'google/api_client'
+
 gem 'faker'
 gem 'geocoder'
 gem 'country_select'
@@ -26,6 +34,10 @@ gem 'postmark-rails'
 
 gem 'money-rails'
 gem 'stripe'
+
+gem 'remotipart', github: 'mshibuya/remotipart'
+gem 'rails_admin', '>= 1.0.0.rc'
+
 
 source 'https://rails-assets.org' do
   gem "rails-assets-underscore"

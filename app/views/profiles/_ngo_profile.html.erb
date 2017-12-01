@@ -43,10 +43,10 @@
         <div role="tabpanel" class="tab-pane active no-border" id="booking">
           <% if @ngo_trips.select{ |x| x.status == false}.empty? %>
 
-          <div class="activity empty">
-            <p>Oh no you don't have any pending bookings 😢 </p> <br>
-            <p>Use social media to promote your experiences or create a new one <%= link_to "here", new_experience_path %></p>
-          </div>
+            <div class="activity empty">
+              <p>Oh no you don't have any pending bookings 😢 </p> <br>
+              <p>Use social media to promote your experiences or create a new one <%= link_to "here", new_experience_path %></p>
+            </div>
 
           <% else %>
 
@@ -97,7 +97,6 @@
       </div>
       <% end %>
 
-
     </div>
   </div>
 </div>
@@ -110,4 +109,39 @@
 <%#= link_to 'Create a New Fund', new_fund_path %>
 <%#= link_to 'Create your Public Profile' %>
 
+                <div class="booking-confirm">
+               <%= cl_image_tag trip.experience.photos[0].path, {:class => "profile-image", :effect=>"auto_color", :width=>50} %>
+              <%= link_to "#{trip.experience.title}", experience_path(trip.experience), class: "meal-link" %>
+                <% if trip.cancel? == false %>
+                    <%= link_to "Cancel", trip_cancel_path(trip, cancel: true), method: :patch, class: "meal-link btn btn-primary end" %>
+                  <% else %>
+                    <p><%= "Cancellation pending please check email" %></p>
+                  <% end %>
+              </div>
+              <% end %>
+              </div>
+              <% end %>
+            </div>
+        </div>
+         <div role="tabpanel" class="tab-pane no-border" id="meals">
+            <div class="activity empty">
+              <% @experiences.each do |experience| %>
+               <div class="booking-content">
+
+              <div class="experience-image"><%= cl_image_tag experience.photos[0].path, {:class => "host-image", :effect=>"auto_color", :width=>300} %></div>
+              <div class="card-options">
+              <%= cl_image_tag trip.experience.photos[0].path, {:class => "profile-image", :effect=>"auto_color", :width=>50} %>
+              <%= link_to "#{experience.title}", experience_path(experience), id: "meal-link" %>
+              <%= link_to "| Edit experience", edit_experience_path(experience.id), id: "meal-link" %>
+              </div>
+            </div>
+              <% end %>
+              <center><%= button_to "Add new experience", new_experience_path, :method => :get, class: "btn btn-primary", id: "meal-button" %></center>
+
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
