@@ -48,7 +48,9 @@
           <br>
           <%= link_to 'View All Experiences', experiences_path %>
           <%= link_to 'Book This Experience', new_experience_trip_path(@experience) %>
-          <%= link_to 'Message Host', conversations_path(sender_id: current_user.id, recipient_id: @experience.user.id), method: :post %>
+          <% if !@user.nil? %>
+            <%= link_to 'Message Host', conversations_path(sender_id: current_user.id, recipient_id: @experience.user.id), method: :post %>
+          <% end %>
           <% if @experience.user == @user %>
           <!-- need to add permission for this depending on what user this is with pundit  -->
           <%= link_to 'Edit Experience', edit_experience_path(@experience) %>

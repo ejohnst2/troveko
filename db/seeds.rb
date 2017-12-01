@@ -81,7 +81,7 @@ pictures = [
 
 6.times do
   urls = [ pictures.sample, pictures.sample, pictures.sample ]
-  fund = Fund.create!(user_id: traveler.id, funding_goal: rand(2000000..4000000), title: Faker::ChuckNorris.fact, about: Faker::Lorem.sentence, use_of_funds: Faker::Lorem.paragraphs )
+  fund = Fund.create!(user_id: traveler.id, funding_goal_cents: rand(2000000..4000000), title: Faker::ChuckNorris.fact, about: Faker::Lorem.sentence, use_of_funds: Faker::Lorem.paragraphs )
 
   experience = Experience.new(
     title: "#{Faker::Zelda.location} experience",
@@ -109,7 +109,7 @@ pictures = [
 
   3.times do
     trip = Trip.create!(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name , experience_id: experience.id, status: true, start_date: start_date, end_date: start_date + rand(4..10).days, user: traveler)
-    contribution = Contribution.create(user_id: traveler.id, fund_id: fund.id, trip_id: trip.id, amount: [1500, 220, 415, 600].sample)
+    contribution = Contribution.create(user_id: traveler.id, fund_id: fund.id, trip_id: trip.id, amount_cents: [150000, 22000, 41500, 60000].sample)
   end
 end
 

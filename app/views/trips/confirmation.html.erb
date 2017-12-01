@@ -10,9 +10,9 @@
       <h2><%= @experience.short_description %></h2>
       <br>
       <h3>You're much closer to meeting the host from <%= @trip.start_date.strftime("%m/%d/%y") %> to <%= @trip.start_date.strftime("%m/%d/%y") %></h3>
-      <h4><%= (@trip.end_date - @trip.start_date).to_i %> nights at $<%=@trip.experience.price %> per night</h4>
-      <h4>Trip Total: $<%= total_paid(@trip) %> <h4>
-      <h4>Fund Contribution: $<%= @trip.contribution.amount %> </h4>
+      <h4><%= (@trip.end_date - @trip.start_date).to_i %> nights at <%=money_without_cents_and_with_symbol(@trip.experience.price) %> per night</h4>
+      <h4>Trip Total: <%= money_without_cents_and_with_symbol(total_paid(@trip)) %> <h4>
+      <h4>Fund Contribution: <%= money_without_cents_and_with_symbol(@trip.contribution.amount) %> </h4>
     </div>
   </div>
 </div>
@@ -38,7 +38,7 @@
      <center><i class="fa fa-thumbs-o-up fa-5x" aria-hidden="true"></i></center>
 
     <center>
-      <h3>You've contributed $<%= @trip.contribution.amount %>, bringing the community <%= contribution_percentage(@trip) %>% closer to <%= @trip.experience.fund.title %></h3>
+      <h3>You've contributed <%= money_without_cents_and_with_symbol(@trip.contribution.amount) %>, bringing the community <%= contribution_percentage(@trip).round(2) %>% closer to <%= @trip.experience.fund.title %></h3>
     </center>
 
     <br>
@@ -51,8 +51,8 @@
         <strong><p>Start Date:</strong> <%= @trip.start_date %></p>
         <strong><p>End Date:</strong>  <%= @trip.end_date %></p>
         <strong><p>Length:</strong> <%= (@trip.end_date - @trip.start_date).to_i %> nights</p>
-        <strong><p>Price:</strong>  $<%=@trip.experience.price %></p>
-        <strong><p>Total:</strong> $<%= @trip.experience.price  *  (@trip.end_date - @trip.start_date).to_i %></p>
+        <strong><p>Price:</strong>  <%= money_without_cents_and_with_symbol(@trip.experience.price) %></p>
+        <strong><p>Total:</strong> <%= money_without_cents_and_with_symbol(@trip.experience.price  *  (@trip.end_date - @trip.start_date).to_i) %></p>
 <!--         <p>Contribution: <%#= @trip.contribution %></p>
  -->
       </div>
@@ -76,7 +76,7 @@
             <strong><p>Length:</strong> <%#= (@trip.end_date - @trip.start_date).to_i %> nights</p>
             <strong><p>Price:</strong>  $<#%=@trip.experience.price %></p>
             <strong><p>Trip:</strong> $<%#= @trip.experience.price  *  (@trip.end_date - @trip.start_date).to_i %></p>
-            <strong><p>Contribution:</strong> $<%#= @trip.contribution.amount %></p>
+            <strong><p>Contribution:</strong> $<%#= money_without_cents_and_with_symbol(@trip.contribution.amount) %></p>
           </div>
         </div>
       </div>

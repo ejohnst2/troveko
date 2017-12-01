@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171130195337) do
+ActiveRecord::Schema.define(version: 20171201170233) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -65,9 +65,9 @@ ActiveRecord::Schema.define(version: 20171130195337) do
   create_table "contributions", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "fund_id"
-    t.integer  "amount"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "amount_cents"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
     t.integer  "trip_id"
     t.index ["fund_id"], name: "index_contributions_on_fund_id", using: :btree
     t.index ["trip_id"], name: "index_contributions_on_trip_id", using: :btree
@@ -120,9 +120,9 @@ ActiveRecord::Schema.define(version: 20171130195337) do
 
   create_table "funds", force: :cascade do |t|
     t.integer  "user_id"
-    t.integer  "funding_goal"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.integer  "funding_goal_cents"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
     t.string   "title"
     t.text     "about"
     t.text     "use_of_funds"

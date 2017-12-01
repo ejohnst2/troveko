@@ -2,5 +2,5 @@
 <ul>
   <li>Status: <%= @order.state %></li>
   <li>Item: <%= @order.experience_sku %></li>
-  <li>Amount: <%= humanized_money_with_symbol(@order.amount) %></li>
+  <li>Amount: <%= money_without_cents_and_with_symbol(@order.amount) %></li>
 <ul>
