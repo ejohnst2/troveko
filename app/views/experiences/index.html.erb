@@ -1,17 +1,15 @@
-<div class="container-fluid">
-  <%= render 'shared/searchfilters' %>
-</div>
-
-<div class="container-fluid">
-
-  <center>
+ <center>
     <h1>Where will your next adventure be?</h1>
-      <br>
-      <%= link_to 'Grid', experiences_path, remote: true, method: :get, class: 'btn-primary btn-xl' %>
-      <%= link_to 'Map', experiences_path(map: true), remote: true, method: :get, class: 'btn-primary btn-xl' %>
-      <br>
+    <br>
+
+    <%= render 'shared/searchfilters' %>
+
+
+      <%#= link_to 'Grid', experiences_path, remote: true, method: :get, class: 'btn-primary btn-xl' %>
+      <%#= link_to 'Map', experiences_path(map: true), remote: true, method: :get, class: 'btn-primary btn-xl' %>
   </center>
 
+<div class="container-fluid">
 
   <div class="row" style="padding-top: 40px;">
 <!-- beginning of card loop -->
