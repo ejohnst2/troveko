@@ -26,16 +26,6 @@ class PaymentsController < ApplicationController
     redirect_to new_order_payment_path(@order)
   end
 
-  def capture
-    order = Order.where(state: 'paid').find(params[:order_id])
-    payment = JSON.parse(order.payment)
-    charge = Stripe::Charge.retrieve(payment["id"])
-    charge.capture
-
-    order.update(payment: charge.to_json, state: 'fulfilled')
-    redirect_to order_path(order)
-  end
-
   private
 
     def set_order

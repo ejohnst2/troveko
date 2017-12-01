@@ -23,7 +23,7 @@ class TripsController < ApplicationController
 
     if @trip.save
       if params[:trip][:contribution].present?
-        Contribution.create!(user: current_user, trip: @trip, fund: @trip.experience.fund, amount: params[:trip][:contribution] )
+        Contribution.create!(user: current_user, trip: @trip, fund: @trip.experience.fund, amount_cents: params[:trip][:contribution] )
       end
       redirect_to confirmation_experience_trip_path(@experience.id, @trip.id)
     else
@@ -50,7 +50,8 @@ class TripsController < ApplicationController
   def status
     @trip = Trip.find(params[:trip_id])
     @trip.update(status: params[:status])
-    redirect_to order_payments_capture_path(@trip.order.id), method: :post
+    @trip.order.capture
+    redirect_to order_path(@trip.order)
   end
 
   def cancel
