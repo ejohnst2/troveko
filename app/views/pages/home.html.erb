@@ -1,15 +1,21 @@
 <%= render 'shared/navbar' %>
 
-<div class="banner" style="background-image:     linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('<%= image_path("banner.jpg") %>');">
+<div class="banner" style="background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('<%= image_path("banner.jpg") %>');">
   <div class="banner-content">
     <h1>Impact Through Adventure</h1>
-    <h2>How it Works</h2>
+    <br>
+    <h2>Where Will Life Take You?</h2>
+    <br>
+    <h5 class="line-1 anim-typewriter">Jatiluwih, Bali, Indonesia...</h5>
+    <!-- <h2>How it Works</h2> -->
   </div>
 </div>
 
 
 </div>
-
+<div class="placeholder">
+  <h1>Discover Communities</h1>
+</div>
 <!-- links in boxes should be added -->
 
 <div class="container" id="picturerow">
@@ -43,8 +49,9 @@
 </div>
 
 <div class="placeholder">
-  <h1>Bali Experience</h1>
+  <h1>Stories from the Backpack</h1>
 </div>
+
 
 <div class="container" id="picturerow">
   <div class="row" id="experience">
@@ -75,9 +82,3 @@
 </div>
 </div>
 </div>
-
-<div class="placeholder">
-  <h1>India Experience</h1>
-</div>
-
-<%= link_to 'View Experiences', experiences_path %>

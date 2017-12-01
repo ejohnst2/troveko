@@ -1,12 +1,35 @@
 .navbar-filters{
-height:70px;
-background-color: #606060;
 color: white;
+height:70px;
+background-color: rgba(225, 225, 225, .8);
 padding: 0px 30px;
 display: flex;
 align-items: center;
 }
 
+// .grid-map{
+// height:70px;
+// // background-color: black;
+// // padding: 0px 30px;
+// display: flex;
+// align-items: center;
+// flex-direction: row-reverse;
+// }
+
 .filters-item{
   color:black;
 }
+
+.floatright {
+  float:right;
+}
+
+.sticky {
+    font-size: 15px;
+    color: #000000;
+    border: 1px solid black;
+    position: fixed;
+    height: 50px;
+    width: 100%;
+    transition: all 0.4s ease;
+  }
