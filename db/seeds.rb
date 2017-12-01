@@ -85,13 +85,13 @@ pictures = [
 
 8.times do
   urls = [ pictures.sample, pictures.sample, pictures.sample ]
-  fund = Fund.create!(user_id: traveler.id, funding_goal: rand(20000..40000), title: "Building #{Faker::Educator.campus} for the Community", about: Faker::Lorem.sentence, use_of_funds: Faker::Lorem.paragraphs )
+  fund = Fund.create!(user_id: traveler.id, funding_goal_cents: rand(2000000..4000000), title: "Building #{Faker::Educator.campus} for the Community", about: Faker::Lorem.sentence, use_of_funds: Faker::Lorem.paragraphs )
 
   experience = Experience.new(
     title: "#{Faker::Zelda.location} experience",
     short_description: "#{Faker::LordOfTheRings.character}-style #{Faker::GameOfThrones.house} in #{Faker::LordOfTheRings.location}",
     long_description: "#{Faker::Lorem.paragraphs}",
-    price_cents: rand(4000..10000),
+    price_cents: rand(40000..100000),
     capacity: rand(1..10),
     address: Faker::Address.street_address,
     city: Faker::Address.city,
