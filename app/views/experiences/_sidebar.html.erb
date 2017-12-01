@@ -28,14 +28,8 @@
       <h3><%= money_without_cents_and_with_symbol(@experience.price) %> per night</h3>
     </div>
 
-    <div class="form">
-      <form>
-        <input type="date" class="date">
-        <input type="date" class="date">
-        <input type="number" class="date" placeholder="Guests">
-        <br>
-        <input type="submit" class="button" value="Start Your Adventure">
-      </form>
+    <div class="">
+      <%= button_to "Start Your Adventure", new_experience_trip_path(@experience), :method => :get, class: "btn-lg btn-primary", id: "meal-button" %>
     </div>
   </div>
 </div>
@@ -45,3 +39,11 @@
 <!-- </div>
 -->
 </center>
+
+<!--  <form>
+        <input type="date" class="date">
+        <input type="date" class="date">
+        <input type="number" class="date" placeholder="Guests">
+        <br>
+        <input type="submit" class="button" value="Start Your Adventure">
+      </form> -->

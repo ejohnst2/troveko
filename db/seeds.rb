@@ -65,9 +65,8 @@ pictures = [
   "https://static.boredpanda.com/blog/wp-content/uploads/2014/04/village-life-indonesia-herman-damar-13.jpg",
   "http://yourshot.nationalgeographic.com/u/fQYSUbVfts-T7odkrFJckdiFeHvab0GWOfzhj7tYdC0uglagsDQmfkyv8JBdgoks3HiyL0zo7bi4A3XodBJPUesqEy-0dgsZUaS7Y4Qpm67ypHveGo14D0K63HGKvjJ2P0MEjvptFQz0qXHpp1hKSjJJvoSmlO01hLNK_L-o_Qyfd0iVGOLu9cl0D8aXdSkQrPUYNGv6cntZIpbPTeEQJSom/",
   "http://www.theblogismine.com/wp-content/uploads/2013/10/National-Geographic-Launches-YourShot-Photo-Sharing-Platform-01.jpg",
-  "http://naturephotojournal.com/wp-content/uploads/2013/10/12_prod-yourshot-321272-2071224.jpg",
   "http://nnimgt-a.akamaihd.net/transform/v1/crop/frm/storypad-GJZ5TVpAk84wrTzsQfLQRB/cb8098bb-b1ea-4dcc-9959-d0f07e8e37ba.jpg/r0_182_3500_2150_w1200_h678_fmax.jpg",
-  "http://tekey.net/b/wp-content/uploads/2015/05/Maravillosas-tomas-de-la-vida-cotidiana-en-Indonesia-2.jpg"
+  "http://tekey.net/b/wp-content/uploads/2015/05/Maravillosas-tomas-de-la-vida-cotidiana-en-Indonesia-2.jpg",
   "https://static.boredpanda.com/blog/wp-content/uploads/2014/04/village-life-indonesia-herman-damar-4.jpg",
   "http://static.panoramio.com/photos/large/11506049.jpg",
   "http://www.villabalisale.com/uploads/images/post/2016-12-09-post-584a283cc65f9.jpg",
