@@ -17,18 +17,18 @@
 
 /* -----------------------Profile info --------------------- */
 .profile-info {
-  background-color: white;
+  background-color: transparent;
   border-radius: 7px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 30px;
+  padding: 20px;
 }
 
 .profile-image {
   border-radius: 50%;
-  width: 40%;
-  margin: 20px;
+  width: 30%;
+  margin: 15px;
 }
 
 .edit-profile {
@@ -53,7 +53,7 @@
 .activity {
   background-color: white;
   padding: 50px;
-  max-width: 600px;
+  // max-width: 600px;
   border-radius: 7px;
 }
 
