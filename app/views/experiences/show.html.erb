@@ -50,12 +50,12 @@
           <br>
          <div class="row ngo-actions">
             <%= button_to "Start Your Adventure", new_experience_trip_path(@experience), :method => :get, class: "btn-lg btn-primary", id: "meal-button" %>
-            <%= button_to "Message Organization", new_fund_path, :method => :get, class: "btn-lg btn-primary", id: "meal-button" %>
             <%= button_to 'View All Experiences', experiences_path, :method => :get, class: "btn-lg btn-primary", id: "meal-button" %>
-          </div>
-          <% if !@user.nil? %>
-            <%= link_to 'Message Host', conversations_path(sender_id: current_user.id, recipient_id: @experience.user.id), method: :post %>
+            <% if !current_user.nil? %>
+            <%= button_to 'Message Organization', conversations_path(sender_id: current_user.id, recipient_id: @experience.user.id), method: :post, class: "btn-lg btn-primary", id: "meal-button" %>
           <% end %>
+          </div>
+
           <% if @experience.user == @user %>
           <!-- need to add permission for this depending on what user this is with pundit  -->
           <%= link_to 'Edit Experience', edit_experience_path(@experience) %>
@@ -72,7 +72,7 @@
 </div>
 
 <div class="col-lg-4 col-md-4 col-xs-4" style="margin-left: 66.5%;" id="stickycolumn">
-  <%= render 'sidebar' %>
+  <%= render 'experiences/sidebar' %>
 </div>
 </div>
 
