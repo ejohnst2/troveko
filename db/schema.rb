@@ -182,7 +182,7 @@ ActiveRecord::Schema.define(version: 20171130195337) do
     t.integer  "experience_id"
     t.date     "start_date"
     t.date     "end_date"
-    t.bigint   "user_id"
+    t.integer  "user_id"
     t.boolean  "status",        default: false
     t.datetime "created_at",                    null: false
     t.datetime "updated_at",                    null: false

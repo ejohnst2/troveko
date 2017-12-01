@@ -7,11 +7,12 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-Experience.destroy_all
-User.destroy_all
 Feature.destroy_all
 Activity.destroy_all
 Areatype.destroy_all
+Experience.destroy_all
+Identity.destroy_all
+User.destroy_all
 
 new_user_one = User.new(email: 'trovekoboy@gmail.com', password: 'bunky123', ngo: true)
 new_user_one.save!
@@ -67,7 +68,7 @@ areatypes = [
 pictures = [
   "http://yourshot.nationalgeographic.com/u/fQYSUbVfts-T7odkrFJckdiFeHvab0GWOfzhj7tYdC0uglagsDQmfkyv8JBdgoks3HiyL0zo7bi4A3XodBJPUesqEy-0dgsZUaS7Y4Qpm67ypHveGo14D0K63HGKvjJ2P0MEjvptFQz0qXHpp1hKSjJJvoSmlO01hLNK_L-o_Qyfd0iVGOLu9cl0D8aXdSkQrPUYNGv6cntZIpbPTeEQJSom/",
   "http://www.theblogismine.com/wp-content/uploads/2013/10/National-Geographic-Launches-YourShot-Photo-Sharing-Platform-01.jpg",
-  "http://naturephotojournal.com/wp-content/uploads/2013/10/12_prod-yourshot-321272-2071224.jpg",
+  # "http://naturephotojournal.com/wp-content/uploads/2013/10/12_prod-yourshot-321272-2071224.jpg",
   "http://nnimgt-a.akamaihd.net/transform/v1/crop/frm/storypad-GJZ5TVpAk84wrTzsQfLQRB/cb8098bb-b1ea-4dcc-9959-d0f07e8e37ba.jpg/r0_182_3500_2150_w1200_h678_fmax.jpg",
   "http://tekey.net/b/wp-content/uploads/2015/05/Maravillosas-tomas-de-la-vida-cotidiana-en-Indonesia-2.jpg"
 ]

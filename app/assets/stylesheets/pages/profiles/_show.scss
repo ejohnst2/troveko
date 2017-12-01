@@ -26,6 +26,11 @@
   height: 100%;
 }
 
+.host-image {
+  border-radius: 1%;
+}
+
+
 .profile-image {
   border-radius: 50%;
   width: 40%;
@@ -65,6 +70,9 @@
 
 .booking-content {
   margin: 10px;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
 }
 
 .pending {
