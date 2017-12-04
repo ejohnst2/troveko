@@ -51,6 +51,12 @@ class ExperiencesController < ApplicationController
   def show
     @experience_coordinates = { lat: @experience.latitude, lng: @experience.longitude }
     @review = Review.new
+
+    @markers = Gmaps4rails.build_markers(@experience) do |experience, marker|
+      marker.lat experience.latitude
+      marker.lng experience.longitude
+      marker.infowindow render_to_string(partial: "map_box", locals: { experience: experience })
+    end
     # @conversation = Conversation.new
   end
 

@@ -13,26 +13,65 @@
       <div class="hostimages">
         <img src="<%= cl_image_path @experience.photos[0].path %>" alt="host" class="photo">
       </div>
-      <%= render 'shared/navbarshow' %>
-      <div class="details">
-        <h2><%= @experience.title %></h2>
-        <h4><%= @experience.short_description %></h4>
-        <h4><%= @experience.city %>, <%= @experience.country %></h4>
 
-        <h2>Details</h2>
-        <p>Price: <%= money_without_cents_and_with_symbol(@experience.price) %></p>
-        <p>Capacity: <%= @experience.capacity %></p>
-        <p><%= render 'experiences/features' %></p>
+      <div class="container show-headline">
+        <span><h1 style="padding-left: 60px;"><%= @experience.title %><sm><%= @experience.short_description %></sm></h1></span>
+      </div>
+
+      <%= render 'shared/navbarshow' %>
+
+      <div class="details">
+
+        <h2>Overview</h2>
+        <div class="flex-around">
+          <p><%= render 'experiences/areatypes' %></p>
+          <p><i class="fa fa-map-marker"></i><%= @experience.city %>, <%= @experience.country %></p>
+          <p> <i class="fa fa-money"></i> <%= money_without_cents_and_with_symbol(@experience.price) %> per person</p>
+          <p><i class="fa fa-users"></i><%= @experience.capacity %></p>
+        </div>
+        <br>
+
+        <div class="flex">
+          <%= render 'experiences/features' %>
+        </div>
 
 
         <h2>About the Host</h2>
-        Details: <%= @experience.long_description %>
+        <%= @experience.long_description %>
 
-        <h2>About the Experience</h2>
-        Activities: <%= render 'experiences/activities' %>
-        <br><br>
-        Area Types: <%= render 'experiences/areatypes' %>
-        <br>
+        <h2 id="activities">About the Experience</h2>
+        <h4>Experience Highlights</h4>
+        <ul>
+          <li>Participate in traditional craft workshops and help support local infrastructure in Lima.</li>
+          <li>Learn how to transform raw materials into usable crafts from experienced artisans in a variety of workshops ranging from weaving to ceramic pottery.</li>
+          <li>Listen to the important stories of Ayacucho artisans who were displaced as a result of domestic terrorism in Peru.
+          </li>
+        </ul>
+        <p> This experience includes activies such as:</p>
+
+
+        <div class="flex">
+          <%= render 'experiences/activities' %>
+        </div>
+
+        <h2 id="impact">Impact</h2>
+
+        <h4><%= @experience.fund.title %></h4>
+        <h5>Description</h5>
+        <p><%= @experience.fund.about %></p>
+        <h5>Use of Funds</h5>
+        <p><%= @experience.fund.use_of_funds %></p>
+        <h4>About The Organization</h4>
+        <h5>Mission</h5>
+        <p>To save all animals on the planet</p>
+        <h5>Programs</h5>
+        <p>We offer several programs including assisting animals with their daily lives</p>
+        <h5>Website</h5>
+        <p>visit www.projectkalpa.org for more information</p>
+
+        <h2 id="location">Location</h2>
+
+        <%= render 'map' %>
 
 
 
@@ -47,12 +86,12 @@
           <% end %>
           <%= render 'reviews/form', experience: @experience, review: @review %>
           <br>
-         <div class="row ngo-actions">
+          <div class="row ngo-actions">
             <%= button_to "Start Your Adventure", new_experience_trip_path(@experience), :method => :get, class: "btn-lg btn-primary", id: "meal-button" %>
             <%= button_to 'View All Experiences', experiences_path, :method => :get, class: "btn-lg btn-primary", id: "meal-button" %>
             <% if !current_user.nil? %>
             <%= button_to 'Message Organization', conversations_path(sender_id: current_user.id, recipient_id: @experience.user.id), method: :post, class: "btn-lg btn-primary", id: "meal-button" %>
-          <% end %>
+            <% end %>
           </div>
 
           <% if @experience.user == @user %>
@@ -75,12 +114,20 @@
 </div>
 </div>
 
-<!-- messaging test -->
+<!-- js for map rendering -->
 
-
-
-<!-- reviews for experience -->
-
-
-<!-- links for page -->
-
+<% content_for(:after_js) do %>
+  <script>
+    var handler = Gmaps.build('Google');
+      handler.buildMap({ internal: { id: 'map' } }, function() {
+        markers = handler.addMarkers(<%= raw @markers.to_json %>);
+        handler.bounds.extendWith(markers);
+        handler.fitMapToBounds();
+        if (markers.length == 0) {
+          handler.getMap().setZoom(2);
+        } else if (markers.length == 1) {
+          handler.getMap().setZoom(14);
+        }
+      });
+  </script>
+<% end %>

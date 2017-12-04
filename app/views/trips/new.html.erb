@@ -2,9 +2,9 @@
   <div class="row">
       <h1><%= @experience.title %></h1>
       <h4><%= @experience.short_description %></h4>
-      <h3>You're much closer to meeting the host from [start date] to [end date]</h3>
+      <h3>Let your adventure begin</h3>
     </div>
-    <div class="row">
-        <%= render 'trips/form', experience: @experience %>
-    </div>
+
+    <%= render 'trips/form', experience: @experience %>
+
 </div>
