@@ -90,7 +90,7 @@ pictures = [
     title: "#{Faker::Zelda.location} experience",
     short_description: "#{Faker::LordOfTheRings.character}-style #{Faker::GameOfThrones.house} in #{Faker::LordOfTheRings.location}",
     long_description: "#{Faker::Lorem.paragraphs}",
-    price_cents: rand(40000..100000),
+    price: rand(400..1000),
     capacity: rand(1..10),
     address: Faker::Address.street_address,
     city: Faker::Address.city,
@@ -112,7 +112,7 @@ pictures = [
 
   3.times do
     trip = Trip.create!(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name , experience_id: experience.id, status: true, start_date: start_date, end_date: start_date + rand(4..10).days, user: traveler)
-    contribution = Contribution.create(user_id: traveler.id, fund_id: fund.id, trip_id: trip.id, amount_cents: [150000, 22000, 41500, 60000].sample)
+    contribution = Contribution.create(user_id: traveler.id, fund_id: fund.id, trip_id: trip.id, amount: [1500, 220, 415, 600].sample)
   end
 end
 

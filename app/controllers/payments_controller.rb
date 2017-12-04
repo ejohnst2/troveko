@@ -1,13 +1,15 @@
 class PaymentsController < ApplicationController
   before_action :set_order, only: [:new, :create]
+  before_action :authenticate_user!
+
 
   def new
   end
 
   def create
-    customer = Stripe::Customer.create(
-      source: params[:stripeToken],
-      email:  params[:stripeEmail]
+     customer = Stripe::Customer.create(
+      source: params[:token],
+      email:  current_user.email
     )
 
     charge = Stripe::Charge.create(
@@ -19,9 +21,9 @@ class PaymentsController < ApplicationController
     )
 
     @order.update(payment: charge.to_json, state: 'paid')
-    redirect_to order_path(@order)
+    render json: { url: order_path(@order) }
 
-  rescue Stripe::CardError => e
+    rescue Stripe::CardError => e
     flash[:alert] = e.message
     redirect_to new_order_payment_path(@order)
   end
