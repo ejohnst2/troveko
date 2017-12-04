@@ -1,6 +1,6 @@
 module ApplicationHelper
   def facebook_image(user)
-    avatar_url = user.facebook_picture_url || "https://kitt.lewagon.com/placeholder/users/anyuser"
+    avatar_url = user.facebook_picture_url || "https://via.placeholder.com/50x50"
   end
 
   def fund_percentage(experience)

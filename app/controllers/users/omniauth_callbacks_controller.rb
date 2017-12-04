@@ -20,7 +20,11 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
     @user = @identity.user || current_user || User.find_by(email: @identity.email)
     if @user.nil?
-      @user = User.create( email: @identity.email || "" )
+      @user = User.create(
+        email: @identity.email,
+        facebook_picture_url: env["omniauth.auth"].info.image,
+        password: Devise.friendly_token[0,20]
+      )
       @identity.update_attribute( :user_id, @user.id )
     end
 
@@ -36,7 +40,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
       sign_in_and_redirect @user, event: :authentication
     else
       # session["devise.#{provider}_data"] = env["omniauth.auth"]
-    redirect_to root_path
+      redirect_to root_path
     end
   end
 end
