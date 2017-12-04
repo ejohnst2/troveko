@@ -22,14 +22,13 @@
         <h2>Details</h2>
         <p>Price: <%= money_without_cents_and_with_symbol(@experience.price) %></p>
         <p>Capacity: <%= @experience.capacity %></p>
+        <p><%= render 'experiences/features' %></p>
+
 
         <h2>About the Host</h2>
         Details: <%= @experience.long_description %>
-        <br>
 
         <h2>About the Experience</h2>
-        Features: <%= render 'experiences/features' %>
-        <br><br>
         Activities: <%= render 'experiences/activities' %>
         <br><br>
         Area Types: <%= render 'experiences/areatypes' %>
