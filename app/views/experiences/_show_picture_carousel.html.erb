@@ -1,0 +1,24 @@
+
+ <div id="myCarousel" class="carousel slide photo" data-ride="carousel">
+    <div class="experience-caption">
+      <h1><%= @experience.title %></h1>
+      <h4><%= @experience.short_description %></h4>
+    </div>
+
+    <div class="carousel-inner">
+      <% @experience.photos.each_with_index do |photo, index| %>
+      <div class="item<%= " active" if index == 0 %>">
+        <%= cl_image_tag photo.path %>
+      </div>
+      <% end %>
+    </div>
+
+    <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left"></span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right"></span>
+    </a>
+  </div>
+
+

@@ -136,6 +136,11 @@ padding: 20px;
 justify-content: center;
 }
 
+#main-nav{
+  position: sticky;
+  top: 0;
+}
+
 #main-nav a {
   // text-transform: uppercase;
   // text-decoration: none;

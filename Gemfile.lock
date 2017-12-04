@@ -333,6 +333,7 @@ GEM
       actionpack (>= 4.0)
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
+    sticky-rails (1.0.3)
     stripe (3.8.0)
       faraday (~> 0.10)
     temple (0.8.0)
@@ -412,6 +413,7 @@ DEPENDENCIES
   simple_form
   spring
   spring-watcher-listen (~> 2.0.0)
+  sticky-rails
   stripe
   twitter
   uglifier

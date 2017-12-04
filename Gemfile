@@ -23,6 +23,7 @@ gem 'omniauth-instagram'
 gem 'twitter'
 gem 'instagram'
 gem 'omniauth-google-oauth2'
+
 # gem 'google-api-client', require: 'google/api_client'
 
 gem 'faker'
