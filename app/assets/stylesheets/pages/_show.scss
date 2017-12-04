@@ -1,16 +1,16 @@
 .photo {
   width: 100%;
-  height: 620px;
+  height: 750px;
 }
 
-.showdetails {
-  position: relative;
-  z-index: -1;
-  width: 100%;
-    -webkit-box-shadow: 0 4px 4px -2px #000000;
-   -moz-box-shadow: 0 4px 4px -2px #000000;
-        box-shadow: 0 4px 4px -2px #000000;
-}
+// .showdetails {
+//   position: relative;
+//   z-index: -1;
+//   width: 100%;
+//     -webkit-box-shadow: 0 4px 4px -2px #000000;
+//    -moz-box-shadow: 0 4px 4px -2px #000000;
+//         box-shadow: 0 4px 4px -2px #000000;
+// }
 
 .nonprofit {
   width: 70%;
@@ -25,11 +25,12 @@
 
 #stickycolumn {
     position: fixed;
+    right: 0;
     top: 0;
     bottom: 0;
     padding-top: 70px;
-    margin-right: 10px;
-    box-shadow: -5px 0px 5px 1px #aaaaaa;
+    // margin-right: 10px;
+    // box-shadow: -5px 0px 5px 1px #aaaaaa;
     // background: #f4f4f4;
     background: white;
     padding-bottom: 500px;
@@ -49,9 +50,9 @@
   justify-content: center;
 }
 
-body, html {
-    height: 100%;
-}
+// body, html {
+//     height: 100%;
+// }
 
 // h2 {
 //   font-family: 'open sans';
@@ -64,14 +65,14 @@ body, html {
   font-size: 25px;
 }
 
-h3 {
-  margin: 10px auto;
-  width: auto;
-  height: auto;
-  margin-top: 25px;
-  // color: #545454;
-  margin-bottom: 20px;
-}
+// h3 {
+//   margin: 10px auto;
+//   width: auto;
+//   height: auto;
+//   margin-top: 25px;
+//   // color: #545454;
+//   margin-bottom: 20px;
+// }
 
 .button{
   width: 100%;
