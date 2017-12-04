@@ -10,6 +10,7 @@
 <div class="showdetails">
   <div class="row">
     <div class="col-lg-9 col-md-8 col-xs-8" id="column">
+
       <div class="hostimages">
         <img src="<%= cl_image_path @experience.photos[0].path %>" alt="host" class="photo">
       </div>
@@ -20,47 +21,51 @@
 
       <%= render 'shared/navbarshow' %>
 
-      <div class="details">
+<div class="details">
 
-        <h2>Overview</h2>
-        <div class="flex-around">
-          <p><%= render 'experiences/areatypes' %></p>
-          <p><i class="fa fa-map-marker"></i><%= @experience.city %>, <%= @experience.country %></p>
-          <p> <i class="fa fa-money"></i> <%= money_without_cents_and_with_symbol(@experience.price) %> per person</p>
-          <p><i class="fa fa-users"></i><%= @experience.capacity %></p>
-        </div>
-        <br>
+  <div class="section">
+  <h2>Overview</h2>
+    <div class="flex-around">
+      <%= render 'experiences/areatypes' %>
+      <p style="text-align: center";><i class="fa fa-map-marker" id="showicon"></i><%= @experience.city %>, <%= @experience.country %></p>
+      <p style="text-align: center";> <i class="fa fa-money" id="showicon"></i> <%= money_without_cents_and_with_symbol(@experience.price) %> per person</p>
+      <p style="text-align: center";><i class="fa fa-users" id="showicon"></i><%= @experience.capacity %></p>
+    </div>
+    <br>
+    <h4>Accomodation Amenities</h4>
+    <div class="flex">
+      <%= render 'experiences/features' %>
+    </div>
+  </div>
 
-        <div class="flex">
-          <%= render 'experiences/features' %>
-        </div>
+  <div class="section" id="host">
+    <h2>Meet the Host</h2>
+    <%= @experience.long_description %>
+  </div>
 
+<div class="section" id="activities">
+  <h2>About the Experience</h2>
+    <h4>Experience Highlights</h4>
+      <ul>
+        <li>Participate in traditional craft workshops and help support local infrastructure in Lima.</li>
+        <li>Learn how to transform raw materials into usable crafts from experienced artisans in a variety of workshops ranging from weaving to ceramic pottery.</li>
+        <li>Listen to the important stories of Ayacucho artisans who were displaced as a result of domestic terrorism in Peru.
+        </li>
+      </ul>
+      <p> This experience includes activies such as:</p>
+      <div class="flex">
+        <%= render 'experiences/activities' %>
+      </div>
+</div>
 
-        <h2>About the Host</h2>
-        <%= @experience.long_description %>
-
-        <h2 id="activities">About the Experience</h2>
-        <h4>Experience Highlights</h4>
-        <ul>
-          <li>Participate in traditional craft workshops and help support local infrastructure in Lima.</li>
-          <li>Learn how to transform raw materials into usable crafts from experienced artisans in a variety of workshops ranging from weaving to ceramic pottery.</li>
-          <li>Listen to the important stories of Ayacucho artisans who were displaced as a result of domestic terrorism in Peru.
-          </li>
-        </ul>
-        <p> This experience includes activies such as:</p>
-
-
-        <div class="flex">
-          <%= render 'experiences/activities' %>
-        </div>
-
-        <h2 id="impact">Impact</h2>
-
+<div class="section" id="impact">
+  <h2>Impact</h2>
         <h4><%= @experience.fund.title %></h4>
         <h5>Description</h5>
         <p><%= @experience.fund.about %></p>
         <h5>Use of Funds</h5>
         <p><%= @experience.fund.use_of_funds %></p>
+        <br>
         <h4>About The Organization</h4>
         <h5>Mission</h5>
         <p>To save all animals on the planet</p>
@@ -68,14 +73,14 @@
         <p>We offer several programs including assisting animals with their daily lives</p>
         <h5>Website</h5>
         <p>visit www.projectkalpa.org for more information</p>
+</div>
 
-        <h2 id="location">Location</h2>
+<div class="section" id="location">
+  <h2>Location</h2>
+  <%= render 'map' %>
+</div>
 
-        <%= render 'map' %>
-
-
-
-        <div id="reviews">
+<div class="section" id="reviews">
           <h2>Reviews</h2>
           <% if @experience.reviews.blank? %>
           Be the first to leave a review for <%= @experience.title %>
@@ -92,7 +97,8 @@
             <% if !current_user.nil? %>
             <%= button_to 'Message Organization', conversations_path(sender_id: current_user.id, recipient_id: @experience.user.id), method: :post, class: "btn-lg btn-primary", id: "meal-button" %>
             <% end %>
-          </div>
+</div>
+
 
           <% if @experience.user == @user %>
           <!-- need to add permission for this depending on what user this is with pundit  -->

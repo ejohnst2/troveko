@@ -1,8 +1,8 @@
-<!-- <div class="col-lg-8 col-md-8 col-xs-8">
- --> <div class="row">
+<div class="row">
     <%= simple_form_for [@experience, @trip], html: { class: "form-horizontal" } do |f| %>
     <%= f.error_notification %>
     <div class="form-inputs">
+      <h3>Traveler Details</h3>
       <%= f.input :first_name, input_html: { value: current_user.first_name } %>
       <%= f.input :last_name, input_html: { value: current_user.last_name } %>
       <%= f.input :start_date, as: :string %>
@@ -12,7 +12,10 @@
       <%= f.input :contribution, placeholder: "Suggested: $20" %>
     </div>
 
-<input type="checkbox" name="terms" id="terms" onchange="activateButton(this)">  I have read the trip guide and agree to the terms and conditions
+      <h3>Payment Details</h3>
+
+     <h3>Terms and Conditions</h3>
+    <input type="checkbox" name="terms" id="terms" onchange="activateButton(this)">  I have read the trip guide and agree to the terms and conditions
 
 <!--   Body of Booking Page should be in here. -->
 
@@ -23,5 +26,4 @@
   <% end %>
 </div>
 <%= link_to "Back to Experience", experience_path(@experience) %>
-<!-- </div>
- -->
+

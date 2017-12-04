@@ -1,9 +1,9 @@
 <% @experience.features.each do |feature| %>
 
   <!-- icon for feature -->
-
-    <p class="features"><i class="fa <%= feature.fa_icon %> icon" aria-hidden="true"></i><%= feature.name %></p>
-
+  <div class="features">
+    <p><i class="fa <%= feature.fa_icon %> icon" id="showicon" aria-hidden="true"></i><%= feature.name %></p>
+  </div>
   <!-- name for feature -->
 
 

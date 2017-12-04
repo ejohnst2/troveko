@@ -111,7 +111,7 @@ pictures = [
   start_date = Date.today + rand(20..50).days
 
   3.times do
-    trip = Trip.create!(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name , experience_id: experience.id, status: true, start_date: start_date, end_date: start_date + rand(4..10).days, user: traveler)
+    trip = Trip.create!(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name , experience_id: experience.id, status: true, start_date: start_date, duration: 3, user: traveler)
     contribution = Contribution.create(user_id: traveler.id, fund_id: fund.id, trip_id: trip.id, amount_cents: [150000, 22000, 41500, 60000].sample)
   end
 end
