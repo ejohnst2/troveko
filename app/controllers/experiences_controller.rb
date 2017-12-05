@@ -8,7 +8,7 @@ class ExperiencesController < ApplicationController
     @activities = Activity.all
     @area_types = Areatype.all
 
-    @experiences = Experience.search(params[:query]).where.not(latitude: nil, longitude: nil)
+    @experiences = policy_scope(Experience).search(params[:query]).where.not(latitude: nil, longitude: nil)
 
     if params[:feature]
       features = Feature.where(name: params[:feature])
@@ -45,6 +45,7 @@ class ExperiencesController < ApplicationController
         format.html { render :edit }
         format.json { render json: @experience.errors, status: :unprocessable_entity }
       end
+      authorize @experience
     end
   end
 
@@ -66,15 +67,19 @@ class ExperiencesController < ApplicationController
       format.html { redirect_to experiences_url, notice: 'Experience was successfully destroyed.' }
       format.json { head :no_content }
     end
+    authorize @experience
   end
 
   def new
     @experience = Experience.new
+    authorize @experience
   end
 
-  def create
 
+
+  def create
     @experience = Experience.new(experience_params)
+    authorize @experience
     @experience.user = current_user
 
     respond_to do |format|
@@ -89,11 +94,14 @@ class ExperiencesController < ApplicationController
   end
 
   def edit
+    @experience = Experience.edit
+    authorize @experience
   end
 
   private
     def set_experience
       @experience = Experience.find(params[:id])
+      authorize @experience
     end
 
     def experience_params

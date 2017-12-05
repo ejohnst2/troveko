@@ -1,5 +1,5 @@
 class PaymentsController < ApplicationController
-  before_action :set_order, only: [:new, :create]
+  before_action :set_trip, only: [:new, :create]
   before_action :authenticate_user!
 
 
@@ -7,30 +7,37 @@ class PaymentsController < ApplicationController
   end
 
   def create
-    begin
-       customer = Stripe::Customer.create(
-        source: params[:token],
-        email:  current_user.email
-      )
+     # creates customer in Skype based on token
+     customer = Stripe::Customer.create(
+      source: params[:token],
+      email:  current_user.email
+    )
+
+    # creates charge for order. does not charge credit card yet though (capture = false)
+    @trip.orders.each do |order|
 
       charge = Stripe::Charge.create(
         customer:     customer.id,   # You should store this customer id and re-use it.
-        amount:       @order.amount_cents,
-        description:  "Payment for experience #{@order.experience_sku} for order #{@order.id}",
-        currency:     @order.amount.currency,
+        amount:       order.amount_cents,
+        description:  "Payment for experience #{order.sku} for order #{order.id}",
+        currency:     order.amount.currency,
         capture:      false
       )
 
+      # text hosts. phone numbers need to be added to database and repalced in to:
       @client = Twilio::REST::Client.new ENV['TWILIO_ACCOUNT_SID'], ENV['TWILIO_AUTH_TOKEN']
        @client.messages.create({
-         from: '+16094546532',
+         from: ENV['TWILIO_NUMBER'],
          to: '+447378155080',
-         body: 'Tomorrow\'s forecast in Financial District, San Francisco is Clear.'
+         body: "You have a booking at #{order.sku}. Please approve it in your profile"
        })
 
-      @order.update(payment: charge.to_json, state: 'paid')
+      order.update(payment: charge.to_json, state: 'paid')
+    end
 
-      render json: { url: order_path(@order) }
+    current_user.update(customer_id: customer.id)
+
+    render json: { url: order_path(@trip.orders.first) }
 
     rescue Stripe::CardError => e
       flash[:alert] = e.message
@@ -42,7 +49,8 @@ class PaymentsController < ApplicationController
 
   private
 
-    def set_order
-      @order = Order.where(state: 'pending').find(params[:order_id])
+  def set_trip
+    @trip = Trip.find(params[:trip_id])
   end
+
 end

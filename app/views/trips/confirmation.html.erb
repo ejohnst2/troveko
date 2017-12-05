@@ -25,6 +25,7 @@
    <div class="row" style="display: flex; align-items: center; justify-content: space-around;">
       <div class="col-lg-6 col-md-6-col-xs-12 col-sm-12">
         <h1>Your Total: $<%= @trip.experience.price + @trip.contribution.amount %></h1>
+        <h4>Total: <%= money_without_cents_and_with_symbol(@sum) %></h4>
       </div>
       <div class="col-lg-6 col-md-6-col-xs-12 col-sm-12" id="payment-stripe">
         <%= render 'payments/new'  %>
@@ -32,5 +33,3 @@
     </div>
 </div>
 </div>
-
-

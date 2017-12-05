@@ -2,7 +2,7 @@ class Trip < ApplicationRecord
   belongs_to :experience
   belongs_to :user
   has_one :contribution
-  has_one :order
+  has_many :orders
 
   validates :user, :experience, :start_date, presence: true, allow_blank: false
   validate :start_date_cannot_be_in_the_past,

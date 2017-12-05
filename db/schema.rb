@@ -164,12 +164,13 @@ ActiveRecord::Schema.define(version: 20171205175447) do
 
   create_table "orders", force: :cascade do |t|
     t.string   "state"
-    t.string   "experience_sku"
-    t.integer  "amount_cents",   default: 0, null: false
+    t.string   "sku"
+    t.integer  "amount_cents", default: 0,     null: false
     t.jsonb    "payment"
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
     t.integer  "trip_id"
+    t.boolean  "contribution", default: false
     t.index ["trip_id"], name: "index_orders_on_trip_id", using: :btree
   end
 
@@ -220,6 +221,7 @@ ActiveRecord::Schema.define(version: 20171205175447) do
     t.string   "last_name"
     t.string   "token"
     t.datetime "token_expiry"
+    t.integer  "customer_id"
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
