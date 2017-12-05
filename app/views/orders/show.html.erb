@@ -3,5 +3,5 @@
   <li>Status: <%= @order.state %></li>
   <li>Item: <%= @order.experience_sku %></li>
   <li>Amount: <%= money_without_cents_and_with_symbol(@order.amount) %></li>
-  <%= render 'order_summary' %>
+  <%= render 'trips/order_summary' %>
 <ul>
