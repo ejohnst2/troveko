@@ -23,6 +23,8 @@ gem 'omniauth-instagram'
 gem 'twitter'
 gem 'instagram'
 gem 'omniauth-google-oauth2'
+gem 'social-share-button'
+
 
 # gem 'google-api-client', require: 'google/api_client'
 

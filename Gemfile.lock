@@ -319,6 +319,8 @@ GEM
       activemodel (> 4, < 5.2)
     simple_oauth (0.3.1)
     sixarm_ruby_unaccent (1.2.0)
+    social-share-button (1.1.0)
+      coffee-rails
     sort_alphabetical (1.1.0)
       unicode_utils (>= 1.2.2)
     spring (2.0.2)
@@ -333,7 +335,6 @@ GEM
       actionpack (>= 4.0)
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
-    sticky-rails (1.0.3)
     stripe (3.8.0)
       faraday (~> 0.10)
     temple (0.8.0)
@@ -411,9 +412,9 @@ DEPENDENCIES
   remotipart!
   sass-rails
   simple_form
+  social-share-button
   spring
   spring-watcher-listen (~> 2.0.0)
-  sticky-rails
   stripe
   twitter
   uglifier
