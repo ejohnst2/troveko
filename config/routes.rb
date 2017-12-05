@@ -32,7 +32,7 @@ Rails.application.routes.draw do
     get '/users/auth/:provider/setup', :to => 'omniauth_callbacks#setup'
   end
 
-  resources :profiles, only: [:show]
+  resources :profiles, only: [:show, :edit, :update]
   resources :orders, only: [:show, :create] do
     get 'payments/capture', to: "payments#capture"
     resources :payments, only: [:new, :create]
