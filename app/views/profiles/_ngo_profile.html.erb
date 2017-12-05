@@ -1,8 +1,8 @@
-<div class="row ngo-actions">
-  <%= button_to "Add New Experience", new_experience_path, :method => :get, class: "btn-lg btn-primary", id: "meal-button" %>
-  <%= button_to "Add New Fund", new_fund_path, :method => :get, class: "btn-lg btn-primary", id: "meal-button" %>
-  <%= button_to 'Add to Public Profile', new_experience_path, :method => :get, class: "btn-lg btn-primary", id: "meal-button" %>
-  <%= button_to 'See Your Balance', new_experience_path, :method => :get, class: "btn-lg btn-primary", id: "meal-button" %>
+<div class="navbar-filters traveler-options" id="main-nav">
+  <%= link_to "Add New Experience", new_experience_path, :method => :get, class: "traveler-menu", id: "meal-button" %>
+  <%= link_to "Add New Fund", new_fund_path, :method => :get, class: "traveler-menu", id: "meal-button" %>
+  <%= link_to 'Add to Public Profile', new_experience_path, :method => :get, class: "traveler-menu", id: "meal-button" %>
+  <%= link_to 'See Your Balance', new_experience_path, :method => :get, class: "traveler-menu", id: "meal-button" %>
 </div>
 
 

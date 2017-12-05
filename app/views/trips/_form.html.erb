@@ -12,18 +12,18 @@
       <%= f.input :contribution, placeholder: "Suggested: $20" %>
     </div>
 
-      <h3>Payment Details</h3>
+    <h3>Terms and Conditions</h3>
+    <div class="termsx">
+      <%= render 'terms_and_conditions' %>
+    </div>
 
-     <h3>Terms and Conditions</h3>
-    <input type="checkbox" name="terms" id="terms" onchange="activateButton(this)">  I have read the trip guide and agree to the terms and conditions
-
-<!--   Body of Booking Page should be in here. -->
-
+    <input type="checkbox" name="terms" id="terms" onchange="activateButton(this)">  I have read and agree to the terms and conditions
 
    <div class="form-actions text-center">
-    <%= f.button :submit, 'Book Your Experience' %>
+    <%= f.button :submit, 'Make Your Payment' %>
   </div>
   <% end %>
+  <%= link_to "Go Back to Experience", experience_path(@experience) %>
 </div>
-<%= link_to "Back to Experience", experience_path(@experience) %>
+
 
