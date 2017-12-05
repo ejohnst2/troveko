@@ -31,7 +31,9 @@ Rails.application.routes.draw do
   end
 
   resources :profiles, only: [:show]
-  resources :orders, only: [:show, :create] do
+  resources :orders, only: [:show, :create]
+
+  resources :trips, shallow: true do
     get 'payments/capture', to: "payments#capture"
     resources :payments, only: [:new, :create]
   end

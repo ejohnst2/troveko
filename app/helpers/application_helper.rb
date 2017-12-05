@@ -16,7 +16,6 @@ module ApplicationHelper
     price = @trip.experience.price
     total = length * price
   end
-
 end
   # raised = @experience.fund.contributions.sum(:amount)
     # goal = @experience.fund.funding_goal
