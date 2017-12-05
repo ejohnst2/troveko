@@ -1,19 +1,58 @@
-<center><h1 class=highlight>Mailbox</h1></center>
-<br>
-<div class="list-group">
-  <div class="list-group-item">
-    <% @conversations.each do |conversation| %>
-    <% if conversation.sender_id == current_user.id || conversation.recipient_id == current_user.id %>
-    <% if conversation.sender_id == current_user.id %>
-    <% recipient = User.find(conversation.recipient_id) %>
-    <% else %>
-    <% recipient = User.find(conversation.sender_id) %>
-    <% end %>
-    <div class="message">
-      <%= image_tag facebook_image(recipient), class: "avatar-large" %>
-      <%= link_to 'View Conversation', conversation_messages_path(conversation)%>
+
+<div class="container">
+  <h1 class="highlight">Mailbox</h1>
+  <br>
+  <div class="row">
+    <div class="col-xs-12">
+      <div class=”list-group”>
+        <div class=”list-group-item”>
+          <% @conversations.each do |conversation| %>
+          <% counterpart_id = conversation.sender_id != current_user.id ? conversation.sender_id : conversation.recipient_id %>
+          <% counterpart = @users.find(counterpart_id) %>
+          <div class="conversation">
+            <%= image_tag facebook_image(counterpart), class: "avatar-large" %>
+            <div class="message-name">
+              <h2><%= counterpart.first_name %></h2>
+              <p><%= time_ago_in_words conversation.most_recent_message.created_at%></p>
+            </div>
+            <div class="message-body">
+              <%= link_to conversation.most_recent_message.header, conversation_messages_path(conversation) %>
+              <p><%= conversation.most_recent_message.content %></p>
+            </div>
+            <div class="message-status">
+              <% if conversation.most_recent_message.read == false %>
+              <p class="status pending">Unread</p>
+              <% else %>
+              <p>Read</p>
+              <% end %>
+            </div>
+          </div>
+          <% end %>
+        </div>
+      </div>
+
     </div>
-    <% end %>
-    <% end %>
   </div>
 </div>
+
+
+
+
+
+
+
+<!-- <div class="message">
+  <img src="" class="message-avatar">
+  <div class="message-name">
+    <h2>Geraldo Santos</h2>
+    <p>December 03</p>
+  </div>
+  <div class="message-body">
+    <p>I am glady to build troveko</p>
+  </div>
+  <div class="message-status">
+    <p>Accepted</p>
+    <p>U$50,00</p>
+  </div>
+</div>
+ -->
