@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171204175803) do
+ActiveRecord::Schema.define(version: 20171205161947) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -183,12 +183,14 @@ ActiveRecord::Schema.define(version: 20171204175803) do
     t.bigint   "experience_id"
     t.date     "start_date"
     t.bigint   "user_id"
-    t.boolean  "status",        default: false
-    t.datetime "created_at",                    null: false
-    t.datetime "updated_at",                    null: false
+    t.boolean  "status",               default: false
+    t.datetime "created_at",                           null: false
+    t.datetime "updated_at",                           null: false
     t.string   "first_name"
     t.string   "last_name"
-    t.boolean  "cancel",        default: false
+    t.boolean  "cancel",               default: false
+    t.integer  "number_of_people"
+    t.boolean  "terms_and_conditions"
     t.index ["experience_id"], name: "index_trips_on_experience_id", using: :btree
     t.index ["user_id"], name: "index_trips_on_user_id", using: :btree
   end

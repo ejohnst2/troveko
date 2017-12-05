@@ -1,29 +1,37 @@
 <div class="row">
     <%= simple_form_for [@experience, @trip], html: { class: "form-horizontal" } do |f| %>
     <%= f.error_notification %>
-    <div class="form-inputs">
+    <div class="form-inputs" style="padding-top: 15px;">
       <h3>Traveler Details</h3>
       <%= f.input :first_name, input_html: { value: current_user.first_name } %>
       <%= f.input :last_name, input_html: { value: current_user.last_name } %>
       <%= f.input :start_date, as: :string %>
+      <%= f.input :number_of_people, collection: [1, 2, 3, 4, 5, 6, 7, 8] %>
+
     </div>
 
-    <div class="form-inputs">
-      <%= f.input :contribution, placeholder: "Suggested: $20" %>
+    <div class="form-inputs" style="padding-top: 15px;">
+       <h3>Your Contribution</h3>
+      <%= f.input :contribution, placeholder: "Suggested: $20", hint: 'Make a contribution to the organization\'s fund to help them execute projects that benefit the community you will be connecting with.' %>
     </div>
 
-    <h3>Terms and Conditions</h3>
+    <div class="form-inputs" style="padding-top: 15px;">
+        <h3>Terms and Conditions</h3>
     <div class="termsx">
       <%= render 'terms_and_conditions' %>
     </div>
+        <%= f.input :terms_and_conditions, as: :boolean %>
+    </div>
 
-    <input type="checkbox" name="terms" id="terms" onchange="activateButton(this)">  I have read and agree to the terms and conditions
+
+
+   <!--  <input type="checkbox" name="terms" id="terms" onchange="activateButton(this)">  I have read and agree to the terms and conditions
+    </div> -->
 
    <div class="form-actions text-center">
     <%= f.button :submit, 'Make Your Payment' %>
   </div>
   <% end %>
-  <%= link_to "Go Back to Experience", experience_path(@experience) %>
+
+
 </div>
-
-
