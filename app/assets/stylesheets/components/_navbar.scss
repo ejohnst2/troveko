@@ -23,10 +23,10 @@
   background-size:100%;
 }
 
-strong, b {
-    font-weight: 500 !important;
-    font-family: 'Source Sans Pro';
-}
+// strong, b {
+//     font-weight: 500 !important;
+//     font-family: 'Source Sans Pro';
+// }
 
 .navbar a {
   color: white;
@@ -58,14 +58,12 @@ input {
 }
 
 /* Logo */
-.navbar-troveko-brand img {
+.navbar-troveko-brand {
   height: 35px;
   -webkit-filter: drop-shadow(12px 12px 25px rgba(0,0,0,0.5));
   filter: url(#drop-shadow);
-  transform: translateX(-50%);
-  left: 50%;
-  position: absolute;
   bottom:30%;
+  left: 100px !important;
 }
 
 .home-banner img {
@@ -101,9 +99,8 @@ input {
 }
 
 .navbar-troveko-link:hover {
-  // color: #353535;
+  color: '$trov_blue';
   text-decoration: none;
-  -webkit-filter: drop-shadow(12px 12px 25px rgba(0,0,0,0.5));
 }
 
 /* Dropdown menu */
