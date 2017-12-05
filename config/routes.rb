@@ -23,8 +23,6 @@ Rails.application.routes.draw do
     patch 'cancel', to: "trips#cancel"
   end
 
-  root to: 'pages#home'
-
   resources :conversations do
     resources :messages
   end
@@ -43,6 +41,8 @@ Rails.application.routes.draw do
 
   mount Attachinary::Engine => "/attachinary"
   mount ActionCable.server => '/cable'
+
+  root to: 'pages#home'
 
 end
 

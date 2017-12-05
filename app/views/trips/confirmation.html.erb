@@ -1,10 +1,12 @@
 <div class="container" id="picturerow">
   <div class="row" id="experience">
+
     <div class="col-l-4 col-md-6-col-xs-12 col-sm-4" id="picture">
       <div class="hvrbox">
         <img src="<%= cl_image_path @trip.experience.photos.first.path %>">
       </div>
     </div>
+
     <div class="col-l-8-col-xs-12 col-sm-4" id="tripsummary">
       <h1><%= link_to @trip.experience.title, experience_path(@trip.experience) %></h1>
       <h2><%= @experience.short_description %></h2>
@@ -14,72 +16,24 @@
       <h4>Fund Contribution: <%= money_without_cents_and_with_symbol(@trip.contribution.amount) %> </h4>
     </div>
   </div>
+  </div>
+
+
+<div class="container">
+  <h1>Pay For Your Trip</h1>
+  <h3>Upon successful payment you will be redirected to a confirmation page.</h3>
+
+   <div class="row" style="display: flex; align-items: center;">
+      <div class="col-lg-6 col-md-6-col-xs-12 col-sm-12">
+          <h4>Trip Total: <%=money_without_cents_and_with_symbol(@trip.experience.price) %> per person</h4>
+          <h4>Fund Contribution: <%= money_without_cents_and_with_symbol(@trip.contribution.amount) %> </h4>
+      </div>
+      <div class="col-lg-6 col-md-6-col-xs-12 col-sm-12" id="payment-stripe">
+        <%= render 'payments/new'  %>
+      </div>
+    </div>
 </div>
 
 
-<!-- <div class="banner" style="background-image:     linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('<%#= image_path("banner.jpg") %>');">
-  <div class="banner-content">
-    <h1>Impact Through Adventure</h1>
-    <h2>How it Works</h2>
-  </div>
-</div> -->
 
-<!-- trip info page -->
 
-<div>
-  <div class="container">
-    <div class="row">
-      <center><h1 class=highlight>Booking Sent</h1></center>
-      <center><h3>Get ready to pack your bags, your adventure to <%= @trip.experience.city %> on <%= @trip.start_date %> has been sent to host for approval!</h3></center>
-      <br>
-    </div>
-
-     <center><i class="fa fa-thumbs-o-up fa-5x" aria-hidden="true"></i></center>
-
-    <center>
-      <h3>You've contributed <%= money_without_cents_and_with_symbol(@trip.contribution.amount) %>, bringing the community <%= contribution_percentage(@trip).round(2) %>% closer to <%= @trip.experience.fund.title %></h3>
-    </center>
-
-    <br>
-    <div class="row">
-      <center><h4>Thanks <%= @trip.user.first_name %> for choosing Troveko! We have sent a confirmation to <%= @trip.user.email %>.</h4></center>
-      <br>
-    </div>
-  </div>
-
-      </div>
-    </div>
-    </div>
-     </div>
-
-<!-- Make Payment -->
- <%#= form_tag orders_path do %>
-  <%#= hidden_field_tag 'trip_id', @trip.id %>
-  <%#= submit_tag 'Make Payment', class: 'btn btn-primary', style: 'margin-bottom: 20px;' %>
-<%# end %>
-
-<!--
-    <!-- links and paths for page -->
-<!--
-       <div class="row">
-      <div class="wrapper" id="itinerary">
-        <div class="col-md-4">
-          <div class="centered-item">
-            <h3>Booking Details</h3>
-            <strong><p>Length:</strong> <%#= (@trip.end_date - @trip.start_date).to_i %> nights</p>
-            <strong><p>Price:</strong>  $<#%=@trip.experience.price %></p>
-            <strong><p>Trip:</strong> $<%#= @trip.experience.price  *  (@trip.end_date - @trip.start_date).to_i %></p>
-            <strong><p>Contribution:</strong> $<%#= money_without_cents_and_with_symbol(@trip.contribution.amount) %></p>
-          </div>
-        </div>
-      </div>
-    </div>
- -->
-    <!--
-    <div class="row">
-    <div class="col-md-8">
-      <% if @trip.experience.photos.any? %>
-      <%#= cl_image_tag @trip.experience.photos.first.path %>
-      <% end %>
-    </div>
-    </div> -->

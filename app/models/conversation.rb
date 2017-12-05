@@ -4,6 +4,7 @@ class Conversation < ApplicationRecord
   has_many :messages, dependent: :destroy
   validates :sender_id, uniqueness: { :scope => :recipient_id }
 
+
   has_one :most_recent_message, -> { order('created_at DESC')  }, class_name: 'Message'
 
 
