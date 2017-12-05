@@ -1,6 +1,7 @@
 class ExperiencesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show, :new, :edit]
   before_action :set_experience, only: [:show, :edit, :update, :destroy]
+  skip_before_action :force_temporary_users, only: [:index, :show, :new, :edit]
   # before_action :ngo?, only: [:destroy, :update, :create, :new, :edit]
 
   def index
@@ -52,6 +53,12 @@ class ExperiencesController < ApplicationController
   def show
     @experience_coordinates = { lat: @experience.latitude, lng: @experience.longitude }
     @review = Review.new
+
+    @markers = Gmaps4rails.build_markers(@experience) do |experience, marker|
+      marker.lat experience.latitude
+      marker.lng experience.longitude
+      marker.infowindow render_to_string(partial: "map_box", locals: { experience: experience })
+    end
     # @conversation = Conversation.new
   end
 

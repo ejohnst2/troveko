@@ -21,7 +21,7 @@
 <div class="row">
   <div class="col-xs-12 col-md-4">
     <div class="profile-info">
-      <h2> <%= @user.first_name %> </h2>
+      <center><h2> <%= @user.first_name %> </h2></center>
         <%= image_tag facebook_image(@user), class: "profile-image" %>
       <div class="edit_profile">
         <p>Johnny AppleSeed</p>
@@ -93,6 +93,8 @@
     </div>
   </div>
 </div>
+
+ <%#= link_to "See All Experiences", new_experience_path, :method => :get, class: "btn-lg btn-primary", id: "meal-button" %>
 
 
 </div>

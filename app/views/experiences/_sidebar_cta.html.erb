@@ -1,0 +1,18 @@
+ <div class="booking">
+    <h4><%= money_without_cents_and_with_symbol(@experience.price) %> per night + optional fund contribution</h4>
+  </div>
+
+<!--   <form action="<%= new_experience_trip_path(@experience) %>" method="get">
+    <input type="text" name="start_date">
+    <input type="text" name="people">
+    <input type="text" name="contribution">
+    <input type="submit" value="Start Your Adventure" class="btn-lg btn-primary input-block-level">
+  </form> -->
+
+  <div class="">
+    <%= button_to "Start Your Adventure", new_experience_trip_path(@experience), :method => :get, class: "btn-lg btn-primary input-block-level", id: "start-adventure" %>
+  </div>
+
+  <div class="booking">
+    <h4>to a <%= @experience.areatypes[0].name %> in <%= @experience.city %></h4>
+  </div>
