@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171205134054) do
+ActiveRecord::Schema.define(version: 20171205155424) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -160,12 +160,13 @@ ActiveRecord::Schema.define(version: 20171205134054) do
 
   create_table "orders", force: :cascade do |t|
     t.string   "state"
-    t.string   "experience_sku"
-    t.integer  "amount_cents",   default: 0, null: false
+    t.string   "sku"
+    t.integer  "amount_cents", default: 0,     null: false
     t.jsonb    "payment"
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
     t.integer  "trip_id"
+    t.boolean  "contribution", default: false
     t.index ["trip_id"], name: "index_orders_on_trip_id", using: :btree
   end
 
