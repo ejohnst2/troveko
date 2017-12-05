@@ -7,4 +7,9 @@ class ProfilesController < ApplicationController
     @ngo_trips = @experiences.flat_map{|experience| experience.trips}
   end
 
+ def new
+    @profile = Profile.new
+    authorize @fund
+  end
+
 end
