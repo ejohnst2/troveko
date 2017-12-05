@@ -40,8 +40,11 @@ class PaymentsController < ApplicationController
     render json: { url: order_path(@trip.orders.first) }
 
     rescue Stripe::CardError => e
-    flash[:alert] = e.message
-    redirect_to new_order_payment_path(@order)
+      flash[:alert] = e.message
+      redirect_to new_order_payment_path(@order)
+    end
+      # redirect_to experiences_path
+      # # render 'order_summary'
   end
 
   private
