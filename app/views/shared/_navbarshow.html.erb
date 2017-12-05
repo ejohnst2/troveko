@@ -1,13 +1,20 @@
 <div id="main-nav" class="<%= yield(:sticky_navbar).blank? ? 'navbar-troveko-sticky' : yield(:sticky_navbar) %> navbar-filters" style="justify-content: space-around; background-color: white;
 ">
-  <a href="#OverviewFor" style="font-size: 24px;">Overview</a>
+  <a href="#overview" style="font-size: 24px;">Overview</a>
   <a href="#reviews" style="font-size: 24px;">Reviews</a>
-  <a href="#LocationFor" style="font-size: 24px;">Location</a>
-  <a href="#AccomodationFor" style="font-size: 24px;">Accomodation</a>
-  <a href="#ActivitesFor" style="font-size: 24px;">Activities</a>
-
+  <a href="#location" style="font-size: 24px;">Location</a>
+  <a href="#host" style="font-size: 24px;">Host</a>
+  <a href="#activities" style="font-size: 24px;">Activities</a>
+  <a href="#impact" style="font-size: 24px;">Impact</a>
 </div>
 
+<%# content_for(:after_js) do %>
+<!-- <script>
+  $(document).ready(function(){
+    $("#main-nav").sticky({topSpacing:0, className: "is-sticky hey"});
+  });
+</script> -->
+<%# end %>
 
 <!-- <i class="fa fa-info-circle" aria-hidden="true" id="stuff"></i>
 <i class="fa fa-suitcase" aria-hidden="true" id="stuff"></i>

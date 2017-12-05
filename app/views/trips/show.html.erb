@@ -2,6 +2,5 @@
 
 <p>Booking date:    <%= @trip.created_at %></p>
 <p>Start date:      <%= @trip.start_date %></p>
-<p>End date:        <%= @trip.end_date %></p>
 <p>Price:           <%= money_without_cents_and_with_symbol(@trip.experience.price) %></p>
 <p>Status:          <%= @trip.status ? "Approved" : "Pending" %></p>

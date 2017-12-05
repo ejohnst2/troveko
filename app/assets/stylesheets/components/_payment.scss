@@ -189,7 +189,7 @@
   flex-wrap: wrap;
   position: relative;
   max-width: 750px;
-  padding: 110px 20px 110px;
+  padding: 15px 0px 15px;
 }
 
 .container-lg .cell {
@@ -203,7 +203,7 @@
   -ms-flex: auto;
   flex: auto;
   min-width: 100%;
-  min-height: 500px;
+  // min-height: 500px;
   padding: 0 40px;
 }
 
@@ -249,7 +249,7 @@
   -ms-flex-align: center;
   align-items: center;
   border-radius: 4px;
-  box-shadow: 0 7px 14px rgba(50, 50, 93, 0.1), 0 3px 6px rgba(0, 0, 0, 0.08);
+  // box-shadow: 0 7px 14px rgba(50, 50, 93, 0.1), 0 3px 6px rgba(0, 0, 0, 0.08);
   padding: 80px 10px;
   margin-left: -10px;
   margin-right: -10px;
@@ -488,7 +488,7 @@
 }
 
 .example.example4 {
-  background-color: #f6f9fc;
+  // background-color: $trov_yellow;
 }
 
 .example.example4 * {

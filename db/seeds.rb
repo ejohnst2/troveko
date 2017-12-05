@@ -31,31 +31,31 @@ features = [
   Feature.create!(name: "Heating", fa_icon: "fa-thermometer-three-quarters"),
   Feature.create!(name: "Cooling", fa_icon: "sfa-thermometer-quarter"),
   Feature.create!(name: "Wi-Fi", fa_icon: "fa-wifi"),
-  Feature.create!(name: "Mobile Connection", fa_icon: "fa-mobile"),
-  Feature.create!(name: "Private Accomodation", fa_icon: "fa-bed"),
-  Feature.create!(name: "Shared Accomodation", fa_icon: "fa-users"),
-  Feature.create!(name: "Fresh Water Supply", fa_icon: "fa-tint"),
-  Feature.create!(name: "Overhead Shower", fa_icon: "fa-shower")
+  Feature.create!(name: "Mobile Connection", fa_icon: "fa fa-mobile"),
+  Feature.create!(name: "Private Accomodation", fa_icon: "fa fa-bed"),
+  Feature.create!(name: "Shared Accomodation", fa_icon: "fa fa-users"),
+  Feature.create!(name: "Fresh Water Supply", fa_icon: "fa fa-tint"),
+  Feature.create!(name: "Overhead Shower", fa_icon: "fa fa-shower")
 ]
 
 activities = [
-  Activity.create!(name: "Hiking", fa_icon: "fa-sun-o"),
-  Activity.create!(name: "Trekking", fa_icon: "fa-thermometer-three-quarters"),
-  Activity.create!(name: "Cooking", fa_icon: "fa-cutlery"),
-  Activity.create!(name: "Camping", fa_icon: "fa-bed"),
-  Activity.create!(name: "Fishing", fa_icon: "fa-tint"),
-  Activity.create!(name: "Handicrafts", fa_icon: "fa-cutlery"),
-  Activity.create!(name: "Cycling", fa_icon: "fa-bicycle")
+  Activity.create!(name: "Hiking", fa_icon: "fa fa-sun-o"),
+  Activity.create!(name: "Trekking", fa_icon: "glyphicons glyphicons-person-walking"),
+  Activity.create!(name: "Cooking", fa_icon: "fa fa-cutlery"),
+  Activity.create!(name: "Camping", fa_icon: "glyphicons glyphicons-camping"),
+  Activity.create!(name: "Fishing", fa_icon: "glyphicons glyphicons-fishes"),
+  Activity.create!(name: "Handicrafts", fa_icon: "glyphicons glyphicons-brush"),
+  Activity.create!(name: "Cycling", fa_icon: "fa fa-bicycle")
 ]
 
 areatypes = [
-  Areatype.create!(name: "Farm", fa_icon: "fa-sun-o"),
-  Areatype.create!(name: "Mountainous", fa_icon: "fa-thermometer-three-quarters"),
-  Areatype.create!(name: "Desert", fa_icon: "fa-sun-o"),
-  Areatype.create!(name: "Rainforest", fa_icon: "fa-wifi"),
-  Areatype.create!(name: "Jungle", fa_icon: "fa-wifi"),
-  Areatype.create!(name: "Woods", fa_icon: "fa-tree"),
-  Areatype.create!(name: "Plains", fa_icon: "fa-wifi"),
+  Areatype.create!(name: "Farm", fa_icon: "fa fa-sun-o"),
+  Areatype.create!(name: "Mountainous", fa_icon: "glyphicons glyphicons-mountains"),
+  Areatype.create!(name: "Desert", fa_icon: "fa fa-sun-o"),
+  Areatype.create!(name: "Rainforest", fa_icon: "fa fa-wifi"),
+  Areatype.create!(name: "Jungle", fa_icon: "fa fa-wifi"),
+  Areatype.create!(name: "Woods", fa_icon: "glyphicons glyphicons-forest"),
+  Areatype.create!(name: "Plains", fa_icon: "fa fa-wifi"),
 ]
 
 pictures = [

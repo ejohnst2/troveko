@@ -51,9 +51,7 @@ class TripsController < ApplicationController
   end
 
   def confirmation
-    length = (@trip.end_date - @trip.start_date).to_i
-    price = @trip.experience.price
-    total = length * price
+    total = @trip.experience.price * @trip.number_of_people
     if @trip.contribution.present?
       @sum = @trip.contribution.amount + total
     else
@@ -87,6 +85,6 @@ class TripsController < ApplicationController
   end
 
   def trip_params
-    params.require(:trip).permit(:start_date, :end_date, :first_name, :last_name)
+    params.require(:trip).permit(:start_date, :first_name, :last_name)
   end
 end
