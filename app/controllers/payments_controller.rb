@@ -20,7 +20,15 @@ class PaymentsController < ApplicationController
       capture:      false
     )
 
+    @client = Twilio::REST::Client.new ENV['TWILIO_ACCOUNT_SID'], ENV['TWILIO_AUTH_TOKEN']
+     @client.messages.create({
+       from: '+16094546532',
+       to: '+447378155080',
+       body: 'Tomorrow\'s forecast in Financial District, San Francisco is Clear.'
+     })
+
     @order.update(payment: charge.to_json, state: 'paid')
+
     render json: { url: order_path(@order) }
 
     rescue Stripe::CardError => e
