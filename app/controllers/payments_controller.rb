@@ -7,11 +7,13 @@ class PaymentsController < ApplicationController
   end
 
   def create
+     # creates customer in Skype based on token
      customer = Stripe::Customer.create(
       source: params[:token],
       email:  current_user.email
     )
 
+    # creates charge for order. does not charge credit card yet though (capture = false)
     charge = Stripe::Charge.create(
       customer:     customer.id,   # You should store this customer id and re-use it.
       amount:       @order.amount_cents,
@@ -20,6 +22,10 @@ class PaymentsController < ApplicationController
       capture:      false
     )
 
+    # creates charge for contribution does not charge credit card yet though (capture = false)
+
+
+    # text hosts. phone numbers need to be added to database and repalced in to:
     @client = Twilio::REST::Client.new ENV['TWILIO_ACCOUNT_SID'], ENV['TWILIO_AUTH_TOKEN']
      @client.messages.create({
        from: ENV['TWILIO_NUMBER'],
@@ -28,6 +34,7 @@ class PaymentsController < ApplicationController
      })
 
     @order.update(payment: charge.to_json, state: 'paid')
+    current_user.update(customer_id: charge.customer)
 
     render json: { url: order_path(@order) }
 
@@ -38,7 +45,7 @@ class PaymentsController < ApplicationController
 
   private
 
-    def set_order
-      @order = Order.where(state: 'pending').find(params[:order_id])
+  def set_order
+    @order = Order.where(state: 'pending').find(params[:order_id])
   end
 end
