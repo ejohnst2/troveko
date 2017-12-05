@@ -7,8 +7,8 @@
 
     <div class="carousel-inner">
       <% @experience.photos.each_with_index do |photo, index| %>
-      <div class="item<%= " active" if index == 0 %>">
-        <%= cl_image_tag photo.path %>
+      <div class="item<%= " active" if index == 0 %> imagefit2">
+        <%= cl_image_tag photo.path, crop: :scale, height: 700 %>
       </div>
       <% end %>
     </div>
