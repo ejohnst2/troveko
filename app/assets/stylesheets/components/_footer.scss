@@ -6,9 +6,11 @@
   height: 100px;
   padding: 0px 50px;
   color: white;
-  position: relative;
+  position: absolute;
   bottom:0;
   width: 100%;
+  overflow:hidden;
+
 }
 
 .footer-links {
@@ -26,4 +28,5 @@
   opacity: 1;
   -webkit-filter: drop-shadow(12px 12px 25px rgba(0,0,0,0.5));
 }
+
 
