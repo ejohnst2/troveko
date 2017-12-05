@@ -1,6 +1,6 @@
 <div class="navbar-filters">
 
-  <div class="floatright">
+  <div class="">
         <%= link_to 'Grid', experiences_path, remote: true, method: :get, class: 'btn-primary btn-xl' %>
         <%= link_to 'Map', experiences_path(map: true), remote: true, method: :get, class: 'btn-primary btn-xl' %>
       </div>
@@ -40,6 +40,11 @@
         <% end %>
       </div>
       </div>
+
+    <div class="floatright">
+      <%= link_to 'New experience', new_experience_path, class: 'btn btn-secondary' %>
+    </div>
+
   </div>
 </div>
 
