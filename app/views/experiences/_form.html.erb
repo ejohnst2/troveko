@@ -35,7 +35,11 @@
 
     <h3 class="form_section">Select Your Community Fund</h3>
     <%#= f.collection_radio :fund_ids, current_user.funds, :id, :title, wrapper_html: { class: 'experience_section' }%>
+
     <%= f.association :fund, collection: current_user.funds, as: :radio_buttons %>
+
+
+
 
     <div class="form-actions text-center">
       <%= f.button :submit, "Ready to Roll", class: "btn-primary btn-lg" %>
