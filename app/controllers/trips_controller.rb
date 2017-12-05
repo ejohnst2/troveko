@@ -24,10 +24,14 @@ class TripsController < ApplicationController
     @trip.user = current_user
 
     if @trip.save
+      order = Order.create!(sku: @trip.experience.title, amount: @trip.experience.price, state: 'pending', trip_id: @trip.id)
       if params[:trip][:contribution].present?
-        Contribution.create!(user: current_user, trip: @trip, fund: @trip.experience.fund, amount_cents: (params[:trip][:contribution].to_i * 100) )
+        @contribution = Contribution.new(user: current_user, trip: @trip, fund: @trip.experience.fund, amount_cents: (params[:trip][:contribution].to_i * 100) )
+        if @contribution.amount > 0 && @contribution.save
+          contribution_order = Order.create!(sku: @contribution.fund, amount: @contribution.amount, state: 'pending', trip_id: @trip.id, contribution: true )
+        end
       end
-      redirect_to confirmation_experience_trip_path(@experience.id, @trip.id)
+      redirect_to confirmation_experience_trip_path(@experience.id, @trip.id, order: order, contribution_order: contribution_order )
     else
       render 'new'
     end
@@ -47,12 +51,20 @@ class TripsController < ApplicationController
   end
 
   def confirmation
+    length = (@trip.end_date - @trip.start_date).to_i
+    price = @trip.experience.price
+    total = length * price
+    if @trip.contribution.present?
+      @sum = @trip.contribution.amount + total
+    else
+      @sum = total
+    end
   end
 
   def status
     @trip = Trip.find(params[:trip_id])
     @trip.update(status: params[:status])
-    @trip.order.capture
+    @trip.orders.map { |o| o.capture }
     redirect_to order_path(@trip.order)
   end
 

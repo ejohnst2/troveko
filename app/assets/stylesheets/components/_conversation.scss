@@ -1,0 +1,26 @@
+.conversation{
+background: white;
+padding: 10px;
+display: flex;
+align-items:center;
+}
+
+.message{
+background: white;
+padding: 10px;
+display: flex;
+align-items:center;
+margin-top: 15px;
+}
+
+.message-name p, .message-name h3 {
+  margin: 0;
+}
+
+.message-body{
+  flex-grow:1;
+}
+
+.message-body p {
+  margin: 0;
+}
