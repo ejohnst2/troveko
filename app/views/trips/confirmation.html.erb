@@ -1,8 +1,7 @@
 <div class="container">
-  <h2>You're much closer to meeting the host on <%= @trip.start_date.strftime("%m/%d/%y")%></h2>
+  <h2>You're much closer to meeting the host on <%= @trip.start_date.strftime("%m/%d/%y")%>. Upon successful payment you will be redirected to a confirmation page.</h2>
 
-  <div class="container" style="background-color: white; padding: 15px; border-radius: 20px;
-">
+  <div class="container" id="payment-box">
   <div class="row" id="experience" style="display: flex; align-items: center; justify-content: space-around;">
     <div class="col-lg-6 col-md-6-col-xs-12 col-sm-12">
       <h2>Trip Breakdown</h2>
@@ -32,8 +31,6 @@
       </div>
     </div>
 </div>
-  <center><h3>Upon successful payment you will be redirected to a confirmation page.</h3></center>
-
 </div>
 
 
