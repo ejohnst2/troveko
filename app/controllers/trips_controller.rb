@@ -2,6 +2,8 @@ class TripsController < ApplicationController
   skip_before_action :authenticate_user!, only: :new
   before_action :set_trip, only: [:edit, :show, :update, :destroy, :confirmation]
   before_action :set_experience, only: [:new, :create, :confirmation]
+  skip_before_action :force_temporary_users, only: :new
+
 
   def index
     @trips = Trip.all

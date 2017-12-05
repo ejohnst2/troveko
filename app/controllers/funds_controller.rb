@@ -1,6 +1,7 @@
 class FundsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show, :new, :edit]
   before_action :set_fund, only: [:show, :edit, :update, :destroy]
+  skip_before_action :force_temporary_users, only: [:index, :show, :new, :edit]
 
   def index
     Fund.all

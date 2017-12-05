@@ -9,7 +9,7 @@
 
     <div class="card-description">
       <h3><%= experience.title %></h3>
-      <p style="align;" id="price-card"><%= money_without_cents_and_with_symbol(experience.price) %> per night</p>
+      <p style="align;" id="price-card"><%= money_without_cents_and_with_symbol(experience.price) %> per person</p>
     </div>
     <%= link_to '', experience_path(experience), class: 'card-link' %>
   </div>
