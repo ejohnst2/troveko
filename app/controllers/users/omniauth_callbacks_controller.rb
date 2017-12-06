@@ -26,12 +26,8 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
         @user = User.new( email: "temporary.#{@identity.id}@fakemail.com", temporary: true )
       end
       @user.password = Devise.friendly_token[0,20]  # Fake password for validation
+      @user.facebook_picture_url = env["omniauth.auth"].info.image
       @user.save
-      @user = User.create(
-        email: @identity.email,
-        facebook_picture_url: env["omniauth.auth"].info.image,
-        password: Devise.friendly_token[0,20]
-      )
       @identity.update_attribute( :user_id, @user.id )
     end
 
