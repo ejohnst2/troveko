@@ -14,4 +14,3 @@ class Trip < ApplicationRecord
       !start_date.blank? and start_date < Date.today
   end
 
-end

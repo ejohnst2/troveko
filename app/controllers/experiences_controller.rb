@@ -74,6 +74,10 @@ class ExperiencesController < ApplicationController
   def new
     @experience = Experience.new
     authorize @experience
+    if !current_user.funds.any?
+      redirect_to new_fund_path
+
+    end
   end
 
 

@@ -5,25 +5,32 @@
     <h3 class="form_section">The Experience</h3>
     <%= f.input :title, hint: 'what is the experience?', placeholder: 'A Weekend in The Subak' %>
     <%= f.input :short_description, hint: 'Sum up the experience in a compelling sentence', placeholder: 'Learn about the 1000-year history of the Balinese Subak with Pak Nyoman and his family' %>
-
-    <h3 class="form_section">Provide The Details of The Experience</h3>
     <%= f.input :price_cents, wrapper_html: { class: 'experience_section' }  %>
     <%= f.input :capacity, placeholder: 'i.e. 3' %>
+    <%= f.input :guided, as: :boolean %>
+    <%= f.input :duration, collection: [1, 2, 3, 4, 5, 6, 7, 8] %>
+
+
+    <h3 class="form_section">Location of the Experience</h3>
     <%= f.input :address %>
     <%= f.input :city %>
     <%= f.input :postal_code %>
     <%= f.country_select :country, priority_countries: ["GB", "US", "DE"] %>
+    <%= f.input :transportation %>
 
-    <h3 class="form_section">Tell Us A Story</h3>
-    <%= f.input :long_description, hint: 'No more than 1000 characters', placeholder: 'Tell the story of the host and their family? Describe what life is like? What makes this experience interesting?', wrapper_html: { class: 'experience_section', id: 'count_me' } %>
 
-    <h3 class="form_section">Amenities and Information</h3>
+    <h3 class="form_section">Accomodation and Amenities</h3>
 
     <h5>What best describes the area?</h5>
     <%= f.collection_check_boxes :areatype_ids, Areatype.all, :id, :name, wrapper_html: { class: 'experience_section' }%>
 
     <h5>What does the accomodation have?</h5>
     <%= f.collection_check_boxes :feature_ids, Feature.all, :id, :name, wrapper_html: { class: 'experience_section' }%>
+
+    <h3 class="form_section">What Travelers Can Expect</h3>
+    <%= f.input :long_description, hint: 'No more than 1000 characters', placeholder: 'Tell the story of the host and their family? Describe what life is like? What makes this experience interesting?', wrapper_html: { class: 'experience_section', id: 'count_me' } %>
+
+    <%= f.input :highlights, placeholder: 'Tell travelers what they can do during their experience.' %>
 
     <h5>What activities are available?</h5>
     <%= f.collection_check_boxes :activity_ids, Activity.all, :id, :name, wrapper_html: { class: 'experience_section' }%>
@@ -35,7 +42,11 @@
 
     <h3 class="form_section">Select Your Community Fund</h3>
     <%#= f.collection_radio :fund_ids, current_user.funds, :id, :title, wrapper_html: { class: 'experience_section' }%>
+
     <%= f.association :fund, collection: current_user.funds, as: :radio_buttons %>
+
+
+
 
     <div class="form-actions text-center">
       <%= f.button :submit, "Ready to Roll", class: "btn-primary btn-lg" %>

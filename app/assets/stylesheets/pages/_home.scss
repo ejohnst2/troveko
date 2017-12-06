@@ -67,10 +67,12 @@
 //     height: 320px;
 // }
 
-// .row {
+.row {
 //   margin-bottom: 0px;
 //     height: 320px;
-// }
+  margin-left: 0px;
+  margin-right: 0px;
+}
 
 .hover
 .hover * {
@@ -78,7 +80,7 @@
 }
 
 .hover {
-    position: relative;
+  position: relative;
   display: inline-block;
   overflow: hidden;
   max-width: 100%;
@@ -294,7 +296,7 @@ a, a:hover, a:active, a:visited, a:focus {
   box-sizing: border-box;
 }
 
-body { font-family: sans-serif; }
+// body { font-family: sans-serif; }
 
 
 
