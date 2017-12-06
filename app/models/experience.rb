@@ -36,19 +36,16 @@ class Experience < ApplicationRecord
       search_results = []
       results = PgSearch.multisearch(query)
       results.each do |result|
-        search_results << result.searchable
+        if result.searchable_type = "Fund"
+          experience_result = Experience.where(fund: Fund.find(result.searchable_id.to_i).id)
+          experience_result.each do |experience|
+            search_results << experience
+          end
+        else
+          search_results << result.searchable
+        end
       end
-      search_results
-
-
-      # Experience.joins(:user).where("lower(experiences.title) LIKE ? OR
-      #                               lower(experiences.address) LIKE ? OR
-      #                               lower(users.first_name) LIKE ? OR
-      #                               lower(users.last_name) LIKE ?",
-      #                               "%#{query}%",
-      #                               "%#{query}%",
-      #                               "%#{query}%",
-      #                               "%#{query}%")
+      search_results.uniq
     else
       Experience.all
     end
