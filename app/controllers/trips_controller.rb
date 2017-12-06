@@ -6,7 +6,7 @@ class TripsController < ApplicationController
 
 
   def index
-    @trips = Trip.all
+    @trips = current_user.trips
   end
 
   def show
@@ -68,8 +68,10 @@ class TripsController < ApplicationController
 
   def cancel
     @trip = Trip.find(params[:trip_id])
-    @trip.update(cancel: params[:cancel])
-    redirect_to profile_path(current_user)
+    authorize @trip
+
+    @trip.update(cancel: true)
+    UserMailer.cancel(current_user, @trip).deliver_now
   end
 
   def destroy
