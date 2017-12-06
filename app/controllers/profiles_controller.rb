@@ -27,4 +27,9 @@ class ProfilesController < ApplicationController
     params.require(:form_user).permit(:email)
   end
 
+ def new
+    @profile = Profile.new
+    authorize @fund
+  end
+
 end

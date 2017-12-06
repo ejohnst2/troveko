@@ -23,6 +23,9 @@ gem 'omniauth-instagram'
 gem 'twitter'
 gem 'instagram'
 gem 'omniauth-google-oauth2'
+gem 'social-share-button'
+
+
 # gem 'google-api-client', require: 'google/api_client'
 
 gem 'faker'
@@ -31,9 +34,12 @@ gem 'country_select'
 gem "gmaps4rails"
 gem "letter_opener", group: :development
 gem 'postmark-rails'
+gem "pundit"
 
 gem 'money-rails'
 gem 'stripe'
+
+gem 'twilio-ruby'
 
 gem 'remotipart', github: 'mshibuya/remotipart'
 gem 'rails_admin', '>= 1.0.0.rc'

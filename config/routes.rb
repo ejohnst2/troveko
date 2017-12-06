@@ -13,6 +13,8 @@ Rails.application.routes.draw do
     end
   end
 
+  get '/about', to: 'pages#about'
+
   devise_for :users, class_name: 'FormUser',
     :controllers => { omniauth_callbacks: 'users/omniauth_callbacks', registrations: 'users/registrations'}
   resources :trips, only: [:edit, :update, :destroy, :show, :index] do
@@ -20,8 +22,6 @@ Rails.application.routes.draw do
     patch 'status', to: "trips#status"
     patch 'cancel', to: "trips#cancel"
   end
-
-  root to: 'pages#home'
 
   resources :conversations do
     resources :messages
@@ -32,8 +32,10 @@ Rails.application.routes.draw do
     get '/users/auth/:provider/setup', :to => 'omniauth_callbacks#setup'
   end
 
-  resources :profiles, only: [:show, :edit, :update]
-  resources :orders, only: [:show, :create] do
+  resources :profiles, only: [:show]
+  resources :orders, only: [:show, :create]
+
+  resources :trips, shallow: true do
     get 'payments/capture', to: "payments#capture"
     resources :payments, only: [:new, :create]
   end
@@ -41,6 +43,8 @@ Rails.application.routes.draw do
 
   mount Attachinary::Engine => "/attachinary"
   mount ActionCable.server => '/cable'
+
+  root to: 'pages#home'
 
 end
 

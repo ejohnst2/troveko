@@ -13,7 +13,7 @@
   <input type="search" name="query" placeholder="Where are you going">
 </form>
       <%= link_to "Experiences", experiences_path, class: "navbar-troveko-item navbar-troveko-link" %>
-      <%= link_to "About", '', class: "navbar-troveko-item navbar-troveko-link" %>
+      <%= link_to "About", about_path, class: "navbar-troveko-item navbar-troveko-link" %>
       <%#= link_to "Messages", messages_path, class: "navbar-troveko-item navbar-troveko-link" %>
       <% if user_signed_in? %>
         <%= link_to "Messages #{current_user.unread_messages}", conversations_path, class: "navbar-troveko-item navbar-troveko-link" %>
@@ -46,7 +46,7 @@
             </li>
             <li>
               <%= link_to profile_path(current_user) do %>
-                <i class="fa fa-superpowers"> Profile</i>
+                <i class="fa fa-superpowers"></i> Profile
               <% end %>
             </li>
           </ul>
