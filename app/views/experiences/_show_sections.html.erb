@@ -68,10 +68,8 @@
           <%= render 'reviews/form', experience: @experience, review: @review %>
           <br>
           <div class="row ngo-actions">
-            <%= button_to 'Back To All Experiences', experiences_path, :method => :get, class: "btn-lg btn-primary", id: "meal-button" %>
-            <% if !current_user.nil? %>
-            <%= button_to 'Message Organization', conversations_path(sender_id: current_user.id, recipient_id: @experience.user.id), method: :post, class: "btn-lg btn-primary", id: "meal-button" %>
-            <% end %>
+            <%= button_to 'See All Experiences', experiences_path, :method => :get, class: "btn-lg btn-primary", id: "meal-button" %>
+            <%= button_to 'Back to Top of Page','', class: "btn-lg btn-primary", id: "meal-button" %>
 </div>
 
 
