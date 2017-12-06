@@ -1,5 +1,24 @@
-<h1>Funds#show</h1>
-<p>Find me in app/views/funds/show.html.erb</p>
+<div class="container" id="fundview">
+  <div class="col-lg-4 col-md-4 col-xs-0">
+    <%= cl_image_tag @fund.experience.photos[0].path, crop: :fill, radius: 'max', width: 275, height: 275 %>
+  </div>
 
-<h1><%= @fund.title %></h1>
-<h2>Goal: <%= money_without_cents_and_with_symbol(@fund.funding_goal) %></h2>
+
+  <h1><%= @fund.title %></h1>
+  <h2>Goal: <%= money_without_cents_and_with_symbol(@fund.funding_goal) %></h2>
+
+
+
+  <div class="col-lg-6 col-md-6-col-xs-12 col-sm-12">
+    <div class="row" style="display: flex; align-items: center;">
+      <div class="col-lg-8 col-md-8 col-xs-12">
+        <h5><%= @fund.about%></h5>
+      </div>
+      <div class="row" style="display: flex; align-items: center;">
+      <div class="col-lg-8 col-md-8 col-xs-12">
+        <h5><%= @fund.use_of_funds%></h5>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
