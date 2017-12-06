@@ -1,0 +1,35 @@
+<div class="container">
+  <h2>We will miss you!! <%= @trip.updated_at.strftime("%m/%d/%y")%>. Trip Cancelled!!.Dear traveller you will receive a cancellation email at <%= current_user.email %></h2>
+
+  <div class="container" id="payment-box">
+  <div class="row" id="experience" style="display: flex; align-items: center; justify-content: space-around;">
+    <div class="col-lg-6 col-md-6-col-xs-12 col-sm-12">
+      <h2>Trip Breakdown</h2>
+      <br>
+      <h4>Trip Total: <%=money_without_cents_and_with_symbol(@trip.experience.price) %> per person</h4>
+      <h4>Number of People: <%= @trip.number_of_people %></h4>
+      <h4>Fund Contribution: <%= money_without_cents_and_with_symbol(@trip.contribution.amount) %></h4>
+    </div>
+    <div class="col-lg-6 col-md-6-col-xs-12 col-sm-12">
+      <div class="row" style="display: flex; align-items: center;">
+        <div class="col-lg-4 col-md-4 col-xs-0">
+        <%= cl_image_tag @trip.experience.photos[0].path, crop: :fill, radius: 'max', width: 175, height: 175 %>
+      </div>
+      <div class="col-lg-8 col-md-8 col-xs-12">
+        <h2><%= link_to @trip.experience.title, experience_path(@trip.experience) %></h2>
+        <h4><%= @trip.experience.short_description %></h4>
+      </div>
+    </div>
+    </div>
+  </div>
+
+   <div class="row" style="display: flex; align-items: center; justify-content: space-around;">
+      <div class="col-lg-6 col-md-6-col-xs-12 col-sm-12">
+        <h1>Your Total: <%= money_without_cents_and_with_symbol(@sum) %></h1>
+      </div>
+      <div class="col-lg-6 col-md-6-col-xs-12 col-sm-12" id="payment-stripe">
+        <% %>
+      </div>
+    </div>
+</div>
+</div>
