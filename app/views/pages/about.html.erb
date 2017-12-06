@@ -1,3 +1,13 @@
+<div class="background-image">
+  <div class="background-overlay">
+    <div class="col-md-10 col-md-offset-1">
+      <h1>Designing Travel Experiences for the 21st Century: <br> Immersive. Impactful. Authentic.</h1>
+      <div class="seperator"></div>
+      <h2>We are an international team hailing from all corners of the world, joined in our passion for experiential travel and social impact. We are building the world's leading platform for social impact travel experiences, allowing millions of users to discover, support, and interact with ‘do-good’ organizations both virtually and in-person.</h2>
+    </div>
+  </div>
+</div>
+
 <div class="container-fluid">
   <div class="navbar-troveko-sticky navbar-filters" id='main-nav' style="justify-content: space-around;">
   <a href="#who" style="font-size: 24px;">Who</a>
@@ -9,28 +19,18 @@
 
 <div class="container">
 
+  <div class="about-section impact-overlay" id="team">
+    <h1>Who are we</h1>
+    <p>Our team is a multi-disciplinary group of world-explorers and change-makers</p>
+  <div class="row" id="team-members">
+    <%= render 'team' %>
+  </div>
+</div>
+
   <div class="about-section">
     <h1>What we do</h1>
     <p>Troveko is a travel platform that allows travelers to book immersive experiences in rural and remote communities in Asia</p>
     <p>Our mission is to translate traveler curiosity into lasting impact, and we envision a world where travel is a means to an end not an end in itself. Key to achieveing this mission is by using the modern and emerging tools to streamline the process of creating meaningful local engagement in areas that lie beyond tourist hotspots.</p>
-  </div>
-
-  <div class="about-section">
-    <h1>Who are we</h1>
-    <p>Our team is a multi-disciplinary group of world-explorers and change-makers</p>
-    <ul>
-      <li>Rohan: Market Lead</li>
-      <li>Diskit: Impact Lead</li>
-      <li>Nikhil: Analytics Lead</li>
-      <li>Berenice: Marketing Associate</li>
-      <li>Lubna: Team Assistant</li>
-      <li>Eli: Product Lead</li>
-      <li>Grace: Front-End Developer</li>
-      <li>Alex: Back-End Developer</li>
-      <li>Geraldo: Web Developer</li>
-
-
-    </ul>
   </div>
 
    <div class="about-section">
@@ -38,12 +38,57 @@
     <p>It is becoming increasingly difficult to make sustainable forms of income in rural and remote communities around the world. Although globalization and urbanization are driving development in and around cities, there are some pockets of society that have basic unmet needs.</p>
   </div>
 
-  <div class="about-section">
+ <div class="about-section">
     <h1>How we do it</h1>
     <p>We wanted to create the most streamlined way for travelers to engage locally outside of tourist hotspots. So here is how it works:</p>
 
     <p>Our impact model is simple, we engage with local organizations that are planning and leading sustainable development initiatives and leverage travel experiences as a vehicle to raise the awareness and funds needed to execute projects that drive solutions.</p>
   </div>
 
+<div class="about-section">
+<div id="impact-image">
+<div class="impact-overlay">
+  <div class="col-xs-10 col-xs-offset-1 col-md-10 col-md-offset-1">
+    <h1>Impact</h1>
+    <div class="row desktop-row-eq-height">
+
+      <div class="col-xs-12 col-md-4 impact-box first">
+        <h4>Drive Visibility and Awareness</h4>
+        <p>Visits generate additional support and income for great local organizations, strengthening their work and bolstering their ability to accomplish their goals.</p>
+      </div>
+
+      <div class="col-xs-12 col-xs-offset-1 col-md-4 impact-box">
+        <h4>Promote Bi-directional Experiential Learning</h4>
+        <p>Eye-opening, transformative experiences and genuine human interaction improve public knowledge of and engagement with society's needs.</p>
+      </div>
+
+      <div class="col-xs-12 col-xs-offset-1 col-md-4 impact-box">
+        <h4>Stimulate Community Impact</h4>
+        <p>Visits increase local demand for guides, food, accommodation, and other hospitality needs, triggering communal economic development.</p>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
 </div>
 
+
+<!--
+  <div class="col-xs-12 col-md-4 team-item">
+    <div class="team-header">
+      <div class="team-avt">
+        <img alt="FirstNameLastName" title="FirstNameLastName" height="140" width="140" src="https://res-4.cloudinary.com/production-visit-org/image/upload/c_thumb,f_auto,h_140,w_140/iznjopems5wrjwi28xvt">
+      </div>
+      <h5 class="team-name" id="michal_alter">FirstNameLastName</h5>
+      <p class="team-function">Role/Function</p>
+      </div><div class="clearfix"></div><p>Michal has been working in technology and social development for over 15 years. In 2015 she founded Visit.org, the world's leading platform for social impact travel experiences, combining her love for technology with her dedication to social development.
+      </div>
+      <div class="col-xs-12 col-md-6 team-item">
+    <div class="team-header">
+      <div class="team-avt">
+        <img alt="Michal Alter" title="Michal Alter" height="140" width="140" src="https://res-4.cloudinary.com/production-visit-org/image/upload/c_thumb,f_auto,h_140,w_140/iznjopems5wrjwi28xvt">
+      </div>
+      <h5 class="team-name" id="michal_alter">Michal Alter</h5>
+      <p class="team-function">Co-Founder and CEO</p>
+      </div><div class="clearfix"></div><p>Michal has been working in technology and social development for over 15 years. In 2015 she founded Visit.org, the world's leading platform for social impact travel experiences, combining her love for technology with her dedication to social development.
+      </div> -->

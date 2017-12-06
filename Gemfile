@@ -40,6 +40,7 @@ gem 'money-rails'
 gem 'stripe'
 
 gem 'twilio-ruby'
+gem 'pg_search'
 
 gem 'remotipart', github: 'mshibuya/remotipart'
 gem 'rails_admin', '>= 1.0.0.rc'

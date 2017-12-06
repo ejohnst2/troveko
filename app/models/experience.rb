@@ -1,5 +1,9 @@
 class Experience < ApplicationRecord
   # check if need to implement chnanged method https://github.com/lewagon/google-maps-autocomplete/blob/323ef5fef39d094d042c7266466a10fb4b70c8b8/app/models/flat.rb
+  include PgSearch
+  multisearchable against: [:title, :short_description, :city, :address, :postal_code, :country]
+
+
   belongs_to :user
   has_attachments :photos, maximum: 10
   has_many :reviews, dependent: :destroy
@@ -27,18 +31,24 @@ class Experience < ApplicationRecord
   geocoded_by :full_address
   after_validation :geocode, if: :full_address_changed?
 
-
   def self.search(query)
     if query.present?
-      query = query.downcase
-      Experience.joins(:user).where("lower(experiences.title) LIKE ? OR
-                                    lower(experiences.address) LIKE ? OR
-                                    lower(users.first_name) LIKE ? OR
-                                    lower(users.last_name) LIKE ?",
-                                    "%#{query}%",
-                                    "%#{query}%",
-                                    "%#{query}%",
-                                    "%#{query}%")
+      search_results = []
+      results = PgSearch.multisearch(query)
+      results.each do |result|
+        search_results << result.searchable
+      end
+      search_results
+
+
+      # Experience.joins(:user).where("lower(experiences.title) LIKE ? OR
+      #                               lower(experiences.address) LIKE ? OR
+      #                               lower(users.first_name) LIKE ? OR
+      #                               lower(users.last_name) LIKE ?",
+      #                               "%#{query}%",
+      #                               "%#{query}%",
+      #                               "%#{query}%",
+      #                               "%#{query}%")
     else
       Experience.all
     end
