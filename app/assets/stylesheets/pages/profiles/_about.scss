@@ -7,7 +7,8 @@
 }
 
 #team {
-  background-color: rgba(60,60,60,0.5);
+  // background-color: rgba(60,60,60,0.5);
+  background-color: white;
   height: 100%;
   // color: #FFFFFF;
   vertical-align: baseline;
@@ -18,7 +19,16 @@
   background-color: rgba(60,60,60,0.5);
   height: 100%;
   vertical-align: baseline;
+  color: #FFFFFF;
 }
+
+#story-image {
+   background-image: url(farmer.jpg);
+    background-size: cover;
+    height: 650px;
+    margin: 60px 0px 0px 0px;
+}
+
 
 #story p {
  font-size: 24px;
