@@ -5,12 +5,12 @@ class User < ApplicationRecord
   has_many :trips, dependent: :destroy
   has_many :experiences
   has_many :messages, dependent: :destroy
-  has_many :identities
+  has_many :identities, dependent: :destroy
   has_many :funds
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
-  devise :omniauthable, omniauth_providers: [:facebook, :twitter, :google, :instagram]
+  devise :omniauthable, omniauth_providers: [:facebook, :twitter, :google_oauth2, :instagram]
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
@@ -76,8 +76,11 @@ class User < ApplicationRecord
     @google_oauth2_client
   end
 
-
-
+def unread_messages
+  if messages.where(read: false).count > 0
+    "(#{messages.where(read: false).count})"
+  end
+end
 
   private
 

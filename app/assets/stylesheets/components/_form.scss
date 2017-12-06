@@ -1,3 +1,10 @@
+
+
+#edituser {
+  margin-left:100px;
+  margin-right:100px;
+}
+
 .form-login {
   background: white;
   padding: 10px 20px;
@@ -18,3 +25,40 @@
     margin-bottom: 20px
   }
 }
+
+.btn-primary.btn.facebook {
+  background: #3b5998;
+  border: none;
+}
+
+.btn-primary.btn.twitter {
+  background: #0084b4;
+  border: none;
+}
+
+.btn-primary.btn.instagram {
+  background: #bc2a8d;
+  border: none;
+}
+
+.btn-primary.btn.google {
+  background: #d62d20;
+  border: none;
+}
+
+// @import url(//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css);
+
+// input[type="checkbox"] {
+//     display: none;
+// }
+
+// input[type="checkbox"] + label:before {
+//     font-family: FontAwesome;
+//     content: "\f00d";
+//     color: red;
+// }
+
+// input[type="checkbox"]:checked + label:before {
+//     content: "\f00c";
+//     color:green;
+// }

@@ -1,7 +1,6 @@
 class Order < ApplicationRecord
   monetize :amount_cents
-  belongs_to :trips
-
+  belongs_to :trip
 
   def capture
     order = Order.where(state: 'paid').find(self.id)

@@ -1,8 +1,6 @@
 <center>
 
-  <div class="sticky-content">
-    <div class="container-fluid">
-      <img src="<%= image_path("nonprofit.png") %>" alt="host" class="nonprofit">
+ <img src="<%= image_path("nonprofit.png") %>" alt="host" class="nonprofit">
       <div class="info">
        <div id="bar-1" class="bar-main-container">
         <div class="wrap">
@@ -19,25 +17,17 @@
       </div>
 
 
-      <h2><%= money_without_cents_and_with_symbol(@experience.fund.contributions.sum(:amount_cents) / 100) %> of <%=  money_without_cents_and_with_symbol(@experience.fund.funding_goal) %> funded</h2>
+      <h4><%= money_without_cents_and_with_symbol(@experience.fund.contributions.sum(:amount_cents) / 100) %> of <%=  money_without_cents_and_with_symbol(@experience.fund.funding_goal) %> funded <a href="#impact">(Read More)</a></h4>
+      <% if !current_user.nil? %>
+            <%= link_to 'Have a question? Send a message.', conversations_path(sender_id: current_user.id, recipient_id: @experience.user.id), method: :post %>
+            <% end %>
 
-<div class="margin" style="padding-bottom: 100px; ">
-
-
- <div class="booking" style=" margin-top: 70px;">
-      <h3><%= money_without_cents_and_with_symbol(@experience.price) %> per night</h3>
-    </div>
-
-    <div class="">
-      <%= button_to "Start Your Adventure", new_experience_trip_path(@experience), :method => :get, class: "btn-lg btn-primary", id: "meal-button" %>
-    </div>
-  </div>
+      <br>
+<div class="margin" style="padding-bottom: 100px; margin-top: 70px; ">
+  <%= render 'sidebar_cta' %>
 </div>
 
-</div>
 
-<!-- </div>
--->
 </center>
 
 <!--  <form>

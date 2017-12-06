@@ -1,10 +1,24 @@
+<div class="new_trip">
+
+
 <div class="container">
   <div class="row">
       <h1><%= @experience.title %></h1>
       <h4><%= @experience.short_description %></h4>
-      <h3>You're much closer to meeting the host from [start date] to [end date]</h3>
+      <h3>You took the first step to having the experience of a lifetime, please fill your details below.</h3>
     </div>
-    <div class="row">
-        <%= render 'trips/form', experience: @experience %>
-    </div>
+
+  <div class="container">
+    <%= render 'trips/form', experience: @experience %>
+  </div>
+
+
+  <div class="row" style="padding-bottom: 20px;">
+      <%= link_to "Go Back to Experience", experience_path(@experience)%>
+  </div>
+
+
+</div>
+
+
 </div>

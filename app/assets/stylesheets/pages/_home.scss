@@ -8,6 +8,7 @@
   color: white;
 }
 
+
 .placeholder {
   text-align: center;
   height: 70px;
@@ -49,9 +50,9 @@
   position: relative;
   z-index: 10;
   width: 100%;
-    -webkit-box-shadow: 0 4px 4px -2px #000000;
-   -moz-box-shadow: 0 4px 4px -2px #000000;
-        box-shadow: 0 4px 4px -2px #000000;
+    -webkit-box-shadow: 0 5px 1px -4px #000000;
+   -moz-box-shadow: 0 5px 1px -4px #000000;
+        box-shadow: 0 5px 1px -4px #000000;
   margin-right: 0;
 }
 
@@ -64,10 +65,12 @@
 //     height: 320px;
 // }
 
-// .row {
+.row {
 //   margin-bottom: 0px;
 //     height: 320px;
-// }
+  margin-left: 0px;
+  margin-right: 0px;
+}
 
 .hover
 .hover * {
@@ -75,7 +78,7 @@
 }
 
 .hover {
-    position: relative;
+  position: relative;
   display: inline-block;
   overflow: hidden;
   max-width: 100%;
@@ -186,29 +189,177 @@
 //   font-family: 'Anonymous Pro', monospace;
 //   background-color: rgb(25,25,25);
 // }
-.line-1{
+.typewrite{
     position: relative;
-    top: 50%;
+    // top: 50%;
     width: 24em;
     margin: 0 auto;
-    border-right: 2px solid rgba(255,255,255,.75);
-    font-size: 180%;
+    // border-right: 2px solid rgba(255,255,255,.75);
+    font-size: 90%;
     text-align: center;
     white-space: nowrap;
     overflow: hidden;
     transform: translateY(-50%);
+    color: white;
+    font-weight:lighter;
+    text-decoration: none;
+    text-align: center;
 }
 
-/* Animation */
-.anim-typewriter{
-  animation: typewriter 8s steps(44) 2s 1 normal both,
-             blinkTextCursor 500ms steps(44) infinite normal;
+.typewrite:hover {
+  color: white;
+  text-decoration: none;
 }
-@keyframes typewriter{
-  from{width: 0;}
-  to{width: 10em;}
+
+// .btn-treehouse {
+//   color: #ff583d;
+//   border: 3px solid #ff583d;
+//   padding: 10px 15px;
+//   border-radius: 10px;
+//   font-weight: lighter;
+//   opacity: 0.6;
+// }
+
+// .btn-medium:hover {
+//   opacity: 1;
+//   text-decoration: none;
+//   color: #999999;
+// }
+
+.carousel-frame {
+    width: 100%;
+    margin-bottom: 0.5em;
+    padding-bottom: 1em;
+    position: relative;
+    overflow-x: scroll;
+    white-space: nowrap;
+ }
+ .carousel-frame ul {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    list-style: none;
 }
-@keyframes blinkTextCursor{
-  from{border-right-color: rgba(255,255,255,.75);}
-  to{border-right-color: transparent;}
+.carousel-frame li.carousel-item {
+    cursor: pointer;
+    display: inline-block;
+    margin: 0 5px 0 0;
+    padding: 0;
 }
+
+.description {
+  color: #8e8e8e;
+}
+
+.role{
+  color: #606060;
+}
+
+.btn-treehouse {
+  color: white;
+  padding: 10px 15px;
+  border-radius: 4px;
+  // font-weight: bold;
+  background: #ff583d;
+  transition: background 0.9s ease;
+  text-decoration: none;
+  font-size: 25px;
+  border: 0px solid !important;
+  // font-family: "Barlow Condensed", "Helvetica", "sans-serif";
+}
+.btn-treehouse:hover {
+  opacity: 1;
+  background: #ffc344;
+  text-decoration: none !important;
+  color: white;
+}
+
+.btn-treehouse:active {
+    text-decoration: none !important;
+    color: white;
+}
+
+.btn-treehouse:visited {
+    text-decoration: none !important;
+    color: white;
+
+}
+
+a, a:hover, a:active, a:visited, a:focus {
+    text-decoration:none;
+}
+
+* {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+// body { font-family: sans-serif; }
+
+
+
+.toggle-check-input {
+  width: 1px;
+  height: 1px;
+  position: absolute;
+}
+
+.toggle-check-text {
+  display: inline-block;
+  position: relative;
+  text-transform: uppercase;
+  background: #CCC;
+  padding: 0.25em 0.5em 0.25em 2em;
+  border-radius: 1em;
+  min-width: 2em;
+  color: #FFF;
+  cursor: pointer;
+  transition: background-color 0.15s;
+}
+
+
+.toggle-check-text:after {
+  content: ' ';
+  display: block;
+  background: #FFF;
+  width: 1.1em;
+  height: 1.15em;
+  border-radius: 1em;
+  position: absolute;
+  left: 0.3em;
+  top: 0.25em;
+  transition: left 0.15s, margin-left 0.15s;
+}
+
+.toggle-check-text:before {
+  content: 'No';
+}
+
+.toggle-check-input:checked ~ .toggle-check-text {
+  background: #8ad869;
+  padding-left: 0.5em;
+  padding-right: 2em;
+}
+
+.toggle-check-input:checked ~ .toggle-check-text:before {
+  content: 'Yes';
+}
+
+.toggle-check-input:checked ~ .toggle-check-text:after {
+  left: 100%;
+  margin-left: -1.4em;
+}
+
+// /* Animation */
+// .anim-typewriter{
+//   animation: typewriter 8s steps(44) 2s 1 normal both,
+//              blinkTextCursor 500ms steps(44) infinite normal;
+// }
+// @keyframes typewriter{
+//   from{width: 0;}
+//   to{width: 10em;}
+// }
+// @keyframes blinkTextCursor{
+//   from{border-right-color: rgba(255,255,255,.75);}
+//   to{border-right-color: transparent;}
+// }

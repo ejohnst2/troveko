@@ -7,8 +7,10 @@
 
 .my-row {
   display: flex;
-  margin-bottom: 30px;
+  margin-bottom: 10px;
+  margin-top: 25px;
 }
+
 
 .flex-item {
   align-self: center;
@@ -22,7 +24,12 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 20px;
+  margin-bottom: 60px;
+  margin-top:-100px;
+}
+
+.traveler-info{
+  margin-bottom: 50px;
 }
 
 .host-image {
@@ -32,12 +39,20 @@
 
 .profile-image {
   border-radius: 50%;
-  width: 30%;
+  width: 150px;
+  height: 150px;
   margin: 15px;
 }
 
-.edit-profile {
-  display: flex;
+.edit_profile {
+  width: 100%;
+  text-align: center;
+  /* if you have a 70px navbar => height: calc(100vh - 70px); */
+  align-items: center;
+  justify-content: center;
+}
+
+div.edit-profile {
 }
 
 .profile-icon {
@@ -85,6 +100,11 @@
   margin: 30px;
 }
 
+#start-adventure {
+  width:100%;
+  height: 80px;
+}
+
 .meal-link {
   margin-left: 10px;
 }
@@ -113,9 +133,32 @@
 
 /* -----------------------ngo tabs--------------------- */
 
+
+.traveler-options{
+  justify-content: space-around;
+  align-items: center;
+}
+
 .ngo-actions {
 display: flex;
 padding: 20px;
 justify-content: center;
 }
 
+#main-nav{
+  position: sticky;
+  top: 0;
+}
+
+#main-nav a {
+  // text-transform: uppercase;
+  // text-decoration: none;
+  // color: #FFFFFF;
+  padding: 10px;
+  display: block;
+}
+
+#main-nav a:hover {
+  background-color: transparent;
+  border: 2.5px solid $trov-blue;
+}
