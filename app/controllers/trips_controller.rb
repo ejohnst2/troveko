@@ -1,5 +1,5 @@
 class TripsController < ApplicationController
-  skip_before_action :authenticate_user!, only: :new
+  # skip_before_action :authenticate_user!, only: :new --> even new now requires user to be logged in
   before_action :set_trip, only: [:edit, :show, :update, :destroy, :confirmation]
   before_action :set_experience, only: [:new, :create, :confirmation]
   skip_before_action :force_temporary_users, only: :new
