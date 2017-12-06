@@ -7,6 +7,7 @@ class PaymentsController < ApplicationController
   end
 
   def create
+    begin
      # creates customer in Skype based on token
      customer = Stripe::Customer.create(
       source: params[:token],
