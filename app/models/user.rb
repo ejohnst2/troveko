@@ -77,7 +77,7 @@ class User < ApplicationRecord
   end
 
 def unread_messages
-  if messages.where(read: false).count > 0
+  if messages.where(read: false).where.not(user_id: self.id).count > 0
     "(#{messages.where(read: false).count})"
   end
 end
