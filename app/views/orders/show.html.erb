@@ -5,7 +5,7 @@
     <h4>Thanks <%= @order.trip.user.first_name %> for choosing Troveko! We have sent a confirmation to <%= @order.trip.user.email %>.</h4>
       <ul>
         <li>Status: <%= @order.state %> upon host confirmation</li>
-        <li>Trip: <%= @order.experience_sku %></li>
+        <li>Trip: <%= @order.sku %></li>
         <li>Amount: <%= money_without_cents_and_with_symbol(@order.amount) %></li>
       <ul>
   </div>
