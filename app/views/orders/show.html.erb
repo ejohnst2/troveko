@@ -5,13 +5,16 @@
 <div class="container">
 
   <div class="row">
-    <h1>Order</h1>
+    <div style="margin: 50px 0px;">
+    <h1>Trip Confirmation</h1>
     <h4>Thanks <%= @order.trip.user.first_name %> for choosing Troveko! We have sent a confirmation to <%= @order.trip.user.email %>.</h4>
-      <ul>
+  </div>
+     <h4><ul>
         <li>Status: <%= @order.state %> upon host confirmation</li>
         <li>Trip: <%= @order.sku %></li>
         <li>Amount: <%= money_without_cents_and_with_symbol(@order.amount) %></li>
       <ul>
+        </h4>
   </div>
 
     <div class="row" id="confirmation_box">
