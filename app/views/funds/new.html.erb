@@ -6,25 +6,25 @@
     </div>
     <div class="row">
 
-<%= simple_form_for(@fund) do |f| %>
-  <%= f.error_notification %>
-  <div class="form-inputs">
+      <%= simple_form_for(@fund) do |f| %>
+      <%= f.error_notification %>
+      <div class="form-inputs">
 
-    <h3 class="form_section">The Fund</h3>
-    <%= f.input :title, placeholder: 'A Weekend in The Subak' %>
-    <%= f.input :funding_goal  %>
+        <h3 class="form_section">The Fund</h3>
+        <%= f.input :title, placeholder: 'A Weekend in The Subak' %>
+        <%= f.input :funding_goal  %>
 
-    <h3 class="form_section">About The Project</h3>
-    <%= f.input :use_of_funds, placeholder: 'How exactly will you allocate funds? (The more specific, the better.)', wrapper_html: { class: 'fund_section' }%>
-    <%= f.input :about, hint: 'No more than 1000 characters', placeholder: 'Tell the story of the host and their family? Describe what life is like? What makes this fund interesting?', wrapper_html: { class: 'fund_section', id: 'count_me' } %>
+        <h3 class="form_section">About The Project</h3>
+        <%= f.input :use_of_funds, placeholder: 'How exactly will you allocate funds? (The more specific, the better.)', wrapper_html: { class: 'fund_section' }%>
+        <%= f.input :about, hint: 'No more than 1000 characters', placeholder: 'Tell the story of the host and their family? Describe what life is like? What makes this fund interesting?', wrapper_html: { class: 'fund_section', id: 'count_me' } %>
 
-    <div class="form-actions text-center">
-      <%= f.button :submit, "Ready to Roll", class: "btn-primary btn-lg" %>
-    </div>
-<% end %>
-<br><br>
+        <div class="form-actions text-center">
+          <%= f.button :submit, "Ready to Roll", class: "btn-primary btn-lg" %>
+        </div>
+        <% end %>
+        <br><br>
 
 
+      </div>
     </div>
   </div>
-</div>
