@@ -5,7 +5,7 @@ class User < ApplicationRecord
   has_many :trips, dependent: :destroy
   has_many :experiences
   has_many :messages, dependent: :destroy
-  has_many :identities
+  has_many :identities, dependent: :destroy
   has_many :funds
 
   # Include default devise modules. Others available are:
