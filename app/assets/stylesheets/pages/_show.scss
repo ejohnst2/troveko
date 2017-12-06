@@ -127,7 +127,7 @@ span sm {
 
   .carousel-inner > .item > img, .carousel-inner > .item > a > img {
     width: 100%;
-    max-height: 760px;
+    min-height: 760px;
   }
 
   .container-fluid {
@@ -151,4 +151,15 @@ span sm {
     color: #fff;
     text-align: left;
     background-color: rgba(0,0,0,.35);
+}
+
+// .imagefit {
+//   max-height: 700px;
+//   overflow: hidden;
+// }
+
+.imagefit2 {
+  width: auto;
+  height: 700px;
+  // max-height: 700px;
 }
