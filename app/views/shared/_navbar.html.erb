@@ -16,7 +16,7 @@
       <%= link_to "About", about_path, class: "navbar-troveko-item navbar-troveko-link" %>
       <%#= link_to "Messages", messages_path, class: "navbar-troveko-item navbar-troveko-link" %>
       <% if user_signed_in? %>
-        <%= link_to "Messages #{current_user.unread_messages}", profile_path(current_user) + "#messages", class: "navbar-troveko-item navbar-troveko-link" %>
+        <%= link_to "Messages #{current_user.unread_messages}", profile_path(current_user, reload: true, anchor: 'messages'), class: "navbar-troveko-item navbar-troveko-link" %>
       <% end %>
 
       <%= link_to "Blog", root_path, class: "navbar-troveko-item navbar-troveko-link" %>
@@ -39,14 +39,15 @@
                 <i class="fa fa-home"></i>  <%= t(".profile", default: "Home") %>
               <%# end %>
             </li> -->
+                         <li>
+              <%= link_to profile_path(current_user) do %>
+                <i class="fa fa-superpowers"></i> Profile
+              <% end %>
+            </li>
+
              <li>
               <%= link_to destroy_user_session_path, method: :delete do %>
                 <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Log out") %>
-              <% end %>
-            </li>
-            <li>
-              <%= link_to profile_path(current_user) do %>
-                <i class="fa fa-superpowers"></i> Profile
               <% end %>
             </li>
           </ul>
