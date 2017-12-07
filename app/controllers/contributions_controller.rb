@@ -1,4 +1,4 @@
-eclass ContributionsController < ApplicationController
+class ContributionsController < ApplicationController
   def new
     @contribution = Contribution.new
   end
