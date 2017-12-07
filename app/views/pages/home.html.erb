@@ -1,5 +1,115 @@
 <%= render 'shared/navbar' %>
 
+<div class="banner" style="background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('<%= image_path("banner.jpg") %>');">
+  <div class="banner-content">
+    <h1>Impact Through Adventure</h1>
+    <h2>Where Will Life Take You?</h2>
+<h2>
+  <a href="" class="typewrite" data-period="2000" data-type='[ "Jatiluwih, Bali, Indonesia...", "Rajmachi, Pune, India..." ]'>
+    <span class="wrap"></span>
+  </a>
+</h2>
+<br>
+
+<%= button_to "Start Your Adventure", experiences_path, :method => :get, class: "btn-treehouse" %>
+
+    <!-- <h2>How it Works</h2> -->
+  </div>
+</div>
+
+
+</div>
+<!--
+<div class="placeholder">
+  <h1>What We Do</h1>
+</div> -->
+
+<div class="information">
+  <br>
+  <center><h2 class="role">Travel Experience Meets Impact Crowdfunding</h2>
+<center>
+    <br>
+    <br>
+  <div class="row">
+    <div class="col-xs-12 col-sm-4">
+      <img class="icon" src="<%= image_path("Host.png") %>">
+</div>
+
+    <div class="col-xs-12 col-sm-4">
+      <img class="icon" src="<%= image_path("NGO.png") %>">
+</div>
+
+    <div class="col-xs-12 col-sm-4">
+      <img class="icon" src="<%= image_path("Traveler.png") %>">
+</div>
+</div>
+  <div class="row">
+    <div class="col-xs-12 col-sm-4">
+<h2 class="role">Host</h2>
+<p class="description">Improve rural livelihoods</p>
+</div>
+
+    <div class="col-xs-12 col-sm-4">
+<h2 class="role">NGO</h2>
+<p class="description">Drive visibility and revolutionize fundraising</p>
+</div>
+
+    <div class="col-xs-12 col-sm-4">
+<h2 class="role">Traveller</h2>
+<p class="description">Transform perspectives and actions</p>
+</div>
+
+</div>
+<br>
+<br>
+  </div>
+
+<div class="placeholder">
+  <h1>Discover Communities, Fund Solutions.</h1>
+</div>
+<!-- links in boxes should be added -->
+
+<!-- <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+<script type="text/javascript" src="slick/slick.min.js"></script>
+
+  <script type="text/javascript">
+    $(document).ready(function(){
+      $('.card').slick({
+        setting-name: setting-value
+      });
+    });
+  </script>
+
+<script>
+  $('.autoplay').slick({
+  slidesToShow: 3,
+  slidesToScroll: 1,
+  autoplay: true,
+  autoplaySpeed: 2000,
+});
+</script> -->
+
+
+<div class="container-fluid" id="picturerow">
+  <div class="row" id="experience">
+    <% @experiences.each do |experience| %>
+    <div class="col-l-4-xs-12 col-sm-4" id="picture">
+        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path experience.photos[0].path if experience.photos.any? %>');">
+              <div class="card-category">
+      <h5><%= experience.country %></h5>
+    </div>
+    <div class="card-description">
+      <h3><%= experience.title %></h3>
+      <p style="align;" id="price-card"><%= money_without_cents_and_with_symbol(experience.price) %> per night</p>
+    </div>
+    <%= link_to '', experience_path(experience), class: 'card-link' %>
+  </div>
+</div>
+<%end %>
+</div>
+</div>
+
 <script>
   var TxtType = function(el, toRotate, period) {
         this.toRotate = toRotate;
@@ -58,118 +168,6 @@
         document.body.appendChild(css);
     };
 </script>
-
-
-<div class="banner" style="background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('<%= image_path("banner.jpg") %>');">
-  <div class="banner-content">
-    <h1>Impact Through Adventure</h1>
-    <h2>Where Will Life Take You?</h2>
-<h2>
-  <a href="" class="typewrite" data-period="2000" data-type='[ "Jatiluwih, Bali, Indonesia...", "Rajmachi, Pune, India..." ]'>
-    <span class="wrap"></span>
-  </a>
-</h2>
-<br>
-
-<%= button_to "Start Your Adventure", experiences_path, :method => :get, class: "btn-treehouse" %>
-
-    <!-- <h2>How it Works</h2> -->
-  </div>
-</div>
-
-
-</div>
-
-<div class="placeholder">
-  <h1>What We Do</h1>
-</div>
-
-<div class="information">
-  <br>
-  <center><h2 class="role">Travel Experience Meets Impact Crowdfunding</h2>
-<center>
-    <br>
-    <br>
-  <div class="row">
-    <div class="col-xs-12 col-sm-4">
-      <img class="icon" src="<%= image_path("Host.png") %>">
-</div>
-
-    <div class="col-xs-12 col-sm-4">
-      <img class="icon" src="<%= image_path("NGO.png") %>">
-</div>
-
-    <div class="col-xs-12 col-sm-4">
-      <img class="icon" src="<%= image_path("Traveler.png") %>">
-</div>
-</div>
-  <div class="row">
-    <div class="col-xs-12 col-sm-4">
-<h2 class="role">Host</h2>
-<p class="description">Improve rural livelihoods</p>
-</div>
-
-    <div class="col-xs-12 col-sm-4">
-<h2 class="role">NGO</h2>
-<p class="description">Drive visibility and revolutionize fundraising</p>
-</div>
-
-    <div class="col-xs-12 col-sm-4">
-<h2 class="role">Traveller</h2>
-<p class="description">Transform perspectives and actions</p>
-</div>
-
-</div>
-<br>
-<br>
-  </div>
-
-<div class="placeholder">
-  <h1>Discover Communities</h1>
-</div>
-<!-- links in boxes should be added -->
-
-<!-- <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
-<script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-<script type="text/javascript" src="slick/slick.min.js"></script>
-
-  <script type="text/javascript">
-    $(document).ready(function(){
-      $('.card').slick({
-        setting-name: setting-value
-      });
-    });
-  </script>
-
-<script>
-  $('.autoplay').slick({
-  slidesToShow: 3,
-  slidesToScroll: 1,
-  autoplay: true,
-  autoplaySpeed: 2000,
-});
-</script> -->
-
-
-<div class="container" id="picturerow">
-  <div class="row" id="experience">
-    <% @experiences.each do |experience| %>
-    <div class="col-l-4-xs-12 col-sm-4" id="picture">
-        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path experience.photos[0].path if experience.photos.any? %>');">
-              <div class="card-category">
-      <h5><%= experience.country %></h5>
-    </div>
-    <div class="card-description">
-      <h3><%= experience.title %></h3>
-      <p style="align;" id="price-card"><%= money_without_cents_and_with_symbol(experience.price) %> per night</p>
-    </div>
-    <%= link_to '', experience_path(experience), class: 'card-link' %>
-  </div>
-</div>
-<%end %>
-</div>
-</div>
-
 
 
 
