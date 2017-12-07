@@ -13,11 +13,12 @@
 .placeholder {
   text-align: center;
   height: 70px;
-  background-color: rgba(225, 225, 225, .8);
+  // background-color: rgba(225, 225, 225, .8);
+  background-color: black;
   align-items: center;
   justify-content: center;
   padding:0;
-  // color: white;
+  color: white;
   background-size: cover !important;
   display: flex;
 }
