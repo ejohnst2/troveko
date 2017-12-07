@@ -38,6 +38,27 @@
                 <i class="fa fa-home"></i>  <%= t(".profile", default: "Home") %>
               <%# end %>
             </li> -->
+                         <li>
+              <%= link_to profile_path(current_user) do %>
+                <i class="fa fa-superpowers"></i> Profile
+              <% end %>
+            </li>
+
+             <li>
+              <%= link_to destroy_user_session_path, method: :delete do %>
+                <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Log out") %>
+              <% end %>
+            </li>
+
+            <% if user_signed_in? %>
+              <li>
+                <%= link_to "Messages #{current_user.unread_messages}", profile_path(current_user, reload: true, anchor: 'messages'), class: "navbar-troveko-item navbar-troveko-link" %>
+              </li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+
     <% else %>
       <%= link_to new_user_session_path, class: "navbar-troveko-item navbar-troveko-link" do %>
       <strong>Sign in</strong>
@@ -46,6 +67,24 @@
       <strong>Register</strong>
       <% end %>
     <% end %>
+
+
+  </div>
+
+  <!-- Dropdown list appearing on mobile only -->
+  <div class="navbar-troveko-item hidden-md hidden-lg">
+    <div class="dropdown">
+      <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
+      <ul class="dropdown-menu dropdown-menu-right navbar-troveko-dropdown-menu">
+        <li><%= link_to "Experiences", experiences_path %></li>
+        <li><%= link_to "Messages", conversations_path %></li>
+        <li><%= link_to "About", about_path %></li>
+        <li><%= link_to "Sign out", destroy_user_session_path, :method => :delete %></li>
+        <li><%= link_to "Profiles", profile_path(current_user) if current_user != nil %></li>
+        <li><%# link_to "Reviews",  experience_reviews_path %></li>
+
+      </ul>
+    </div>
   </div>
 </div>
 
