@@ -36,7 +36,7 @@ class Experience < ApplicationRecord
       search_results = []
       results = PgSearch.multisearch(query)
       results.each do |result|
-        if result.searchable_type = "Fund"
+        if result.searchable_type == "Fund"
           experience_result = Experience.where(fund: Fund.find(result.searchable_id.to_i).id)
           experience_result.each do |experience|
             search_results << experience

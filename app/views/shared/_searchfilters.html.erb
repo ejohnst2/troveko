@@ -1,4 +1,4 @@
-<div class="navbar-filters">
+<div class="navbar-filters navbar-troveko-sticky" style="position: sticky; top: 0;">
 
   <div class="">
         <%= link_to 'Grid', experiences_path, remote: true, method: :get, class: 'btn-primary btn-xl' %>
@@ -42,7 +42,9 @@
       </div>
 
     <div class="floatright">
-      <%= link_to 'New experience', new_experience_path, class: 'btn btn-secondary' %>
+      <% if current_user&.ngo? %>
+      <%= link_to 'Create New Experience', new_experience_path, class: 'btn btn-secondary' %>
+      <% end %>
     </div>
 
   </div>

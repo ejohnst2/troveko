@@ -185,7 +185,7 @@ ActiveRecord::Schema.define(version: 20171207190323) do
     t.index ["searchable_type", "searchable_id"], name: "index_pg_search_documents_on_searchable_type_and_searchable_id", using: :btree
   end
 
-  create_table "reviews", force: :cascade do |t|
+  create_table "reviews", id: :bigserial, force: :cascade do |t|
     t.text     "content"
     t.integer  "experience_id"
     t.datetime "created_at",    null: false
@@ -210,7 +210,7 @@ ActiveRecord::Schema.define(version: 20171207190323) do
     t.index ["user_id"], name: "index_trips_on_user_id", using: :btree
   end
 
-  create_table "users", force: :cascade do |t|
+  create_table "users", id: :bigserial, force: :cascade do |t|
     t.string   "email",                  default: "",    null: false
     t.string   "encrypted_password",     default: "",    null: false
     t.string   "reset_password_token"

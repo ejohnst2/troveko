@@ -1,7 +1,7 @@
-<center>
-
- <img src="<%= image_path("nonprofit.png") %>" alt="host" class="nonprofit">
-      <div class="info">
+  <div class="">
+    <center>
+      <h2>The Fund</h2>
+          <div class="info">
        <div id="bar-1" class="bar-main-container">
         <div class="wrap">
           <p><%= @experience.fund.title %></p>
@@ -21,14 +21,17 @@
       <% if !current_user.nil? %>
             <%= link_to 'Have a question? Send a message.', conversations_path(sender_id: current_user.id, recipient_id: @experience.user.id, experience_id: @experience.id), method: :post %>
             <% end %>
-
       <br>
+
 <div class="margin" style="padding-bottom: 100px; margin-top: 70px; ">
   <%= render 'sidebar_cta' %>
 </div>
 
-
 </center>
+</div>
+
+<%#= cl_image_path @experience.user.photo.path %>
+ <!-- <img src="<%#= image_path("nonprofit.png") %>" alt="host" class="nonprofit"> -->
 
 <!--  <form>
         <input type="date" class="date">
