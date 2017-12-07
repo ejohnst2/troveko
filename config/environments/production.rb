@@ -18,7 +18,7 @@ Rails.application.configure do
   #actionmailer user PostMark API
   config.action_mailer.delivery_method     = :postmark
   config.action_mailer.postmark_settings   = { api_key: ENV['POSTMARK_API_KEY'] }
-  config.action_mailer.default_url_options = { host: "eli@millinno.com" }
+  config.action_mailer.default_url_options = { host: "troveko.herokuapp.com" }
 
   # Attempt to read encrypted secrets from `config/secrets.yml.enc`.
   # Requires an encryption key in `ENV["RAILS_MASTER_KEY"]` or
