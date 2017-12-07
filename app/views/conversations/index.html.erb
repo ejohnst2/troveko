@@ -13,7 +13,7 @@
             <div class="conversation">
               <%= image_tag facebook_image(counterpart), class: "avatar-large" %>
               <div class="message-name">
-                <h2><%= counterpart.first_name %></h2>
+                <h2 class="message-sender"><%= counterpart.first_name %></h2>
                 <p><%= time_ago_in_words conversation.most_recent_message.created_at %></p>
               </div>
               <div class="message-body">
