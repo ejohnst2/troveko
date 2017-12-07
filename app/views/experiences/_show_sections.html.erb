@@ -37,33 +37,12 @@
 
   <div class="section" id="impact">
     <h2>Impact</h2>
+
     <h4><%= @experience.fund.title %></h4>
+    <h2 style="padding-top: 10px;"><%= money_without_cents_and_with_symbol(@experience.fund.contributions.sum(:amount_cents) / 100) %> of <%=  money_without_cents_and_with_symbol(@experience.fund.funding_goal) %> funded</h2>
+    <%= render 'fund_information' %>
     <h5>Description</h5>
     <p><%= @experience.fund.about %></p>
-    <h5>Funds Raised</h5>
-    <center>
-      <div class=" ">
-        <div id="bar-1" class="bar-main-container">
-          <div>
-            <center><p><%= money_without_cents_and_with_symbol(@experience.fund.contributions.sum(:amount_cents) / 100) %> of <%=  money_without_cents_and_with_symbol(@experience.fund.funding_goal) %> funded </p></center>
-            <div class="info">
-              <div class="bar-container">
-                <div class="bar">
-                </div>
-              </div>
-              <div class="bar-percentage" data-percentage="<%= fund_percentage(@experience) %>">
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div id="text-progress">
-        <% if !current_user.nil? %>
-       <!--  <%#= link_to 'Have a question? Send a message.', conversations_path(sender_id: current_user.id, recipient_id: @experience.user.id), method: :post %>
-        <% end %> -->
-        <br>
-      </div>
-    </center>
     <h5>Use of Funds</h5>
     <p><%= @experience.fund.use_of_funds %></p>
     <br>

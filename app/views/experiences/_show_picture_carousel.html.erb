@@ -1,9 +1,8 @@
 
  <div id="myCarousel" class="carousel slide photo" data-ride="carousel">
     <div class="experience-caption">
-      <h1><%= @experience.title %> -- <%= @experience.short_description %></h1>
-      <h5><%= money_without_cents_and_with_symbol(@experience.price) %> per night + optional fund contribution to a <%= @experience.areatypes[0].name %> in <%= @experience.city %></h5>
-      <h5><%= money_without_cents_and_with_symbol(@experience.fund.contributions.sum(:amount_cents) / 100) %> of <%=  money_without_cents_and_with_symbol(@experience.fund.funding_goal) %> funded</h5>
+      <h1><%= @experience.title %></h1>
+      <h4><%= @experience.short_description %></h4>
     </div>
 
     <div class="carousel-inner">
@@ -23,3 +22,6 @@
   </div>
 
 
+
+ <%#= money_without_cents_and_with_symbol(@experience.fund.contributions.sum(:amount_cents) / 100) %>
+ <%#=  money_without_cents_and_with_symbol(@experience.fund.funding_goal) %>
