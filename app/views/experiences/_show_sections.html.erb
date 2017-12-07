@@ -3,7 +3,8 @@
   <div class="section" id="overview">
     <h2>Overview</h2>
     <div class="flex-around">
-      <%= render 'experiences/areatypes' %>
+      <%#= render 'experiences/areatypes' %>
+      <p style="text-align: center";><i class="fa <%= @experience.areatypes[0].fa_icon %> icon" id="showicon" aria-hidden="true"></i><%= @experience.areatypes[0].name %></p>
       <p style="text-align: center";><i class="fa fa-map-marker" id="showicon"></i><%= @experience.city %>, <%= @experience.country %></p>
       <p style="text-align: center";><i class="fa fa-money" id="showicon"></i> <%= money_without_cents_and_with_symbol(@experience.price) %> per person</p>
       <p style="text-align: center";><i class="fa fa-users" id="showicon"></i>Capacity (<%= @experience.capacity %>)</p>
@@ -23,17 +24,12 @@
   <div class="section" id="activities">
     <h2>About the Experience</h2>
     <h4>Experience Highlights</h4>
-    <ul>
-      <li>Participate in traditional craft workshops and help support local infrastructure in Lima.</li>
-      <li>Learn how to transform raw materials into usable crafts from experienced artisans in a variety of workshops ranging from weaving to ceramic pottery.</li>
-      <li>Listen to the important stories of Ayacucho artisans who were displaced as a result of domestic terrorism in Peru.
-      </li>
-    </ul>
-    <p> This experience includes activies such as:</p>
-    <div class="flex">
-      <%= render 'experiences/activities' %>
-    </div>
-  </div>
+     <p><%= @experience.highlights %></p> <br>
+      <p> This experience includes activies such as:</p>
+      <div class="flex">
+        <%= render 'experiences/activities' %>
+      </div>
+</div>
 
   <div class="section" id="impact">
     <h2>Impact</h2>
