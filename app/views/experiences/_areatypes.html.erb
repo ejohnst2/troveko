@@ -1,6 +1,6 @@
 <% @experience.areatypes.each do |areatype| %>
     <div class="features">
-      <p><i class="fa <%= areatype.fa_icon %> icon" id="showicon" aria-hidden="true"></i><%= areatype.name %></p>
+      <i class="fa <%= areatype.fa_icon %> icon" id="showicon" aria-hidden="true"></i><%= areatype.name %>
       </%>
     </div>
 <% end %>
