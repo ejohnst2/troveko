@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171206163038) do
+ActiveRecord::Schema.define(version: 20171207190323) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -77,8 +77,10 @@ ActiveRecord::Schema.define(version: 20171206163038) do
   create_table "conversations", force: :cascade do |t|
     t.integer  "sender_id"
     t.integer  "recipient_id"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.integer  "experience_id"
+    t.index ["experience_id"], name: "index_conversations_on_experience_id", using: :btree
   end
 
   create_table "experiences", force: :cascade do |t|
@@ -243,6 +245,7 @@ ActiveRecord::Schema.define(version: 20171206163038) do
   add_foreign_key "contributions", "funds"
   add_foreign_key "contributions", "trips"
   add_foreign_key "contributions", "users"
+  add_foreign_key "conversations", "experiences"
   add_foreign_key "experiences", "users"
   add_foreign_key "experiences_features", "experiences"
   add_foreign_key "experiences_features", "features"
