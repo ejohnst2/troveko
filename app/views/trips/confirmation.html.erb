@@ -14,7 +14,7 @@
 <!--         <h4><%= @experience.short_description %></h4>
  -->      <h4>Trip Total: <%=money_without_cents_and_with_symbol(@trip.experience.price) %> per person</h4>
       <h4>Number of People: <%= @trip.number_of_people %></h4>
-      <h4>Fund Contribution: <%= money_without_cents_and_with_symbol(@trip.contribution.amount) %></h4>
+      <h4>Fund Contribution: <%= @trip.contribution ? money_without_cents_and_with_symbol(@trip.contribution.amount) : 0 %></h4>
       <h2>Your Total: <%= money_without_cents_and_with_symbol(@sum) %></h2>
       </%>
       </div>
