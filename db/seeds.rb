@@ -16,13 +16,13 @@ Areatype.destroy_all
 Fund.destroy_all
 User.destroy_all
 
-new_user_one = User.new(email: 'trovekoboy@gmail.com', password: 'bunky123', ngo: true)
+new_user_one = User.new(email: 'trovekoboy@troveko.com', password: 'bunky123', ngo: true)
 new_user_one.save!
 
-new_user_two = User.new(email: 'trovekogirl@gmail.com', password: 'bunky123', ngo: true)
+new_user_two = User.new(email: 'trovekogirl@troveko.com', password: 'bunky123', ngo: true)
 new_user_two.save!
 
-traveler = User.new(email: 'travelergirl@gmail.com', password: 'bunky123', ngo: false)
+traveler = User.new(email: 'travelergirl@troveko.com', password: 'bunky123', ngo: false)
 traveler.save!
 
 
