@@ -20,7 +20,7 @@ class ApplicationController < ActionController::Base
   end
 
   def force_temporary_users
-    if current_user.temporary?
+    if current_user&.temporary?
       redirect_to edit_profile_path(current_user)
     end
   end
