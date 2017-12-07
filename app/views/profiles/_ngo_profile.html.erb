@@ -87,6 +87,11 @@
                <%= link_to "Confirm", trip_status_path(trip, status: true), method: :patch, class: "meal-link btn btn-primary end" %>
 
              </div>
+
+
+
+
+
              <% end %>
            </div>
            <% end %>
@@ -98,8 +103,8 @@
         <% if @ngo_trips.select{ |x| x.status == false}.empty? %>
 
         <div class="activity empty">
-              <p>Oh no you don't have any confirmed trips 😢 </p> <br>
-              <p>Confirm a trip on the Booking Requests tab or use social media to promote your experiences.</p>
+              <p>Oh no you don't have any confirmed customers 😢 </p> <br>
+              <p>Confirm a trip on the Booking Requests tab or use social media to promote your experiences</p>
             </div>
           <% else %>
           <div class="activity">
@@ -134,13 +139,15 @@
       <% @experiences.each do |experience| %>
       <div class="booking-content">
           <div class="booking-confirm">
-        <%= cl_image_tag experience.photos[0].path, {:class => "experience-image", :effect=>"auto_color", :width=>50} %>
+            <% if experience.photos[0] %>
+              <%= cl_image_tag experience.photos[0].path, {:class => "experience-image", :effect=>"auto_color", :width=>50} %>
+            <% end %>
         <%= link_to "#{experience.title}", experience_path(experience), id: "meal-link" %>
         <%= link_to "Edit", edit_experience_path(experience), class: "meal-link btn btn-primary end"%>
-        <%= link_to "Delete", experience_path(experience), method: :delete, class: "meal-link btn btn-primary end" if experience.trips.empty?%>
       </div>
       </div>
       <% end %>
+
     </div>
 </div>
    <div role="tabpanel" class="tab-pane no-border" id="messages">
@@ -152,7 +159,7 @@
           <div class="conversation">
             <%= image_tag facebook_image(counterpart), class: "avatar-large" %>
             <div class="message-name">
-              <h2 class="message-sender"><%= counterpart.first_name %></h2>
+              <h2><%= counterpart.first_name %></h2>
               <p><%= time_ago_in_words conversation.most_recent_message.created_at%></p>
             </div>
             <div class="message-body">
