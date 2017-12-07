@@ -14,7 +14,7 @@ class ExperiencePolicy < ApplicationPolicy
   end
 
   def edit?
-    record.user == user
+    record.user_id == user.id
   end
 
   def update?

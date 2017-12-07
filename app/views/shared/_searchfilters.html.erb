@@ -42,7 +42,9 @@
       </div>
 
     <div class="floatright">
+      <% if current_user&.ngo? %>
       <%= link_to 'Create New Experience', new_experience_path, class: 'btn btn-secondary' %>
+      <% end %>
     </div>
 
   </div>

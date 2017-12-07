@@ -11,6 +11,14 @@ User.destroy_all
 def seed_image(file_name)
   File.open(File.join(Rails.root, "/app/assets/images/seed/#{file_name}.jpg"))
 end
+new_user_one = User.new(email: 'trovekoboy@troveko.com', password: 'bunky123', ngo: true)
+new_user_one.save!
+
+new_user_two = User.new(email: 'trovekogirl@troveko.com', password: 'bunky123', ngo: true)
+new_user_two.save!
+
+traveler = User.new(email: 'travelergirl@troveko.com', password: 'bunky123', ngo: false)
+traveler.save!
 
 
 features = [
@@ -274,6 +282,7 @@ rajmachi_photos_one = [
   seed_image('IMG_3353-1184x662')
 ]
 
+<<<<<<< HEAD
 
 rajmachi_experience_one = Experience.new(   user: rajmachi_rural_aid,   title:
 "Village living near Rajmachi Fort",   price: 100,   capacity: 10,   status: true,
@@ -364,7 +373,7 @@ start_date = Date.today + rand(20..50).days
 25.times do
     trip = Trip.create!(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name , experience_id: [bali_experience_one, bali_experience_two, bali_experience_three, rajmachi_experience_one, rajmachi_experience_two].sample.id, status: true, start_date: start_date, user: [rajmachi_rural_aid, project_kalpa].sample, number_of_people: [1, 2, 3].sample)
     contribution = Contribution.create(user_id: [backpacking_couple, toasty_boy].sample.id, fund_id: trip.experience.fund.id, trip_id: trip.id, amount: [50, 20, 40, 60].sample)
-  end
+end
 
 # 8.times do
 #   urls = [ pictures.sample, pictures.sample, pictures.sample ]

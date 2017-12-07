@@ -99,8 +99,6 @@ class ExperiencesController < ApplicationController
   end
 
   def edit
-    @experience = Experience.edit
-    authorize @experience
   end
 
   private

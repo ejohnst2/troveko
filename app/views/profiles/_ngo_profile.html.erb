@@ -1,9 +1,8 @@
 
-<div class="row">
 
 <!--   <div class="col-xs-12 col-md-4">
  -->
-    <div class="profile-info">
+<!--     <div class="profile-info">
       <h2> <%= @user.first_name %> </h2>
       <%= image_tag facebook_image(@user), class: "profile-image" %>
 
@@ -13,6 +12,32 @@
         <%= link_to "Edit profile", edit_user_registration_path(@user) %>
       </div>
     </div>
+ -->
+
+    <div class="row">
+  <div class="col-xs-12 col-md-3">
+    <div class="profile-info">
+      <center><h2> <%= @user.first_name %> </h2></center>
+        <%= image_tag facebook_image(@user), class: "profile-image" %>
+      <div class="edit_profile">
+        <p><%= @user.first_name %> <%= @user.last_name %></p>
+        <p><%= user.email %></p>
+        <%= link_to "Edit profile", edit_user_registration_path(@user) %>
+      </div>
+    </div>
+  </div>
+  <div class="col-xs-12 col-md-9">
+    <div class="profile-activity">
+      <div class="my-row">
+        <h2 class="flex-item">Hey, <%= @user.first_name %>!</h2>
+      </div>
+
+      <div class="traveler-info flex-item">
+        <h4>Welcome to your NGO dashboard where you can create experiences and manage your bookings here</h4>
+      </div>
+
+
+
 <!--   </div>
  -->
 <!--   <div class="col-xs-12 col-md-8">
@@ -26,11 +51,14 @@
       -->
       <!-- Tab menu -->
       <ul class="nav nav-tabs" role="tablist">
-        <li role="presentation" class="active"><a class="tab" href="#booking" aria-controls="requests" role="tab" data-toggle="tab">Booking Requests</a></li>
-        <li role="presentation"><a href="#confirmed" aria-controls="confirmed" role="tab" data-toggle="tab">Confirmed customers</a></li>
-        <li role="presentation"><a href="#meals" aria-controls="meals" role="tab" data-toggle="tab">My experiences</a></li>
-        <li role="presentation" class="active"><a class="tab" href="#booking" aria-controls="requests" role="tab" data-toggle="tab">See Your Balance</a></li>
+        <li role="presentation" class="active" id="tab-requests"><a class="tab" href="#booking" aria-controls="requests" role="tab" data-toggle="tab">Booking Requests</a></li>
+        <li role="presentation" id="tab-confirmed"><a href="#confirmed" aria-controls="confirmed" role="tab" data-toggle="tab">Confirmed customers</a></li>
+        <li role="presentation" id="tab-experiences"><a href="#meals" aria-controls="meals" role="tab" data-toggle="tab">My experiences</a></li>
+        <li role="presentation" id="tab-messages"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">My Messages</a></li>
+        <li role="presentation" id="tab-balance"><a href="#meals" aria-controls="meals" role="tab" data-toggle="tab">My Balance</a></li>
 
+<!--         <li role="presentation" class="active"><a class="tab" href="#booking" aria-controls="requests" role="tab" data-toggle="tab">See Your Balance</a></li>
+ -->
       </ul>
       <!-- Tab content -->
       <div class="tab-content">
@@ -49,12 +77,21 @@
             <div class="booking">
               <% if trip.status? == false %>
               <div class="booking-confirm">
-               <%= cl_image_tag trip.experience.photos[0].path, {:class => "profile-image", :effect=>"auto_color", :width=>50} %>
+               <%= cl_image_tag trip.experience.photos[0].path, {:class => "experience-image", :effect=>"auto_color", :width=>50} %>
+               <div>
                <%= link_to "#{trip.experience.title}", experience_path(trip.experience), class: "meal-link" %>
+               <p class=date>Start Date: <%=trip.start_date.strftime('%m/%d/%Y')%> <br>
+               Guests: <%=trip.number_of_people%> </p>
+             </div>
                <br>
                <%= link_to "Confirm", trip_status_path(trip, status: true), method: :patch, class: "meal-link btn btn-primary end" %>
+
              </div>
-             <p class="date"><%=  trip.created_at%></p>
+
+
+
+
+
              <% end %>
            </div>
            <% end %>
@@ -63,20 +100,28 @@
        </div>
 
        <div role="tabpanel" class="tab-pane no-border" id="confirmed">
+        <% if @ngo_trips.select{ |x| x.status == false}.empty? %>
+
         <div class="activity empty">
-
+              <p>Oh no you don't have any confirmed customers 😢 </p> <br>
+              <p>Confirm a trip on the Booking Requests tab or use social media to promote your experiences</p>
+            </div>
+          <% else %>
+          <div class="activity">
          <% @ngo_trips.each do |trip| %>
-         <div class="booking-content">
-
+         <div class="booking">
           <% if trip.status? == true %>
           <div class="booking-confirm">
-           <%= cl_image_tag trip.experience.photos[0].path, {:class => "profile-image", :effect=>"auto_color", :width=>50} %>
+           <%= cl_image_tag trip.experience.photos[0].path, {:class => "experience-image", :effect=>"auto_color", :width=>50} %>
+           <div>
            <%= link_to "#{trip.experience.title}", experience_path(trip.experience), class: "meal-link" %>
-
+            <p class=date>Traveler: <%=trip.user.first_name%> <%=trip.user.last_name%> </p>
+          </div>
+          <br>
            <% if trip.cancel? == false %>
            <%= link_to "Cancel", trip_cancel_path(trip, cancel: true), method: :patch, class: "meal-link btn btn-primary end" %>
            <% else %>
-           <p><%= "Cancellation pending please check email" %></p>
+           <p class=cancel><%= "Cancellation pending please check email" %></p>
            <% end %>
 
          </div>
@@ -86,21 +131,78 @@
        <% end %>
 
      </div>
+              <% end %>
    </div>
 
    <div role="tabpanel" class="tab-pane no-border" id="meals">
     <div class="activity empty">
       <% @experiences.each do |experience| %>
       <div class="booking-content">
-        <%= cl_image_tag experience.photos[0].path, {:class => "profile-image", :effect=>"auto_color", :width=>50} %>
+          <div class="booking-confirm">
+            <% if experience.photos[0] %>
+              <%= cl_image_tag experience.photos[0].path, {:class => "experience-image", :effect=>"auto_color", :width=>50} %>
+            <% end %>
         <%= link_to "#{experience.title}", experience_path(experience), id: "meal-link" %>
+        <%= link_to "Edit", edit_experience_path(experience), class: "meal-link btn btn-primary end"%>
+      </div>
       </div>
       <% end %>
 
     </div>
+</div>
+   <div role="tabpanel" class="tab-pane no-border" id="messages">
+    <div class="activity empty">
+<div class=”list-group-item”>
+          <% @conversations.each do |conversation| %>
+          <% counterpart_id = conversation.sender_id != current_user.id ? conversation.sender_id : conversation.recipient_id %>
+          <% counterpart = @users.find(counterpart_id) %>
+          <div class="conversation">
+            <%= image_tag facebook_image(counterpart), class: "avatar-large" %>
+            <div class="message-name">
+              <h2><%= counterpart.first_name %></h2>
+              <p><%= time_ago_in_words conversation.most_recent_message.created_at%></p>
+            </div>
+            <div class="message-body">
+              <%= link_to conversation.most_recent_message.header, conversation_messages_path(conversation) %>
+              <p><%= conversation.most_recent_message.content %></p>
+            </div>
+            <div class="message-status">
+              <% if conversation.most_recent_message.read == false %>
+              <p class="status pending">Unread</p>
+              <% else %>
+              <p>Read</p>
+              <% end %>
+            </div>
+          </div>
+          <% end %>
+        </div>
+    </div>
+
+</div>
+
+
   </div>
 </div>
 </div>
+</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 <!-- </div>
  --><!-- </div>
  -->
+
+ <%= content_for(:after_js) do %>
+  <script>
+    $(document).ready(function() {
+      var active_tab = window.location.hash;
+
+      if(active_tab) {
+        $('.nav-tabs a[href="' + active_tab + '"]').tab('show');
+      }
+    });
+  </script>
+ <% end %>

@@ -51,11 +51,11 @@ class TripsController < ApplicationController
   end
 
   def confirmation
-    total = @trip.experience.price
+    total = @trip.experience.price_cents * @trip.number_of_people.to_i
     if @trip.contribution.present?
-      @sum = @trip.contribution.amount + total
+      @sum = ( @trip.contribution.amount_cents.to_i + total ) / 100
     else
-      @sum = total
+      @sum = total / 100
     end
   end
 
@@ -63,7 +63,7 @@ class TripsController < ApplicationController
     @trip = Trip.find(params[:trip_id])
     @trip.update(status: params[:status])
     @trip.orders.map { |o| o.capture }
-    redirect_to order_path(@trip.order)
+    redirect_to order_path(@trip.orders.first)
   end
 
   def cancel
