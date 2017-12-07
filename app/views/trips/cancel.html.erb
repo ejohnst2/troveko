@@ -1,8 +1,5 @@
-<div class="new_trip">
-
-
 <div class="container">
-  <h2>You're much closer to meeting the host on <%= @trip.start_date.strftime("%m/%d/%y")%>. Upon successful payment you will be redirected to a confirmation page.</h2>
+  <h2>We will miss you!! <%= @trip.updated_at.strftime("%m/%d/%y")%>. Trip Cancelled!!.Dear traveller you will receive a cancellation email at <%= current_user.email %></h2>
 
   <div class="container" id="payment-box">
   <div class="row" id="experience" style="display: flex; align-items: center; justify-content: space-around;">
@@ -20,9 +17,9 @@
       </div>
       <div class="col-lg-8 col-md-8 col-xs-12">
         <h2><%= link_to @trip.experience.title, experience_path(@trip.experience) %></h2>
-        <h4><%= @experience.short_description %></h4>
+        <h4><%= @trip.experience.short_description %></h4>
       </div>
-      </div>
+    </div>
     </div>
   </div>
 
@@ -31,11 +28,8 @@
         <h1>Your Total: <%= money_without_cents_and_with_symbol(@sum) %></h1>
       </div>
       <div class="col-lg-6 col-md-6-col-xs-12 col-sm-12" id="payment-stripe">
-        <%= render 'payments/new'  %>
+        <% %>
       </div>
     </div>
 </div>
-</div>
-
-
 </div>

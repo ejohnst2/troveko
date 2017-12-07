@@ -9,7 +9,7 @@ class ExperiencesController < ApplicationController
     @activities = Activity.all
     @area_types = Areatype.all
 
-    @experiences = policy_scope(Experience).search(params[:query]).where.not(latitude: nil, longitude: nil)
+    @experiences = policy_scope(Experience).search(params[:query])
 
     if params[:feature]
       features = Feature.where(name: params[:feature])

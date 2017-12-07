@@ -5,7 +5,7 @@ class User < ApplicationRecord
   has_many :trips, dependent: :destroy
   has_many :experiences
   has_many :messages, dependent: :destroy
-  has_many :identities
+  has_many :identities, dependent: :destroy
   has_many :funds
   has_many :sender_conversations, :foreign_key => :sender_id, class_name: 'Conversation'
   has_many :recipient_conversations, :foreign_key => :recipient_id, class_name: 'Conversation'

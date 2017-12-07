@@ -10,4 +10,11 @@ class UserMailer < ApplicationMailer
 
     mail(to: @user.email, subject: 'Welcome to Troveko')
   end
+
+  def cancel(user,trip)
+    @user = user
+    @trip = trip
+
+    mail(to: @user.email, subject: 'Trip Cancelled!!')
+  end
 end
