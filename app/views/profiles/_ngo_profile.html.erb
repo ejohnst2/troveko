@@ -103,8 +103,8 @@
         <% if @ngo_trips.select{ |x| x.status == false}.empty? %>
 
         <div class="activity empty">
-              <p>Oh no you don't have any confirmed trips 😢 </p> <br>
-              <p>Confirm a trip on the Booking Requests tab or use social media to promote your experiences.</p>
+              <p>Oh no you don't have any confirmed customers 😢 </p> <br>
+              <p>Confirm a trip on the Booking Requests tab or use social media to promote your experiences</p>
             </div>
           <% else %>
           <div class="activity">
@@ -144,7 +144,6 @@
             <% end %>
         <%= link_to "#{experience.title}", experience_path(experience), id: "meal-link" %>
         <%= link_to "Edit", edit_experience_path(experience), class: "meal-link btn btn-primary end"%>
-        <%= link_to "Delete", experience_path(experience), method: :delete, class: "meal-link btn btn-primary end" if experience.trips.empty?%>
       </div>
       </div>
       <% end %>

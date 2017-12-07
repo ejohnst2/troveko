@@ -1,9 +1,9 @@
-<div class="container" style="padding-bottom: 30px;">
-  <center><h1 class=highlight>Send a Message</h1></center>
+<center><div class="message-container" style="padding-bottom: 30px;">
+  <center><h1 class=highlight>Send a Response</h1></center>
   <div class="row">
-    <%= simple_form_for [@conversation, @message] do |f| %>
+    <center><%= simple_form_for [@conversation, @message] do |f| %>
     <%= f.error_notification %>
-    <div class="form-inputs">
+    <div class="form-inputs" align="left">
       <%= f.input :header %>
       <%= f.input :content %>
     </div>
@@ -19,3 +19,4 @@
   </div>
 </div>
 
+</center>

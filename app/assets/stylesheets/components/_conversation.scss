@@ -8,6 +8,7 @@ align-items:center;
 .message{
 background: white;
 padding: 10px;
+padding-left: 40px;
 display: flex;
 align-items:center;
 margin-top: 15px;
@@ -27,9 +28,31 @@ margin-top: 15px;
 
 }
 
+.message-status {
+  // padding-right: 50px;
+}
+
+.message-container {
+  background: white;
+  padding: 10px 20px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  border-radius: 3px;
+  box-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+  margin-right: 100px;
+  margin-left: 100px;
+  max-width: 750px;
+  // padding-left: 100px;
+}
+
+.conversationbox {
+  padding-bottom: 50px;
+  max-width: 750px;
+}
+
 .message-body{
   flex-grow:1;
-  // margin-left: 20px;
+  margin-left: 20px;
 }
 
 .message-body p {
