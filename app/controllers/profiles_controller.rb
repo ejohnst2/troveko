@@ -6,6 +6,15 @@ class ProfilesController < ApplicationController
     @trips = @user.trips
     @experiences = @user.experiences
     @ngo_trips = @experiences.flat_map{|experience| experience.trips}
+
+    @conversations = Conversation.includes(:most_recent_message).where(
+      "conversations.sender_id = ? OR conversations.recipient_id = ?",
+      current_user.id,
+      current_user.id
+    )
+
+    user_ids = (@conversations.map(&:sender_id) + @conversations.map(&:recipient_id)).uniq
+    @users = User.where(id: user_ids)
   end
 
   def edit

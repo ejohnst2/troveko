@@ -13,8 +13,13 @@ align-items:center;
 margin-top: 15px;
 }
 
-.message-name p, .message-name h3 {
+.message-name {
   margin: 0;
+  /* if you have a 70px navbar => height: calc(100vh - 70px); */
+  background-size: cover !important;
+  align-items: center;
+  justify-content: center;
+
 }
 
 .message-body{

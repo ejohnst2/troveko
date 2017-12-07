@@ -1,8 +1,8 @@
 class Trip < ApplicationRecord
   belongs_to :experience
   belongs_to :user
-  has_one :contribution
-  has_many :orders
+  has_one :contribution#, dependent: :destroy
+  has_many :orders#, dependent: :destroy
 
   validates :user, :experience, :start_date, presence: true, allow_blank: false
   validate :start_date_cannot_be_in_the_past
@@ -14,3 +14,4 @@ class Trip < ApplicationRecord
       !start_date.blank? and start_date < Date.today
   end
 
+end

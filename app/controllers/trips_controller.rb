@@ -63,7 +63,7 @@ class TripsController < ApplicationController
     @trip = Trip.find(params[:trip_id])
     @trip.update(status: params[:status])
     @trip.orders.map { |o| o.capture }
-    redirect_to order_path(@trip.order)
+    redirect_to order_path(@trip.orders.first)
   end
 
   def cancel
