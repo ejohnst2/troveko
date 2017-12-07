@@ -5,7 +5,12 @@
   <a href="#location" style="font-size: 24px;">Location</a>
   <a href="#host" style="font-size: 24px;">Host</a>
   <a href="#activities" style="font-size: 24px;">Activities</a>
-  <a href="#impact" style="font-size: 24px;">Impact</a>
+  <a href="#impact" style="font-size: 24px;">Fund</a>
+  <% if !current_user.nil? %>
+        <%= link_to 'Message Host', conversations_path(sender_id: current_user.id, recipient_id: @experience.user.id), method: :post, style: "font-size: 24px" %>
+      <% end %>
+  <%= link_to "Book Now", new_experience_trip_path(@experience), style: "font-size: 24px;", class: "btn-lg btn-danger", id: "book-now", :method => :get %>
+
 </div>
 
 <%# content_for(:after_js) do %>
