@@ -5,12 +5,13 @@ class MessagesController < ApplicationController
   end
 
   def index
-     @messages = @conversation.messages.order('created_at DESC')
-      if @messages.last
-        if @messages.last.user_id != current_user.id
-          @messages.last.read = true;
-        end
-     end
+    @messages = @conversation.messages.order('created_at DESC')
+    received_messages = @messages.where.not(user_id: current_user.id)
+    if received_messages.any?
+      received_messages.each do |r_message|
+        r_message.update(read: true)
+      end
+    end
     @message = Message.new
   end
 
