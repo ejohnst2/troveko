@@ -99,7 +99,8 @@ pictures = [
     latitude: Faker::Address.latitude,
     longitude: Faker::Address.longitude,
     user: new_user_one,
-    fund: fund
+    fund: fund,
+    duration: rand(4..10).days
     )
   p experience
   experience.features << [features.sample, features.sample, features.sample, features.sample, features.sample]
@@ -111,7 +112,7 @@ pictures = [
   start_date = Date.today + rand(20..50).days
 
   3.times do
-    trip = Trip.create!(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name , experience_id: experience.id, status: true, start_date: start_date, end_date: start_date + rand(4..10).days, user: traveler)
+    trip = Trip.create!(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name , experience_id: experience.id, status: true, start_date: start_date, user: traveler)
     contribution = Contribution.create(user_id: traveler.id, fund_id: fund.id, trip_id: trip.id, amount: [1500, 220, 415, 600].sample)
   end
 end
