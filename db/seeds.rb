@@ -282,7 +282,6 @@ rajmachi_photos_one = [
   seed_image('IMG_3353-1184x662')
 ]
 
-<<<<<<< HEAD
 
 rajmachi_experience_one = Experience.new(   user: rajmachi_rural_aid,   title:
 "Village living near Rajmachi Fort",   price: 100,   capacity: 10,   status: true,
