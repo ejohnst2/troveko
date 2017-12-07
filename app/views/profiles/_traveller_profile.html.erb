@@ -115,7 +115,7 @@
 
 
            <div role="tabpanel" class="tab-pane no-border" id="messages">
-                    <% if @user.messages.select{ |x| x.status == false}.empty? %>
+                    <% if @user.messages.select{ |x| x.read == false}.empty? %>
     <div class="activity empty">
                                 <p>Oh no you don't have any messages 😢 View experiences to send messages to hosts </p> <br>
             <p><%= link_to "Browse Experiences", experiences_path %></p>
