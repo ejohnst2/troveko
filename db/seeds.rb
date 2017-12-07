@@ -45,25 +45,50 @@ Areatype.create!(name: "Desert", fa_icon: "fa fa-sun-o"),
 Areatype.create!(name: "Rainforest", fa_icon: "fa fa-leaf"),
 Areatype.create!(name: "Jungle", fa_icon: "fa-pagelines"),
 Areatype.create!(name: "Woods", fa_icon: "fa-tree"),
-Areatype.create!(name:"Plains", fa_icon: "fa-snowflake-o")
+Areatype.create!(name: "Plains", fa_icon: "fa-snowflake-o")
 ]
 
 
 
-project_kalpa = User.new(email: 'sayoga@projectkalpa.org', password:
-'projectkalpa', ngo: true)
+project_kalpa = User.new(
+  email: 'sayoga@projectkalpa.org',
+  password:'projectkalpa',
+  ngo: true,
+  facebook_picture_url: ("NGO.png"),
+  first_name: 'Adi Sayoga',
+  last_name: 'Puti'
+ )
 project_kalpa.save!
 
-rajmachi_rural_aid = User.new(email: 'admin@rajmachiruralaid.org', password:
-'ruralaid', ngo: true)
+rajmachi_rural_aid = User.new(
+  email: 'admin@rajmachiruralaid.org',
+  password:'ruralaid',
+  ngo: true,
+  facebook_picture_url: ("NGO.png"),
+  first_name: 'Rohan',
+  last_name: 'Keshewar'
+)
 rajmachi_rural_aid.save!
 
-toasty_boy = User.new(email: 'toastyboy@gmail.com', password: 'bunky123', ngo:
-false)
+toasty_boy = User.new(
+  email: 'toastyboy@gmail.com',
+  password: 'bunky123',
+  ngo: false,
+  facebook_picture_url: ("http://ling.bu.edu/uploads/person/image/2688/wc.png?1496957069"),
+  first_name: 'Alexander',
+  last_name: 'Clapp'
+)
 toasty_boy.save!
 
-backpacking_couple = User.new(email: 'backpackingcouple@gmail.com', password:
-'bunky123', ngo: false)
+backpacking_couple = User.new(
+  email: 'backpackingcouple@gmail.com',
+  password:'bunky123',
+  ngo: false,
+  facebook_picture_url: ("https://cdn-images-1.medium.com/max/1200/0*Vo_gUNHEIe3X2sHQ.jpg"),
+  first_name: 'Mira',
+  last_name: 'Brock'
+)
+
 backpacking_couple.save!
 
 
@@ -81,11 +106,10 @@ can be   done on a voluntary basis." )
 
 
 
-
-bali_photos_one = [ seed_image('L1840124-1184x662'), seed_image('L1840358-1184x666'), seed_image('L1840358-1184x666') ]
+bali_photos_one = [ seed_image('L1840058'), seed_image('L1830780-768x432'), seed_image('L1840124-1184x662'), seed_image('L1840358-1184x666'), seed_image('L1840358-1184x666') ]
 
 bali_experience_one = Experience.new(   user: project_kalpa,   title:
-"Educational Homestay in Piling",   price: 200,   capacity: 5,   status: true,
+"Family Living in Balinese Farming Village",   price: 210,   capacity: 5,   status: true,
 address: "Jl. Batu Mejan No. 88",   latitude: -8.355552,   longitude:
 115.089274,   long_description: "Ketut Suadha and his family of 5 live in the
 village of Piling. His extended family including brothers, aunts, uncles, and
@@ -119,10 +143,10 @@ that are located ",  guided: true   )
   bali_experience_one.save!
 
 
-bali_photos_two = [ seed_image('L1840124-1184x662'), seed_image('tengkudak-kitchen') ]
+bali_photos_two = [ seed_image('Tengkudak-Host-1-862x575'), seed_image('tengkudak-accommodation'), seed_image('L1840124-1184x662'), seed_image('tengkudak-kitchen') ]
 
-bali_experience_two = Experience.new( user: project_kalpa,   title: "Cooking
-and Temples in Tengkudak",   price: 200,   capacity: 5,   status: true,
+bali_experience_two = Experience.new( user: project_kalpa,   title: "Ceremonies and Cooking in the Balinese Subak",
+price: 150,   capacity: 5,   status: true,
 address: "Jl. Batu Mejan No. 88",   latitude: -8.417752,   longitude:
 115.117740,   long_description: "Nyoman Sutiani and her two brothers are based
 in the village of Tengkudak. She owns rice fields that are managed by her
@@ -156,13 +180,13 @@ bali_experience_two.photo_urls = bali_photos_two
 bali_experience_two.save!
 
 
-bali_photos_three = [ seed_image('jatiluwih-host-1200x671'), seed_image('L1840124-1184x662'), seed_image('jatiluwih-gate-1200x800') ]
+bali_photos_three = [ seed_image('L1840287-768x432'), seed_image('jatiluwih-host-1200x671'), seed_image('L1840124-1184x662'), seed_image('jatiluwih-gate-1200x800') ]
 
 
 
 
-bali_experience_three = Experience.new(   user: project_kalpa,   title: "Rice
-Terrace Experience",   price: 200,   capacity: 5,   status: true,   address:
+bali_experience_three = Experience.new(   user: project_kalpa,   title: "Endless Rice
+Terraces in Jatiluwih",   price: 220,   capacity: 5,   status: true,   address:
 "Jl. Batu Mejan No. 88",   latitude: -8.371517,   longitude: 115.131846,
 long_description: "Nyoman Sutama and his family of 5 are based in the village of
 Jatiluwih. Nyoman is the Head of the Subak cluster (the 20 communities
@@ -245,11 +269,14 @@ their children’s education."   )
 
 
 
-rajmachi_photos_one = [ seed_image('IMG_3353-1184x662') ]
+rajmachi_photos_one = [
+  'http://4.bp.blogspot.com/-Hzt5ggvLk2U/U7LIoyikEkI/AAAAAAAAD4k/l73OH2w4iN0/s1600/DSC09194.JPG',
+  seed_image('IMG_3353-1184x662')
+]
 
 
 rajmachi_experience_one = Experience.new(   user: rajmachi_rural_aid,   title:
-"Trekking Shrivardhan Mountains",   price: 100,   capacity: 10,   status: true,
+"Village living near Rajmachi Fort",   price: 100,   capacity: 10,   status: true,
 address: "Village Udhewadi, Khandala", latitude: 17.318649,   longitude:
 74.235628,  long_description: "A plateau rich in history, culture and beautiful
 hills, Rajmachi has two fortified peaks – Shrivardhan and Manaranjan forts, with
@@ -286,11 +313,16 @@ with a lot of ATMs and drive in restaurants.", guided: true   )
 
 
 
-rajmachi_photos_two = [ seed_image('IMG_3353-1184x662') ]
+rajmachi_photos_two = [
+  'https://punehikers.com/m/photos/get_image/file/3378d29996429d1294d0635b47924480.jpg',
+  seed_image('IMG_3353-1184x662'),
+  'https://upload.wikimedia.org/wikipedia/commons/d/d5/Rajmachi.jpg',
+  'http://www.onacheaptrip.com/wp-content/uploads/Small-bridge-at-Rajmachi-fort-Trek.jpg'
+   ]
 
 
 rajmachi_experience_two = Experience.new(   user: rajmachi_rural_aid,   title:
-"Trekking Manaranjan Mountains",   price: 75,   capacity: 6,   status: true,
+"Live Amongst the Mountains of Pune",   price: 75,   capacity: 6,   status: true,
 address: "Village Udhewadi, Khandala",   latitude: 17.318649, longitude:
 74.235628,   long_description: "A plateau rich in history, culture and beautiful
 hills, Rajmachi has two fortified peaks – Shrivardhan and Manaranjan forts, with
@@ -329,7 +361,7 @@ excellent condition with a lot of ATMs and drive in restaurants.", guided: true
 
 start_date = Date.today + rand(20..50).days
 
-10.times do
+25.times do
     trip = Trip.create!(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name , experience_id: [bali_experience_one, bali_experience_two, bali_experience_three, rajmachi_experience_one, rajmachi_experience_two].sample.id, status: true, start_date: start_date, user: [rajmachi_rural_aid, project_kalpa].sample, number_of_people: [1, 2, 3].sample)
     contribution = Contribution.create(user_id: [backpacking_couple, toasty_boy].sample.id, fund_id: trip.experience.fund.id, trip_id: trip.id, amount: [50, 20, 40, 60].sample)
   end
