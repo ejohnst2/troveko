@@ -303,7 +303,6 @@ and drive in restaurants.", guided: true
 
 rajmachi_photos_two = [
   'https://upload.wikimedia.org/wikipedia/commons/d/d5/Rajmachi.jpg',
-  seed_image('IMG_3666'),
   'https://punehikers.com/m/photos/get_image/file/3378d29996429d1294d0635b47924480.jpg',
   seed_image('IMG_3353-1184x662'),
   'http://www.onacheaptrip.com/wp-content/uploads/Small-bridge-at-Rajmachi-fort-Trek.jpg'
