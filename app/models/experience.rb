@@ -25,6 +25,7 @@ class Experience < ApplicationRecord
   validates :country, presence: true, allow_blank: false, length: { minimum: 2 }
   validates :capacity, presence:true, numericality: { only_integer: true }
   validates :user, presence: true, allow_blank: false
+  validates :duration, presence: true
 
   monetize :price_cents
 
