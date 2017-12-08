@@ -127,6 +127,7 @@ span sm {
 }
 
 
+
   .carousel-inner > .item > img, .carousel-inner > .item > a > img {
     width: 100%;
     min-height: 760px;
@@ -162,6 +163,11 @@ span sm {
 
 .imagefit2 {
   width: auto;
-  height: 700px;
+  height: 80vh;
   // max-height: 700px;
+}
+
+#overview_info p {
+  font-size: 26px;
+  padding-top: 20px;
 }

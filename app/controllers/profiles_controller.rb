@@ -12,7 +12,6 @@ class ProfilesController < ApplicationController
       current_user.id,
       current_user.id
     )
-
     user_ids = (@conversations.map(&:sender_id) + @conversations.map(&:recipient_id)).uniq
     @users = User.where(id: user_ids)
   end

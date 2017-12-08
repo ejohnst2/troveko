@@ -10,12 +10,14 @@ class ConversationsController < ApplicationController
 
     user_ids = (@conversations.map(&:sender_id) + @conversations.map(&:recipient_id)).uniq
     @users = User.where(id: user_ids)
+    @messages= Message.where(id: user_ids)
+
   end
 
   def create
-    if Conversation.between(params[:sender_id],params[:recipient_id]).present?
+    if Conversation.between(params[:sender_id],params[:recipient_id],params[:experience_id]).present?
       @conversation = Conversation.between(params[:sender_id],
-      params[:recipient_id]).first
+      params[:recipient_id], params[:experience_id]).first
    else
       @conversation = Conversation.create!(conversation_params)
    end
@@ -24,7 +26,7 @@ class ConversationsController < ApplicationController
 
   private
    def conversation_params
-    params.permit(:sender_id, :recipient_id)
+    params.permit(:sender_id, :recipient_id, :experience_id)
    end
 end
 

@@ -1,82 +1,86 @@
 <div class="details">
+
   <div class="section" id="overview">
-  <h2>Overview</h2>
-    <div class="flex-around">
-      <%= render 'experiences/areatypes' %>
+    <h2>Overview</h2>
+    <div class="flex-around" id="overview_info">
+      <%#= render 'experiences/areatypes' %>
+      <p style="text-align: center";><i class="fa <%= @experience.areatypes[0].fa_icon %> icon" id="showicon" aria-hidden="true"></i><%= @experience.areatypes[0].name %></p>
       <p style="text-align: center";><i class="fa fa-map-marker" id="showicon"></i><%= @experience.city %>, <%= @experience.country %></p>
       <p style="text-align: center";><i class="fa fa-money" id="showicon"></i> <%= money_without_cents_and_with_symbol(@experience.price) %> per person</p>
       <p style="text-align: center";><i class="fa fa-users" id="showicon"></i>Capacity (<%= @experience.capacity %>)</p>
-    </div>
-    <br>
-    <h4>Accomodation Amenities</h4>
-    <div class="flex">
-      <%= render 'experiences/features' %>
+      <p style="text-align: center";><i class="fa  fa-calendar-o" id="showicon"></i><%= @experience.duration %>-day experience</p>
+
     </div>
   </div>
 
   <div class="section" id="host">
     <h2>Meet the Host</h2>
     <%= @experience.long_description %>
+    <h4>Accomodation Amenities</h4>
+    <div class="flex">
+      <%= render 'experiences/features' %>
+    </div>
   </div>
 
-<div class="section" id="activities">
-  <h2>About the Experience</h2>
+  <div class="section" id="activities">
+    <h2>About the Experience</h2>
     <h4>Experience Highlights</h4>
-      <ul>
-        <li>Participate in traditional craft workshops and help support local infrastructure in Lima.</li>
-        <li>Learn how to transform raw materials into usable crafts from experienced artisans in a variety of workshops ranging from weaving to ceramic pottery.</li>
-        <li>Listen to the important stories of Ayacucho artisans who were displaced as a result of domestic terrorism in Peru.
-        </li>
-      </ul>
+     <p><%= @experience.highlights %></p> <br>
       <p> This experience includes activies such as:</p>
       <div class="flex">
         <%= render 'experiences/activities' %>
       </div>
 </div>
 
-<div class="section" id="impact">
-  <h2>Impact</h2>
-        <h4><%= @experience.fund.title %></h4>
-        <h5>Description</h5>
-        <p><%= @experience.fund.about %></p>
-        <h5>Use of Funds</h5>
-        <p><%= @experience.fund.use_of_funds %></p>
-        <br>
-        <h4>About The Organization</h4>
-        <h5>Mission</h5>
-        <p>To save all animals on the planet</p>
-        <h5>Programs</h5>
-        <p>We offer several programs including assisting animals with their daily lives</p>
-        <h5>Website</h5>
-        <p>visit www.projectkalpa.org for more information</p>
+  <div class="section" id="impact">
+    <h2>Impact</h2>
+
+    <h4><%= @experience.fund.title %></h4>
+    <h2 style="padding-top: 10px;"><%= money_without_cents_and_with_symbol(@experience.fund.contributions.sum(:amount_cents) / 100) %> of <%=  money_without_cents_and_with_symbol(@experience.fund.funding_goal) %> funded</h2>
+    <%= render 'fund_information' %>
+    <h5>Description</h5>
+    <p><%= @experience.fund.about %></p>
+    <h5>Use of Funds</h5>
+    <p><%= @experience.fund.use_of_funds %></p>
+    <br>
+    <h4>About The Organization</h4>
+    <h5>Mission</h5>
+    <p>To save all animals on the planet</p>
+    <h5>Programs</h5>
+    <p>We offer several programs including assisting animals with their daily lives</p>
+    <h5>Website</h5>
+    <p>visit www.projectkalpa.org for more information</p>
+  </div>
+
+  <div class="section" id="location">
+    <h2>Location</h2>
+
+  <p><%= @experience.transportation %></p>
+    <%= render 'experiences/map' %>
+  </div>
+
+  <div class="section form_section" id="reviews">
+    <h2>Reviews</h2>
+    <% if @experience.reviews.blank? %>
+    Be the first to leave a review for <%= @experience.title %>
+    <% else %>
+    <% @experience.reviews.each do |review| %>
+    <%= render 'reviews/show', review: review %>
+    <% end %>
+    <% end %>
+    <%= render 'reviews/form', experience: @experience, review: @review %>
+    <br>
+
+    <div class="row ngo-actions">
+      <%= button_to 'See All Experiences', experiences_path, :method => :get, class: "btn-lg btn-primary", id: "meal-button" %>
+      <%= button_to 'Back to Top of Page','', class: "btn-lg btn-primary", id: "meal-button" %>
+    </div>
+
+
+    <% if @experience.user == @user %>
+    <!-- need to add permission for this depending on what user this is with pundit  -->
+    <%= link_to 'Edit Experience', edit_experience_path(@experience) %>
+    <% end %>
+
+  </div>
 </div>
-
-<div class="section" id="location">
-  <h2>Location</h2>
-  <%= render 'map' %>
-</div>
-
-<div class="section form_section" id="reviews">
-          <h2>Reviews</h2>
-          <% if @experience.reviews.blank? %>
-          Be the first to leave a review for <%= @experience.title %>
-          <% else %>
-          <% @experience.reviews.each do |review| %>
-          <%= render 'reviews/show', review: review %>
-          <% end %>
-          <% end %>
-          <%= render 'reviews/form', experience: @experience, review: @review %>
-          <br>
-          <div class="row ngo-actions">
-            <%= button_to 'See All Experiences', experiences_path, :method => :get, class: "btn-lg btn-primary", id: "meal-button" %>
-            <%= button_to 'Back to Top of Page','', class: "btn-lg btn-primary", id: "meal-button" %>
-</div>
-
-
-          <% if @experience.user == @user %>
-          <!-- need to add permission for this depending on what user this is with pundit  -->
-          <%= link_to 'Edit Experience', edit_experience_path(@experience) %>
-          <% end %>
-
-        </div>
-      </div>

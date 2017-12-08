@@ -1,3 +1,7 @@
+<% content_for(:title_tag) do %>
+  Find Your Next Adventure with Troveko
+<% end %>
+
 <%= render 'shared/searchfilters' %>
 
 <center>
@@ -7,9 +11,9 @@
 
 <div class="container-fluid">
 
-  <div class="row" style="padding-top: 40px;">
+  <div class="row" style="padding-top: 40px; margin-bottom: 40px;">
 <!-- beginning of card loop -->
-    <%= render 'list' %>
+    <%= render 'experiences/list' %>
 <!-- end of card loop -->
   </div>
 </div>
@@ -30,7 +34,7 @@
 </ol>
  -->
 
-<%#= render 'map' %>
+<%#= render 'experiences/map' %>
 
 <!-- let ngos list new experience -->
 
