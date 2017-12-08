@@ -13,7 +13,7 @@ class Experience < ApplicationRecord
   has_and_belongs_to_many :activities
   has_and_belongs_to_many :areatypes
   belongs_to :fund
-
+  has_many :conversations, dependent: :destroy
 
   validates :price_cents, presence: true
   validates :title, presence: true, length: { minimum: 10 }
@@ -25,6 +25,7 @@ class Experience < ApplicationRecord
   validates :country, presence: true, allow_blank: false, length: { minimum: 2 }
   validates :capacity, presence:true, numericality: { only_integer: true }
   validates :user, presence: true, allow_blank: false
+  validates :duration, presence: true
 
   monetize :price_cents
 

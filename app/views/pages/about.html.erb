@@ -1,3 +1,7 @@
+<% content_for(:title_tag) do %>
+  Learn About Troveko's Own Adventure
+<% end %>
+
 <div class="background-image">
   <div class="background-overlay">
     <div class="col-md-10 col-md-offset-1">
@@ -10,7 +14,7 @@
 
 <div class="container-fluid">
   <div class="navbar-troveko-sticky navbar-filters" id='main-nav' style="justify-content: space-around;">
-  <a href="#who" style="font-size: 24px;">Who</a>
+  <a href="#team" style="font-size: 24px;">Who</a>
   <a href="#what" style="font-size: 24px;">What</a>
   <a href="#story" style="font-size: 24px;">Why</a>
   <a href="#how" style="font-size: 24px;">How</a>
@@ -24,7 +28,7 @@
     <h1>Who are we</h1>
     <p>Our team is a multi-disciplinary group of world-explorers and change-makers</p>
   <div class="row" id="team-members" style="padding: 15px 0px;">
-    <%= render 'team' %>
+    <%= render 'pages/team' %>
   </div>
 </div>
   </div>
@@ -128,7 +132,7 @@
         <div class="team-avt">
           <img height="140" width="140" src="https://res-4.cloudinary.com/production-visit-org/image/upload/c_thumb,f_auto,h_140,w_140/iznjopems5wrjwi28xvt">
         </div>
-        <h5 class="team-name" id="michal_alter">Anna Hazare Trust</h5>
+        <h5 class="team-name" id="michal_alter">Trust</h5>
       </div>
     </div>
     <div class="col-xs-12 col-md-4">
@@ -158,17 +162,6 @@
         </div>
         <h5 class="team-name" id="michal_alter">Nick Sarafa</h5>
         <p class="team-function">Technical Advisor</p>
-        <a href="https://www.linkedin.com/company/13373550/"><i class="fa fa-linkedin"></i></a>
-      </div>
-      <div class="clearfix"></div>
-    </div>
-    <div class="col-xs-12 col-md-4 team-item">
-      <div class="team-header">
-        <div class="team-avt">
-          <img alt="Michal Alter" title="Michal Alter" height="140" width="140" src="https://res-4.cloudinary.com/production-visit-org/image/upload/c_thumb,f_auto,h_140,w_140/iznjopems5wrjwi28xvt">
-        </div>
-        <h5 class="team-name" id="michal_alter">Finn McGavin</h5>
-        <p class="team-function">Business Mentor</p>
         <a href="https://www.linkedin.com/company/13373550/"><i class="fa fa-linkedin"></i></a>
       </div>
       <div class="clearfix"></div>

@@ -38,6 +38,10 @@ class ApplicationController < ActionController::Base
   def user_not_authorized(exception)
     redirect_to root_path
   end
+
+  def default_url_options
+  { host: ENV["www.troveko.org"] || "localhost:3000" }
+  end
 end
 
 

@@ -28,7 +28,7 @@ class TripsController < ApplicationController
       if params[:trip][:contribution].present?
         @contribution = Contribution.new(user: current_user, trip: @trip, fund: @trip.experience.fund, amount_cents: (params[:trip][:contribution].to_i * 100) )
         if @contribution.amount > 0 && @contribution.save
-          contribution_order = Order.create!(sku: @contribution.fund, amount: @contribution.amount, state: 'pending', trip_id: @trip.id, contribution: true )
+          contribution_order = Order.create!(sku: @contribution.fund.title, amount: @contribution.amount, state: 'pending', trip_id: @trip.id, contribution: true )
         end
       end
       redirect_to confirmation_experience_trip_path(@experience.id, @trip.id, order: order, contribution_order: contribution_order )

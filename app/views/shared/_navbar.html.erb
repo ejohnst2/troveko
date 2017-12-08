@@ -54,6 +54,35 @@
         </div>
       </div>
 
+    <div class="navbar-inner">
+
+  <!-- Logo -->
+    <%= link_to root_path, class: " navbar-left navbar-troveko-brand" do %>
+    <%= image_tag "troveko-logo.png" %>
+    <% end %>
+  </div>
+
+  <!-- Right Navigation -->
+  <div class="navbar-troveko-right hidden-xs hidden-sm">
+    <form id="demo-2" form action="<%= experiences_path %>">
+      <input type="search" name="query" placeholder="Where are you going">
+    </form>
+    <%= link_to "Experiences", experiences_path, class: "navbar-troveko-item navbar-troveko-link" %>
+    <%= link_to "About", about_path, class: "navbar-troveko-item navbar-troveko-link" %>
+    <%#= link_to "Messages", messages_path, class: "navbar-troveko-item navbar-troveko-link" %>
+    <% if user_signed_in? %>
+      <%= link_to "Messages #{current_user.unread_messages}", profile_path(current_user, reload: true, anchor: 'messages'), class: "navbar-troveko-item navbar-troveko-link" %>
+      <% end %>
+
+      <%= link_to "Blog", root_path, class: "navbar-troveko-item navbar-troveko-link" %>
+      <% if user_signed_in? %>
+      <%= link_to "Profile", profile_path(current_user), class: "navbar-troveko-item navbar-troveko-link" %>
+      <%= link_to destroy_user_session_path, method: :delete, class: "navbar-troveko-item navbar-troveko-link" do %>
+      <%= t(".sign_out", default: "Log out") %>
+      <% end %>
+      <!-- Avatar with dropdown menu -->
+
+      <%= image_tag facebook_image(current_user), class: "avatar dropdown-toggle", id: "navbar-troveko-menu" %>
     <% else %>
       <%= link_to new_user_session_path, class: "navbar-troveko-item navbar-troveko-link" do %>
         <strong>Sign in</strong>
@@ -62,8 +91,6 @@
         <strong>Register</strong>
       <% end %>
     <% end %>
-
-
   </div>
 
   <!-- Dropdown list appearing on mobile only -->
@@ -78,15 +105,4 @@
   </div>
 </div>
 
-    <!-- Links -->
-
-<!--
-      <form action="<%= root_path %>" class="form-inline">
-        <input type="text" name="query" placeholder="&nbsp Search">
-      </form> -->
-
-
-      <!--<form action="<%= root_path %>" class="form-inline">
-        <input type="text" name="query" placeholder="&nbsp Search">
-      </form> -->
 
