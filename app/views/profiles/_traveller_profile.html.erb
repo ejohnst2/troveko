@@ -3,7 +3,7 @@
 <% end %>
 
 <div class="row">
-  <div class="col-xs-12 col-md-4">
+  <div class="col-xs-12 col-md-3">
     <div class="profile-info">
       <center><h2> <%= @user.first_name %> </h2></center>
       <%= image_tag facebook_image(@user), class: "profile-image" %>
@@ -15,7 +15,7 @@
     </div>
   </div>
 
-  <div class="col-xs-12 col-md-8">
+  <div class="col-xs-12 col-md-9">
     <div class="profile-activity">
       <div class="my-row">
         <h2 class="flex-item">Hey, <%= @user.first_name %>!</h2>
@@ -41,96 +41,95 @@
               <p><%= link_to "Browse Experiences", experiences_path %></p>
             </div>
           <% else %>
-          <div class="activity">
-            <% @trips.each do |trip| %>
-            <div class="booking">
-              <% if trip.status? == false %>
-              <div class="booking-row">
-                <%= cl_image_tag trip.experience.photos[0].path, {:class => "profile-image", :effect=>"auto_color", :width=>50} %>
-                <%= link_to "#{trip.experience.title}", experience_path(trip.experience), class: "meal-link" %>
-                <p class="pending end">Waiting for host confirmation</p>
-              </div>
+            <div class="activity">
+              <% @trips.each do |trip| %>
+                <div class="booking">
+                  <% if trip.status? == false %>
+                    <div class="booking-confirm">
+                      <%= cl_image_tag trip.experience.photos[0].path, {:class => "profile-image", :effect=>"auto_color", :width=>50} %>
+                      <%= link_to "#{trip.experience.title}", experience_path(trip.experience), class: "meal-link" %>
+                      <p class="pending end">Waiting for host confirmation</p>
+                    </div>
+                  <% end %>
+                </div>
               <% end %>
             </div>
-            <% end %>
-          </div>
           <% end %>
         </div>
 
         <div role="tabpanel" class="tab-pane no-border" id="profile">
           <% if @user.trips.select{ |x| x.status == false}.empty? %>
-          <div class="activity empty">
-            <p>Oh no you don't have any confirmed experiences 😢 </p> <br>
-            <p><%= link_to "Browse Experiences", experiences_path %></p>
-          </div>
+            <div class="activity empty">
+              <p>Oh no you don't have any confirmed experiences 😢 </p> <br>
+              <p><%= link_to "Browse Experiences", experiences_path %></p>
+            </div>
           <% else %>
             <div class="activity">
-
               <% @trips.each do |trip| %>
-              <div class="booking">
-                <% if trip.status? == true %>
-                <div class="booking-confirm">
-                  <%= cl_image_tag(trip.experience.photos[0].path, :class => "experience-image", :effect=>"auto_color", :width=>50) %>
-                  <div>
-                    <%= link_to "#{trip.experience.title}", experience_path(trip.experience), class: "meal-link" %>
-                    <p class="date"> Price: <%= money_without_cents_and_with_symbol(trip.experience.price) %></p>
-                  </div>
-                  <br>
-                  <% if trip.cancel? == false %>
-                    <%= link_to "Cancel", trip_cancel_path(trip, cancel: true), method: :patch, class: "meal-link btn btn-primary end" %>
-                  <% else %>
-                    <p class=cancel><%= "Cancellation pending please await email response" %></p>
+                <div class="booking">
+                  <% if trip.status? == true %>
+                    <div class="booking-confirm">
+                      <%= cl_image_tag(trip.experience.photos[0].path, :class => "experience-image", :effect=>"auto_color", :width=>50) %>
+                      <div>
+                        <%= link_to "#{trip.experience.title}", experience_path(trip.experience), class: "meal-link" %>
+                        <p class="date"> Price: <%= money_without_cents_and_with_symbol(trip.experience.price) %></p>
+                      </div>
+                      <br>
+                      <% if trip.cancel? == false %>
+                        <%= link_to "Cancel", trip_cancel_path(trip, cancel: true), method: :patch, class: "meal-link btn btn-primary end" %>
+                      <% else %>
+                        <p class=cancel><%= "Cancellation pending please await email response" %></p>
+                      <% end %>
+                    </div>
                   <% end %>
                 </div>
-                <% end %>
-              </div>
               <% end %>
             </div>
-            <% end %>
-          </div>
+          <% end %>
+        </div>
 
-
-
-      <div role="tabpanel" class="tab-pane no-border" id="messages">
-        <% if !@user.messages.count %>
-          <div class="activity empty">
-            <p>Oh no you don't have any messages 😢 View experiences to send messages to hosts </p> <br>
-            <p><%= link_to "Browse Experiences", experiences_path %></p>
-          </div>
-        <% else %>
-          <div class=”list-group-item”>
-            <% @conversations.each do |conversation| %>
-              <div class="row">
-                <% next unless conversation.messages.any? %>
-                <% counterpart_id = conversation.sender_id != current_user.id ? conversation.sender_id : conversation.recipient_id %>
-                <% counterpart = @users.find(counterpart_id) %>
-                <div class="conversation">
-                  <%= image_tag facebook_image(counterpart), class: "avatar-large" %>
-                  <div class="message-name">
-                    <h2 class="message-sender"><%= counterpart.first_name %></h2>
-                    <p><%= time_ago_in_words conversation.most_recent_message.created_at %></p>
-                  </div>
-                  <div class="message-body">
-                    <%= link_to conversation.most_recent_message.header, conversation_messages_path(conversation) %>
-                    <p><%= conversation.most_recent_message.content %></p>
-                  </div>
-                  <div class="message-status">
-                    <% if conversation.most_recent_message.read == false %>
-                      <p class="status pending">Unread</p>
-                    <% else %>
-                      <p>Read</p>
-                    <% end %>
+        <div role="tabpanel" class="tab-pane no-border" id="messages">
+          <% if !@user.messages.count %>
+            <div class="activity empty">
+              <p>Oh no you don't have any messages 😢 View experiences to send messages to hosts </p> <br>
+              <p><%= link_to "Browse Experiences", experiences_path %></p>
+            </div>
+          <% else %>
+            <div class=”list-group-item”>
+              <% @conversations.each do |conversation| %>
+                <div class="row">
+                  <% next unless conversation.messages.any? %>
+                  <% counterpart_id = conversation.sender_id != current_user.id ? conversation.sender_id : conversation.recipient_id %>
+                  <% counterpart = @users.find(counterpart_id) %>
+                  <div class="conversation">
+                    <%= image_tag facebook_image(counterpart), class: "avatar-large" %>
+                    <div class="message-name">
+                      <h2 class="message-sender"><%= counterpart.first_name %></h2>
+                      <p><%= time_ago_in_words conversation.most_recent_message.created_at %></p>
+                    </div>
+                    <div class="message-body">
+                      <%= link_to conversation.most_recent_message.header, conversation_messages_path(conversation) %>
+                      <p><%= conversation.most_recent_message.content %></p>
+                    </div>
+                    <div class="message-status">
+                      <% if conversation.most_recent_message.read == false %>
+                        <p class="status pending">Unread</p>
+                      <% else %>
+                        <p>Read</p>
+                      <% end %>
+                    </div>
                   </div>
                 </div>
               <% end %>
             </div>
           <% end %>
         </div>
+
       </div>
     </div>
   </div>
 </div>
-</div>
+
 <%= content_for(:after_js) do %>
 <script>
   $(document).ready(function() {
