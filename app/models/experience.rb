@@ -13,7 +13,7 @@ class Experience < ApplicationRecord
   has_and_belongs_to_many :activities
   has_and_belongs_to_many :areatypes
   belongs_to :fund
-
+  has_many :conversations, dependent: :destroy
 
   validates :price_cents, presence: true
   validates :title, presence: true, length: { minimum: 10 }

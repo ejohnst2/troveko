@@ -1,13 +1,13 @@
 
 
 <!-- <div class="row ngo-actions">
- -->
- <%#= link_to "See All Experiences", new_experience_path, :method => :get, class: "btn-lg btn-primary", id: "meal-button" %>
-  <%#= link_to 'Add to Your Profile', new_experience_path, :method => :get, class: "btn-lg btn-primary", id: "meal-button" %>
-  <%#= link_to "See Your Trips", new_fund_path, :method => :get, class: "btn-lg btn-primary", id: "meal-button" %>
-  <%#= link_to 'See Your Contributions', new_experience_path, :method => :get, class: "btn-lg btn-primary", id: "meal-button" %>
+-->
+<%#= link_to "See All Experiences", new_experience_path, :method => :get, class: "btn-lg btn-primary", id: "meal-button" %>
+<%#= link_to 'Add to Your Profile', new_experience_path, :method => :get, class: "btn-lg btn-primary", id: "meal-button" %>
+<%#= link_to "See Your Trips", new_fund_path, :method => :get, class: "btn-lg btn-primary", id: "meal-button" %>
+<%#= link_to 'See Your Contributions', new_experience_path, :method => :get, class: "btn-lg btn-primary", id: "meal-button" %>
 <!-- </div>
- -->
+-->
 <!-- <div class="navbar-filters traveler-options" id="main-nav">
   <%= link_to "See All Experiences", new_experience_path, :method => :get, class: "traveler-menu", id: "meal-button" %>
   <%= link_to 'Add to Your Profile', new_experience_path, :method => :get, class: "traveler-menu", id: "meal-button" %>
@@ -18,13 +18,13 @@
 
 <div style="background: '$trov_yellow';">
 
- -->
+-->
 
 <div class="row">
   <div class="col-xs-12 col-md-4">
     <div class="profile-info">
       <center><h2> <%= @user.first_name %> </h2></center>
-        <%= image_tag facebook_image(@user), class: "profile-image" %>
+      <%= image_tag facebook_image(@user), class: "profile-image" %>
       <div class="edit_profile">
         <p><%= @user.first_name %> <%= @user.last_name %></p>
         <p><%= user.email %></p>
@@ -65,95 +65,94 @@
               <div class="booking-confirm">
                <%= cl_image_tag trip.experience.photos[0].path, {:class => "experience-image", :effect=>"auto_color", :width=>50} %>
                <div>
-              <%= link_to "#{trip.experience.title}", experience_path(trip.experience), class: "meal-link" %>
-                        <p class=date>Traveler: <%=trip.user.first_name%> <%=trip.user.last_name%> </p>
-          </div>
-          <br>
+                <%= link_to "#{trip.experience.title}", experience_path(trip.experience), class: "meal-link" %>
+                <p class=date>Traveler: <%=trip.user.first_name%> <%=trip.user.last_name%> </p>
+              </div>
+              <br>
               <p class="cancel">Waiting for host confirmation</p>
             </div>
             <% end %>
-            </div>
-            <% end %>
           </div>
           <% end %>
         </div>
+        <% end %>
+      </div>
 
-        <div role="tabpanel" class="tab-pane no-border" id="profile">
-                    <% if @user.trips.select{ |x| x.status == false}.empty? %>
-          <div class="activity empty">
-                          <p>Oh no you don't have any confirmed experiences 😢 </p> <br>
-            <p><%= link_to "Browse Experiences", experiences_path %></p>
-            </div>
-          <% else %>
-          <div class="activity">
+      <div role="tabpanel" class="tab-pane no-border" id="profile">
+        <% if @user.trips.select{ |x| x.status == false}.empty? %>
+        <div class="activity empty">
+          <p>Oh no you don't have any confirmed experiences 😢 </p> <br>
+          <p><%= link_to "Browse Experiences", experiences_path %></p>
+        </div>
+        <% else %>
+        <div class="activity">
 
-            <% @trips.each do |trip| %>
-              <div class="booking">
-              <% if trip.status? == true %>
-                  <div class="booking-confirm">
+          <% @trips.each do |trip| %>
+          <div class="booking">
+            <% if trip.status? == true %>
+            <div class="booking-confirm">
 
-                <%= cl_image_tag(trip.experience.photos[0].path, :class => "experience-image", :effect=>"auto_color", :width=>50) %>
-                <div>
-              <%= link_to "#{trip.experience.title}", experience_path(trip.experience), class: "meal-link" %>
+              <%= cl_image_tag(trip.experience.photos[0].path, :class => "experience-image", :effect=>"auto_color", :width=>50) %>
+              <div>
+                <%= link_to "#{trip.experience.title}", experience_path(trip.experience), class: "meal-link" %>
                 <p class="date"> Price: <%= money_without_cents_and_with_symbol(trip.experience.price) %></p>
               </div>
               <br>
-                  <% if trip.cancel? == false %>
-                    <%= link_to "Cancel", trip_cancel_path(trip, cancel: true), method: :patch, class: "meal-link btn btn-primary end" %>
-                  <% else %>
-                    <p class=cancel><%= "Cancellation pending please await email response" %></p>
-                  <% end %>
-                </div>
+              <% if trip.cancel? == false %>
+              <%= link_to "Cancel", trip_cancel_path(trip, cancel: true), method: :patch, class: "meal-link btn btn-primary end" %>
+              <% else %>
+              <p class=cancel><%= "Cancellation pending please await email response" %></p>
               <% end %>
-              </div>
+            </div>
             <% end %>
           </div>
-                   <% end %>
-
+          <% end %>
         </div>
+        <% end %>
+
+      </div>
 
 
 
-           <div role="tabpanel" class="tab-pane no-border" id="messages">
-                    <% if @user.messages.select{ |x| x.read == false}.empty? %>
-    <div class="activity empty">
-                                <p>Oh no you don't have any messages 😢 View experiences to send messages to hosts </p> <br>
-            <p><%= link_to "Browse Experiences", experiences_path %></p>
-            </div>
-          <% else %>
+      <div role="tabpanel" class="tab-pane no-border" id="messages">
+        <% if @user.messages.select{ |x| x.read == false}.empty? %>
+        <div class="activity empty">
+          <p>Oh no you don't have any messages 😢 View experiences to send messages to hosts </p> <br>
+          <p><%= link_to "Browse Experiences", experiences_path %></p>
+        </div>
+        <% else %>
 
-<div class=”list-group-item”>
+        <div class=”list-group-item”>
           <% @conversations.each do |conversation| %>
-          <% counterpart_id = conversation.sender_id != current_user.id ? conversation.sender_id : conversation.recipient_id %>
-          <% counterpart = @users.find(counterpart_id) %>
-          <div class="conversation">
-            <%= image_tag facebook_image(counterpart), class: "avatar-large" %>
-            <div class="message-name">
-              <h2 class="message-sender"><%= counterpart.first_name %></h2>
-              <p><%= time_ago_in_words conversation.most_recent_message.created_at%></p>
-            </div>
-            <div class="message-body">
-              <%= link_to conversation.most_recent_message.header, conversation_messages_path(conversation) %>
-              <p><%= conversation.most_recent_message.content %></p>
-            </div>
-            <div class="message-status">
-              <% if conversation.most_recent_message.read == false %>
-              <p class="status pending">Unread</p>
-              <% else %>
-              <p>Read</p>
+          <% next unless conversation.messages.any? %>
+            <% counterpart_id = conversation.sender_id != current_user.id ? conversation.sender_id : conversation.recipient_id %>
+            <% counterpart = @users.find(counterpart_id) %>
+            <div class="conversation">
+              <%= image_tag facebook_image(counterpart), class: "avatar-large" %>
+              <div class="message-name">
+                <h2 class="message-sender"><%= counterpart.first_name %></h2>
+                <p><%= time_ago_in_words conversation.most_recent_message.created_at %></p>
+              </div>
+              <div class="message-body">
+                <%= link_to conversation.most_recent_message.header, conversation_messages_path(conversation) %>
+                <p><%= conversation.most_recent_message.content %></p>
+              </div>
+              <div class="message-status">
+                <% if conversation.most_recent_message.read == false %>
+                <p class="status pending">Unread</p>
+                <% else %>
+                <p>Read</p>
+                <% end %>
+              </div>
               <% end %>
             </div>
           <% end %>
-          </div>
-          <% end %>
         </div>
-    </div>
-
-</div>
-
       </div>
     </div>
   </div>
+</div>
+</div>
 </div>
 
  <%#= link_to "See All Experiences", new_experience_path, :method => :get, class: "btn-lg btn-primary", id: "meal-button" %>
