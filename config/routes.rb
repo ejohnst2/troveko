@@ -15,6 +15,8 @@ Rails.application.routes.draw do
 
   get '/about', to: 'pages#about'
 
+
+
   devise_for :users, class_name: 'FormUser',
     :controllers => { omniauth_callbacks: 'users/omniauth_callbacks', registrations: 'users/registrations'}
   resources :trips, only: [:edit, :update, :destroy, :show, :index] do
