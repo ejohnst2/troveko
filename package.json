@@ -2,6 +2,8 @@
   "name": "troveko",
   "private": true,
   "dependencies": {
-    "css-toggle-switch": "^4.1.0"
+    "@fengyuanchen/datepicker": "^0.6.4",
+    "css-toggle-switch": "^4.1.0",
+    "jquery": "^3.2.1"
   }
 }
