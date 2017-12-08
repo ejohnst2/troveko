@@ -86,11 +86,15 @@
     display: flex;
 }
 
-#team-members .team-header .team-avt, #about-us #team-members .advisory-header .team-avt {
+#team-members .team-header .team-avt, #team-members .advisory-header .team-avt {
     width: 140px;
     height: 140px;
     float: left;
     margin: 0 30px 13px 0;
+  }
+
+  #team-members img {
+    border-radius: 50%;
   }
 
 #team-members .team-name, #about-us .advisory-item .team-name {

@@ -3,7 +3,7 @@ class PagesController < ApplicationController
   skip_before_action :force_temporary_users, only: [:home, :about]
 
   def home
-    @experiences=Experience.limit(6)
+    @experiences=Experience.limit(3)
   end
 
   def show
