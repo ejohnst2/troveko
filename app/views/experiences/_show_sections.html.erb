@@ -2,23 +2,22 @@
 
   <div class="section" id="overview">
     <h2>Overview</h2>
-    <div class="flex-around">
+    <div class="flex-around" id="overview_info">
       <%#= render 'experiences/areatypes' %>
       <p style="text-align: center";><i class="fa <%= @experience.areatypes[0].fa_icon %> icon" id="showicon" aria-hidden="true"></i><%= @experience.areatypes[0].name %></p>
       <p style="text-align: center";><i class="fa fa-map-marker" id="showicon"></i><%= @experience.city %>, <%= @experience.country %></p>
       <p style="text-align: center";><i class="fa fa-money" id="showicon"></i> <%= money_without_cents_and_with_symbol(@experience.price) %> per person</p>
       <p style="text-align: center";><i class="fa fa-users" id="showicon"></i>Capacity (<%= @experience.capacity %>)</p>
     </div>
-    <br>
-    <h4>Accomodation Amenities</h4>
-    <div class="flex">
-      <%= render 'experiences/features' %>
-    </div>
   </div>
 
   <div class="section" id="host">
     <h2>Meet the Host</h2>
     <%= @experience.long_description %>
+    <h4>Accomodation Amenities</h4>
+    <div class="flex">
+      <%= render 'experiences/features' %>
+    </div>
   </div>
 
   <div class="section" id="activities">
