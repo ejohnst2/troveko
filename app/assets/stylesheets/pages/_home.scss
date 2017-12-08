@@ -42,9 +42,10 @@
 
 
 #picture {
-  padding-left: 0px;
-  padding-right: 0px;
+  // padding-left: 0px;
+  // padding-right: 0px;
   margin-bottom: 0px;
+  padding: 15px;
 }
 
 #picturerow {
@@ -57,6 +58,11 @@
   margin-right: 0;
 }
 
+#featured_experiences {
+  background-color: $trov-red;
+}
+
+// rgba(246, 121, 96, .6)
 // div#picture.col-l-4-xs-12.col-sm-4
 // {
 //   height: 320px;
@@ -261,7 +267,7 @@
   padding: 10px 15px;
   border-radius: 4px;
   // font-weight: bold;
-  background: #ff583d;
+  background: $trov_red;
   transition: background 0.9s ease;
   text-decoration: none;
   font-size: 25px;

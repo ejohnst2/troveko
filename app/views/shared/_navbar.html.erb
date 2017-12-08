@@ -1,60 +1,5 @@
 <div class="<%= yield(:sticky_navbar).blank? ? 'navbar-troveko-sticky' : yield(:sticky_navbar) %> navbar-troveko">
-     <div class="navbar-inner">
-
-  <!-- Logo -->
-  <%= link_to root_path, class: " navbar-left navbar-troveko-brand" do %>
-    <%= image_tag "troveko-logo.png" %>
-  <% end %>
-</div>
-
-  <!-- Right Navigation -->
-  <div class="navbar-troveko-right hidden-xs hidden-sm">
-    <form id="demo-2" form action="<%= experiences_path %>">
-  <input type="search" name="query" placeholder="Where are you going">
-</form>
-      <%= link_to "Experiences", experiences_path, class: "navbar-troveko-item navbar-troveko-link" %>
-      <%= link_to "About", about_path, class: "navbar-troveko-item navbar-troveko-link" %>
-      <%#= link_to "Messages", messages_path, class: "navbar-troveko-item navbar-troveko-link" %>
-      <% if user_signed_in? %>
-        <%= link_to "Messages #{current_user.unread_messages}", profile_path(current_user, reload: true, anchor: 'messages'), class: "navbar-troveko-item navbar-troveko-link" %>
-      <% end %>
-
-      <%= link_to "Blog", root_path, class: "navbar-troveko-item navbar-troveko-link" %>
-
-      <!-- Avatar with dropdown menu -->
-      <% if user_signed_in? %>
-      <div class="navbar-troveko-item">
-        <div class="dropdown">
-
-          <%= image_tag facebook_image(current_user), class: "avatar dropdown-toggle", id: "navbar-troveko-menu", "data-toggle" => "dropdown" %>
-
-          <ul class="dropdown-menu dropdown-menu-right navbar-troveko-dropdown-menu">
-            <!-- <li>
-              <%#= link_to "#" do %>
-                <i class="fa fa-user"></i> <%= t(".profile", default: "Profile") %>
-              <%# end %>
-            </li> -->
-            <!-- <li>
-              <%#= link_to "#" do %>
-                <i class="fa fa-home"></i>  <%= t(".profile", default: "Home") %>
-              <%# end %>
-            </li> -->
-                         <li>
-              <%= link_to profile_path(current_user) do %>
-                <i class="fa fa-superpowers"></i> Profile
-              <% end %>
-            </li>
-
-             <li>
-              <%= link_to destroy_user_session_path, method: :delete do %>
-                <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Log out") %>
-              <% end %>
-            </li>
-          </ul>
-        </div>
-      </div>
-
-    <div class="navbar-inner">
+  <div class="navbar-inner">
 
   <!-- Logo -->
     <%= link_to root_path, class: " navbar-left navbar-troveko-brand" do %>
@@ -100,9 +45,13 @@
       <ul class="dropdown-menu dropdown-menu-right navbar-troveko-dropdown-menu">
         <li><%= link_to "Experiences", experiences_path %></li>
         <li><%= link_to "Messages", conversations_path %></li>
+        <li><%= link_to "About", about_path %></li>
+        <li><%= link_to "Sign out", destroy_user_session_path, :method => :delete %></li>
+        <li><%= link_to "Profiles", profile_path(current_user) if current_user != nil %></li>
+        <li><%# link_to "Reviews",  experience_reviews_path %></li>
+
       </ul>
     </div>
   </div>
 </div>
-
 
