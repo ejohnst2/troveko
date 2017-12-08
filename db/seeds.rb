@@ -64,7 +64,10 @@ project_kalpa = User.new(
   ngo: true,
   facebook_picture_url: ("NGO.png"),
   first_name: 'Adi Sayoga',
-  last_name: 'Puti'
+  last_name: 'Puti',
+  mission: "In ProjectKalpa, we are committed to collaborate with local communities to protect Bali’s Cultural Heritage through local values and perspectives.",
+  programs: "ProjectKalpa is a non-profit organization established in 2014, which aims to promote the importance and awareness of cultural and natural heritage.",
+  website: "projectkalpa.org"
  )
 project_kalpa.save!
 
@@ -74,7 +77,10 @@ rajmachi_rural_aid = User.new(
   ngo: true,
   facebook_picture_url: ("NGO.png"),
   first_name: 'Rohan',
-  last_name: 'Keshewar'
+  last_name: 'Keshewar',
+  mission: "Our mission is to protect the livelihoods of those living in and around Rajamachi",
+  programs: "Rajmachi Rural Aid and Development Programme, a non profit non governmental organization (NGO) is engaged in various developmental and social welfare activities at Fort Rajamachi since the year 1976",
+  website: "rajmachiruralaid.org"
 )
 rajmachi_rural_aid.save!
 
