@@ -163,8 +163,11 @@ span sm {
 
 .imagefit2 {
   width: auto;
-  height: 70vh;
+  height: 80vh;
   // max-height: 700px;
 }
 
-
+#overview_info p {
+  font-size: 26px;
+  padding-top: 20px;
+}
