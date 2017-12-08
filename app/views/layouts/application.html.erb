@@ -9,6 +9,7 @@
     <link rel="icon" href="<%= image_path("small_logo2.png") %>">
     <%= csrf_meta_tags %>
     <%= action_cable_meta_tag %>
+    <%= favicon_link_tag %>
     <%= stylesheet_link_tag 'application', media: 'all' %>
 <!--     <link rel="stylesheet" type="text/css" href="slick/slick.css"/>
  -->
@@ -23,6 +24,7 @@
 <meta property="og:image" content="<%= meta_image %>" />
 <meta property="og:description" content="<%= meta_description %>" />
 <meta property="og:site_name" content="<%= meta_title %>" />
+<meta property="fb:app_id" content=" <%= ENV["FB_ID"] %> ">
 
 <!-- Twitter Card data -->
 <meta name="twitter:card" content="summary_large_image">
