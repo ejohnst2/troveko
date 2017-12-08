@@ -101,28 +101,30 @@
 
         <div class=”list-group-item”>
           <% @conversations.each do |conversation| %>
-          <% next unless conversation.messages.any? %>
-          <% counterpart_id = conversation.sender_id != current_user.id ? conversation.sender_id : conversation.recipient_id %>
-          <% counterpart = @users.find(counterpart_id) %>
-          <div class="conversation">
-            <%= image_tag facebook_image(counterpart), class: "avatar-large" %>
-            <div class="message-name">
-              <h2 class="message-sender"><%= counterpart.first_name %></h2>
-              <p><%= time_ago_in_words conversation.most_recent_message.created_at %></p>
+            <div class="row">
+              <% next unless conversation.messages.any? %>
+              <% counterpart_id = conversation.sender_id != current_user.id ? conversation.sender_id : conversation.recipient_id %>
+              <% counterpart = @users.find(counterpart_id) %>
+              <div class="conversation">
+                <%= image_tag facebook_image(counterpart), class: "avatar-large" %>
+                <div class="message-name">
+                  <h2 class="message-sender"><%= counterpart.first_name %></h2>
+                  <p><%= time_ago_in_words conversation.most_recent_message.created_at %></p>
+                </div>
+                <div class="message-body">
+                  <%= link_to conversation.most_recent_message.header, conversation_messages_path(conversation) %>
+                  <p><%= conversation.most_recent_message.content %></p>
+                </div>
+                <div class="message-status">
+                  <% if conversation.most_recent_message.read == false %>
+                    <p class="status pending">Unread</p>
+                  <% else %>
+                    <p>Read</p>
+                  <% end %>
+                </div>
+                <% end %>
+              </div>
             </div>
-            <div class="message-body">
-              <%= link_to conversation.most_recent_message.header, conversation_messages_path(conversation) %>
-              <p><%= conversation.most_recent_message.content %></p>
-            </div>
-            <div class="message-status">
-              <% if conversation.most_recent_message.read == false %>
-                <p class="status pending">Unread</p>
-              <% else %>
-                <p>Read</p>
-              <% end %>
-            </div>
-            <% end %>
-          </div>
           <% end %>
         </div>
       </div>
