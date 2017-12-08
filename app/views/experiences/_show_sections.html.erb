@@ -8,6 +8,8 @@
       <p style="text-align: center";><i class="fa fa-map-marker" id="showicon"></i><%= @experience.city %>, <%= @experience.country %></p>
       <p style="text-align: center";><i class="fa fa-money" id="showicon"></i> <%= money_without_cents_and_with_symbol(@experience.price) %> per person</p>
       <p style="text-align: center";><i class="fa fa-users" id="showicon"></i>Capacity (<%= @experience.capacity %>)</p>
+      <p style="text-align: center";><i class="fa  fa-calendar-o" id="showicon"></i><%= @experience.duration %>-day experience</p>
+
     </div>
   </div>
 
