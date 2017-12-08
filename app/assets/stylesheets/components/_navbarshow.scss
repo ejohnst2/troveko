@@ -11,6 +11,77 @@
   // position: top;
 }
 
+input[type=search] {
+  -webkit-appearance: textfield;
+  -webkit-box-sizing: content-box;
+  font-family: inherit;
+  font-size: 100%;
+  right: 100px;
+}
+input::-webkit-search-decoration,
+input::-webkit-search-cancel-button {
+  display: none;
+}
+
+
+input[type=search] {
+  background: black url(https://static.tumblr.com/ftv85bp/MIXmud4tx/search-icon.png) no-repeat 9px center;
+  border: solid 1px black;
+  padding: 9px 10px 9px 32px;
+  width: 55px;
+
+  -webkit-border-radius: 10em;
+  -moz-border-radius: 10em;
+  border-radius: 10em;
+
+  -webkit-transition: all .5s;
+  -moz-transition: all .5s;
+  transition: all .5s;
+}
+input[type=search]:focus {
+  width: 130px;
+  background-color: black;
+    border-color: $trov_blue;
+  outline:none;}
+
+
+input:-moz-placeholder {
+  color: white;
+}
+input::-webkit-input-placeholder {
+  color: white;
+}
+
+.dropdown-menu {
+    padding-left: 10px;
+    padding-right: 10px;
+    width: 205px;
+}
+
+/* Demo 2 */
+#demo-2 input[type=search] {
+  width: 15px;
+  padding-left: 10px;
+  color: transparent;
+  cursor: pointer;
+}
+#demo-2 input[type=search]:hover {
+  background-color: #fff;
+}
+#demo-2 input[type=search]:focus {
+  width: 130px;
+  padding-left: 32px;
+  color: #000;
+  background-color: #fff;
+  cursor: auto;
+}
+#demo-2 input:-moz-placeholder {
+  color: transparent;
+}
+#demo-2 input::-webkit-input-placeholder {
+  color: transparent;
+}
+
 .navbar-filters{
 color: white;
 height:70px;
@@ -18,10 +89,11 @@ background-color: rgba(225, 225, 225, .8);
 padding: 0px 30px;
 display: flex;
 align-items: center;
+
 }
 
 .icon{
-  color:#606060;
+  // color:white;
     -o-transition:.5s;
   -ms-transition:.5s;
   -moz-transition:.5s;
@@ -35,7 +107,7 @@ font-size: 2.5em;
 }
 
 .icon:hover{
-  color:white;
+  // color:white;
 }
 
 .title {
@@ -54,10 +126,10 @@ margin-bottom: 0px;
   background-size:100%;
 }
 
-strong, b {
-    font-weight: 500 !important;
-    font-family: 'Source Sans Pro';
-}
+// strong, b {
+//     font-weight: 500 !important;
+//     font-family: 'Source Sans Pro';
+// }
 
 // a {
 //   color: white;
@@ -76,10 +148,28 @@ a:hover {
   text-decoration: none;
 }
 
-input {
-  border-radius: 5%;
-  background-color: #e5e5e5;
+#book-now:hover {
+  color: black;
+  text-decoration: none;
 }
+
+.searchbox {
+  background-color: black;
+  position: relative;
+  left: -300px;
+  color: white;
+  border-top: 0px;
+  border-bottom: 0px;
+  border-right: 0px;
+  border-left: 5px white;
+font-weight: thick;
+}
+
+.searchbox:focus{
+    outline-width: 0;
+    outline:none;
+}
+
 
 .navbar-troveko-sticky {
   position: relative;
@@ -96,9 +186,19 @@ input {
   -ms-filter: "progid:DXImageTransform.Microsoft.Dropshadow(OffX=12, OffY=12, Color='#444')";
   filter: "progid:DXImageTransform.Microsoft.Dropshadow(OffX=12, OffY=12, Color='#444')";
   transform: translateX(-50%);
-  left: 50%;
+  left: 70px;
+  margin-top: 10px;
   position: absolute;
   bottom:30%;
+  position:relative;
+  // border-right: 5px solid white;
+
+}
+
+.borderline{
+    border-left:1px solid #e2e2e2;
+    z-index:1000;
+    height:500px;
 }
 
 .home-banner img {
@@ -134,7 +234,7 @@ input {
 }
 
 .navbar-troveko-link:hover {
-  color: #353535;
+  color: $trov_blue;
   text-decoration: none;
   -webkit-filter: drop-shadow(12px 12px 25px rgba(0,0,0,0.5));
 }

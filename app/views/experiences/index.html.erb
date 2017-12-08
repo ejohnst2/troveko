@@ -1,19 +1,15 @@
+<%= render 'shared/searchfilters' %>
+
 <center>
-    <h1>Where will your next adventure be?</h1>
-    <br>
-
-    <%= render 'shared/searchfilters' %>
-
-
-      <%#= link_to 'Grid', experiences_path, remote: true, method: :get, class: 'btn-primary btn-xl' %>
-      <%#= link_to 'Map', experiences_path(map: true), remote: true, method: :get, class: 'btn-primary btn-xl' %>
-  </center>
+  <h1>Where will your next adventure be?</h1>
+  <h4>Explore different communities in Southern Asia.</h4>
+</center>
 
 <div class="container-fluid">
 
   <div class="row" style="padding-top: 40px;">
 <!-- beginning of card loop -->
-    <%= render 'list' %>
+    <%= render 'experiences/list' %>
 <!-- end of card loop -->
   </div>
 </div>
@@ -34,7 +30,7 @@
 </ol>
  -->
 
-<%#= render 'map' %>
+<%#= render 'experiences/map' %>
 
 <!-- let ngos list new experience -->
 

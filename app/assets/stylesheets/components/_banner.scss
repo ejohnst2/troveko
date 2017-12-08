@@ -1,7 +1,7 @@
 .banner {
   color: white;
   text-align: center;
-  height: 80vh;
+  height: 100vh;
   /* if you have a 70px navbar => height: calc(100vh - 70px); */
   background-size: cover !important;
   display: flex;
@@ -16,7 +16,7 @@
   // font-family: 'futura';
 }
 
-.banner h2{
+.banner h2 {
   color: $trov_red;
   text-shadow: 0px 1px rgba(0, 0, 0, 0.5);
   // font-family: 'futura', sans-serif;

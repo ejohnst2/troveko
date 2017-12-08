@@ -1,6 +1,7 @@
 class ExperiencesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show, :new, :edit]
   before_action :set_experience, only: [:show, :edit, :update, :destroy]
+  skip_before_action :force_temporary_users, only: [:index, :show, :new, :edit]
   # before_action :ngo?, only: [:destroy, :update, :create, :new, :edit]
 
   def index
@@ -8,7 +9,7 @@ class ExperiencesController < ApplicationController
     @activities = Activity.all
     @area_types = Areatype.all
 
-    @experiences = Experience.search(params[:query]).where.not(latitude: nil, longitude: nil)
+    @experiences = policy_scope(Experience).search(params[:query])
 
     if params[:feature]
       features = Feature.where(name: params[:feature])
@@ -45,12 +46,19 @@ class ExperiencesController < ApplicationController
         format.html { render :edit }
         format.json { render json: @experience.errors, status: :unprocessable_entity }
       end
+      authorize @experience
     end
   end
 
   def show
     @experience_coordinates = { lat: @experience.latitude, lng: @experience.longitude }
     @review = Review.new
+
+    @markers = Gmaps4rails.build_markers(@experience) do |experience, marker|
+      marker.lat experience.latitude
+      marker.lng experience.longitude
+      marker.infowindow render_to_string(partial: "map_box", locals: { experience: experience })
+    end
     # @conversation = Conversation.new
   end
 
@@ -60,15 +68,23 @@ class ExperiencesController < ApplicationController
       format.html { redirect_to experiences_url, notice: 'Experience was successfully destroyed.' }
       format.json { head :no_content }
     end
+    authorize @experience
   end
 
   def new
     @experience = Experience.new
+    authorize @experience
+    if !current_user.funds.any?
+      redirect_to new_fund_path
+
+    end
   end
 
-  def create
 
+
+  def create
     @experience = Experience.new(experience_params)
+    authorize @experience
     @experience.user = current_user
 
     respond_to do |format|
@@ -88,10 +104,11 @@ class ExperiencesController < ApplicationController
   private
     def set_experience
       @experience = Experience.find(params[:id])
+      authorize @experience
     end
 
     def experience_params
-      params.require(:experience).permit(:short_description, :long_description, :title, :price_cents, :capacity, :address, :city, :country, :postal_code, :fund_id, photos: [], feature_ids: [], activity_ids: [], areatype_ids: [])
+      params.require(:experience).permit(:short_description, :long_description, :title, :price_cents, :capacity, :address, :city, :country, :duration, :postal_code, :fund_id, photos: [], feature_ids: [], activity_ids: [], areatype_ids: [])
     end
 end
 

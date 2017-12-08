@@ -5,12 +5,14 @@ class User < ApplicationRecord
   has_many :trips, dependent: :destroy
   has_many :experiences
   has_many :messages, dependent: :destroy
-  has_many :identities
+  has_many :identities, dependent: :destroy
   has_many :funds
+  has_many :sender_conversations, :foreign_key => :sender_id, class_name: 'Conversation'
+  has_many :recipient_conversations, :foreign_key => :recipient_id, class_name: 'Conversation'
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
-  devise :omniauthable, omniauth_providers: [:facebook, :twitter, :google, :instagram]
+  devise :omniauthable, omniauth_providers: [:facebook, :twitter, :google_oauth2, :instagram]
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
@@ -76,13 +78,18 @@ class User < ApplicationRecord
     @google_oauth2_client
   end
 
-
-
+def unread_messages
+  conversations_ids = self.recipient_conversations.ids + self.sender_conversations.ids
+  my_messages = Message.where(conversation_id: conversations_ids, read: false).where.not(user_id: self.id)
+  if my_messages.count > 0
+    "(#{my_messages.count})"
+  end
+end
 
   private
 
   def send_welcome_email
-    UserMailer.welcome(self).deliver_now
+    # UserMailer.welcome(self).deliver_now
   end
 
   end

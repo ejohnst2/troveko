@@ -7,8 +7,22 @@
         <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
           <%= f.error_notification %>
 
+<!-- <label class="toggle-check">
+  <input type="checkbox" class="toggle-check-input" />
+  <span class="toggle-check-text"></span>
+</label>
+ -->
           <div class="form-inputs">
-            <%= f.input :email, required: true, autofocus: true, placeholder: "bob@gmail.com" %>
+            <%= f.input :first_name, required: true, autofocus: true, placeholder: "First Name" %>
+            <%= f.input :last_name, required: true, autofocus: true, placeholder: "Last Name" %>
+            <%= f.input :email, required: true, autofocus: true, placeholder: "user@mail.com" %>
+            Are you an non-profit organization?
+            <%= f.input :ngo, label: false, as: :hidden %>
+            <label class="toggle-check">
+              <input type="checkbox" class="toggle-check-input" hidden value="0">
+              <span class="toggle-check-text"></span>
+            </label>
+
             <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length), placeholder: "******" %>
             <%= f.input :password_confirmation, required: true %>
           </div>
@@ -17,7 +31,7 @@
             <%= f.button :submit, "Sign up" %>
             <%- if devise_mapping.omniauthable? %>
             <%- resource_class.omniauth_providers.each do |provider| %>
-              <%= link_to "Sign in with #{OmniAuth::Utils.camelize(provider)}", omniauth_authorize_path(resource_name, provider), class: "btn-primary btn" %><br />
+              <%= link_to "Sign in with #{OmniAuth::Utils.camelize(provider)}", omniauth_authorize_path(resource_name, provider), class: "btn-primary btn #{provider}" %><br />
             <% end -%>
             <% end -%>
 
@@ -29,3 +43,21 @@
     </div>
   </div>
 </div>
+
+<%content_for(:after_js) do %>
+  <script>
+    $('.toggle-check-input').change(function(evt) {
+
+      if ( $(this).val() == "0" ) {
+        $(this).val("1");
+        var checked = "1";
+      } else {
+        $(this).val("0");
+        var checked = "0";
+      }
+
+      $('#user_ngo').val(checked);
+    });
+  </script>
+<%end%>
+

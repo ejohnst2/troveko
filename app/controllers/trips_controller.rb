@@ -1,10 +1,12 @@
 class TripsController < ApplicationController
-  skip_before_action :authenticate_user!, only: :new
+  # skip_before_action :authenticate_user!, only: :new --> even new now requires user to be logged in
   before_action :set_trip, only: [:edit, :show, :update, :destroy, :confirmation]
   before_action :set_experience, only: [:new, :create, :confirmation]
+  skip_before_action :force_temporary_users, only: :new
+
 
   def index
-    @trips = Trip.all
+    @trips = current_user.trips
   end
 
   def show
@@ -22,10 +24,14 @@ class TripsController < ApplicationController
     @trip.user = current_user
 
     if @trip.save
+      order = Order.create!(sku: @trip.experience.title, amount: @trip.experience.price, state: 'pending', trip_id: @trip.id)
       if params[:trip][:contribution].present?
-        Contribution.create!(user: current_user, trip: @trip, fund: @trip.experience.fund, amount_cents: (params[:trip][:contribution].to_i * 100) )
+        @contribution = Contribution.new(user: current_user, trip: @trip, fund: @trip.experience.fund, amount_cents: (params[:trip][:contribution].to_i * 100) )
+        if @contribution.amount > 0 && @contribution.save
+          contribution_order = Order.create!(sku: @contribution.fund, amount: @contribution.amount, state: 'pending', trip_id: @trip.id, contribution: true )
+        end
       end
-      redirect_to confirmation_experience_trip_path(@experience.id, @trip.id)
+      redirect_to confirmation_experience_trip_path(@experience.id, @trip.id, order: order, contribution_order: contribution_order )
     else
       render 'new'
     end
@@ -45,19 +51,27 @@ class TripsController < ApplicationController
   end
 
   def confirmation
+    total = @trip.experience.price_cents * @trip.number_of_people.to_i
+    if @trip.contribution.present?
+      @sum = ( @trip.contribution.amount_cents.to_i + total ) / 100
+    else
+      @sum = total / 100
+    end
   end
 
   def status
     @trip = Trip.find(params[:trip_id])
     @trip.update(status: params[:status])
-    @trip.order.capture
-    redirect_to order_path(@trip.order)
+    @trip.orders.map { |o| o.capture }
+    redirect_to order_path(@trip.orders.first)
   end
 
   def cancel
     @trip = Trip.find(params[:trip_id])
-    @trip.update(cancel: params[:cancel])
-    redirect_to profile_path(current_user)
+    authorize @trip
+
+    @trip.update(cancel: true)
+    UserMailer.cancel(current_user, @trip).deliver_now
   end
 
   def destroy
@@ -73,6 +87,6 @@ class TripsController < ApplicationController
   end
 
   def trip_params
-    params.require(:trip).permit(:start_date, :end_date, :first_name, :last_name)
+    params.require(:trip).permit(:start_date, :first_name, :last_name, :terms, :number_of_people)
   end
 end

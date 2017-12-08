@@ -1,4 +1,15 @@
 <% @trips.each do |trip| %>
-    <%= trip.start_date %>
-    <%= trip.end_date %>
+
+  <div class="col-lg-8 col-md-8 col-xs-12">
+    <h2><%= "#{trip.start_date}: #{trip.experience.short_description}" %></h4>
+    <% if trip.cancel? %>
+      <h4>Trip cancelled...</h4>
+    <% else %>
+      <h4><%= link_to "Cancel Trip", trip_cancel_path(trip.id), method: :patch %></h2>
+    <% end %>
+  </div>
+
 <% end %>
+
+
+

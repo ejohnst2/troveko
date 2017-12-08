@@ -1,12 +1,15 @@
 class FundsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show, :new, :edit]
   before_action :set_fund, only: [:show, :edit, :update, :destroy]
+  skip_before_action :force_temporary_users, only: [:index, :show, :new, :edit]
 
   def index
     Fund.all
   end
 
   def edit
+    @fund = Fund.edit
+    authorize @fund
   end
 
   def update
@@ -16,11 +19,13 @@ class FundsController < ApplicationController
       else
         format.html { render :edit }
       end
+      authorize @fund
     end
   end
 
   def create
     @fund = Fund.new(fund_params)
+    authorize @fund
     @fund.user = current_user
 
     if @fund.save
@@ -32,6 +37,7 @@ class FundsController < ApplicationController
 
   def new
     @fund = Fund.new
+    authorize @fund
   end
 
   def destroy
@@ -40,6 +46,7 @@ class FundsController < ApplicationController
       format.html { redirect_to funds_url, notice: 'Fund was successfully destroyed.' }
       format.json { head :no_content }
     end
+    authorize @fund
   end
 
   def show
@@ -59,7 +66,7 @@ class FundsController < ApplicationController
   end
 
   def fund_params
-    params.require(:fund).permit(:amount_cents)
+    params.require(:fund).permit(:amount_cents, :title, :funding_goal, :use_of_funds, :about)
   end
 
 end
