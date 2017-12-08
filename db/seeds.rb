@@ -120,7 +120,7 @@ can be   done on a voluntary basis." )
 
 
 
-bali_photos_one = [ seed_image('L1840058'), seed_image('L1830780-768x432'), seed_image('L1840124-1184x662'), seed_image('L1840358-1184x666'), seed_image('L1840358-1184x666') ]
+bali_photos_one = [ seed_image('L1830789'), seed_image('L1840124-1184x662'), seed_image('L1840058'), seed_image('L1830769'), seed_image('L1830780-768x432'), seed_image('L1840358-1184x666'), seed_image('L1840358-1184x666') ]
 
 bali_experience_one = Experience.new(   user: project_kalpa,   title:
 "Family Living in Balinese Farming Village",   price: 210,   capacity: 5,   status: true,
@@ -150,51 +150,15 @@ untouched forests and see waterfalls, Visit the five surrounding temples.",
 transportation: "The closest airport is Denpasar International Airport. For those
 that are located ",  guided: true   )
 
-  bali_experience_one.features << [ features.sample, features.sample ]
-  bali_experience_one.activities << [ activities.sample, activities.sample ]
-  bali_experience_one.areatypes << [ areatypes.sample ]
+  bali_experience_one.features << [ features[5], features[2], features[0], features[7], features[4] ]
+  bali_experience_one.activities << [ activities[2], activities[3], activities[1], activities[6] ]
+  bali_experience_one.areatypes << [ areatypes[0] ]
   bali_experience_one.photo_urls = bali_photos_one
   bali_experience_one.save!
 
 
-bali_photos_two = [ seed_image('Tengkudak-Host-1-862x575'), seed_image('tengkudak-accommodation'), seed_image('L1840124-1184x662'), seed_image('tengkudak-kitchen') ]
 
-bali_experience_two = Experience.new( user: project_kalpa,   title: "Ceremonies and Cooking in the Balinese Subak",
-price: 150,   capacity: 5,   status: true,
-address: "Jl. Batu Mejan No. 88",   latitude: -8.417752,   longitude:
-115.117740,   long_description: "Nyoman Sutiani and her two brothers are based
-in the village of Tengkudak. She owns rice fields that are managed by her
-brothers, and has opened a small shop outside of her house a couple months ago
-to be able to make ends meet. She is the youngest of three, and her middle
-brother is the Head of Subak for Tengkudak. Her and her family would love to
-host travelers that are interested in learning about the local Subak. The family
-believes that hosting travelers both local and foreign could be a stepping-stone
-to promote Subak as the world heritage site that it is. Welcome to the village
-of Tengkudak, surrounded by rice fields and situated at the slope of Mount
-Batukaru. Because of its geography it has a slightly colder temperature than
-surrounding villages. The village displays a harmonious relationship of Hinduism
-and Catholicism, and the farmers in this village belong the Subak Penatahan.",
-short_description: "Learn local cooking and take part in temple ceremonies",
-city: "Bali",   postal_code: "5102060",   country: "Indonesia",   fund:
-bali_fund_one,   duration: 3,   highlights: "Travelers will have the chance to:
-a) get in-depth insight on the history, customs, and practices that shape
-Jatiluwih, b) Learn traditional gardening and farming methods as well as age-old
-ceremonies and rituals in the rice field, c) Learn how to cook traditional
-Balinese food and desert using local ingredients, d) visit various hot springs
-and bathing houses in nearby villages for a warm nature cleanse, e) Hike to the
-2,000m peak of the Mount Batukaru, f)Trek through the endless rice fields of
-Jatiluwih, Explore untouched forests and see waterfalls, Visit the five
-surrounding temples.",   transportation:"The closest airport is Denpasar
-International Airport. For those that are located",   guided: true   )
-
-bali_experience_two.features << [ features.sample, features.sample ]
-bali_experience_two.activities << [ activities.sample, activities.sample ]
-bali_experience_two.areatypes << [ areatypes.sample ]
-bali_experience_two.photo_urls = bali_photos_two
-bali_experience_two.save!
-
-
-bali_photos_three = [ seed_image('L1840287-768x432'), seed_image('jatiluwih-host-1200x671'), seed_image('L1840124-1184x662'), seed_image('jatiluwih-gate-1200x800') ]
+bali_photos_three = [ seed_image('L1840124-1184x662'), seed_image('L1840287-768x432'), seed_image('jatiluwih-host-1200x671'), seed_image('L1830827'), seed_image('jatiluwih-gate-1200x800') ]
 
 
 
@@ -226,9 +190,9 @@ Jatiluwih, Explore untouched forests and see waterfalls, Visit the five
 surrounding temples.",  transportation:"The closest airport is Denpasar
 International Airport. For those that are located.",   guided: true   )
 
-  bali_experience_three.features << [ features.sample, features.sample ]
+  bali_experience_three.features << [ features[5], features[2], features[0], features[7], features[4] ]
   bali_experience_three.activities << [ activities.sample, activities.sample ]
-  bali_experience_three.areatypes << [ areatypes.sample ]
+  bali_experience_three.areatypes << [ areatypes[0] ]
   bali_experience_three.photo_urls = bali_photos_three
   bali_experience_three.save!
 
@@ -289,38 +253,48 @@ rajmachi_photos_one = [
 ]
 
 
-rajmachi_experience_one = Experience.new(   user: rajmachi_rural_aid,   title:
-"Village living near Rajmachi Fort",   price: 100,   capacity: 10,   status: true,
-address: "Village Udhewadi, Khandala", latitude: 17.318649,   longitude:
-74.235628,  long_description: "A plateau rich in history, culture and beautiful
-hills, Rajmachi has two fortified peaks – Shrivardhan and Manaranjan forts, with
-a small village Udhewadi located near two famous hills of Lonavala and Khandala
-in the Sahyadri mountain range of the Konkan region of Maharashtra. Rajmachi,
-one of the most loved and frequented destinations by avid travellers and trek
-enthusiasts, has paved a way to livelihood opportunities for the impoverished
-villagers who are residents of this geographically remote place. Over the years
-many households have been providing rooms and food facilities for fellow-
-travellers, sparking a shift from agriculture to tourism for their livelihoods.
-Tourism is an industry like no other. However, unplanned growth without proper
-structuring has led to harm the environment, natural and cultural resources such
-as water resources, heritage sites etc. There also exists exploitation of
-villagers as they get paid less by the trek organisers.",  short_description:
-"Trekking and village-stay through the hills of Rajmachi",  city: "Pune",
-postal_code: "415105", country: "India", fund: rajmachi_fund_one,  duration: 2,
-highlights: "The experience includes trekking, learning to cook ethnic food,
-heritage walks, and your homestay. You will learn about local life in Rajmachi,
-how to cook ethnic food, and the history of the area.", transportation:"Rajmachi
-is located at about 99 kilometres from Mumbai and can be easily reached via road
-in about couple of hours. It is accessible via train too, but a road trip is
-more fun and pleasurable. Here is the route for Mumbai-Rajmachi. Best way to
-cover Mumbai to Rajmachi is: Mumbai – 26 kilometres – Navi Mumbai – 24 kilometre
--Bhatan Tunnel – 58 kilometre – Khandala – 15 kilometre – Rajmachi. To reach
-this place easily, follow Mumbai to Pune Expressway and NH4 to Masur to Umbraj
-Rd in Umbraj. The road is very easy to navigate and in an excellent condition
-with a lot of ATMs and drive in restaurants.", guided: true   )
+rajmachi_experience_one = Experience.new(
+user: rajmachi_rural_aid,   title:
+"Village living near Rajmachi Fort",   price: 100,   capacity: 10,   status:
+true, address: "Village Udhewadi, Khandala", latitude: 17.318649,   longitude:
+74.235628,  long_description: "Naneshwar and his wife are also amid aged couple
+who have two son’s Ganesh and Ashok. Ashok has migrated to a nearby city in
+search of employment and education for his  children. Ganesh stayed in the
+village and conducted adventure sports for the tourists, but he met with a
+accident while conduting adventure sports for a group and had a severe injury on
+his head. His family did not have enough money for his operation, with the help
+of the Ngo they managed to get him operated but he still needs to undergo a
+surgery for his skull, they are saving funds for his operation. Ganesh inspite
+of this injury he is willing to work and support his family. All the members of
+the family earn a livelihood by doing labour work at nearby houses during peak
+tourist seasons. Despite of all these problems they are interested in working
+with us to explore how organised community-based tourism can provide sustainable
+livelihood options to the villagers.",  short_description: "Trekking and village-stay
+through the hills of Rajmachi",  city: "Pune", postal_code: "415105", country:
+"India", fund: rajmachi_fund_one,  duration: 2, highlights: "A plateau rich in history, culture and
+beautiful hills, Rajmachi has two fortified peaks – Shrivardhan and Manaranjan
+forts, with a small village Udhewadi located near two famous hills of Lonavala
+and Khandala in the Sahyadri mountain range of the Konkan region of Maharashtra.The experience includes trekking, learning to cook
+ethnic food, heritage walks, and your homestay. You will learn about local life
+in Rajmachi, how to cook ethnic food, and the history of the area. Over the years many households have been
+providing rooms and food facilities for fellow- travellers, sparking a shift
+from agriculture to tourism for their livelihoods. Tourism is an industry like
+no other. However, unplanned growth without proper structuring has led to harm
+the environment, natural and cultural resources such as water resources,
+heritage sites etc. There also exists exploitation of villagers as they get paid
+less by the trek organisers.", transportation:"Rajmachi is located at about 99
+kilometres from Mumbai and can be easily reached via road in about couple of
+hours. It is accessible via train too, but a road trip is more fun and
+pleasurable. Here is the route for Mumbai-Rajmachi. Best way to cover Mumbai to
+Rajmachi is: Mumbai – 26 kilometres – Navi Mumbai – 24 kilometre -Bhatan Tunnel
+– 58 kilometre – Khandala – 15 kilometre – Rajmachi. To reach this place easily,
+follow Mumbai to Pune Expressway and NH4 to Masur to Umbraj Rd in Umbraj. The
+road is very easy to navigate and in an excellent condition with a lot of ATMs
+and drive in restaurants.", guided: true
+)
 
-  rajmachi_experience_one.features << [ features.sample, features.sample ]
-  rajmachi_experience_one.activities << [ activities.sample, activities.sample ]
+  rajmachi_experience_one.features << [ features.sample, features.sample, features.sample, features.sample ]
+  rajmachi_experience_one.activities << [ activities[0], activities[1], activities[2], activities[3] ]
   rajmachi_experience_one.areatypes << [ areatypes[1] ]
   rajmachi_experience_one.photo_urls = rajmachi_photos_one
   rajmachi_experience_one.save!
@@ -328,34 +302,44 @@ with a lot of ATMs and drive in restaurants.", guided: true   )
 
 
 rajmachi_photos_two = [
+  'https://upload.wikimedia.org/wikipedia/commons/d/d5/Rajmachi.jpg',
+  seed_image('IMG_3666'),
   'https://punehikers.com/m/photos/get_image/file/3378d29996429d1294d0635b47924480.jpg',
   seed_image('IMG_3353-1184x662'),
-  'https://upload.wikimedia.org/wikipedia/commons/d/d5/Rajmachi.jpg',
   'http://www.onacheaptrip.com/wp-content/uploads/Small-bridge-at-Rajmachi-fort-Trek.jpg'
    ]
 
 
 rajmachi_experience_two = Experience.new(   user: rajmachi_rural_aid,   title:
-"Live Amongst the Mountains of Pune",   price: 75,   capacity: 6,   status: true,
-address: "Village Udhewadi, Khandala",   latitude: 17.318649, longitude:
-74.235628,   long_description: "A plateau rich in history, culture and beautiful
-hills, Rajmachi has two fortified peaks – Shrivardhan and Manaranjan forts, with
-a small village Udhewadi located near two famous hills of Lonavala and Khandala
-in the Sahyadri mountain range of the Konkan region of Maharashtra. Rajmachi,
-one of the most loved and frequented destinations by avid travellers and trek
-enthusiasts, has paved a way to livelihood opportunities for the impoverished
-villagers who are residents of this geographically remote place. Over the years
-many households have been providing rooms and food facilities for fellow-
-travellers, sparking a shift from agriculture to tourism for their livelihoods.
-Tourism is an industry like no other. However, unplanned growth without proper
-structuring has led to harm the environment, natural and cultural resources such
-as water resources, heritage sites etc. There also exists exploitation of
-villagers as they get paid less by the trek organisers.",   short_description: "A
-weekend getaway through the hills of Rajmachi",   city: "Pune",   postal_code:
-"415105",   country: "India",   fund: rajmachi_fund_two,   duration: 2,
-highlights: "The experience includes trekking, learning to cook ethnic food,
-heritage walks, and your homestay. You will learn about local life in Rajmachi,
-how to cook ethnic food, and the history of the area.",
+"Live Amongst the Mountains of Pune",   price: 75,   capacity: 6,   status:
+true, address: "Village Udhewadi, Khandala",   latitude: 17.318649, longitude:
+74.235628,   long_description: "Naneshwar and his wife are also amid aged couple
+who have two son’s Ganesh and Ashok. Ashok has migrated to a nearby city in
+search of employment and education for his  children. Ganesh stayed in the
+village and conducted adventure sports for the tourists, but he met with a
+accident while conduting adventure sports for a group and had a severe injury on
+his head. His family did not have enough money for his operation, with the help
+of the Ngo they managed to get him operated but he still needs to undergo a
+surgery for his skull, they are saving funds for his operation. Ganesh inspite
+of this injury he is willing to work and support his family. All the members of
+the family earn a livelihood by doing labour work at nearby houses during peak
+tourist seasons. Despite of all these problems they are interested in working
+with us to explore how organised community-based tourism can provide sustainable
+livelihood options to the villagers.",
+short_description: "A weekend getaway through the hills of Rajmachi",   city:
+"Pune",   postal_code: "415105",   country: "India",   fund: rajmachi_fund_two,
+duration: 2, highlights: "A plateau rich in history, culture and
+beautiful hills, Rajmachi has two fortified peaks – Shrivardhan and Manaranjan
+forts, with a small village Udhewadi located near two famous hills of Lonavala
+and Khandala in the Sahyadri mountain range of the Konkan region of Maharashtra.The experience includes trekking, learning to cook
+ethnic food, heritage walks, and your homestay. You will learn about local life
+in Rajmachi, how to cook ethnic food, and the history of the area. Over the years many households have been
+providing rooms and food facilities for fellow- travellers, sparking a shift
+from agriculture to tourism for their livelihoods. Tourism is an industry like
+no other. However, unplanned growth without proper structuring has led to harm
+the environment, natural and cultural resources such as water resources,
+heritage sites etc. There also exists exploitation of villagers as they get paid
+less by the trek organisers.",
 transportation:"Rajmachi is located at about 99 kilometres from Mumbai and can
 be easily reached via road in about couple of hours. It is accessible via train
 too, but a road trip is more fun and pleasurable. Here is the route for Mumbai-
@@ -367,11 +351,48 @@ excellent condition with a lot of ATMs and drive in restaurants.", guided: true
 )
 
 
-  rajmachi_experience_two.features << [ features.sample, features.sample ]
-  rajmachi_experience_two.activities << [ activities.sample, activities.sample ]
+  rajmachi_experience_two.features << [ features.sample, features.sample, features.sample, features.sample ]
+  rajmachi_experience_two.activities << [ activities[0], activities[1], activities[2], activities[3] ]
   rajmachi_experience_two.areatypes << [ areatypes[1] ]
   rajmachi_experience_two.photo_urls = rajmachi_photos_two
   rajmachi_experience_two.save!
+
+bali_photos_two = [ seed_image('Tengkudak-Host-1-862x575'), seed_image('L1830689'), seed_image('tengkudak-accommodation'), seed_image('L1840124-1184x662'), seed_image('tengkudak-kitchen') ]
+
+bali_experience_two = Experience.new( user: project_kalpa,   title: "Ceremonies and Cooking in the Balinese Subak",
+price: 150,   capacity: 5,   status: true,
+address: "Jl. Batu Mejan No. 88",   latitude: -8.417752,   longitude:
+115.117740,   long_description: "Nyoman Sutiani and her two brothers are based
+in the village of Tengkudak. She owns rice fields that are managed by her
+brothers, and has opened a small shop outside of her house a couple months ago
+to be able to make ends meet. She is the youngest of three, and her middle
+brother is the Head of Subak for Tengkudak. Her and her family would love to
+host travelers that are interested in learning about the local Subak. The family
+believes that hosting travelers both local and foreign could be a stepping-stone
+to promote Subak as the world heritage site that it is. Welcome to the village
+of Tengkudak, surrounded by rice fields and situated at the slope of Mount
+Batukaru. Because of its geography it has a slightly colder temperature than
+surrounding villages. The village displays a harmonious relationship of Hinduism
+and Catholicism, and the farmers in this village belong the Subak Penatahan.",
+short_description: "Learn local cooking and take part in temple ceremonies",
+city: "Bali",   postal_code: "5102060",   country: "Indonesia",   fund:
+bali_fund_one,   duration: 3,   highlights: "Travelers will have the chance to:
+a) get in-depth insight on the history, customs, and practices that shape
+Jatiluwih, b) Learn traditional gardening and farming methods as well as age-old
+ceremonies and rituals in the rice field, c) Learn how to cook traditional
+Balinese food and desert using local ingredients, d) visit various hot springs
+and bathing houses in nearby villages for a warm nature cleanse, e) Hike to the
+2,000m peak of the Mount Batukaru, f)Trek through the endless rice fields of
+Jatiluwih, Explore untouched forests and see waterfalls, Visit the five
+surrounding temples.",   transportation:"The closest airport is Denpasar
+International Airport. For those that are located",   guided: true   )
+
+bali_experience_two.features << [ features[5], features[2], features[0], features[7], features[4]  ]
+bali_experience_two.activities << [  activities[0], activities[1], activities[2], activities[3] ]
+bali_experience_two.areatypes << [ areatypes[0] ]
+bali_experience_two.photo_urls = bali_photos_two
+bali_experience_two.save!
+
 
 start_date = Date.today + rand(20..50).days
 
