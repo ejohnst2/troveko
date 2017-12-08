@@ -1,4 +1,6 @@
-<!-- traveler info -->
+<% content_for(:title_tag) do %>
+  Information about Your Trip to <%= @trip.experience.title %>
+<% end %>
 
 <p>Booking date:    <%= @trip.created_at %></p>
 <p>Start date:      <%= @trip.start_date %></p>
