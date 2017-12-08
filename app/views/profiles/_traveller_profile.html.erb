@@ -62,14 +62,22 @@
             <% @trips.each do |trip| %>
             <div class="booking">
               <% if trip.status? == false %>
-              <div class="booking-confirm">
-               <%= cl_image_tag trip.experience.photos[0].path, {:class => "experience-image", :effect=>"auto_color", :width=>50} %>
+
+              <div class="booking-row">
+               <%= cl_image_tag experience.photos[0].path, {:class => "profile-image", :effect=>"auto_color", :width=>50} %>
+              <%= link_to "#{trip.experience.title}", experience_path(trip.experience), class: "meal-link" %>
+              <p class="pending end">Waiting for host confirmation</p>
+            </div>
+            <% end %>
+
+              <!-- <div class="booking-confirm">
+               <%#= cl_image_tag trip.experience.photos[0].path, {:class => "experience-image", :effect=>"auto_color", :width=>50} %>
                <div>
-                <%= link_to "#{trip.experience.title}", experience_path(trip.experience), class: "meal-link" %>
-                <p class=date>Traveler: <%=trip.user.first_name%> <%=trip.user.last_name%> </p>
+                <%#= link_to "#{trip.experience.title}", experience_path(trip.experience), class: "meal-link" %>
+                <p class=date>Traveler: <%#=trip.user.first_name%> <%=trip.user.last_name%> </p>
               </div>
               <br>
-              <p class="cancel">Waiting for host confirmation</p>
+              <p class="cancel">Waiting for host confirmation</p> -->
             </div>
             <% end %>
           </div>
