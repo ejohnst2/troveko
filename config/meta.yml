@@ -1,0 +1,5 @@
+meta_product_name: "Troveko"
+meta_title: "Troveko - Impact Through Adventure"
+meta_description: "Where will life take you?"
+meta_image: "http://res.cloudinary.com/troveko/image/upload/c_fill,h_630,w_1200/v1512750118/facebook_troveko_jm2vyh.jpg"                       # should exist in `app/assets/images/`
+# twitter_account: "@product_twitter_account"   # required for Twitter Cards

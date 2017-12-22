@@ -48,6 +48,8 @@
   position: absolute;
   top: 10px;
   left: 10px;
+  // right: 50px;
+  // bottom: 20px;
   font-size: 15px;
   text-transform: uppercase;
 }
@@ -104,3 +106,32 @@
   box-shadow: 0 0 5px #555;
 }
 
+#experience .card-category {
+  position: absolute;
+  top: 300px;
+  left: 50px;
+  right: 50px;
+  bottom: 20px;
+  // font-size: 20px;
+  text-transform: uppercase;
+}
+
+// #experience .card-user {
+//   position: absolute;
+//   right: 10px;
+//   top: 10px;
+//   width: 40px;
+//   border-radius: 50%;
+// }
+
+#experience .card-description {
+  position: absolute;
+  // bottom: 10px;
+  left: 50px;
+  right: 50px;
+  top: 10px;
+}
+
+#experiences .card-description h2 {
+  font-size: 24px;
+}

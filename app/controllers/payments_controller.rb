@@ -38,7 +38,7 @@ class PaymentsController < ApplicationController
 
     current_user.update(customer_id: customer.id)
 
-    render json: { url: order_path(@trip.orders.first) }
+    render json: { url: order_path(@trip.orders.where(contribution: false).first) }
 
     rescue Stripe::CardError => e
       flash[:alert] = e.message

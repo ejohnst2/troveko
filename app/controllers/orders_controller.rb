@@ -3,7 +3,7 @@ class OrdersController < ApplicationController
     trip = Trip.find(params[:trip_id])
     order  = Order.create!(sku: trip.experience.title, amount: trip.experience.price, state: 'pending', trip_id: trip.id)
     if trip.contribution.amount > 0
-      contribution_order = Order.create!(sku: trip.contribution.fund, amount: trip.contribution.amount, state: 'pending', trip_id: trip.id, contribution: true )
+      contribution_order = Order.create!(sku: trip.contribution.fund.title, amount: trip.contribution.amount, state: 'pending', trip_id: trip.id, contribution: true )
     end
     redirect_to new_order_payment_path(order)
   end

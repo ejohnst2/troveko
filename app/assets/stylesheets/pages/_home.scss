@@ -42,21 +42,38 @@
 
 
 #picture {
-  padding-left: 0px;
-  padding-right: 0px;
+  // padding-left: 0px;
+  // padding-right: 0px;
   margin-bottom: 0px;
+  padding: 15px;
 }
 
 #picturerow {
   position: relative;
   z-index: 10;
   width: 100%;
-    -webkit-box-shadow: 0 5px 1px -4px #000000;
-   -moz-box-shadow: 0 5px 1px -4px #000000;
-        box-shadow: 0 5px 1px -4px #000000;
+   //  -webkit-box-shadow: 0 5px 1px -4px #000000;
+   // -moz-box-shadow: 0 5px 1px -4px #000000;
+   //      box-shadow: 0 5px 1px -4px #000000;
   margin-right: 0;
 }
 
+#featured_experiences {
+  background-color: $trov-red;
+  padding-bottom: 40px;
+}
+
+#testimonials {
+  padding-bottom: 40px;
+  padding-right: 20px;
+  padding-left: 20px;
+}
+
+#testimonials img {
+  border-radius: 20px;
+}
+
+// rgba(246, 121, 96, .6)
 // div#picture.col-l-4-xs-12.col-sm-4
 // {
 //   height: 320px;
@@ -261,7 +278,7 @@
   padding: 10px 15px;
   border-radius: 4px;
   // font-weight: bold;
-  background: #ff583d;
+  background: $trov_red;
   transition: background 0.9s ease;
   text-decoration: none;
   font-size: 25px;

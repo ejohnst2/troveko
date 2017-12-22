@@ -1,9 +1,13 @@
+<% content_for(:title_tag) do %>
+  Troveko - Impact Through Adventure
+<% end %>
+
 <%= render 'shared/navbar' %>
 
 <div class="banner" style="background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('<%= image_path("banner.jpg") %>');">
   <div class="banner-content">
     <h1>Impact Through Adventure</h1>
-    <h2>Where Will Life Take You?</h2>
+    <h2>Where will you go next?</h2>
 <h2>
   <a href="" class="typewrite" data-period="2000" data-type='[ "Jatiluwih, Bali, Indonesia...", "Rajmachi, Pune, India..." ]'>
     <span class="wrap"></span>
@@ -11,7 +15,7 @@
 </h2>
 <br>
 
-<%= button_to "Start Your Adventure", experiences_path, :method => :get, class: "btn-treehouse" %>
+<%= button_to "Start Adventure", experiences_path, :method => :get, class: "btn-treehouse" %>
 
     <!-- <h2>How it Works</h2> -->
   </div>
@@ -26,17 +30,21 @@
 
 <div class="information">
   <br>
-  <center><h2 class="role">Travel Experience Meets Impact Crowdfunding</h2>
+  <center>
+  <h2 class="role">Travel Experiences that Drive Impact</h2>
+  <div class="container">
+
+    <h4>Troveko connects travelers with immersive living experiences in hyper-local communities in India and Indonesia. We use a multi-stakeholder model to stimulate community impact and provide adventures of a lifetime.</h4>
 <center>
-    <br>
-    <br>
+  </div>
+  <div class="information">
   <div class="row">
-    <div class="col-xs-12 col-sm-4">
-      <img class="icon" src="<%= image_path("Host.png") %>">
-</div>
 
     <div class="col-xs-12 col-sm-4">
       <img class="icon" src="<%= image_path("NGO.png") %>">
+</div>
+    <div class="col-xs-12 col-sm-4">
+      <img class="icon" src="<%= image_path("Host.png") %>">
 </div>
 
     <div class="col-xs-12 col-sm-4">
@@ -44,19 +52,20 @@
 </div>
 </div>
   <div class="row">
-    <div class="col-xs-12 col-sm-4">
-<h2 class="role">Host</h2>
-<p class="description">Improve rural livelihoods</p>
+
+      <div class="col-xs-12 col-sm-4">
+<h2 class="role">Organizations</h2>
+<p class="description">We work with organizations to improve visibility and livelihoods of beneficiaries through travel experiences, while funding projects through Community Funds tied to each experience.</p>
 </div>
 
     <div class="col-xs-12 col-sm-4">
-<h2 class="role">NGO</h2>
-<p class="description">Drive visibility and revolutionize fundraising</p>
+<h2 class="role">Hosts</h2>
+<p class="description">Each living experience is with a local host embracing adventurers as extended family members, sharing their endless supply of skill, tradition, and knowledge. </p>
 </div>
 
     <div class="col-xs-12 col-sm-4">
-<h2 class="role">Traveller</h2>
-<p class="description">Transform perspectives and actions</p>
+<h2 class="role">Travelers</h2>
+<p class="description">Travelers engage in these living experiences that transform future perspectives and actions, while also having the opportunity to contribute to each location's Community Fund.</p>
 </div>
 
 </div>
@@ -64,9 +73,6 @@
 <br>
   </div>
 
-<div class="placeholder">
-  <h1>Immerse in communities, make new friends and family.</h1>
-</div>
 <!-- links in boxes should be added -->
 
 <!-- <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
@@ -90,24 +96,39 @@
 });
 </script> -->
 
+<div class="container-fluid" id="featured_experiences">
 
-<div class="container-fluid" id="picturerow">
+<div class="role">
+  <h1 style="color: white;">Meet new friends and family in the places you wouldn't normally go...</h1>
+</div>
+
+<div class="container" id="picturerow">
   <div class="row" id="experience">
     <% @experiences.each do |experience| %>
     <div class="col-l-4-xs-12 col-sm-4" id="picture">
-        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path experience.photos[0].path if experience.photos.any? %>');">
-              <div class="card-category">
-      <h5><%= experience.country %></h5>
-    </div>
-    <div class="card-description">
+        <div class="card" style="border-radius: 20px; padding: 10px; background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path experience.photos[0].path if experience.photos.any? %>');">
+          <div class="card-description">
       <h3><%= experience.title %></h3>
-      <p style="align;" id="price-card"><%= money_without_cents_and_with_symbol(experience.price) %> per night</p>
+      <p style="align;" id="price-card"><%= experience.duration %> days, <%= money_without_cents_and_with_symbol(experience.price) %> per night</p>
+    </div>
+    <div class="card-category">
+      <h3><%= experience.city %>, <%= experience.country %></h3>
     </div>
     <%= link_to '', experience_path(experience), class: 'card-link' %>
   </div>
 </div>
 <%end %>
 </div>
+</div>
+</div>
+
+<div class="container-fluid" id="testimonials">
+  <div class="role">
+    <h1 style="">...others have already made lifelong connections.</h1>
+  </div>
+  <div class="row">
+    <%= render 'testimonials' %>
+  </div>
 </div>
 
 <script>

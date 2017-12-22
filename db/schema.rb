@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171207190323) do
+ActiveRecord::Schema.define(version: 20171208045728) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -83,8 +83,8 @@ ActiveRecord::Schema.define(version: 20171207190323) do
     t.index ["experience_id"], name: "index_conversations_on_experience_id", using: :btree
   end
 
-  create_table "experiences", id: :bigserial, force: :cascade do |t|
-    t.bigint   "user_id"
+  create_table "experiences", force: :cascade do |t|
+    t.integer  "user_id"
     t.string   "title"
     t.float    "price_cents"
     t.integer  "capacity"
@@ -108,16 +108,16 @@ ActiveRecord::Schema.define(version: 20171207190323) do
     t.index ["user_id"], name: "index_experiences_on_user_id", using: :btree
   end
 
-  create_table "experiences_features", id: :bigserial, force: :cascade do |t|
-    t.bigint   "feature_id"
-    t.bigint   "experience_id"
+  create_table "experiences_features", force: :cascade do |t|
+    t.integer  "feature_id"
+    t.integer  "experience_id"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
     t.index ["experience_id"], name: "index_experiences_features_on_experience_id", using: :btree
     t.index ["feature_id"], name: "index_experiences_features_on_feature_id", using: :btree
   end
 
-  create_table "features", id: :bigserial, force: :cascade do |t|
+  create_table "features", force: :cascade do |t|
     t.string   "name"
     t.string   "fa_icon"
     t.datetime "created_at", null: false
@@ -185,19 +185,19 @@ ActiveRecord::Schema.define(version: 20171207190323) do
     t.index ["searchable_type", "searchable_id"], name: "index_pg_search_documents_on_searchable_type_and_searchable_id", using: :btree
   end
 
-  create_table "reviews", id: :bigserial, force: :cascade do |t|
+  create_table "reviews", force: :cascade do |t|
     t.text     "content"
-    t.bigint   "experience_id"
+    t.integer  "experience_id"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
     t.integer  "rating"
     t.index ["experience_id"], name: "index_reviews_on_experience_id", using: :btree
   end
 
-  create_table "trips", id: :bigserial, force: :cascade do |t|
-    t.bigint   "experience_id"
+  create_table "trips", force: :cascade do |t|
+    t.integer  "experience_id"
     t.date     "start_date"
-    t.bigint   "user_id"
+    t.integer  "user_id"
     t.boolean  "status",               default: false
     t.datetime "created_at",                           null: false
     t.datetime "updated_at",                           null: false
@@ -210,7 +210,7 @@ ActiveRecord::Schema.define(version: 20171207190323) do
     t.index ["user_id"], name: "index_trips_on_user_id", using: :btree
   end
 
-  create_table "users", id: :bigserial, force: :cascade do |t|
+  create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "",    null: false
     t.string   "encrypted_password",     default: "",    null: false
     t.string   "reset_password_token"
@@ -234,6 +234,9 @@ ActiveRecord::Schema.define(version: 20171207190323) do
     t.datetime "token_expiry"
     t.integer  "customer_id"
     t.boolean  "temporary",              default: false
+    t.text     "mission"
+    t.text     "programs"
+    t.string   "website"
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end

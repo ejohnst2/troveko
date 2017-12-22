@@ -1,7 +1,11 @@
+<% content_for(:title_tag) do %>
+  Send a Message on Troveko
+<% end %>
+
 <div class="container margin-top">
   <center><div class="conversationbox">
     <br>
-    <center> <h1>Your Conversation</h1></center>
+    <center> <h1>Conversations</h1></center>
 
     <% @messages.each do |message| %>
     <div class="message" align="left">
