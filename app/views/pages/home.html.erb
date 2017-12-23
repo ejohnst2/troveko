@@ -1,5 +1,5 @@
 <% content_for(:title_tag) do %>
-  Troveko - Impact Through Adventure
+Troveko - Impact Through Adventure
 <% end %>
 
 <%= render 'shared/navbar' %>
@@ -8,14 +8,14 @@
   <div class="banner-content">
     <h1>Impact Through Adventure</h1>
     <h2>Where will you go next?</h2>
-<h2>
-  <a href="" class="typewrite" data-period="2000" data-type='[ "Jatiluwih, Bali, Indonesia...", "Rajmachi, Pune, India...", "Ladakh, Kashmir, India..." ]'>
-    <span class="wrap"></span>
-  </a>
-</h2>
-<br>
+    <h2>
+      <a href="" class="typewrite" data-period="2000" data-type='[ "Jatiluwih, Bali, Indonesia...", "Rajmachi, Pune, India...", "Ladakh, Kashmir, India..." ]'>
+        <span class="wrap"></span>
+      </a>
+    </h2>
+    <br>
 
-<%= button_to "Start Adventure", experiences_path, :method => :get, class: "btn-treehouse" %>
+    <%= button_to "Start Adventure", experiences_path, :method => :get, class: "btn-treehouse" %>
 
     <!-- <h2>How it Works</h2> -->
   </div>
@@ -31,70 +31,40 @@
 <div class="information">
   <br>
   <center>
-  <h2 class="role">Travel Experiences that Drive Impact</h2>
-  <div class="container">
+    <h2 class="role">Travel Experiences that Drive Impact</h2>
+    <div class="container">
 
-    <h4>Troveko connects travelers with immersive living experiences in hyper-local communities in India and Indonesia. We use a multi-stakeholder model to stimulate community impact and provide adventures of a lifetime.</h4>
-<center>
-  </div>
-  <div class="information">
-  <div class="row">
+      <h4>Troveko connects travelers with immersive living experiences in hyper-local communities in India and Indonesia. We use a multi-stakeholder model to stimulate community impact and provide adventures of a lifetime.</h4>
+      <center>
+      </div>
 
-    <div class="col-xs-12 col-sm-4">
-      <img class="icon" src="<%= image_path("NGO.png") %>">
-</div>
-    <div class="col-xs-12 col-sm-4">
-      <img class="icon" src="<%= image_path("Host.png") %>">
-</div>
 
-    <div class="col-xs-12 col-sm-4">
-      <img class="icon" src="<%= image_path("Traveler.png") %>">
-</div>
-</div>
-  <div class="row">
+      <div class="information">
+        <div class="row">
 
-      <div class="col-xs-12 col-sm-4">
-<h2 class="role">Organizations</h2>
-<p class="description">We work with organizations to improve visibility and livelihoods of beneficiaries through travel experiences, while funding projects through Community Funds tied to each experience.</p>
-</div>
+         <div class="col-xs-12 col-sm-4">
+           <img class="icon" src="<%= image_path("NGO.png") %>">
+           <h2 class="role">Organizations</h2>
+           <p class="description">We work with organizations to improve visibility and livelihoods of beneficiaries throughtravel experiences, while funding projects through Community Funds tied to each experience.</p>
+         </div>
 
-    <div class="col-xs-12 col-sm-4">
-<h2 class="role">Hosts</h2>
-<p class="description">Each living experience is with a local host embracing adventurers as extended family members, sharing their endless supply of skill, tradition, and knowledge. </p>
-</div>
 
-    <div class="col-xs-12 col-sm-4">
-<h2 class="role">Travelers</h2>
-<p class="description">Travelers engage in these living experiences that transform future perspectives and actions, while also having the opportunity to contribute to each location's Community Fund.</p>
-</div>
+          <div class="col-xs-12 col-sm-4">
+            <img class="icon" src="<%= image_path("Host.png") %>">
+            <h2 class="role">Hosts</h2>
+            <p class="description">Each living experience is with a local host embracing adventurers as extended family members, sharing their endless supply of skill, tradition, and knowledge. </p>
+          </div>
 
-</div>
-<br>
-<br>
-  </div>
+          <div class="col-xs-12 col-sm-4">
+            <img class="icon" src="<%= image_path("Traveler.png") %>">
+            <h2 class="role">Travelers</h2>
+            <p class="description">Travelers engage in these living experiences that transform future perspectives and actions, while also having the opportunity to contribute to each location's Community Fund.</p>
+          </div>
 
-<!-- links in boxes should be added -->
-
-<!-- <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
-<script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-<script type="text/javascript" src="slick/slick.min.js"></script>
-
-  <script type="text/javascript">
-    $(document).ready(function(){
-      $('.card').slick({
-        setting-name: setting-value
-      });
-    });
-  </script>
-
-<script>
-  $('.autoplay').slick({
-  slidesToShow: 3,
-  slidesToScroll: 1,
-  autoplay: true,
-  autoplaySpeed: 2000,
-});
-</script> -->
+        </div>
+        <br>
+        <br>
+      </div>
 
 <div class="container-fluid" id="featured_experiences">
 
