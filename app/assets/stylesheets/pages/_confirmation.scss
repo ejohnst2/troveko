@@ -19,3 +19,11 @@
   margin: 50px 0px;
   // color: $trov_blue;
 }
+
+
+@media screen and (max-width: 780px){
+ #experience{
+  display: block !important;
+  padding: 17px;
+}
+}
