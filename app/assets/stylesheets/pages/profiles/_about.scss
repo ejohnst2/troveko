@@ -25,7 +25,7 @@
 #story-image {
    background-image: url('http://res.cloudinary.com/troveko/image/upload/v1515193365/farmer_mmilxk.jpg');
     background-size: cover;
-    height: 650px;
+    height: 100%;
     margin: 60px 0px 0px 0px;
 }
 
@@ -146,6 +146,66 @@
     line-height: 23px;
 }
 
+.how-icon{
+  height: 240px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 #team-item img {
   border-radius: 50%;
+}
+
+//--------------Mobile View--------------------------------
+//---------------------------------------------------------
+@media screen and (max-width: 780px){
+  #main-nav{ display: none; }
+
+  #story p{
+    font-size: 15px;
+  }
+  .background-image{
+    height: 415px;
+   .background-overlay h1{
+    margin: 0;
+    padding: 5px;
+    }
+  }
+
+  //----------how section-----
+
+  #how-t{ height: 79px !important; }
+  #how{
+    padding: 0;
+    display: block;
+    p { font-size: 16px}
+    .desktop-row-eq-height { display: inline-block; }
+    .impact-box{ margin: 0; }
+    .how-icon{
+      height: 111px;
+      margin-bottom: -51px;
+      margin-left: 94px;
+      }
+    .icon{ height: 106px; }
+  }
+
+  //-----------impact section-------
+  #impact-image {
+    height: 800px;
+    margin: 0;
+    .impact-overlay .impact-box{
+      margin: 15px !important;
+    }
+  }
+  #impact{
+    .desktop-row-eq-height { display: inline-block;}
+  }
+  #partners{
+    padding: 20px;
+    h1{ margin-top: 0;}
+    .row{ padding-top: 0 !important; }
+    .team-avt{ margin: 10px; }
+    h4{ margin-top: 20px;}
+  }
 }

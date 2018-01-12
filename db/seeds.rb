@@ -123,7 +123,7 @@ can be   done on a voluntary basis." )
 bali_photos_one = [ seed_image('L1830789'), seed_image('L1840124-1184x662'), seed_image('L1840058'), seed_image('L1830769'), seed_image('L1830780-768x432'), seed_image('L1840358-1184x666'), seed_image('L1840358-1184x666') ]
 
 bali_experience_one = Experience.new(   user: project_kalpa,   title:
-"Family Living in Balinese Farming Village",   price: 210,   capacity: 5,   status: true,
+"Family Living in Balinese Farming Village",   price: 100,   capacity: 5,   status: true,
 address: "Jl. Batu Mejan No. 88",   latitude: -8.355552,   longitude:
 115.089274,   long_description: "Ketut Suadha and his family of 5 live in the
 village of Piling. His extended family including brothers, aunts, uncles, and
@@ -164,7 +164,7 @@ bali_photos_three = [ seed_image('L1840124-1184x662'), seed_image('L1840287-768x
 
 
 bali_experience_three = Experience.new(   user: project_kalpa,   title: "Endless Rice
-Terraces in Jatiluwih",   price: 220,   capacity: 5,   status: true,   address:
+Terraces in Jatiluwih",   price: 130,   capacity: 5,   status: true,   address:
 "Jl. Batu Mejan No. 88",   latitude: -8.371517,   longitude: 115.131846,
 long_description: "Nyoman Sutama and his family of 5 are based in the village of
 Jatiluwih. Nyoman is the Head of the Subak cluster (the 20 communities
@@ -359,7 +359,7 @@ excellent condition with a lot of ATMs and drive in restaurants.", guided: true
 bali_photos_two = [ seed_image('Tengkudak-Host-1-862x575'), seed_image('L1830689'), seed_image('tengkudak-accommodation'), seed_image('L1840124-1184x662'), seed_image('tengkudak-kitchen') ]
 
 bali_experience_two = Experience.new( user: project_kalpa,   title: "Ceremonies and Cooking in the Balinese Subak",
-price: 150,   capacity: 5,   status: true,
+price: 100,   capacity: 5,   status: true,
 address: "Jl. Batu Mejan No. 88",   latitude: -8.417752,   longitude:
 115.117740,   long_description: "Nyoman Sutiani and her two brothers are based
 in the village of Tengkudak. She owns rice fields that are managed by her
