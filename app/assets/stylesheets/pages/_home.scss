@@ -368,6 +368,17 @@ a, a:hover, a:active, a:visited, a:focus {
   margin-left: -1.4em;
 }
 
+.testimonial-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px 0px;
+}
+
+.img-responsive {
+  width: 100%;
+}
+
 // /* Animation */
 // .anim-typewriter{
 //   animation: typewriter 8s steps(44) 2s 1 normal both,

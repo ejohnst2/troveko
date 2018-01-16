@@ -1,45 +1,29 @@
-<div id="main-nav" class="<%= yield(:sticky_navbar).blank? ? 'navbar-troveko-sticky' : yield(:sticky_navbar) %> navbar-filters" style="justify-content: space-around; background-color: white;
-">
-  <a href="#overview" style="font-size: 24px;">Overview</a>
-  <a href="#reviews" style="font-size: 24px;">Reviews</a>
-  <a href="#location" style="font-size: 24px;">Location</a>
-  <a href="#host" style="font-size: 24px;">Host</a>
-  <a href="#activities" style="font-size: 24px;">Activities</a>
-  <a href="#impact" style="font-size: 24px;">Fund</a>
+<div id="main-nav" class="<%= yield(:sticky_navbar).blank? ? 'navbar-troveko-sticky' : yield(:sticky_navbar) %> navbar-filters" style="justify-content: space-around; background-color: white; ">
+
+ <div class="navbar-troveko-item hidden-md hidden-lg">
+    <div class="dropdown">
+      <i class="fa fa-bars dropdown-toggle" style="color: black;" data-toggle="dropdown"></i>
+      <ul class="dropdown-menu">
+        <li><a href="#overview" style="font-size: 24px;">Overview</a></li>
+        <li><a href="#reviews" style="font-size: 24px;">Reviews</a></li>
+        <li><a href="#location" style="font-size: 24px;">Location</a></li>
+        <li><a href="#host" style="font-size: 24px;">Host</a></li>
+        <li><a href="#activities" style="font-size: 24px;">Activities</a></li>
+        <li><a href="#impact" style="font-size: 24px;">Fund</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <a href="#overview" class="hidden-xs hidden-sm" style="font-size: 24px;">Overview</a>
+  <a href="#reviews" class="hidden-xs hidden-sm" style="font-size: 24px;">Reviews</a>
+  <a href="#location" class="hidden-xs hidden-sm" style="font-size: 24px;">Location</a>
+  <a href="#host" class="hidden-xs hidden-sm" style="font-size: 24px;">Host</a>
+  <a href="#activities" class="hidden-xs hidden-sm" style="font-size: 24px;">Activities</a>
+  <a href="#impact" class="hidden-xs hidden-sm" style="font-size: 24px;">Fund</a>
   <% if !current_user.nil? %>
-        <%= link_to 'Message Host', conversations_path(sender_id: current_user.id, recipient_id: @experience.user.id, experience_id: @experience.id), method: :post, style: "font-size: 24px" %>
+        <%= link_to 'Message Host', conversations_path(sender_id: current_user.id, recipient_id: @experience.user.id, experience_id: @experience.id), method: :post, style: "font-size: 24px", class: "hidden-xs hidden-sm" %>
       <% end %>
 
   <%= link_to "Book Now", new_experience_trip_path(@experience), style: "font-size: 24px; width: 250px; text-align: center;", class: "btn-lg btn-danger", id: "book-now", :method => :get %>
 
 </div>
-
-<%# content_for(:after_js) do %>
-<!-- <script>
-  $(document).ready(function(){
-    $("#main-nav").sticky({topSpacing:0, className: "is-sticky hey"});
-  });
-</script> -->
-<%# end %>
-
-<!-- <i class="fa fa-info-circle" aria-hidden="true" id="stuff"></i>
-<i class="fa fa-suitcase" aria-hidden="true" id="stuff"></i>
-<i class="fa fa-globe" aria-hidden="true" id="stuff">
-  <i class="fa fa-star" aria-hidden="true" id="stuff">
-
- -->
-
-<!--      <div class="col-lg-3 col-md-3 col-xs-3" id="column">
-      <center class="icon"><i class="fa fa-info-circle" aria-hidden="true" id="stuff"></i><br><p class="title">Overview</p></center>
-    </div>
-   <div class="col-lg-3 col-md-3 col-xs-3" id="column">
-      <center class="icon"><i class="fa fa-suitcase" aria-hidden="true" id="stuff"></i><p class="title">Logistics</p></center>
-    </div>
-   <div class="col-lg-3 col-md-3 col-xs-3" id="column">
-      <center class="icon"><i class="fa fa-globe" aria-hidden="true" id="stuff"></i><p class="title">Map</p></center>
-    </div>
-
-   <div class="col-lg-3 col-md-3 col-xs-3" id="column">
-      <center class="icon"><i class="fa fa-star" aria-hidden="true" id="stuff"></i><p class="title">Reviews</p></center></i>
-    </div>
-</div> -->
