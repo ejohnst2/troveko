@@ -1,6 +1,6 @@
 .footer {
   background: black;
-  display: flex;
+  display: inline-flexr;
   align-items: center;
   justify-content: space-between;
   height: 100px;
@@ -32,6 +32,6 @@
 
 @media (max-width: 475px) {
   .footer {
-    display: block;
+    display: inline-flex;
   }
 }

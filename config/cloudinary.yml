@@ -1,0 +1,18 @@
+development:
+  cloud_name: troveko
+  api_key: '238315756353127'
+  api_secret: 76j7dY7_UfpkvBLPG_BZIFCokv4
+  enhance_image_tag: true
+  static_image_support: false
+production:
+  cloud_name: troveko
+  api_key: '238315756353127'
+  api_secret: 76j7dY7_UfpkvBLPG_BZIFCokv4
+  enhance_image_tag: true
+  static_image_support: true
+test:
+  cloud_name: troveko
+  api_key: '238315756353127'
+  api_secret: 76j7dY7_UfpkvBLPG_BZIFCokv4
+  enhance_image_tag: true
+  static_image_support: false
