@@ -386,9 +386,11 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  activerecord
   attachinary!
   autoprefixer-rails
   bootstrap-sass
+  byebug
   cloudinary (= 1.1.7)
   coffee-rails
   country_select
@@ -422,6 +424,7 @@ DEPENDENCIES
   rails_admin (>= 1.0.0.rc)
   redis
   remotipart!
+  rest-client
   sass-rails
   simple_form
   social-share-button
