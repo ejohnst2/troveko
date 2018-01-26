@@ -1,9 +1,5 @@
 # [Troveko](http://troveko.com)
 
-CHANGE
-
---
-
 ## Highlights
 - Heroku
 - Postgres
@@ -16,8 +12,30 @@ CHANGE
 
 ## Setup
 
-- `brew update && brew install postgresql`
+#### Rails
+
+[Mac OSX rails setup tutorial](https://launchschool.com/blog/how-to-install-ruby-on-rails-development-environment-for-mac-os-x)
+
+__&TLDR__
+
+
+#### PostgreSQL
+
+- `brew update && brew install po`
 - `brew services start postgresql start`
+
+---
+
+__Create psql user and database?__
+[Link to stack overflow post explaining db creation](https://stackoverflow.com/a/19829605/3940003)
+  - Check eli' command line history for artifacts pertaining to the commands inside the post above
+
+#### Gems
+
+- `brew update && brew install rbenv ruby-build rbenv-gem-rehash`
+- `gem install bundler`
+- `rbenv rehash`
+- `bundle install`
 
 - `gem install middleman`
 - `gem install nokogirl`
@@ -25,18 +43,30 @@ CHANGE
 - `gem install colored` //maybe
 - `gem install rspec-rails` //maybe
 
-- `gem install bundler`
-- `bundle install`
+#### Rails
 
-- `rails db:drop`
 - `rails db:create`
-- `rails db:migrate`
 - `rails db:seed`
 - `rails routes`
+
+- `rails db:migrate`//??
+
+- `rails db:drop`
 - `rails db:rollback`
 - `rails start` // start
 - `rails generate model NAME_OF_MODEL`
 - `rails generate controller NAME_OF_MODEL`
+
+## Janky rails setup playbook
+
+```
+ rm -rf /usr/local/var/postgres && initdb /usr/local/var/postgres -E utf8\n\n
+ brew services restart postgresql\n
+ rails s
+ rake db:seed
+ rake db:setup
+ rake db:migrate
+```
 
 ## Contributing
 
@@ -54,6 +84,15 @@ CHANGE
   - Do we __need__ rake?
 - Organize Gemfile into appropriate `development` and `production` gems
 - Introduce Google Analytics
+- Disable postmark postinstall message
+  - ```Post-install message from postmark:
+
+    ==================
+    Thanks for installing the postmark gem. If you don't have an account, please
+    sign up at http://postmarkapp.com/.
+
+    Review the README.md for implementation details and examples.
+    ==================```
 
 ***
 
