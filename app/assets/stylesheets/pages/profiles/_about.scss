@@ -160,7 +160,26 @@
 //--------------Mobile View--------------------------------
 //---------------------------------------------------------
 @media screen and (max-width: 780px){
-  #main-nav{ display: none; }
+  #main-nav{  }
+
+  .experience-caption{
+    padding-left: 9px !important;
+    h1{
+      font-size: 25px;
+      margin: 6px !important;
+    }
+    h4{font-size: 15px;
+      margin-left: 6px;
+    }
+  }
+
+  .carousel-inner .item img{
+    min-height: 290px !important;
+    min-width: auto !important;}
+
+    #myCarousel.photo{
+   height: 290px !important;
+    }
 
   #story p{
     font-size: 15px;
