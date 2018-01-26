@@ -1,3 +1,10 @@
+# Custom
+/config/application.yml
+/config/cloudinary.yml
+.vscode
+
+# Standard GitHub ruby, and rails .gitignore templates
+
 *.bowerrc
 *.bridgesupport
 *.gem
