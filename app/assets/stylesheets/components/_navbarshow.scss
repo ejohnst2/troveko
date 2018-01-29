@@ -58,6 +58,12 @@ input::-webkit-input-placeholder {
     width: 205px;
 }
 
+.open > .dropdown-menu {
+  display: block;
+  position: absolute;
+  z-index: 100100;
+}
+
 /* Demo 2 */
 #demo-2 input[type=search] {
   width: 15px;
@@ -173,7 +179,7 @@ font-weight: thick;
 
 .navbar-troveko-sticky {
   position: relative;
-  z-index:1000;
+  z-index:1;
   width:100%;
   font-weight: lighter !important;
 }

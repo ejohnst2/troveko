@@ -51,6 +51,7 @@ build/
 capybara-*.html
 /config/initializers/secret_token.rb
 /config/application.yml
+/config/cloudinary.yml
 log/*.log
 node_modules/
 pickle-email-*.html
