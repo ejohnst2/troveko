@@ -19,7 +19,7 @@
       <%= link_to "Messages #{current_user.unread_messages}", profile_path(current_user, reload: true, anchor: 'messages'), class: "navbar-troveko-item navbar-troveko-link" %>
       <% end %>
 
-      <%= link_to "Blog", root_path, class: "navbar-troveko-item navbar-troveko-link" %>
+      <%= link_to "Blog", "http://www.troveko.blog", class: "navbar-troveko-item navbar-troveko-link", target: :_blank %>
       <% if user_signed_in? %>
       <%= link_to "Profile", profile_path(current_user), class: "navbar-troveko-item navbar-troveko-link" %>
       <%= link_to destroy_user_session_path, method: :delete, class: "navbar-troveko-item navbar-troveko-link" do %>
