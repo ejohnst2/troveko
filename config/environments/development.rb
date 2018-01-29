@@ -1,4 +1,8 @@
 Rails.application.configure do
+
+  # Remove forced ssl in dev enviornment
+  config.force_ssl = false
+
   # Settings specified here will take precedence over those in config/application.rb.
 
   # In the development environment your application's code is reloaded on
