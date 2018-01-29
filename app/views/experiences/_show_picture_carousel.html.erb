@@ -8,7 +8,7 @@
     <div class="carousel-inner">
       <% @experience.photos.each_with_index do |photo, index| %>
       <div class="item<%= " active" if index == 0 %> imagefit2">
-        <%= cl_image_tag photo.path, crop: :fill %>
+        <%= cl_image_tag photo.path, crop: :mfit %>
       </div>
       <% end %>
     </div>
@@ -20,8 +20,6 @@
       <span class="glyphicon glyphicon-chevron-right"></span>
     </a>
   </div>
-
-
 
  <%#= money_without_cents_and_with_symbol(@experience.fund.contributions.sum(:amount_cents) / 100) %>
  <%#=  money_without_cents_and_with_symbol(@experience.fund.funding_goal) %>

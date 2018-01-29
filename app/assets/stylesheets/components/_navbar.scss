@@ -51,9 +51,10 @@ input {
 }
 
 .navbar-troveko-sticky {
-  position: relative;
-  z-index:1000;
-  width:100%;
+  position: sticky;
+  z-index: 1;
+  top: 0;
+  width: 100%;
   font-weight: lighter !important;
 }
 
