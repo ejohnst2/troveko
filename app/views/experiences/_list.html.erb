@@ -1,15 +1,15 @@
 <% @experiences.each do |experience| %>
 
-<div class="col-l-6 col-xs-12 col-sm-6">
+<div class="col-l-12 col-xs-12 col-sm-12">
   <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path experience.photos[0].path if experience.photos.any? %>');">
 
     <div class="card-category">
-      <h5><%= experience.country %></h5>
+      <h3><%= experience.city %></h3>
     </div>
 
     <div class="card-description">
-      <h3><%= experience.title %></h3>
-      <p style="align;" id="price-card"><%= experience.duration %> days, <%= money_without_cents_and_with_symbol(experience.price) %> per person</p>
+      <h1><%= experience.title %></h1>
+      <p style="align; font-size: 36px;" id="price-card"><%= experience.duration %> days, <%= money_without_cents_and_with_symbol(experience.price) %> per person</p>
     </div>
     <%= link_to '', experience_path(experience), class: 'card-link' %>
   </div>
