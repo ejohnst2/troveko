@@ -12,7 +12,8 @@
 
     <div class="form-inputs" style="padding-top: 15px;">
        <h3>Your Contribution</h3>
-      <%= f.input :contribution, placeholder: "Suggested: $20", hint: 'Make a contribution to the organization\'s fund to help them execute projects that benefit the community you will be connecting with.' %>
+       <h4><%= @experience.fund.about %> You can read more here.</h4>
+       <%= f.input :contribution, placeholder: "Suggested: $20", hint: 'Make a contribution to the organization\'s fund to help them execute projects that benefit the community you will be connecting with.' %>
     </div>
 
     <div class="form-inputs" style="padding-top: 15px;">
@@ -22,11 +23,6 @@
     </div>
         <%= f.input :terms_and_conditions, as: :boolean %>
     </div>
-
-
-
-   <!--  <input type="checkbox" name="terms" id="terms" onchange="activateButton(this)">  I have read and agree to the terms and conditions
-    </div> -->
 
    <div class="form-actions text-center">
     <%= f.button :submit, 'Make Your Payment', class: "btn-primary btn-lg" %>
