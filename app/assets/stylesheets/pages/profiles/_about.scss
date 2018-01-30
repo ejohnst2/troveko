@@ -6,6 +6,15 @@
     vertical-align: baseline;
 }
 
+.background-image .background-overlay h1 {
+  font-size: 100px;
+}
+
+.about_banner {
+  bottom: 50px;
+  top: 100px;
+}
+
 #team {
   // background-color: rgba(60,60,60,0.5);
   background-color: white;
@@ -20,6 +29,7 @@
   height: 100%;
   vertical-align: baseline;
   color: #FFFFFF;
+  padding: 30px 0 50px 0;
 }
 
 #story-image {
@@ -132,18 +142,6 @@
     background-size: cover;
     height: 385px;
     width: 100%;
-}
-
-.background-image .background-overlay h1 {
-    margin: 100px 0px 0px 0px;
-    font-size: 39px;
-    line-height: 47px;
-}
-
-.background-image .background-overlay h2 {
-    margin: 10px 20px 0px 20px;
-    font-size: 16px;
-    line-height: 23px;
 }
 
 .how-icon{
