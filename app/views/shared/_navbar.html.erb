@@ -21,9 +21,9 @@
 
       <%= link_to "Blog", "http://www.troveko.blog", class: "navbar-troveko-item navbar-troveko-link", target: :_blank %>
       <% if user_signed_in? %>
-      <%= link_to "Profile", profile_path(current_user), class: "navbar-troveko-item navbar-troveko-link" %>
-      <%= link_to destroy_user_session_path, method: :delete, class: "navbar-troveko-item navbar-troveko-link" do %>
-      <%= t(".sign_out", default: "Log out") %>
+        <%= link_to "Profile", profile_path(current_user), class: "navbar-troveko-item navbar-troveko-link" %>
+        <%= link_to destroy_user_session_path, method: :delete, class: "navbar-troveko-item navbar-troveko-link" do %>
+        <%= t(".sign_out", default: "Log out") %>
       <% end %>
       <!-- Avatar with dropdown menu -->
 
@@ -46,10 +46,10 @@
         <li><%= link_to "Experiences", experiences_path %></li>
         <li><%= link_to "Messages", conversations_path %></li>
         <li><%= link_to "About", about_path %></li>
+        <li><%= link_to "Register", new_user_registration_path %></li>
+        <li><%= link_to "Sign In", new_user_session_path %></li>
         <li><%= link_to "Sign out", destroy_user_session_path, :method => :delete %></li>
-        <li><%= link_to "Profiles", profile_path(current_user) if current_user != nil %></li>
-        <li><%# link_to "Reviews",  experience_reviews_path %></li>
-
+        <li><%= link_to "Profile", profile_path(current_user) if current_user != nil %></li>
       </ul>
     </div>
   </div>
