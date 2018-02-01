@@ -28,7 +28,6 @@ gem 'instagram'
 gem 'omniauth-google-oauth2'
 gem 'social-share-button'
 
-
 # gem 'google-api-client', require: 'google/api_client'
 
 gem 'faker'
