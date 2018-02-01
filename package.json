@@ -4,6 +4,7 @@
   "dependencies": {
     "@fengyuanchen/datepicker": "^0.6.4",
     "css-toggle-switch": "^4.1.0",
+    "flatpickr": "^4.2.4",
     "jquery": "^3.2.1"
   }
 }

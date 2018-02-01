@@ -25,7 +25,17 @@
   <div class="section" id="activities">
     <h2>About the Experience</h2>
     <h4>Experience Highlights</h4>
-     <p><%= @experience.highlights %></p> <br>
+    <ul>
+      <li>Get in-depth insight on the history, customs, and practices that shape Jatiluwih</li>
+      <li>Learn traditional gardening and farming methods as well as age-old ceremonies and rituals in the rice field</li>
+      <li>Learn how to cook traditional Balinese food and desert using local ingredients</li>
+      <li>Visit various hot springs and bathing houses in nearby villages for a warm nature cleanse</li>
+      <li>Hike to the 2,000m peak of the Mount Batukaru</li>
+      <li>Trek through the endless rice fields of Jatiluwih</li>
+      <li>Explore untouched forests and see waterfalls</li>
+      <li>Visit the five surrounding temples</li>
+    </ul>
+<!--      <p><%= @experience.highlights %></p> <br> -->
       <p> This experience includes activies such as:</p>
       <div class="flex">
         <%= render 'experiences/activities' %>
@@ -42,14 +52,8 @@
     <p><%= @experience.fund.about %></p>
     <h5>Use of Funds</h5>
     <p><%= @experience.fund.use_of_funds %></p>
-    <br>
-    <h4>About The Organization</h4>
-    <h5>Mission</h5>
-    <p><%= @experience.user.mission %></p>
-    <h5>Programs</h5>
-    <p><%= @experience.user.programs %></p>
-    <h5>Website</h5>
-    <p>Visit <a href="<%= @experience.user.website %>"><%= @experience.user.website %></a> for more information</p>
+    <h5>Project Implementation</h5>
+    <p>Troveko is working directly with the collective Subak Forum of Cluster (made up of each of the local Subak leaders) to scope and execute community projects. Once the initiative is funded, implementation will be led directly by the community and monitored by Troveko program managers in Bali.</p>
   </div>
 
   <div class="section" id="location">
