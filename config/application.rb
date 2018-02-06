@@ -14,6 +14,9 @@ require "attachinary/orm/active_record"
 
 # require "rails/test_unit/railtie"
 
+config.action_mailer.delivery_method = :postmark
+config.action_mailer.postmark_settings = { :api_token => "bb9529de-52e8-42fc-9544-4ce8e2a66449" }
+
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
