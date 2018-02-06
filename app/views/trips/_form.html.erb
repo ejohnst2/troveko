@@ -36,7 +36,7 @@
 <%= content_for(:after_js) do %>
   <script>
     $('#trip-date').datepicker().on('changeDate', function(ev) {
-      setTimeout(function(){ $('.datepicker').hide(); }, 100);
+      setTimeout(function(){ $('.datepicker').data({date-format: "yyyy/mm/dd"}).show(); }, 100);
     });
   </script>
 <% end %>
