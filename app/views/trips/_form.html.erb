@@ -6,7 +6,7 @@
       <h3>Traveler Details</h3>
       <%= f.input :first_name, input_html: { value: current_user.first_name } %>
       <%= f.input :last_name, input_html: { value: current_user.last_name } %>
-      <%= f.input :start_date, as: :string %>
+      <%= f.input :start_date, as: :string, input_html: { id: 'trip-date', class: 'datepicker'} %>
       <%= f.input :number_of_people, collection: [1, 2, 3, 4, 5, 6, 7, 8] %>
 
     </div>
@@ -32,3 +32,11 @@
 
 
 </div>
+
+<%= content_for(:after_js) do %>
+  <script>
+    $('#trip-date').datepicker().on('changeDate', function(ev) {
+      setTimeout(function(){ $('.datepicker').hide(); }, 100);
+    });
+  </script>
+<% end %>
