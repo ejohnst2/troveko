@@ -89,7 +89,7 @@ end
   private
 
   def send_welcome_email
-    # UserMailer.welcome(self).deliver_now
+    TestMailer.message(self).deliver_now
   end
 
   end
