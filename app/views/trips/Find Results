@@ -1,0 +1,1377 @@
+Searching 965 files for "datepicker"
+
+/Users/elijohnston/code/ejohnst2/troveko/Gemfile:
+   28  gem 'omniauth-google-oauth2'
+   29  gem 'social-share-button'
+   30: gem 'bootstrap-datepicker-rails'
+   31
+   32
+
+/Users/elijohnston/code/ejohnst2/troveko/Gemfile.lock:
+   62      bcrypt (3.1.11)
+   63      bindex (0.5.0)
+   64:     bootstrap-datepicker-rails (1.7.1.1)
+   65        railties (>= 3.0)
+   66      bootstrap-sass (3.3.7)
+   ..
+  392    attachinary!
+  393    autoprefixer-rails
+  394:   bootstrap-datepicker-rails
+  395    bootstrap-sass
+  396    byebug
+
+/Users/elijohnston/code/ejohnst2/troveko/package-lock.json:
+    4    "lockfileVersion": 1,
+    5    "dependencies": {
+    6:     "@fengyuanchen/datepicker": {
+    7        "version": "0.6.4",
+    8:       "resolved": "https://registry.npmjs.org/@fengyuanchen/datepicker/-/datepicker-0.6.4.tgz",
+    9        "integrity": "sha512-G+o2HnQi8gShKmj7SZUPGYH3pEKi7J0L0AsIC+uvwC9UjrMxF9WJ0gL9YVuIHeNY8wg9jGLftgiGZxv1xCu+9A=="
+   10      },
+
+/Users/elijohnston/code/ejohnst2/troveko/package.json:
+    3    "private": true,
+    4    "dependencies": {
+    5:     "@fengyuanchen/datepicker": "^0.6.4",
+    6      "css-toggle-switch": "^4.1.0",
+    7      "flatpickr": "^4.2.4",
+
+/Users/elijohnston/code/ejohnst2/troveko/yarn.lock:
+    3
+    4
+    5: "@fengyuanchen/datepicker@^0.6.4":
+    6    version "0.6.4"
+    7:   resolved "https://registry.yarnpkg.com/@fengyuanchen/datepicker/-/datepicker-0.6.4.tgz#ae6418137861a599ac8ab0ee18cb8d6a853d551e"
+    8
+    9  css-toggle-switch@^4.1.0:
+
+/Users/elijohnston/code/ejohnst2/troveko/app/assets/javascripts/_bootstrap-datepicker.js:
+    1    $(document).ready(function(){
+    2:     $('.datepicker').datepicker();
+    3    });
+    4
+
+/Users/elijohnston/code/ejohnst2/troveko/app/assets/javascripts/application.js:
+    4  //= require underscore
+    5  //= require gmaps/google
+    6: //= require bootstrap-datepicker
+    7  //= require jquery-fileupload/basic
+    8  //= require cloudinary/jquery.cloudinary
+
+/Users/elijohnston/code/ejohnst2/troveko/app/assets/stylesheets/application.scss:
+    7  @import "bootstrap-sprockets";
+    8  @import "bootstrap";
+    9: @import "bootstrap-datepicker";
+   10  @import "font-awesome-sprockets";
+   11  @import "font-awesome";
+
+/Users/elijohnston/code/ejohnst2/troveko/app/views/trips/_form.html.erb:
+    7        <%= f.input :first_name, input_html: { value: current_user.first_name } %>
+    8        <%= f.input :last_name, input_html: { value: current_user.last_name } %>
+    9:       <%= f.input :start_date, as: :string, input_html: { id: 'trip-date', class: 'datepicker'} %>
+   10        <%= f.input :number_of_people, collection: [1, 2, 3, 4, 5, 6, 7, 8] %>
+   11
+   ..
+   36  <%= content_for(:after_js) do %>
+   37    <script>
+   38:     $('#trip-date').datepicker().on('changeDate', function(ev) {
+   39:       setTimeout(function(){ $('.datepicker').data({date-format: "yyyy-mm-dd"}).show(); }, 100);
+   40      });
+   41    </script>
+
+/Users/elijohnston/code/ejohnst2/troveko/node_modules/.yarn-integrity:
+    3    "linkedModules": [],
+    4    "topLevelPatters": [
+    5:     "@fengyuanchen/datepicker@^0.6.4",
+    6      "css-toggle-switch@^4.1.0",
+    7      "flatpickr@^4.2.4",
+    .
+    9    ],
+   10    "lockfileEntries": {
+   11:     "@fengyuanchen/datepicker@^0.6.4": "https://registry.yarnpkg.com/@fengyuanchen/datepicker/-/datepicker-0.6.4.tgz#ae6418137861a599ac8ab0ee18cb8d6a853d551e",
+   12      "css-toggle-switch@^4.1.0": "https://registry.yarnpkg.com/css-toggle-switch/-/css-toggle-switch-4.1.0.tgz#b4ba42856194bc0bdea610ab37c8d38d44d21d4f",
+   13      "flatpickr@^4.2.4": "https://registry.yarnpkg.com/flatpickr/-/flatpickr-4.2.4.tgz#abd6dedd0fa41e2118acb96a22f49819ba2d0157",
+
+/Users/elijohnston/code/ejohnst2/troveko/node_modules/@fengyuanchen/datepicker/CHANGELOG.md:
+    5  - Support to load in node environment.
+    6  - Add 3 new languages for i18n.
+    7: - Add example for using datepicker in modal.
+    8
+    9  ## 0.6.3 (Sep 29, 2017)
+   ..
+   83  - Supports to set start view date and end view date
+   84  - Improved i18n (internationalization)
+   85: - Improved placement of the datepicker
+   86  - Improved template
+   87
+   ..
+  103  ### Events
+  104
+  105: - Added 3 events: `show.datepicker`, `hide.datepicker`, `pick.datepicker`
+  106
+  107  ## 0.1.0 (Aug 9, 2014)
+
+/Users/elijohnston/code/ejohnst2/troveko/node_modules/@fengyuanchen/datepicker/package.json:
+    1  {
+    2:   "name": "@fengyuanchen/datepicker",
+    3:   "description": "A simple jQuery datepicker plugin.",
+    4    "version": "0.6.4",
+    5:   "main": "dist/datepicker.common.js",
+    6:   "module": "dist/datepicker.esm.js",
+    7:   "browser": "dist/datepicker.js",
+    8:   "repository": "fengyuanchen/datepicker",
+    9:   "homepage": "https://github.com/fengyuanchen/datepicker",
+   10    "license": "MIT",
+   11    "author": {
+   ..
+   21      "date",
+   22      "picker",
+   23:     "datepicker",
+   24      "jquery",
+   25      "plugin",
+   ..
+   34    "scripts": {
+   35      "build": "npm run build:css && npm run build:js",
+   36:     "build:css": "postcss src/css/datepicker.css -o dist/datepicker.css --no-map",
+   37      "build:js": "rollup -c",
+   38      "clear": "del-cli dist",
+   39      "compress": "npm run compress:css && npm run compress:js",
+   40:     "compress:css": "postcss dist/datepicker.css -u cssnano -o dist/datepicker.min.css --no-map",
+   41:     "compress:js": "uglifyjs dist/datepicker.js -o dist/datepicker.min.js -c -m --comments /^!/",
+   42      "copy": "npm run copy:css && npm run copy:i18n",
+   43:     "copy:css": "cpy dist/datepicker.css docs/css/",
+   44      "copy:i18n": "cpy i18n/* docs/js",
+   45      "lint": "eslint src --fix",
+   ..
+   47      "start": "npm-run-all --parallel watch:*",
+   48      "test": "node-qunit-phantomjs test/index.html --timeout 10",
+   49:     "watch:css": "postcss src/css/datepicker.css -o docs/css/datepicker.css -m -w",
+   50      "watch:js": "rollup -c -m -w"
+   51    },
+
+/Users/elijohnston/code/ejohnst2/troveko/node_modules/@fengyuanchen/datepicker/README.md:
+    1: # Datepicker
+    2
+    3: [![Build Status](https://travis-ci.org/fengyuanchen/datepicker.svg)](https://travis-ci.org/fengyuanchen/datepicker) [![Downloads](https://img.shields.io/npm/dm/@fengyuanchen/datepicker.svg)](https://www.npmjs.com/package/@fengyuanchen/datepicker) [![Version](https://img.shields.io/npm/v/@fengyuanchen/datepicker.svg)](https://www.npmjs.com/package/@fengyuanchen/datepicker)
+    4
+    5: > A simple jQuery datepicker plugin.
+    6
+    7: - [Website](https://fengyuanchen.github.io/datepicker)
+    8
+    9  ## Table of contents
+   ..
+   35  ```text
+   36  dist/
+   37: ├── datepicker.css
+   38: ├── datepicker.min.css   (compressed)
+   39: ├── datepicker.js        (UMD)
+   40: ├── datepicker.min.js    (UMD, compressed)
+   41: ├── datepicker.common.js (CommonJS, default)
+   42: └── datepicker.esm.js    (ES Module)
+   43  ```
+   44
+   ..
+   48
+   49  ```shell
+   50: npm install @fengyuanchen/datepicker
+   51  ```
+   52
+   ..
+   55  ```html
+   56  <script src="/path/to/jquery.js"></script><!-- jQuery is required -->
+   57: <link  href="/path/to/datepicker.css" rel="stylesheet">
+   58: <script src="/path/to/datepicker.js"></script>
+   59  ```
+   60
+   61  ### Usage
+   62
+   63: Initialize with `$.fn.datepicker` method.
+   64
+   65  ```html
+   66: <input data-toggle="datepicker">
+   67: <textarea data-toggle="datepicker"></textarea>
+   68: <div data-toggle="datepicker"></div>
+   69  ```
+   70
+   71  ```js
+   72: $('[data-toggle="datepicker"]').datepicker();
+   73  ```
+   74
+   ..
+   77  ## Options
+   78
+   79: You may set datepicker options with `$().datepicker(options)`.
+   80: If you want to change the global default options, You may use `$.fn.datepicker.setDefaults(options)`.
+   81
+   82  ### autoShow
+   ..
+   85  - Default: `false`
+   86
+   87: Show the datepicker automatically when initialized.
+   88
+   89  ### autoHide
+   ..
+   92  - Default: `false`
+   93
+   94: Hide the datepicker automatically when picked.
+   95
+   96  ### autoPick
+   ..
+  108  Enable inline mode.
+  109
+  110: If the element is not an input element, will append the datepicker to the element.
+  111: If the `container` option is set, will append the datepicker to the container.
+  112
+  113  ### container
+  ...
+  116  - Default: `null`
+  117
+  118: A element for putting the datepicker. If not set, the datepicker will be appended to `document.body` by default.
+  119
+  120  > Only works when the `inline` option set to `true`.
+  ...
+  125  - Default: `null`
+  126
+  127: A element for triggering the datepicker.
+  128
+  129  ### language
+  ...
+  135
+  136  ```js
+  137: $().datepicker({
+  138    language: 'en-GB'
+  139  });
+  ...
+  152
+  153  ```js
+  154: $().datepicker({
+  155    format: 'yyyy-mm-dd'
+  156  });
+  ...
+  165
+  166  ```js
+  167: $().datepicker({
+  168    date: new Date(2014, 1, 14) // Or '02/14/2014'
+  169  });
+  ...
+  215  - Default: `false`
+  216
+  217: Show year before month on the datepicker header
+  218
+  219  ### yearSuffix
+  ...
+  225
+  226  ```js
+  227: $().datepicker({
+  228    yearSuffix: '年'
+  229  });
+  ...
+  306
+  307  ```html
+  308: <div class="datepicker-container">
+  309:   <div class="datepicker-panel" data-view="years picker">
+  310      <ul>
+  311        <li data-view="years prev">&lsaquo;</li>
+  ...
+  315      <ul data-view="years"></ul>
+  316    </div>
+  317:   <div class="datepicker-panel" data-view="months picker">
+  318      <ul>
+  319        <li data-view="year prev">&lsaquo;</li>
+  ...
+  323      <ul data-view="months"></ul>
+  324    </div>
+  325:   <div class="datepicker-panel" data-view="days picker">
+  326      <ul>
+  327        <li data-view="month prev">&lsaquo;</li>
+  ...
+  335  ```
+  336
+  337: The template of the datepicker.
+  338
+  339  **Note:** All the `data-view` attributes must be set when you customize it.
+  ...
+  344  - Default: `10`
+  345
+  346: The offset top or bottom of the datepicker from the element.
+  347
+  348  ### zIndex
+  ...
+  351  - Default: `1`
+  352
+  353: The CSS `z-index` style for the datepicker.
+  354
+  355  ### filter
+  ...
+  363  var now = Date.now();
+  364
+  365: $().datepicker({
+  366    filter: function(date) {
+  367      if (date.getDay() === 0) {
+  ...
+  377  - Default: `null`
+  378
+  379: A shortcut of the "show.datepicker" event.
+  380
+  381  ### hide
+  ...
+  384  - Default: `null`
+  385
+  386: A shortcut of the "hide.datepicker" event.
+  387
+  388  ### pick
+  ...
+  391  - Default: `null`
+  392
+  393: A shortcut of the "pick.datepicker" event.
+  394
+  395  [⬆ back to top](#table-of-contents)
+  ...
+  400
+  401  ```js
+  402: $().datepicker('method', argument1, , argument2, ..., argumentN);
+  403  ```
+  404
+  405  ### show()
+  406
+  407: Show the datepicker.
+  408
+  409  ### hide()
+  410
+  411: Hide the datepicker.
+  412
+  413  ### update()
+  414
+  415: Update the datepicker with the value or text of the current element.
+  416
+  417  ### pick()
+  ...
+  421  ### reset()
+  422
+  423: Reset the datepicker.
+  424
+  425  ### getMonthName([month[, short]])
+  ...
+  440
+  441  ```js
+  442: $().datepicker('getMonthName'); // 'January'
+  443: $().datepicker('getMonthName', true); // 'Jan'
+  444: $().datepicker('getMonthName', 11); // 'December'
+  445: $().datepicker('getMonthName', 11, true); // 'Dec'
+  446  ```
+  447
+  ...
+  468
+  469  ```js
+  470: $().datepicker('getDayName'); // 'Sunday'
+  471: $().datepicker('getDayName', true); // 'Sun'
+  472: $().datepicker('getDayName', true, true); // 'Su'
+  473: $().datepicker('getDayName', 6); // 'Saturday'
+  474: $().datepicker('getDayName', 6, true); // 'Sat'
+  475: $().datepicker('getDayName', 6, true, true); // 'Sa'
+  476  ```
+  477
+  ...
+  489
+  490  ```js
+  491: $().datepicker('getDate'); // date object
+  492: $().datepicker('getDate', true); // '02/14/2014'
+  493  ```
+  494
+  ...
+  501
+  502  ```js
+  503: $().datepicker('setDate', new Date(2014, 1, 14));
+  504: $().datepicker('setDate', '02/14/2014');
+  505  ```
+  506
+  ...
+  527
+  528  ```js
+  529: $().datepicker('parseDate', '02/14/2014'); // date object
+  530  ```
+  531
+  ...
+  538
+  539  ```js
+  540: $().datepicker('formatDate', new Date(2014, 1, 14)); // '02/14/2014'
+  541  ```
+  542
+  543  ### destroy()
+  544
+  545: Destroy the datepicker and remove the instance from the target element.
+  546
+  547  [⬆ back to top](#table-of-contents)
+  ...
+  549  ## Events
+  550
+  551: ### show.datepicker
+  552
+  553: This event fires when starts to show the datepicker.
+  554
+  555: ### hide.datepicker
+  556
+  557: This event fires when starts to hide the datepicker.
+  558
+  559: ### pick.datepicker
+  560
+  561  - **event.date**:
+  ...
+  572
+  573  ```js
+  574: $().on('pick.datepicker', function (e) {
+  575    if (e.date < new Date()) {
+  576      e.preventDefault(); // Prevent to pick the date
+  ...
+  584
+  585  ```js
+  586: // datepicker.zh-CN.js
+  587: $.fn.datepicker.languages['zh-CN'] = {
+  588    format: 'yyyy年mm月dd日',
+  589    days: ['星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六'],
+  ...
+  600
+  601  ```html
+  602: <script src="/path/to/datepicker.js"></script>
+  603: <script src="/path/to/datepicker.zh-CN.js"></script>
+  604  <script>
+  605:   $().datepicker({
+  606      language: 'zh-CN'
+  607    });
+  ...
+  613  ## No conflict
+  614
+  615: If you have to use other plugin with the same namespace, just call the `$.fn.datepicker.noConflict` method to revert to it.
+  616
+  617  ```html
+  618  <script src="other-plugin.js"></script>
+  619: <script src="datepicker.js"></script>
+  620  <script>
+  621:   $.fn.datepicker.noConflict();
+  622:   // Code that uses other plugin's "$().datepicker" can follow here.
+  623  </script>
+  624  ```
+
+/Users/elijohnston/code/ejohnst2/troveko/node_modules/@fengyuanchen/datepicker/dist/datepicker.common.js:
+    1  /*!
+    2:  * Datepicker v0.6.4
+    3:  * https://github.com/fengyuanchen/datepicker
+    4   *
+    5   * Copyright (c) 2014-2017 Chen Fengyuan
+    .
+   16
+   17  var DEFAULTS = {
+   18:   // Show the datepicker automatically when initialized
+   19    autoShow: false,
+   20
+   21:   // Hide the datepicker automatically when picked
+   22    autoHide: false,
+   23
+   ..
+   28    inline: false,
+   29
+   30:   // A element (or selector) for putting the datepicker
+   31    container: null,
+   32
+   33:   // A element (or selector) for triggering the datepicker
+   34    trigger: null,
+   35
+   ..
+   57    weekStart: 0,
+   58
+   59:   // Show year before month on the datepicker header
+   60    yearFirst: false,
+   61
+   ..
+   93    highlightedClass: 'highlighted',
+   94
+   95:   // The template of the datepicker
+   96:   template: '<div class="datepicker-container">' + '<div class="datepicker-panel" data-view="years picker">' + '<ul>' + '<li data-view="years prev">&lsaquo;</li>' + '<li data-view="years current"></li>' + '<li data-view="years next">&rsaquo;</li>' + '</ul>' + '<ul data-view="years"></ul>' + '</div>' + '<div class="datepicker-panel" data-view="months picker">' + '<ul>' + '<li data-view="year prev">&lsaquo;</li>' + '<li data-view="year current"></li>' + '<li data-view="year next">&rsaquo;</li>' + '</ul>' + '<ul data-view="months"></ul>' + '</div>' + '<div class="datepicker-panel" data-view="days picker">' + '<ul>' + '<li data-view="month prev">&lsaquo;</li>' + '<li data-view="month current"></li>' + '<li data-view="month next">&rsaquo;</li>' + '</ul>' + '<ul data-view="week"></ul>' + '<ul data-view="days"></ul>' + '</div>' + '</div>',
+   97
+   98:   // The offset top or bottom of the datepicker from the element
+   99    offset: 10,
+  100
+  101:   // The `z-index` of the datepicker
+  102    zIndex: 1000,
+  103
+  ...
+  112
+  113  var WINDOW = typeof window !== 'undefined' ? window : {};
+  114: var NAMESPACE = 'datepicker';
+  115  var EVENT_CLICK = 'click.' + NAMESPACE;
+  116  var EVENT_FOCUS = 'focus.' + NAMESPACE;
+  ...
+  225
+  226  var methods = {
+  227:   // Show the datepicker
+  228    show: function show() {
+  229      if (!this.built) {
+  ...
+  252
+  253
+  254:   // Hide the datepicker
+  255    hide: function hide() {
+  256      if (!this.shown) {
+  ...
+  280
+  281
+  282:   // Update the datepicker with the current input value
+  283    update: function update() {
+  284      var value = this.getValue();
+  ...
+  320
+  321
+  322:   // Reset the datepicker
+  323    reset: function reset() {
+  324      this.setDate(this.initialDate, true);
+  ...
+  559
+  560
+  561:   // Destroy the datepicker and remove the instance from the target element
+  562    destroy: function destroy() {
+  563      this.unbind();
+  ...
+ 1079  var CLASS_PLACEMENTS = [CLASS_TOP_LEFT, CLASS_TOP_RIGHT, CLASS_BOTTOM_LEFT, CLASS_BOTTOM_RIGHT].join(' ');
+ 1080
+ 1081: var Datepicker = function () {
+ 1082:   function Datepicker(element) {
+ 1083      var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+ 1084
+ 1085:     _classCallCheck(this, Datepicker);
+ 1086
+ 1087      this.$element = $(element);
+ ....
+ 1099    }
+ 1100
+ 1101:   _createClass(Datepicker, [{
+ 1102      key: 'init',
+ 1103      value: function init() {
+ ....
+ 1465    }]);
+ 1466
+ 1467:   return Datepicker;
+ 1468  }();
+ 1469
+ 1470  if ($.extend) {
+ 1471:   $.extend(Datepicker.prototype, render, handlers, methods);
+ 1472  }
+ 1473
+ 1474  if ($.fn) {
+ 1475:   var AnotherDatepicker = $.fn.datepicker;
+ 1476
+ 1477:   $.fn.datepicker = function jQueryDatepicker(option) {
+ 1478      for (var _len = arguments.length, args = Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
+ 1479        args[_key - 1] = arguments[_key];
+ ....
+ 1493          var options = $.extend({}, $element.data(), $.isPlainObject(option) && option);
+ 1494
+ 1495:         data = new Datepicker(element, options);
+ 1496          $element.data(NAMESPACE, data);
+ 1497        }
+ ....
+ 1509    };
+ 1510
+ 1511:   $.fn.datepicker.Constructor = Datepicker;
+ 1512:   $.fn.datepicker.languages = LANGUAGES;
+ 1513:   $.fn.datepicker.setDefaults = Datepicker.setDefaults;
+ 1514:   $.fn.datepicker.noConflict = function noConflict() {
+ 1515:     $.fn.datepicker = AnotherDatepicker;
+ 1516      return this;
+ 1517    };
+
+/Users/elijohnston/code/ejohnst2/troveko/node_modules/@fengyuanchen/datepicker/dist/datepicker.css:
+    1  /*!
+    2:  * Datepicker v0.6.4
+    3:  * https://github.com/fengyuanchen/datepicker
+    4   *
+    5   * Copyright (c) 2014-2017 Chen Fengyuan
+    .
+    9   */
+   10
+   11: .datepicker-container {
+   12    background-color: #fff;
+   13    direction: ltr;
+   ..
+   29  }
+   30
+   31: .datepicker-container::before,
+   32: .datepicker-container::after {
+   33    border: 5px solid transparent;
+   34    content: " ";
+   ..
+   39  }
+   40
+   41: .datepicker-dropdown {
+   42    border: 1px solid #ccc;
+   43    -webkit-box-shadow: 0 3px 6px #ccc;
+   ..
+   49  }
+   50
+   51: .datepicker-inline {
+   52    position: static;
+   53  }
+   54
+   55: .datepicker-top-left,
+   56: .datepicker-top-right {
+   57    border-top-color: #39f;
+   58  }
+   59
+   60: .datepicker-top-left::before,
+   61: .datepicker-top-left::after,
+   62: .datepicker-top-right::before,
+   63: .datepicker-top-right::after {
+   64    border-top: 0;
+   65    left: 10px;
+   ..
+   67  }
+   68
+   69: .datepicker-top-left::before,
+   70: .datepicker-top-right::before {
+   71    border-bottom-color: #39f;
+   72  }
+   73
+   74: .datepicker-top-left::after,
+   75: .datepicker-top-right::after {
+   76    border-bottom-color: #fff;
+   77    top: -4px;
+   78  }
+   79
+   80: .datepicker-bottom-left,
+   81: .datepicker-bottom-right {
+   82    border-bottom-color: #39f;
+   83  }
+   84
+   85: .datepicker-bottom-left::before,
+   86: .datepicker-bottom-left::after,
+   87: .datepicker-bottom-right::before,
+   88: .datepicker-bottom-right::after {
+   89    border-bottom: 0;
+   90    bottom: -5px;
+   ..
+   92  }
+   93
+   94: .datepicker-bottom-left::before,
+   95: .datepicker-bottom-right::before {
+   96    border-top-color: #39f;
+   97  }
+   98
+   99: .datepicker-bottom-left::after,
+  100: .datepicker-bottom-right::after {
+  101    border-top-color: #fff;
+  102    bottom: -4px;
+  103  }
+  104
+  105: .datepicker-top-right::before,
+  106: .datepicker-top-right::after,
+  107: .datepicker-bottom-right::before,
+  108: .datepicker-bottom-right::after {
+  109    left: auto;
+  110    right: 10px;
+  111  }
+  112
+  113: .datepicker-panel > ul {
+  114    margin: 0;
+  115    padding: 0;
+  ...
+  117  }
+  118
+  119: .datepicker-panel > ul::before,
+  120: .datepicker-panel > ul::after {
+  121    content: " ";
+  122    display: table;
+  123  }
+  124
+  125: .datepicker-panel > ul::after {
+  126    clear: both;
+  127  }
+  128
+  129: .datepicker-panel > ul > li {
+  130    background-color: #fff;
+  131    cursor: pointer;
+  ...
+  139  }
+  140
+  141: .datepicker-panel > ul > li:hover {
+  142    background-color: rgb(229, 242, 255);
+  143  }
+  144
+  145: .datepicker-panel > ul > li.muted,
+  146: .datepicker-panel > ul > li.muted:hover {
+  147    color: #999;
+  148  }
+  149
+  150: .datepicker-panel > ul > li.highlighted {
+  151    background-color: rgb(229, 242, 255);
+  152  }
+  153
+  154: .datepicker-panel > ul > li.highlighted:hover {
+  155    background-color: rgb(204, 229, 255);
+  156  }
+  157
+  158: .datepicker-panel > ul > li.picked,
+  159: .datepicker-panel > ul > li.picked:hover {
+  160    color: #39f;
+  161  }
+  162
+  163: .datepicker-panel > ul > li.disabled,
+  164: .datepicker-panel > ul > li.disabled:hover {
+  165    background-color: #fff;
+  166    color: #ccc;
+  ...
+  168  }
+  169
+  170: .datepicker-panel > ul > li.disabled.highlighted,
+  171: .datepicker-panel > ul > li.disabled:hover.highlighted {
+  172    background-color: rgb(229, 242, 255);
+  173  }
+  174
+  175: .datepicker-panel > ul > li[data-view="years prev"],
+  176: .datepicker-panel > ul > li[data-view="year prev"],
+  177: .datepicker-panel > ul > li[data-view="month prev"],
+  178: .datepicker-panel > ul > li[data-view="years next"],
+  179: .datepicker-panel > ul > li[data-view="year next"],
+  180: .datepicker-panel > ul > li[data-view="month next"],
+  181: .datepicker-panel > ul > li[data-view="next"] {
+  182    font-size: 18px;
+  183  }
+  184
+  185: .datepicker-panel > ul > li[data-view="years current"],
+  186: .datepicker-panel > ul > li[data-view="year current"],
+  187: .datepicker-panel > ul > li[data-view="month current"] {
+  188    width: 150px;
+  189  }
+  190
+  191: .datepicker-panel > ul[data-view="years"] > li,
+  192: .datepicker-panel > ul[data-view="months"] > li {
+  193    height: 52.5px;
+  194    line-height: 52.5px;
+  ...
+  196  }
+  197
+  198: .datepicker-panel > ul[data-view="week"] > li,
+  199: .datepicker-panel > ul[data-view="week"] > li:hover {
+  200    background-color: #fff;
+  201    cursor: default;
+  202  }
+  203
+  204: .datepicker-hide {
+  205    display: none;
+  206  }
+
+/Users/elijohnston/code/ejohnst2/troveko/node_modules/@fengyuanchen/datepicker/dist/datepicker.esm.js:
+    1  /*!
+    2:  * Datepicker v0.6.4
+    3:  * https://github.com/fengyuanchen/datepicker
+    4   *
+    5   * Copyright (c) 2014-2017 Chen Fengyuan
+    .
+   12
+   13  var DEFAULTS = {
+   14:   // Show the datepicker automatically when initialized
+   15    autoShow: false,
+   16
+   17:   // Hide the datepicker automatically when picked
+   18    autoHide: false,
+   19
+   ..
+   24    inline: false,
+   25
+   26:   // A element (or selector) for putting the datepicker
+   27    container: null,
+   28
+   29:   // A element (or selector) for triggering the datepicker
+   30    trigger: null,
+   31
+   ..
+   53    weekStart: 0,
+   54
+   55:   // Show year before month on the datepicker header
+   56    yearFirst: false,
+   57
+   ..
+   89    highlightedClass: 'highlighted',
+   90
+   91:   // The template of the datepicker
+   92:   template: '<div class="datepicker-container">' + '<div class="datepicker-panel" data-view="years picker">' + '<ul>' + '<li data-view="years prev">&lsaquo;</li>' + '<li data-view="years current"></li>' + '<li data-view="years next">&rsaquo;</li>' + '</ul>' + '<ul data-view="years"></ul>' + '</div>' + '<div class="datepicker-panel" data-view="months picker">' + '<ul>' + '<li data-view="year prev">&lsaquo;</li>' + '<li data-view="year current"></li>' + '<li data-view="year next">&rsaquo;</li>' + '</ul>' + '<ul data-view="months"></ul>' + '</div>' + '<div class="datepicker-panel" data-view="days picker">' + '<ul>' + '<li data-view="month prev">&lsaquo;</li>' + '<li data-view="month current"></li>' + '<li data-view="month next">&rsaquo;</li>' + '</ul>' + '<ul data-view="week"></ul>' + '<ul data-view="days"></ul>' + '</div>' + '</div>',
+   93
+   94:   // The offset top or bottom of the datepicker from the element
+   95    offset: 10,
+   96
+   97:   // The `z-index` of the datepicker
+   98    zIndex: 1000,
+   99
+  ...
+  108
+  109  var WINDOW = typeof window !== 'undefined' ? window : {};
+  110: var NAMESPACE = 'datepicker';
+  111  var EVENT_CLICK = 'click.' + NAMESPACE;
+  112  var EVENT_FOCUS = 'focus.' + NAMESPACE;
+  ...
+  221
+  222  var methods = {
+  223:   // Show the datepicker
+  224    show: function show() {
+  225      if (!this.built) {
+  ...
+  248
+  249
+  250:   // Hide the datepicker
+  251    hide: function hide() {
+  252      if (!this.shown) {
+  ...
+  276
+  277
+  278:   // Update the datepicker with the current input value
+  279    update: function update() {
+  280      var value = this.getValue();
+  ...
+  316
+  317
+  318:   // Reset the datepicker
+  319    reset: function reset() {
+  320      this.setDate(this.initialDate, true);
+  ...
+  555
+  556
+  557:   // Destroy the datepicker and remove the instance from the target element
+  558    destroy: function destroy() {
+  559      this.unbind();
+  ...
+ 1075  var CLASS_PLACEMENTS = [CLASS_TOP_LEFT, CLASS_TOP_RIGHT, CLASS_BOTTOM_LEFT, CLASS_BOTTOM_RIGHT].join(' ');
+ 1076
+ 1077: var Datepicker = function () {
+ 1078:   function Datepicker(element) {
+ 1079      var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+ 1080
+ 1081:     _classCallCheck(this, Datepicker);
+ 1082
+ 1083      this.$element = $(element);
+ ....
+ 1095    }
+ 1096
+ 1097:   _createClass(Datepicker, [{
+ 1098      key: 'init',
+ 1099      value: function init() {
+ ....
+ 1461    }]);
+ 1462
+ 1463:   return Datepicker;
+ 1464  }();
+ 1465
+ 1466  if ($.extend) {
+ 1467:   $.extend(Datepicker.prototype, render, handlers, methods);
+ 1468  }
+ 1469
+ 1470  if ($.fn) {
+ 1471:   var AnotherDatepicker = $.fn.datepicker;
+ 1472
+ 1473:   $.fn.datepicker = function jQueryDatepicker(option) {
+ 1474      for (var _len = arguments.length, args = Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
+ 1475        args[_key - 1] = arguments[_key];
+ ....
+ 1489          var options = $.extend({}, $element.data(), $.isPlainObject(option) && option);
+ 1490
+ 1491:         data = new Datepicker(element, options);
+ 1492          $element.data(NAMESPACE, data);
+ 1493        }
+ ....
+ 1505    };
+ 1506
+ 1507:   $.fn.datepicker.Constructor = Datepicker;
+ 1508:   $.fn.datepicker.languages = LANGUAGES;
+ 1509:   $.fn.datepicker.setDefaults = Datepicker.setDefaults;
+ 1510:   $.fn.datepicker.noConflict = function noConflict() {
+ 1511:     $.fn.datepicker = AnotherDatepicker;
+ 1512      return this;
+ 1513    };
+
+/Users/elijohnston/code/ejohnst2/troveko/node_modules/@fengyuanchen/datepicker/dist/datepicker.js:
+    1  /*!
+    2:  * Datepicker v0.6.4
+    3:  * https://github.com/fengyuanchen/datepicker
+    4   *
+    5   * Copyright (c) 2014-2017 Chen Fengyuan
+    .
+   18
+   19  var DEFAULTS = {
+   20:   // Show the datepicker automatically when initialized
+   21    autoShow: false,
+   22
+   23:   // Hide the datepicker automatically when picked
+   24    autoHide: false,
+   25
+   ..
+   30    inline: false,
+   31
+   32:   // A element (or selector) for putting the datepicker
+   33    container: null,
+   34
+   35:   // A element (or selector) for triggering the datepicker
+   36    trigger: null,
+   37
+   ..
+   59    weekStart: 0,
+   60
+   61:   // Show year before month on the datepicker header
+   62    yearFirst: true,
+   63
+   ..
+   95    highlightedClass: 'highlighted',
+   96
+   97:   // The template of the datepicker
+   98:   template: '<div class="datepicker-container">' + '<div class="datepicker-panel" data-view="years picker">' + '<ul>' + '<li data-view="years prev">&lsaquo;</li>' + '<li data-view="years current"></li>' + '<li data-view="years next">&rsaquo;</li>' + '</ul>' + '<ul data-view="years"></ul>' + '</div>' + '<div class="datepicker-panel" data-view="months picker">' + '<ul>' + '<li data-view="year prev">&lsaquo;</li>' + '<li data-view="year current"></li>' + '<li data-view="year next">&rsaquo;</li>' + '</ul>' + '<ul data-view="months"></ul>' + '</div>' + '<div class="datepicker-panel" data-view="days picker">' + '<ul>' + '<li data-view="month prev">&lsaquo;</li>' + '<li data-view="month current"></li>' + '<li data-view="month next">&rsaquo;</li>' + '</ul>' + '<ul data-view="week"></ul>' + '<ul data-view="days"></ul>' + '</div>' + '</div>',
+   99
+  100:   // The offset top or bottom of the datepicker from the element
+  101    offset: 10,
+  102
+  103:   // The `z-index` of the datepicker
+  104    zIndex: 1000,
+  105
+  ...
+  114
+  115  var WINDOW = typeof window !== 'undefined' ? window : {};
+  116: var NAMESPACE = 'datepicker';
+  117  var EVENT_CLICK = 'click.' + NAMESPACE;
+  118  var EVENT_FOCUS = 'focus.' + NAMESPACE;
+  ...
+  227
+  228  var methods = {
+  229:   // Show the datepicker
+  230    show: function show() {
+  231      if (!this.built) {
+  ...
+  254
+  255
+  256:   // Hide the datepicker
+  257    hide: function hide() {
+  258      if (!this.shown) {
+  ...
+  282
+  283
+  284:   // Update the datepicker with the current input value
+  285    update: function update() {
+  286      var value = this.getValue();
+  ...
+  322
+  323
+  324:   // Reset the datepicker
+  325    reset: function reset() {
+  326      this.setDate(this.initialDate, true);
+  ...
+  561
+  562
+  563:   // Destroy the datepicker and remove the instance from the target element
+  564    destroy: function destroy() {
+  565      this.unbind();
+  ...
+ 1081  var CLASS_PLACEMENTS = [CLASS_TOP_LEFT, CLASS_TOP_RIGHT, CLASS_BOTTOM_LEFT, CLASS_BOTTOM_RIGHT].join(' ');
+ 1082
+ 1083: var Datepicker = function () {
+ 1084:   function Datepicker(element) {
+ 1085      var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+ 1086
+ 1087:     _classCallCheck(this, Datepicker);
+ 1088
+ 1089      this.$element = $(element);
+ ....
+ 1101    }
+ 1102
+ 1103:   _createClass(Datepicker, [{
+ 1104      key: 'init',
+ 1105      value: function init() {
+ ....
+ 1467    }]);
+ 1468
+ 1469:   return Datepicker;
+ 1470  }();
+ 1471
+ 1472  if ($.extend) {
+ 1473:   $.extend(Datepicker.prototype, render, handlers, methods);
+ 1474  }
+ 1475
+ 1476  if ($.fn) {
+ 1477:   var AnotherDatepicker = $.fn.datepicker;
+ 1478
+ 1479:   $.fn.datepicker = function jQueryDatepicker(option) {
+ 1480      for (var _len = arguments.length, args = Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
+ 1481        args[_key - 1] = arguments[_key];
+ ....
+ 1495          var options = $.extend({}, $element.data(), $.isPlainObject(option) && option);
+ 1496
+ 1497:         data = new Datepicker(element, options);
+ 1498          $element.data(NAMESPACE, data);
+ 1499        }
+ ....
+ 1511    };
+ 1512
+ 1513:   $.fn.datepicker.Constructor = Datepicker;
+ 1514:   $.fn.datepicker.languages = LANGUAGES;
+ 1515:   $.fn.datepicker.setDefaults = Datepicker.setDefaults;
+ 1516:   $.fn.datepicker.noConflict = function noConflict() {
+ 1517:     $.fn.datepicker = AnotherDatepicker;
+ 1518      return this;
+ 1519    };
+
+/Users/elijohnston/code/ejohnst2/troveko/node_modules/@fengyuanchen/datepicker/dist/datepicker.min.css:
+    1  /*!
+    2:  * Datepicker v0.6.4
+    3:  * https://github.com/fengyuanchen/datepicker
+    4   *
+    5   * Copyright (c) 2014-2017 Chen Fengyuan
+    .
+    7   *
+    8   * Date: 2017-11-24T14:38:19.628Z
+    9:  */.datepicker-container{background-color:#fff;direction:ltr;font-size:12px;left:0;line-height:30px;position:fixed;top:0;-ms-touch-action:none;touch-action:none;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;width:210px;z-index:-1;-webkit-tap-highlight-color:transparent;-webkit-touch-callout:none}.datepicker-container:after,.datepicker-container:before{border:5px solid transparent;content:" ";display:block;height:0;position:absolute;width:0}.datepicker-dropdown{border:1px solid #ccc;box-shadow:0 3px 6px #ccc;box-sizing:content-box;position:absolute;z-index:1}.datepicker-inline{position:static}.datepicker-top-left,.datepicker-top-right{border-top-color:#39f}.datepicker-top-left:after,.datepicker-top-left:before,.datepicker-top-right:after,.datepicker-top-right:before{border-top:0;left:10px;top:-5px}.datepicker-top-left:before,.datepicker-top-right:before{border-bottom-color:#39f}.datepicker-top-left:after,.datepicker-top-right:after{border-bottom-color:#fff;top:-4px}.datepicker-bottom-left,.datepicker-bottom-right{border-bottom-color:#39f}.datepicker-bottom-left:after,.datepicker-bottom-left:before,.datepicker-bottom-right:after,.datepicker-bottom-right:before{border-bottom:0;bottom:-5px;left:10px}.datepicker-bottom-left:before,.datepicker-bottom-right:before{border-top-color:#39f}.datepicker-bottom-left:after,.datepicker-bottom-right:after{border-top-color:#fff;bottom:-4px}.datepicker-bottom-right:after,.datepicker-bottom-right:before,.datepicker-top-right:after,.datepicker-top-right:before{left:auto;right:10px}.datepicker-panel>ul{margin:0;padding:0;width:102%}.datepicker-panel>ul:after,.datepicker-panel>ul:before{content:" ";display:table}.datepicker-panel>ul:after{clear:both}.datepicker-panel>ul>li{background-color:#fff;cursor:pointer;float:left;height:30px;list-style:none;margin:0;padding:0;text-align:center;width:30px}.datepicker-panel>ul>li:hover{background-color:#e5f2ff}.datepicker-panel>ul>li.muted,.datepicker-panel>ul>li.muted:hover{color:#999}.datepicker-panel>ul>li.highlighted{background-color:#e5f2ff}.datepicker-panel>ul>li.highlighted:hover{background-color:#cce5ff}.datepicker-panel>ul>li.picked,.datepicker-panel>ul>li.picked:hover{color:#39f}.datepicker-panel>ul>li.disabled,.datepicker-panel>ul>li.disabled:hover{background-color:#fff;color:#ccc;cursor:default}.datepicker-panel>ul>li.disabled.highlighted,.datepicker-panel>ul>li.disabled:hover.highlighted{background-color:#e5f2ff}.datepicker-panel>ul>li[data-view="month next"],.datepicker-panel>ul>li[data-view="month prev"],.datepicker-panel>ul>li[data-view="year next"],.datepicker-panel>ul>li[data-view="year prev"],.datepicker-panel>ul>li[data-view="years next"],.datepicker-panel>ul>li[data-view="years prev"],.datepicker-panel>ul>li[data-view=next]{font-size:18px}.datepicker-panel>ul>li[data-view="month current"],.datepicker-panel>ul>li[data-view="year current"],.datepicker-panel>ul>li[data-view="years current"]{width:150px}.datepicker-panel>ul[data-view=months]>li,.datepicker-panel>ul[data-view=years]>li{height:52.5px;line-height:52.5px;width:52.5px}.datepicker-panel>ul[data-view=week]>li,.datepicker-panel>ul[data-view=week]>li:hover{background-color:#fff;cursor:default}.datepicker-hide{display:none}
+
+/Users/elijohnston/code/ejohnst2/troveko/node_modules/@fengyuanchen/datepicker/dist/datepicker.min.js:
+    1  /*!
+    2:  * Datepicker v0.6.4
+    3:  * https://github.com/fengyuanchen/datepicker
+    4   *
+    5   * Copyright (c) 2014-2017 Chen Fengyuan
+    .
+    8   * Date: 2017-11-24T14:38:23.820Z
+    9   */
+   10: !function(e,t){"object"==typeof exports&&"undefined"!=typeof module?t(require("jquery")):"function"==typeof define&&define.amd?define(["jquery"],t):t(e.jQuery)}(this,function(e){"use strict";function t(e){return"string"==typeof e}function i(e){return"number"==typeof e&&!v(e)}function a(e){return void 0===e}function s(e){return"date"===function(e){return y.call(e).slice(8,-1).toLowerCase()}(e)}function n(e,t){for(var i=arguments.length,a=Array(i>2?i-2:0),s=2;s<i;s++)a[s-2]=arguments[s];return function(){for(var i=arguments.length,s=Array(i),n=0;n<i;n++)s[n]=arguments[n];return e.apply(t,a.concat(s))}}function r(e){return'[data-view="'+e+'"]'}function h(e,t){return[31,function(e){return e%4==0&&e%100!=0||e%400==0}(e)?29:28,31,30,31,30,31,31,30,31,30,31][t]}function o(e,t,i){return Math.min(i,h(e,t))}e=e&&e.hasOwnProperty("default")?e.default:e;var l={autoShow:!1,autoHide:!1,autoPick:!1,inline:!1,container:null,trigger:null,language:"",format:"mm/dd/yyyy",date:null,startDate:null,endDate:null,startView:0,weekStart:0,yearFirst:!1,yearSuffix:"",days:["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],daysShort:["Sun","Mon","Tue","Wed","Thu","Fri","Sat"],daysMin:["Su","Mo","Tu","We","Th","Fr","Sa"],months:["January","February","March","April","May","June","July","August","September","October","November","December"],monthsShort:["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],itemTag:"li",mutedClass:"muted",pickedClass:"picked",disabledClass:"disabled",highlightedClass:"highlighted",template:'<div class="datepicker-container"><div class="datepicker-panel" data-view="years picker"><ul><li data-view="years prev">&lsaquo;</li><li data-view="years current"></li><li data-view="years next">&rsaquo;</li></ul><ul data-view="years"></ul></div><div class="datepicker-panel" data-view="months picker"><ul><li data-view="year prev">&lsaquo;</li><li data-view="year current"></li><li data-view="year next">&rsaquo;</li></ul><ul data-view="months"></ul></div><div class="datepicker-panel" data-view="days picker"><ul><li data-view="month prev">&lsaquo;</li><li data-view="month current"></li><li data-view="month next">&rsaquo;</li></ul><ul data-view="week"></ul><ul data-view="days"></ul></div></div>',offset:10,zIndex:1e3,filter:null,show:null,hide:null,pick:null},d="undefined"!=typeof window?window:{},u="datepicker",c="click.datepicker",p="datepicker-hide",f={},g={DAYS:0,MONTHS:1,YEARS:2},y=Object.prototype.toString,v=Number.isNaN||d.isNaN,m=/(y|m|d)+/g,w=/\d+/g,k={show:function(){this.built||this.build(),this.shown||this.trigger("show.datepicker").isDefaultPrevented()||(this.shown=!0,this.$picker.removeClass(p).on(c,e.proxy(this.click,this)),this.showView(this.options.startView),this.inline||(e(window).on("resize.datepicker",this.onResize=n(this.place,this)),e(document).on(c,this.onGlobalClick=n(this.globalClick,this)),e(document).on("keyup.datepicker",this.onGlobalKeyup=n(this.globalKeyup,this)),this.place()))},hide:function(){this.shown&&(this.trigger("hide.datepicker").isDefaultPrevented()||(this.shown=!1,this.$picker.addClass(p).off(c,this.click),this.inline||(e(window).off("resize.datepicker",this.onResize),e(document).off(c,this.onGlobalClick),e(document).off("keyup.datepicker",this.onGlobalKeyup))))},toggle:function(){this.shown?this.hide():this.show()},update:function(){var e=this.getValue();e!==this.oldValue&&(this.setDate(e,!0),this.oldValue=e)},pick:function(e){var t=this.$element,i=this.date;this.trigger("pick.datepicker",{view:e||"",date:i}).isDefaultPrevented()||(i=this.formatDate(this.date),this.setValue(i),this.isInput&&(t.trigger("input"),t.trigger("change")))},reset:function(){this.setDate(this.initialDate,!0),this.setValue(this.initialValue),this.shown&&this.showView(this.options.startView)},getMonthName:function(t,s){var n=this.options,r=n.monthsShort,h=n.months;return e.isNumeric(t)?t=Number(t):a(s)&&(s=t),!0===s&&(h=r),h[i(t)?t:this.date.getMonth()]},getDayName:function(t,s,n){var r=this.options,h=r.days;return e.isNumeric(t)?t=Number(t):(a(n)&&(n=s),a(s)&&(s=t)),n?h=r.daysMin:s&&(h=r.daysShort),h[i(t)?t:this.date.getDay()]},getDate:function(e){var t=this.date;return e?this.formatDate(t):new Date(t)},setDate:function(i,a){var n=this.options.filter;if(s(i)||t(i)){if(i=this.parseDate(i),e.isFunction(n)&&!1===n.call(this.$element,i))return;this.date=i,this.viewDate=new Date(i),a||this.pick(),this.built&&this.render()}},setStartDate:function(e){(s(e)||t(e))&&(this.startDate=this.parseDate(e),this.built&&this.render())},setEndDate:function(e){(s(e)||t(e))&&(this.endDate=this.parseDate(e),this.built&&this.render())},parseDate:function(i){var a=this.format,n=[];if(s(i))return new Date(i.getFullYear(),i.getMonth(),i.getDate());t(i)&&(n=i.match(w)||[]),i=new Date;var r=a.parts.length,h=i.getFullYear(),o=i.getDate(),l=i.getMonth();return n.length===r&&e.each(n,function(e,t){var i=parseInt(t,10)||1;switch(a.parts[e]){case"dd":case"d":o=i;break;case"mm":case"m":l=i-1;break;case"yy":h=2e3+i;break;case"yyyy":h=i}}),new Date(h,l,o)},formatDate:function(t){var i=this.format,a="";if(s(t)){var n=t.getFullYear(),r={d:t.getDate(),m:t.getMonth()+1,yy:n.toString().substring(2),yyyy:n};r.dd=(r.d<10?"0":"")+r.d,r.mm=(r.m<10?"0":"")+r.m,a=i.source,e.each(i.parts,function(e,t){a=a.replace(t,r[t])})}return a},destroy:function(){this.unbind(),this.unbuild(),this.$element.removeData(u)}},D={click:function(t){var i=e(t.target),a=this.options,s=this.viewDate,n=this.format;if(t.stopPropagation(),t.preventDefault(),!i.hasClass("disabled")){var r=i.data("view"),h=s.getFullYear(),l=s.getMonth(),d=s.getDate();switch(r){case"years prev":case"years next":h="years prev"===r?h-10:h+10,this.viewDate=new Date(h,l,o(h,l,d)),this.renderYears();break;case"year prev":case"year next":h="year prev"===r?h-1:h+1,this.viewDate=new Date(h,l,o(h,l,d)),this.renderMonths();break;case"year current":n.hasYear&&this.showView(g.YEARS);break;case"year picked":n.hasMonth?this.showView(g.MONTHS):(i.addClass(a.pickedClass).siblings().removeClass(a.pickedClass),this.hideView()),this.pick("year");break;case"year":h=parseInt(i.text(),10),this.date=new Date(h,l,o(h,l,d)),n.hasMonth?(this.viewDate=new Date(this.date),this.showView(g.MONTHS)):(i.addClass(a.pickedClass).siblings().removeClass(a.pickedClass),this.hideView()),this.pick("year");break;case"month prev":case"month next":(l="month prev"===r?l-1:l+1)<0?(h-=1,l+=12):l>11&&(h+=1,l-=12),this.viewDate=new Date(h,l,o(h,l,d)),this.renderDays();break;case"month current":n.hasMonth&&this.showView(g.MONTHS);break;case"month picked":n.hasDay?this.showView(g.DAYS):(i.addClass(a.pickedClass).siblings().removeClass(a.pickedClass),this.hideView()),this.pick("month");break;case"month":l=e.inArray(i.text(),a.monthsShort),this.date=new Date(h,l,o(h,l,d)),n.hasDay?(this.viewDate=new Date(h,l,o(h,l,d)),this.showView(g.DAYS)):(i.addClass(a.pickedClass).siblings().removeClass(a.pickedClass),this.hideView()),this.pick("month");break;case"day prev":case"day next":case"day":"day prev"===r?l-=1:"day next"===r&&(l+=1),d=parseInt(i.text(),10),this.date=new Date(h,l,d),this.viewDate=new Date(h,l,d),this.renderDays(),"day"===r&&this.hideView(),this.pick("day");break;case"day picked":this.hideView(),this.pick("day")}}},globalClick:function(e){for(var t=e.target,i=this.element,a=this.$trigger[0],s=!0;t!==document;){if(t===a||t===i){s=!1;break}t=t.parentNode}s&&this.hide()},keyup:function(){this.update()},globalKeyup:function(e){var t=e.target,i=e.key,a=e.keyCode;this.isInput&&t!==this.element&&this.shown&&("Tab"===i||9===a)&&this.hide()}},b={render:function(){this.renderYears(),this.renderMonths(),this.renderDays()},renderWeek:function(){var t=this,i=[],a=this.options,s=a.weekStart,n=a.daysMin;s=parseInt(s,10)%7,n=n.slice(s).concat(n.slice(0,s)),e.each(n,function(e,a){i.push(t.createItem({text:a}))}),this.$week.html(i.join(""))},renderYears:function(){var e=this.options,t=this.startDate,i=this.endDate,a=e.disabledClass,s=e.filter,n=e.yearSuffix,r=this.viewDate.getFullYear(),h=(new Date).getFullYear(),o=this.date.getFullYear(),l=[],d=!1,u=!1,c=void 0;for(c=-5;c<=6;c+=1){var p=new Date(r+c,1,1),f=!1;t&&(f=p.getFullYear()<t.getFullYear(),-5===c&&(d=f)),!f&&i&&(f=p.getFullYear()>i.getFullYear(),6===c&&(u=f)),!f&&s&&(f=!1===s.call(this.$element,p));var g=r+c===o,y=g?"year picked":"year";l.push(this.createItem({picked:g,disabled:f,muted:-5===c||6===c,text:r+c,view:f?"year disabled":y,highlighted:p.getFullYear()===h}))}this.$yearsPrev.toggleClass(a,d),this.$yearsNext.toggleClass(a,u),this.$yearsCurrent.toggleClass(a,!0).html(r+-5+n+" - "+(r+6)+n),this.$years.html(l.join(""))},renderMonths:function(){var t=this.options,i=this.startDate,a=this.endDate,s=this.viewDate,n=t.disabledClass||"",r=t.monthsShort,h=e.isFunction(t.filter)&&t.filter,o=s.getFullYear(),l=new Date,d=l.getFullYear(),u=l.getMonth(),c=this.date.getFullYear(),p=this.date.getMonth(),f=[],g=!1,y=!1,v=void 0;for(v=0;v<=11;v+=1){var m=new Date(o,v,1),w=!1;i&&(w=(g=m.getFullYear()===i.getFullYear())&&m.getMonth()<i.getMonth()),!w&&a&&(w=(y=m.getFullYear()===a.getFullYear())&&m.getMonth()>a.getMonth()),!w&&h&&(w=!1===h.call(this.$element,m));var k=o===c&&v===p,D=k?"month picked":"month";f.push(this.createItem({disabled:w,picked:k,highlighted:o===d&&m.getMonth()===u,index:v,text:r[v],view:w?"month disabled":D}))}this.$yearPrev.toggleClass(n,g),this.$yearNext.toggleClass(n,y),this.$yearCurrent.toggleClass(n,g&&y).html(o+t.yearSuffix||""),this.$months.html(f.join(""))},renderDays:function(){var e=this.$element,t=this.options,i=this.startDate,a=this.endDate,s=this.viewDate,n=this.date,r=t.disabledClass,o=t.filter,l=t.monthsShort,d=t.weekStart,u=t.yearSuffix,c=s.getFullYear(),p=s.getMonth(),f=new Date,g=f.getFullYear(),y=f.getMonth(),v=f.getDate(),m=n.getFullYear(),w=n.getMonth(),k=n.getDate(),D=void 0,b=void 0,C=void 0,$=[],x=c,M=p,S=!1;0===p?(x-=1,M=11):M-=1,D=h(x,M);var F=new Date(c,p,1);for((C=F.getDay()-parseInt(d,10)%7)<=0&&(C+=7),i&&(S=F.getTime()<=i.getTime()),b=D-(C-1);b<=D;b+=1){var Y=new Date(x,M,b),T=!1;i&&(T=Y.getTime()<i.getTime()),!T&&o&&(T=!1===o.call(e,Y)),$.push(this.createItem({disabled:T,highlighted:x===g&&M===y&&Y.getDate()===v,muted:!0,picked:x===m&&M===w&&b===k,text:b,view:"day prev"}))}var V=[],I=c,N=p,P=!1;11===p?(I+=1,N=0):N+=1,D=h(c,p),C=42-($.length+D);var A=new Date(c,p,D);for(a&&(P=A.getTime()>=a.getTime()),b=1;b<=C;b+=1){var j=new Date(I,N,b),O=I===m&&N===w&&b===k,H=!1;a&&(H=j.getTime()>a.getTime()),!H&&o&&(H=!1===o.call(e,j)),V.push(this.createItem({disabled:H,picked:O,highlighted:I===g&&N===y&&j.getDate()===v,muted:!0,text:b,view:"day next"}))}var q=[];for(b=1;b<=D;b+=1){var E=new Date(c,p,b),z=!1;i&&(z=E.getTime()<i.getTime()),!z&&a&&(z=E.getTime()>a.getTime()),!z&&o&&(z=!1===o.call(e,E));var W=c===m&&p===w&&b===k,J=W?"day picked":"day";q.push(this.createItem({disabled:z,picked:W,highlighted:c===g&&p===y&&E.getDate()===v,text:b,view:z?"day disabled":J}))}this.$monthPrev.toggleClass(r,S),this.$monthNext.toggleClass(r,P),this.$monthCurrent.toggleClass(r,S&&P).html(t.yearFirst?c+u+" "+l[p]:l[p]+" "+c+u),this.$days.html($.join("")+q.join("")+V.join(""))}},C=function(){function e(e,t){for(var i=0;i<t.length;i++){var a=t[i];a.enumerable=a.enumerable||!1,a.configurable=!0,"value"in a&&(a.writable=!0),Object.defineProperty(e,a.key,a)}}return function(t,i,a){return i&&e(t.prototype,i),a&&e(t,a),t}}(),$="datepicker-top-left",x="datepicker-bottom-left",M=[$,"datepicker-top-right",x,"datepicker-bottom-right"].join(" "),S=function(){function t(i){var a=arguments.length>1&&void 0!==arguments[1]?arguments[1]:{};!function(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}(this,t),this.$element=e(i),this.element=i,this.options=e.extend({},l,f[a.language],a),this.built=!1,this.shown=!1,this.isInput=!1,this.inline=!1,this.initialValue="",this.initialDate=null,this.startDate=null,this.endDate=null,this.init()}return C(t,[{key:"init",value:function(){var t=this.$element,i=this.options,a=i.startDate,s=i.endDate,n=i.date;this.$trigger=e(i.trigger),this.isInput=t.is("input")||t.is("textarea"),this.inline=i.inline&&(i.container||!this.isInput),this.format=function(t){var i=String(t).toLowerCase(),a=i.match(m);if(!a||0===a.length)throw new Error("Invalid date format.");return t={source:i,parts:a},e.each(a,function(e,i){switch(i){case"dd":case"d":t.hasDay=!0;break;case"mm":case"m":t.hasMonth=!0;break;case"yyyy":case"yy":t.hasYear=!0}}),t}(i.format);var r=this.getValue();this.initialValue=r,this.oldValue=r,n=this.parseDate(n||r),a&&(a=this.parseDate(a),n.getTime()<a.getTime()&&(n=new Date(a)),this.startDate=a),s&&(s=this.parseDate(s),a&&s.getTime()<a.getTime()&&(s=new Date(a)),n.getTime()>s.getTime()&&(n=new Date(s)),this.endDate=s),this.date=n,this.viewDate=new Date(n),this.initialDate=new Date(this.date),this.bind(),(i.autoShow||this.inline)&&this.show(),i.autoPick&&this.pick()}},{key:"build",value:function(){if(!this.built){this.built=!0;var t=this.$element,i=this.options,a=e(i.template);this.$picker=a,this.$week=a.find(r("week")),this.$yearsPicker=a.find(r("years picker")),this.$yearsPrev=a.find(r("years prev")),this.$yearsNext=a.find(r("years next")),this.$yearsCurrent=a.find(r("years current")),this.$years=a.find(r("years")),this.$monthsPicker=a.find(r("months picker")),this.$yearPrev=a.find(r("year prev")),this.$yearNext=a.find(r("year next")),this.$yearCurrent=a.find(r("year current")),this.$months=a.find(r("months")),this.$daysPicker=a.find(r("days picker")),this.$monthPrev=a.find(r("month prev")),this.$monthNext=a.find(r("month next")),this.$monthCurrent=a.find(r("month current")),this.$days=a.find(r("days")),this.inline?e(i.container||t).append(a.addClass("datepicker-inline")):(e(document.body).append(a.addClass("datepicker-dropdown")),a.addClass(p)),this.renderWeek()}}},{key:"unbuild",value:function(){this.built&&(this.built=!1,this.$picker.remove())}},{key:"bind",value:function(){var t=this.options,i=this.$element;e.isFunction(t.show)&&i.on("show.datepicker",t.show),e.isFunction(t.hide)&&i.on("hide.datepicker",t.hide),e.isFunction(t.pick)&&i.on("pick.datepicker",t.pick),this.isInput&&i.on("keyup.datepicker",e.proxy(this.keyup,this)),this.inline||(t.trigger?this.$trigger.on(c,e.proxy(this.toggle,this)):this.isInput?i.on("focus.datepicker",e.proxy(this.show,this)):i.on(c,e.proxy(this.show,this)))}},{key:"unbind",value:function(){var t=this.$element,i=this.options;e.isFunction(i.show)&&t.off("show.datepicker",i.show),e.isFunction(i.hide)&&t.off("hide.datepicker",i.hide),e.isFunction(i.pick)&&t.off("pick.datepicker",i.pick),this.isInput&&t.off("keyup.datepicker",this.keyup),this.inline||(i.trigger?this.$trigger.off(c,this.toggle):this.isInput?t.off("focus.datepicker",this.show):t.off(c,this.show))}},{key:"showView",value:function(e){var t=this.$yearsPicker,i=this.$monthsPicker,a=this.$daysPicker,s=this.format;if(s.hasYear||s.hasMonth||s.hasDay)switch(Number(e)){case g.YEARS:i.addClass(p),a.addClass(p),s.hasYear?(this.renderYears(),t.removeClass(p),this.place()):this.showView(g.DAYS);break;case g.MONTHS:t.addClass(p),a.addClass(p),s.hasMonth?(this.renderMonths(),i.removeClass(p),this.place()):this.showView(g.YEARS);break;default:t.addClass(p),i.addClass(p),s.hasDay?(this.renderDays(),a.removeClass(p),this.place()):this.showView(g.MONTHS)}}},{key:"hideView",value:function(){!this.inline&&this.options.autoHide&&this.hide()}},{key:"place",value:function(){if(!this.inline){var t=this.$element,i=this.options,a=this.$picker,s=e(document).outerWidth(),n=e(document).outerHeight(),r=t.outerWidth(),h=t.outerHeight(),o=a.width(),l=a.height(),d=t.offset(),u=d.left,c=d.top,p=parseFloat(i.offset),f=$;v(p)&&(p=10),c>l&&c+h+l>n?(c-=l+p,f=x):c+=h+p,u+o>s&&(u+=r-o,f=f.replace("left","right")),a.removeClass(M).addClass(f).css({top:c,left:u,zIndex:parseInt(i.zIndex,10)})}}},{key:"trigger",value:function(t,i){var a=e.Event(t,i);return this.$element.trigger(a),a}},{key:"createItem",value:function(t){var i=this.options,a=i.itemTag,s={text:"",view:"",muted:!1,picked:!1,disabled:!1,highlighted:!1},n=[];return e.extend(s,t),s.muted&&n.push(i.mutedClass),s.highlighted&&n.push(i.highlightedClass),s.picked&&n.push(i.pickedClass),s.disabled&&n.push(i.disabledClass),"<"+a+' class="'+n.join(" ")+'" data-view="'+s.view+'">'+s.text+"</"+a+">"}},{key:"getValue",value:function(){var e=this.$element;return this.isInput?e.val():e.text()}},{key:"setValue",value:function(){var e=arguments.length>0&&void 0!==arguments[0]?arguments[0]:"",t=this.$element;this.isInput?t.val(e):t.text(e)}}],[{key:"setDefaults",value:function(){var t=arguments.length>0&&void 0!==arguments[0]?arguments[0]:{};e.extend(l,f[t.language],t)}}]),t}();if(e.extend&&e.extend(S.prototype,b,D,k),e.fn){var F=e.fn.datepicker;e.fn.datepicker=function(i){for(var s=arguments.length,n=Array(s>1?s-1:0),r=1;r<s;r++)n[r-1]=arguments[r];var h=void 0;return this.each(function(a,s){var r=e(s),o=r.data(u);if(!o){if(/destroy/.test(i))return;var l=e.extend({},r.data(),e.isPlainObject(i)&&i);o=new S(s,l),r.data(u,o)}if(t(i)){var d=o[i];e.isFunction(d)&&(h=d.apply(o,n))}}),a(h)?this:h},e.fn.datepicker.Constructor=S,e.fn.datepicker.languages=f,e.fn.datepicker.setDefaults=S.setDefaults,e.fn.datepicker.noConflict=function(){return e.fn.datepicker=F,this}}});
+
+/Users/elijohnston/code/ejohnst2/troveko/node_modules/@fengyuanchen/datepicker/i18n/datepicker.ca-ES.js:
+    7    'use strict';
+    8
+    9:   $.fn.datepicker.languages['ca-ES'] = {
+   10      format: 'dd/mm/yyyy',
+   11      days: ['diumenge', 'dilluns', 'dimarts', 'dimecres', 'dijous', 'divendres', 'dissabte'],
+
+/Users/elijohnston/code/ejohnst2/troveko/node_modules/@fengyuanchen/datepicker/i18n/datepicker.cs-CZ.js:
+    7    'use strict';
+    8
+    9:   $.fn.datepicker.languages['cs-CZ'] = {
+   10      format: 'dd.mm.YYYY',
+   11      days: ['Neděle', 'Pondělí', 'Úterý', 'Středa', 'Čtvrtek', 'Pátek', 'Sobota'],
+
+/Users/elijohnston/code/ejohnst2/troveko/node_modules/@fengyuanchen/datepicker/i18n/datepicker.da-DK.js:
+    7    'use strict';
+    8
+    9:   $.fn.datepicker.languages['da-DK'] = {
+   10      format: 'dd-mm-yyyy',
+   11      days: ['Søndag', 'Mandag', 'Tirsdag', 'Onsdag', 'Torsdag', 'Fredag', 'Lørdag'],
+
+/Users/elijohnston/code/ejohnst2/troveko/node_modules/@fengyuanchen/datepicker/i18n/datepicker.de-DE.js:
+    7    'use strict';
+    8
+    9:   $.fn.datepicker.languages['de-DE'] = {
+   10      format: 'dd.mm.yyyy',
+   11      days: ['Sonntag', 'Montag', 'Dienstag', 'Mittwoch', 'Donnerstag', 'Freitag', 'Samstag'],
+
+/Users/elijohnston/code/ejohnst2/troveko/node_modules/@fengyuanchen/datepicker/i18n/datepicker.en-GB.js:
+    7    'use strict';
+    8
+    9:   $.fn.datepicker.languages['en-GB'] = {
+   10      format: 'dd/mm/yyyy'
+   11    };
+
+/Users/elijohnston/code/ejohnst2/troveko/node_modules/@fengyuanchen/datepicker/i18n/datepicker.en-US.js:
+    7    'use strict';
+    8
+    9:   $.fn.datepicker.languages['en-US'] = {
+   10      format: 'mm/dd/yyyy'
+   11    };
+
+/Users/elijohnston/code/ejohnst2/troveko/node_modules/@fengyuanchen/datepicker/i18n/datepicker.es-ES.js:
+    7    'use strict';
+    8
+    9:   $.fn.datepicker.languages['es-ES'] = {
+   10      format: 'dd/mm/yyyy',
+   11      days: ['Domingo','Lunes','Martes','Miércoles','Jueves','Viernes','Sábado'],
+
+/Users/elijohnston/code/ejohnst2/troveko/node_modules/@fengyuanchen/datepicker/i18n/datepicker.fi-FI.js:
+    7    'use strict';
+    8
+    9:   $.fn.datepicker.languages['fi-FI'] = {
+   10      format: 'dd.mm.yyyy',
+   11      days: ['Sunnuntai', 'Maanantai', 'Tiistai', 'Keskiviikko', 'Torstai', 'Perjantai', 'Lauantai'],
+
+/Users/elijohnston/code/ejohnst2/troveko/node_modules/@fengyuanchen/datepicker/i18n/datepicker.fr-FR.js:
+    7    'use strict';
+    8
+    9:   $.fn.datepicker.languages['fr-FR'] = {
+   10      format: 'dd/mm/yyyy',
+   11      days: ['Dimanche', 'Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi'],
+
+/Users/elijohnston/code/ejohnst2/troveko/node_modules/@fengyuanchen/datepicker/i18n/datepicker.it-IT.js:
+    7    'use strict';
+    8
+    9:   $.fn.datepicker.languages['it-IT'] = {
+   10      format: 'dd/mm/yyyy',
+   11      days: ['Domenica','Lunedì','Martedì','Mercoledì','Giovedì','Venerdì','Sabato'],
+
+/Users/elijohnston/code/ejohnst2/troveko/node_modules/@fengyuanchen/datepicker/i18n/datepicker.ja-JP.js:
+    7    'use strict';
+    8
+    9:   $.fn.datepicker.languages['ja-JP'] = {
+   10      format: 'yyyy年mm月dd日',
+   11      days: ['日曜日', '月曜日', '火曜日', '水曜日', '木曜日', '金曜日', '土曜日'],
+
+/Users/elijohnston/code/ejohnst2/troveko/node_modules/@fengyuanchen/datepicker/i18n/datepicker.ko-KR.js:
+    7    'use strict';
+    8
+    9:   $.fn.datepicker.languages['ko-KR'] = {
+   10      format: 'yyyy. mm. dd',
+   11      days: ['일요일', '월요일', '화요일', '수요일', '목요일', '금요일', '토요일'],
+
+/Users/elijohnston/code/ejohnst2/troveko/node_modules/@fengyuanchen/datepicker/i18n/datepicker.nl-NL.js:
+    7    'use strict';
+    8
+    9:   $.fn.datepicker.languages['nl-NL'] = {
+   10      format: 'dd-mm-yyyy',
+   11      days: ['Zondag', 'Maandag', 'Dinsdag', 'Woensdag', 'Donderdag', 'Vrijdag', 'Zaterdag'],
+
+/Users/elijohnston/code/ejohnst2/troveko/node_modules/@fengyuanchen/datepicker/i18n/datepicker.pl-PL.js:
+    7    'use strict';
+    8
+    9:   $.fn.datepicker.languages['pl-PL'] = {
+   10      format: 'dd.mm.YYYY',
+   11      days: ['Niedziela', 'Poniedziałek', 'Wtorek', 'Środa', 'Czwartek', 'Piątek', 'Sobota'],
+
+/Users/elijohnston/code/ejohnst2/troveko/node_modules/@fengyuanchen/datepicker/i18n/datepicker.pt-BR.js:
+    7    'use strict';
+    8
+    9:   $.fn.datepicker.languages['pt-BR'] = {
+   10      format: 'dd/mm/yyyy',
+   11      days: ['Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado'],
+
+/Users/elijohnston/code/ejohnst2/troveko/node_modules/@fengyuanchen/datepicker/i18n/datepicker.ru-RU.js:
+    7    'use strict';
+    8
+    9:   $.fn.datepicker.languages['ru-RU'] = {
+   10      format: 'dd.mm.YYYY',
+   11      days: ['Воскресенье', 'Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота'],
+
+/Users/elijohnston/code/ejohnst2/troveko/node_modules/@fengyuanchen/datepicker/i18n/datepicker.sk-SK.js:
+    7    'use strict';
+    8
+    9:   $.fn.datepicker.languages['sk-SK'] = {
+   10      format: 'dd.mm.YYYY',
+   11      days: ['Nedeľa', 'Pondelok', 'Utorok', 'Streda', 'Štvrtok', 'Piatok', 'Sobota'],
+
+/Users/elijohnston/code/ejohnst2/troveko/node_modules/@fengyuanchen/datepicker/i18n/datepicker.sv-SE.js:
+    7    'use strict';
+    8
+    9:   $.fn.datepicker.languages['sv-SE'] = {
+   10      format: 'yyyy-mm-dd',
+   11      days: ['Söndag', 'Måndag', 'Tisdag', 'Onsdag', 'Torsdag', 'Fredag', 'Lördag'],
+
+/Users/elijohnston/code/ejohnst2/troveko/node_modules/@fengyuanchen/datepicker/i18n/datepicker.th-TH.js:
+    7    'use strict';
+    8
+    9:   $.fn.datepicker.languages['th-TH'] = {
+   10      format: 'dd/mm/yyyy',
+   11      days: ['อาทิตย์','จันทร์','อังคาร','พุธ','พฤหัสบดี','ศุกร์','เสาร์'],
+
+/Users/elijohnston/code/ejohnst2/troveko/node_modules/@fengyuanchen/datepicker/i18n/datepicker.tr-TR.js:
+    7    'use strict';
+    8
+    9:   $.fn.datepicker.languages['tr-TR'] = {
+   10      format: 'dd.mm.yyyy',
+   11      days: ['Pazar', 'Pazartesi', 'Salı', 'Çarşamba', 'Perşembe', 'Cuma', 'Cumartesi'],
+
+/Users/elijohnston/code/ejohnst2/troveko/node_modules/@fengyuanchen/datepicker/i18n/datepicker.ug-CN.js:
+    7    'use strict';
+    8
+    9:   $.fn.datepicker.languages['ug-CN'] = {
+   10      format: 'yyyy-mm-dd',
+   11      days: ['يەكشەنبە', 'دۈشەنبە', 'سەيشەنبە', 'چارشەنبە', 'پەيشەنبە', 'جۈمە', 'شەنبە'],
+
+/Users/elijohnston/code/ejohnst2/troveko/node_modules/@fengyuanchen/datepicker/i18n/datepicker.zh-CN.js:
+    7    'use strict';
+    8
+    9:   $.fn.datepicker.languages['zh-CN'] = {
+   10      format: 'yyyy年mm月dd日',
+   11      days: ['星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六'],
+
+/Users/elijohnston/code/ejohnst2/troveko/node_modules/@fengyuanchen/datepicker/src/css/datepicker.css:
+    3  }
+    4
+    5: .datepicker-container {
+    6    background-color: #fff;
+    7    direction: ltr;
+    .
+   29  }
+   30
+   31: .datepicker-dropdown {
+   32    border: 1px solid #ccc;
+   33    box-shadow: 0 3px 6px #ccc;
+   ..
+   37  }
+   38
+   39: .datepicker-inline {
+   40    position: static;
+   41  }
+   42
+   43: .datepicker-top-left,
+   44: .datepicker-top-right {
+   45    border-top-color: var(--brand-color);
+   46
+   ..
+   62  }
+   63
+   64: .datepicker-bottom-left,
+   65: .datepicker-bottom-right {
+   66    border-bottom-color: var(--brand-color);
+   67
+   ..
+   83  }
+   84
+   85: .datepicker-top-right,
+   86: .datepicker-bottom-right {
+   87    &::before,
+   88    &::after {
+   ..
+   92  }
+   93
+   94: .datepicker-panel {
+   95    & > ul {
+   96      margin: 0;
+   ..
+  188  }
+  189
+  190: .datepicker-hide {
+  191    display: none;
+  192  }
+
+/Users/elijohnston/code/ejohnst2/troveko/node_modules/@fengyuanchen/datepicker/src/js/constants.js:
+    1  export const WINDOW = typeof window !== 'undefined' ? window : {};
+    2: export const NAMESPACE = 'datepicker';
+    3  export const EVENT_CLICK = `click.${NAMESPACE}`;
+    4  export const EVENT_FOCUS = `focus.${NAMESPACE}`;
+
+/Users/elijohnston/code/ejohnst2/troveko/node_modules/@fengyuanchen/datepicker/src/js/datepicker.js:
+   34  ].join(' ');
+   35
+   36: class Datepicker {
+   37    constructor(element, options = {}) {
+   38      this.$element = $(element);
+   ..
+  380
+  381  if ($.extend) {
+  382:   $.extend(Datepicker.prototype, render, handlers, methods);
+  383  }
+  384
+  385: export default Datepicker;
+  386
+
+/Users/elijohnston/code/ejohnst2/troveko/node_modules/@fengyuanchen/datepicker/src/js/defaults.js:
+    1  export default {
+    2:   // Show the datepicker automatically when initialized
+    3    autoShow: false,
+    4
+    5:   // Hide the datepicker automatically when picked
+    6    autoHide: false,
+    7
+    .
+   12    inline: false,
+   13
+   14:   // A element (or selector) for putting the datepicker
+   15    container: null,
+   16
+   17:   // A element (or selector) for triggering the datepicker
+   18    trigger: null,
+   19
+   ..
+   41    weekStart: 0,
+   42
+   43:   // Show year before month on the datepicker header
+   44    yearFirst: false,
+   45
+   ..
+   77    highlightedClass: 'highlighted',
+   78
+   79:   // The template of the datepicker
+   80    template: (
+   81:     '<div class="datepicker-container">' +
+   82:       '<div class="datepicker-panel" data-view="years picker">' +
+   83          '<ul>' +
+   84            '<li data-view="years prev">&lsaquo;</li>' +
+   ..
+   88          '<ul data-view="years"></ul>' +
+   89        '</div>' +
+   90:       '<div class="datepicker-panel" data-view="months picker">' +
+   91          '<ul>' +
+   92            '<li data-view="year prev">&lsaquo;</li>' +
+   ..
+   96          '<ul data-view="months"></ul>' +
+   97        '</div>' +
+   98:       '<div class="datepicker-panel" data-view="days picker">' +
+   99          '<ul>' +
+  100            '<li data-view="month prev">&lsaquo;</li>' +
+  ...
+  108    ),
+  109
+  110:   // The offset top or bottom of the datepicker from the element
+  111    offset: 10,
+  112
+  113:   // The `z-index` of the datepicker
+  114    zIndex: 1000,
+  115
+
+/Users/elijohnston/code/ejohnst2/troveko/node_modules/@fengyuanchen/datepicker/src/js/index.js:
+    1  import $ from 'jquery';
+    2: import Datepicker from './datepicker';
+    3  import {
+    4    NAMESPACE,
+    .
+   11
+   12  if ($.fn) {
+   13:   const AnotherDatepicker = $.fn.datepicker;
+   14
+   15:   $.fn.datepicker = function jQueryDatepicker(option, ...args) {
+   16      let result;
+   17
+   ..
+   27          const options = $.extend({}, $element.data(), $.isPlainObject(option) && option);
+   28
+   29:         data = new Datepicker(element, options);
+   30          $element.data(NAMESPACE, data);
+   31        }
+   ..
+   43    };
+   44
+   45:   $.fn.datepicker.Constructor = Datepicker;
+   46:   $.fn.datepicker.languages = LANGUAGES;
+   47:   $.fn.datepicker.setDefaults = Datepicker.setDefaults;
+   48:   $.fn.datepicker.noConflict = function noConflict() {
+   49:     $.fn.datepicker = AnotherDatepicker;
+   50      return this;
+   51    };
+
+/Users/elijohnston/code/ejohnst2/troveko/node_modules/@fengyuanchen/datepicker/src/js/methods.js:
+   21
+   22  export default {
+   23:   // Show the datepicker
+   24    show() {
+   25      if (!this.built) {
+   ..
+   47    },
+   48
+   49:   // Hide the datepicker
+   50    hide() {
+   51      if (!this.shown) {
+   ..
+   75    },
+   76
+   77:   // Update the datepicker with the current input value
+   78    update() {
+   79      const value = this.getValue();
+   ..
+  112    },
+  113
+  114:   // Reset the datepicker
+  115    reset() {
+  116      this.setDate(this.initialDate, true);
+  ...
+  335    },
+  336
+  337:   // Destroy the datepicker and remove the instance from the target element
+  338    destroy() {
+  339      this.unbind();
+
+479 matches across 47 files

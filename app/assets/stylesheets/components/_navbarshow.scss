@@ -52,13 +52,13 @@ input::-webkit-input-placeholder {
   color: white;
 }
 
-.dropdown-menu {
+.trov-dropdown-menu {
     padding-left: 10px;
     padding-right: 10px;
     width: 205px;
 }
 
-.open > .dropdown-menu {
+.open > .trov-dropdown-menu {
   display: block;
   position: absolute;
   z-index: 100100;
