@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  after_create :send_welcome_email
+  # after_create :send_welcome_email
 
   extend Devise::Models
   has_many :trips, dependent: :destroy
@@ -88,9 +88,9 @@ end
 
   private
 
-  def send_welcome_email
-    TestMailer.message(self).deliver_now
-  end
+  # def send_welcome_email
+  #   TestMailer.message(self).deliver_now
+  # end
 
   end
 
