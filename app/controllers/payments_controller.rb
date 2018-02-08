@@ -30,7 +30,7 @@ class PaymentsController < ApplicationController
        @client.messages.create({
          from: ENV['TWILIO_NUMBER'],
          to: '+14254482177',
-         body: "You have a booking at #{order.sku}! Please login to your profile on Troveko.com and approve it."
+         body: "New booking for #{order.trip.number_of_people} people starting #{order.trip.start_date}. Please login to your profile on http://www.troveko.org/users/sign_in and approve it."
        })
 
       order.update(payment: charge.to_json, state: 'paid')
