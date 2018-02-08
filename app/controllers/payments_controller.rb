@@ -29,8 +29,8 @@ class PaymentsController < ApplicationController
       @client = Twilio::REST::Client.new ENV['TWILIO_ACCOUNT_SID'], ENV['TWILIO_AUTH_TOKEN']
        @client.messages.create({
          from: ENV['TWILIO_NUMBER'],
-         to: '+447378155080',
-         body: "You have a booking at #{order.sku}. Please approve it in your profile"
+         to: '+14254482177',
+         body: "You have a booking at #{order.sku}! Please login to your profile on Troveko.com and approve it."
        })
 
       order.update(payment: charge.to_json, state: 'paid')
