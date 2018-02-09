@@ -120,6 +120,7 @@
     color: #76868F;
     font-size: 16px;
     line-height: 23px;
+    text-align: left;
     font-weight: 700;
     text-transform: uppercase;
 }
@@ -155,11 +156,25 @@
   border-radius: 50%;
 }
 
+#partners .row {
+  text-align: center;
+}
+
 //--------------Mobile View--------------------------------
 //---------------------------------------------------------
 @media screen and (max-width: 780px){
   #main-nav{  }
 
+p {
+    text-align: center;
+    font-size: 18px;
+  }
+
+h1 {
+    text-align: center;
+  }
+
+text-align: center;
   .experience-caption{
     padding-left: 9px !important;
     h1{
@@ -180,8 +195,10 @@
     }
 
   #story p{
-    font-size: 15px;
+    font-size: 18px;
+    text-align: center;
   }
+
   .background-image{
     height: 415px;
    .background-overlay h1{
@@ -221,7 +238,7 @@
   #partners{
     padding: 20px;
     h1{ margin-top: 0;}
-    .row{ padding-top: 0 !important; }
+    .row{ padding-top: 0 !important; text-align: center; }
     .team-avt{ margin: 10px; }
     h4{ margin-top: 20px;}
   }
