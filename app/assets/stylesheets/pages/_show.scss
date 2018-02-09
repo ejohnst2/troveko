@@ -85,33 +85,10 @@ span sm {
   color: gray;
 }
 
-// body, html {
-//     height: 100%;
-// }
-
-// body, html {
-//     height: 100%;
-// }
-
-// h2 {
-//   font-family: 'open sans';
-//   margin-top: 15px;
-//   color: #545454;
-// }
-
 .details h4{
   color: #898989;
   font-size: 25px;
 }
-
-// h3 {
-//   margin: 10px auto;
-//   width: auto;
-//   height: auto;
-//   margin-top: 25px;
-//   // color: #545454;
-//   margin-bottom: 20px;
-// }
 
 .button{
   width: 100%;
@@ -180,6 +157,15 @@ span sm {
     padding: 0;
   }
 
+  .mobile-view-caption h1 {
+    font-size: 40px;
+  }
+
+   .mobile-view-caption h4 {
+    font-size: 24px;
+  }
+
+
   .fa#show-icon{
     font-size: 12px !important;
   }
@@ -191,6 +177,7 @@ span sm {
   .ngo-actions {
     display: block;
     padding-top: 0px;
+    text-align: center;
     }
 
   #map{ height: 300px !important; }
