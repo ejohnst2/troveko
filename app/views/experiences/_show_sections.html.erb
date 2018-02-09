@@ -1,6 +1,11 @@
 <div class="details">
 
   <div class="section" id="overview">
+    <div class="mobile-view-caption hidden-xl hidden-lg">
+      <h1><%= @experience.title %></h1>
+      <h4><%= @experience.short_description %></h4>
+    </div>
+
     <h2>Overview</h2>
     <div class="flex-around" id="overview_info">
       <%#= render 'experiences/areatypes' %>

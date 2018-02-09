@@ -51,7 +51,7 @@
   // right: 50px;
   // bottom: 20px;
   font-size: 15px;
-  text-transform: uppercase;
+  // text-transform: uppercase;
 }
 
 .card-user {
@@ -113,7 +113,7 @@
   right: 50px;
   bottom: 20px;
   // font-size: 20px;
-  text-transform: uppercase;
+  // text-transform: uppercase;
 }
 
 // #experience .card-user {
@@ -134,4 +134,19 @@
 
 #experiences .card-description h2 {
   font-size: 24px;
+}
+
+//------------Mobile View---------------------------------
+//-------------------------------------------------------
+@media screen and (max-width: 780px){
+
+  .card h1 {
+    font-size: 36px;
+  }
+
+
+  #price-card{
+  font-size: 20px;
+}
+
 }

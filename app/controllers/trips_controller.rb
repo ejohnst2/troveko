@@ -24,6 +24,7 @@ class TripsController < ApplicationController
     @trip.user = current_user
 
     if @trip.save
+      # TripMailer.trip_request(@trip).deliver_now
       order = Order.create!(sku: @trip.experience.title, amount: @trip.experience.price, state: 'pending', trip_id: @trip.id)
       if params[:trip][:contribution].present?
         @contribution = Contribution.new(user: current_user, trip: @trip, fund: @trip.experience.fund, amount_cents: (params[:trip][:contribution].to_i * 100) )
