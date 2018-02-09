@@ -11,6 +11,13 @@ class UserMailer < ApplicationMailer
     mail(to: @user.email, subject: 'Welcome to Troveko')
   end
 
+  def trip_request(trip, email)
+    @trip = trip
+    @email = email
+    #@user = user
+    mail(to: @email, subject: "Request Made")
+  end
+
   # def request(user, trip)
   #   @user = user
   #   @greeting = "Hi #{user.first_name}"

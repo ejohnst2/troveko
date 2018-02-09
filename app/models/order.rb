@@ -1,5 +1,5 @@
 class Order < ApplicationRecord
-  after_create :send_request_email
+  # after_create :send_request_email
   monetize :amount_cents
   belongs_to :trip
 
@@ -14,7 +14,7 @@ class Order < ApplicationRecord
 
   private
 
-  def send_request_email
-    OrderMailer.request(current_user).deliver_now
-  end
+  # def send_request_email
+  #   OrderMailer.request(current_user).deliver_now
+  # end
 end
