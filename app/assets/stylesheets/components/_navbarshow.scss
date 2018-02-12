@@ -56,6 +56,7 @@ input::-webkit-input-placeholder {
     padding-left: 10px;
     padding-right: 10px;
     width: 205px;
+    z-index: 100;
 }
 
 .open > .dropdown-menu {
@@ -165,8 +166,9 @@ font-weight: thick;
 
 
 .navbar-troveko-sticky {
-  position: relative;
-  z-index:1;
+  position: sticky;
+  top: 0;
+  z-index:10;
   width:100%;
   font-weight: lighter !important;
 }
