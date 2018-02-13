@@ -14,16 +14,16 @@
     </div>
   </div>
 
-  <a href="#overview" class="hidden-xs hidden-sm" style="font-size: 24px;">Overview</a>
-  <a href="#reviews" class="hidden-xs hidden-sm" style="font-size: 24px;">Reviews</a>
-  <a href="#location" class="hidden-xs hidden-sm" style="font-size: 24px;">Location</a>
-  <a href="#host" class="hidden-xs hidden-sm" style="font-size: 24px;">Host</a>
-  <a href="#activities" class="hidden-xs hidden-sm" style="font-size: 24px;">Activities</a>
-  <a href="#impact" class="hidden-xs hidden-sm" style="font-size: 24px;">Fund</a>
+  <a href="#overview" class="hidden-xs hidden-sm" style="font-size: 24px;"><h4>Overview</h4></a>
+  <a href="#reviews" class="hidden-xs hidden-sm" style="font-size: 24px;"><h4>Reviews</h4></a>
+  <a href="#location" class="hidden-xs hidden-sm" style="font-size: 24px;"><h4>Location</h4></a>
+  <a href="#host" class="hidden-xs hidden-sm" style="font-size: 24px;"><h4>Host</h4></a>
+  <a href="#activities" class="hidden-xs hidden-sm" style="font-size: 24px;"><h4>Activities</h4></a>
+  <a href="#impact" class="hidden-xs hidden-sm" style="font-size: 24px;"><h4>Fund</h4></a>
   <% if !current_user.nil? %>
-        <%= link_to 'Message Host', conversations_path(sender_id: current_user.id, recipient_id: @experience.user.id, experience_id: @experience.id), method: :post, style: "font-size: 24px", class: "hidden-xs hidden-sm" %>
+        <h4><%= link_to 'Message Host', conversations_path(sender_id: current_user.id, recipient_id: @experience.user.id, experience_id: @experience.id), method: :post, style: "font-size: 24px", class: "hidden-xs hidden-sm" %></h4>
       <% end %>
 
-  <%= link_to "Book Now", new_experience_trip_path(@experience), style: "font-size: 24px; width: 250px; text-align: center;", class: "btn-lg btn-danger", id: "book-now", :method => :get %>
+  <h4><%= link_to "Book Now", new_experience_trip_path(@experience), style: "font-size: 24px; width: 250px; text-align: center;", class: "btn-lg btn-danger", id: "book-now", :method => :get %></h4>
 
 </div>
