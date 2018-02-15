@@ -10,6 +10,7 @@ class Order < ApplicationRecord
     charge.capture
 
     order.update(payment: charge.to_json, state: 'fulfilled')
+    UserMailer.trip_request(order.trip, order.trip.email).deliver_now
   end
 
   private

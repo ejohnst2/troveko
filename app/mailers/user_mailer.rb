@@ -12,6 +12,7 @@ class UserMailer < ApplicationMailer
   end
 
   def trip_request(trip, email)
+    @greeting = "Hey #{trip.first_name}"
     @trip = trip
     @email = email
     #@user = user
