@@ -15,22 +15,16 @@ class UserMailer < ApplicationMailer
     @greeting = "Hey #{trip.first_name}"
     @trip = trip
     @email = email
-    #@user = user
+
     mail(to: @email, subject: "Request Made")
   end
 
-  # def request(user, trip)
-  #   @user = user
-  #   @greeting = "Hi #{user.first_name}"
+  def trip_confirmation(trip, email)
+    @email = email
+    @trip = trip
+    @greeting = "Hi #{trip.first_name}"
 
-  #   mail(to: @user.email, subject: 'Your trip request has been made')
-  # end
-
-  def confirmation(user, trip)
-    @user = user
-    @greeting = "Hi #{user.first_name}"
-
-    mail(to: @user.email, subject: 'Your Troveko stay is confirmed')
+    mail(to: @email, subject: 'Your Troveko stay is confirmed')
   end
 
   def cancel(user,trip)
