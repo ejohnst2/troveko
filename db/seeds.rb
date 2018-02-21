@@ -107,7 +107,7 @@ backpacking_couple.save!
 
 
 
-bali_fund_one = Fund.new(   user: project_kalpa,   funding_goal: 10000,   title:
+bali_fund_one = Fund.new( user: project_kalpa,   funding_goal: 10000,   title:
 "Community Center for Farmers and Youth",   about: "The Subak Landscape   of
 Catur Angga Batukaru has no central meeting place for farmers and no center
 for youth to come together for learning and socializing. In efforts to improve
@@ -122,8 +122,8 @@ can be   done on a voluntary basis." )
 
 bali_photos_one = [ seed_image('L1830789'), seed_image('L1840124-1184x662'), seed_image('L1840058'), seed_image('L1830769'), seed_image('L1830780-768x432'), seed_image('L1840358-1184x666'), seed_image('L1840358-1184x666') ]
 
-bali_experience_one = Experience.new(   user: project_kalpa,   title:
-"Family Living in Balinese Farming Village",   price: 100,   capacity: 5,   status: true,
+bali_experience_one = Experience.new( user: project_kalpa,   title:
+"Live with Pak Ketut and family in quaint village of Piling",   price: 100,   capacity: 5,   status: true,
 address: "Jl. Batu Mejan No. 88",   latitude: -8.355552,   longitude:
 115.089274,   long_description: "Ketut Suadha and his family of 5 live in the
 village of Piling. His extended family including brothers, aunts, uncles, and
@@ -163,8 +163,7 @@ bali_photos_three = [ seed_image('L1840124-1184x662'), seed_image('L1840287-768x
 
 
 
-bali_experience_three = Experience.new(   user: project_kalpa,   title: "Endless Rice
-Terraces in Jatiluwih",   price: 130,   capacity: 5,   status: true,   address:
+bali_experience_three = Experience.new(   user: project_kalpa,   title: "Live with Pak Nyoman and family in beautiful Jatiluwih",   price: 130,   capacity: 5,   status: true,   address:
 "Jl. Batu Mejan No. 88",   latitude: -8.371517,   longitude: 115.131846,
 long_description: "Nyoman Sutama and his family of 5 are based in the village of
 Jatiluwih. Nyoman is the Head of the Subak cluster (the 20 communities
@@ -196,171 +195,11 @@ International Airport. For those that are located.",   guided: true   )
   bali_experience_three.photo_urls = bali_photos_three
   bali_experience_three.save!
 
-
-
-# rajmachi_fund_one = Fund.new(
-# user: project_kalpa,
-# funding_goal: 5000,
-# title: "Improve Living Conditions of Community",
-# about: "Rajmachi fort has
-# been declared as a protected monument. Despite the glorious historical past,
-# most of the families have been living a neglected backward life. The people
-# living here belong to the Mahadev Koli Tribe. Generally ‘Koli’ means a fisherman
-# but they are primarily engaged in agriculture. The Mahadev Koli Tribe derive
-# their name from their God – Mahadev and live in the Mahadev hills of
-# Maharashtra. They speak Marathi and use the Devanagari script. The villagers are
-# low on quality of life since access to resources like health care services,
-# education for children, water facilities, electricity and so on is meagre. The
-# evident cause for this disparateness is poor road connectivity. The villagers
-# are compelled to migrate to bigger cities where they end up doing menial jobs in
-# order to ensure their children’s education.",
-# use_of_funds: "Their aim was and
-# is to preserve the historical monument, provide livelihood options to the
-# villagers and make sincere efforts to wean the people away from addiction to
-# alcohol. It also makes strides in removing various harmful superstitions
-# prevalent in the community."   )
-
-# rajmachi_fund_two = Fund.new(   user: project_kalpa,   funding_goal: 3000,
-# title: "Rainwater Harvesting for Village",   about: "Rajmachi fort has been
-# declared as a protected monument. Despite the glorious historical past, most of
-# the families have been living a neglected backward life. The people living here
-# belong to the Mahadev Koli Tribe. Generally ‘Koli’ means a fisherman but they
-# are primarily engaged in agriculture. The Mahadev Koli Tribe derive their name
-# from their God – Mahadev and live in the Mahadev hills of Maharashtra. They
-# speak Marathi and use the Devanagari script. The villagers are low on quality of
-# life since access to resources like health care services, education for
-# children, water facilities, electricity and so on is meagre. The evident cause
-# for this disparateness is poor road connectivity. The villagers are compelled to
-# migrate to bigger cities where they end up doing menial jobs in order to ensure
-# their children’s education.",   use_of_funds: "Rajmachi fort has been declared
-# as a protected monument. Despite the glorious historical past, most of the
-# families have been living a neglected backward life. The people living here
-# belong to the Mahadev Koli Tribe. Generally ‘Koli’ means a fisherman but they
-# are primarily engaged in agriculture. The Mahadev Koli Tribe derive their name
-# from their God – Mahadev and live in the Mahadev hills of Maharashtra. They
-# speak Marathi and use the Devanagari script. The villagers are low on quality of
-# life since access to resources like health care services, education for
-# children, water facilities, electricity and so on is meagre. The evident cause
-# for this disparateness is poor road connectivity. The villagers are compelled to
-# migrate to bigger cities where they end up doing menial jobs in order to ensure
-# their children’s education."   )
-
-
-
-# rajmachi_photos_one = [
-#   'http://4.bp.blogspot.com/-Hzt5ggvLk2U/U7LIoyikEkI/AAAAAAAAD4k/l73OH2w4iN0/s1600/DSC09194.JPG',
-#   seed_image('IMG_3353-1184x662')
-# ]
-
-
-# rajmachi_experience_one = Experience.new(
-# user: rajmachi_rural_aid,   title:
-# "Village living near Rajmachi Fort",   price: 100,   capacity: 10,   status:
-# true, address: "Village Udhewadi, Khandala", latitude: 17.318649,   longitude:
-# 74.235628,  long_description: "Naneshwar and his wife are also amid aged couple
-# who have two son’s Ganesh and Ashok. Ashok has migrated to a nearby city in
-# search of employment and education for his  children. Ganesh stayed in the
-# village and conducted adventure sports for the tourists, but he met with a
-# accident while conduting adventure sports for a group and had a severe injury on
-# his head. His family did not have enough money for his operation, with the help
-# of the Ngo they managed to get him operated but he still needs to undergo a
-# surgery for his skull, they are saving funds for his operation. Ganesh inspite
-# of this injury he is willing to work and support his family. All the members of
-# the family earn a livelihood by doing labour work at nearby houses during peak
-# tourist seasons. Despite of all these problems they are interested in working
-# with us to explore how organised community-based tourism can provide sustainable
-# livelihood options to the villagers.",  short_description: "Trekking and village-stay
-# through the hills of Rajmachi",  city: "Pune", postal_code: "415105", country:
-# "India", fund: rajmachi_fund_one,  duration: 2, highlights: "A plateau rich in history, culture and
-# beautiful hills, Rajmachi has two fortified peaks – Shrivardhan and Manaranjan
-# forts, with a small village Udhewadi located near two famous hills of Lonavala
-# and Khandala in the Sahyadri mountain range of the Konkan region of Maharashtra.The experience includes trekking, learning to cook
-# ethnic food, heritage walks, and your homestay. You will learn about local life
-# in Rajmachi, how to cook ethnic food, and the history of the area. Over the years many households have been
-# providing rooms and food facilities for fellow- travellers, sparking a shift
-# from agriculture to tourism for their livelihoods. Tourism is an industry like
-# no other. However, unplanned growth without proper structuring has led to harm
-# the environment, natural and cultural resources such as water resources,
-# heritage sites etc. There also exists exploitation of villagers as they get paid
-# less by the trek organisers.", transportation:"Rajmachi is located at about 99
-# kilometres from Mumbai and can be easily reached via road in about couple of
-# hours. It is accessible via train too, but a road trip is more fun and
-# pleasurable. Here is the route for Mumbai-Rajmachi. Best way to cover Mumbai to
-# Rajmachi is: Mumbai – 26 kilometres – Navi Mumbai – 24 kilometre -Bhatan Tunnel
-# – 58 kilometre – Khandala – 15 kilometre – Rajmachi. To reach this place easily,
-# follow Mumbai to Pune Expressway and NH4 to Masur to Umbraj Rd in Umbraj. The
-# road is very easy to navigate and in an excellent condition with a lot of ATMs
-# and drive in restaurants.", guided: true
-# )
-
-#   rajmachi_experience_one.features << [ features.sample, features.sample, features.sample, features.sample ]
-#   rajmachi_experience_one.activities << [ activities[0], activities[1], activities[2], activities[3] ]
-#   rajmachi_experience_one.areatypes << [ areatypes[1] ]
-#   rajmachi_experience_one.photo_urls = rajmachi_photos_one
-#   rajmachi_experience_one.save!
-
-
-
-# rajmachi_photos_two = [
-#   'https://upload.wikimedia.org/wikipedia/commons/d/d5/Rajmachi.jpg',
-#   'https://punehikers.com/m/photos/get_image/file/3378d29996429d1294d0635b47924480.jpg',
-#   seed_image('IMG_3353-1184x662'),
-#   'http://www.onacheaptrip.com/wp-content/uploads/Small-bridge-at-Rajmachi-fort-Trek.jpg'
-#    ]
-
-
-# rajmachi_experience_two = Experience.new(   user: rajmachi_rural_aid,   title:
-# "Live Amongst the Mountains of Pune",   price: 75,   capacity: 6,   status:
-# true, address: "Village Udhewadi, Khandala",   latitude: 17.318649, longitude:
-# 74.235628,   long_description: "Naneshwar and his wife are also amid aged couple
-# who have two son’s Ganesh and Ashok. Ashok has migrated to a nearby city in
-# search of employment and education for his  children. Ganesh stayed in the
-# village and conducted adventure sports for the tourists, but he met with a
-# accident while conduting adventure sports for a group and had a severe injury on
-# his head. His family did not have enough money for his operation, with the help
-# of the Ngo they managed to get him operated but he still needs to undergo a
-# surgery for his skull, they are saving funds for his operation. Ganesh inspite
-# of this injury he is willing to work and support his family. All the members of
-# the family earn a livelihood by doing labour work at nearby houses during peak
-# tourist seasons. Despite of all these problems they are interested in working
-# with us to explore how organised community-based tourism can provide sustainable
-# livelihood options to the villagers.",
-# short_description: "A weekend getaway through the hills of Rajmachi",   city:
-# "Pune",   postal_code: "415105",   country: "India",   fund: rajmachi_fund_two,
-# duration: 2, highlights: "A plateau rich in history, culture and
-# beautiful hills, Rajmachi has two fortified peaks – Shrivardhan and Manaranjan
-# forts, with a small village Udhewadi located near two famous hills of Lonavala
-# and Khandala in the Sahyadri mountain range of the Konkan region of Maharashtra.The experience includes trekking, learning to cook
-# ethnic food, heritage walks, and your homestay. You will learn about local life
-# in Rajmachi, how to cook ethnic food, and the history of the area. Over the years many households have been
-# providing rooms and food facilities for fellow- travellers, sparking a shift
-# from agriculture to tourism for their livelihoods. Tourism is an industry like
-# no other. However, unplanned growth without proper structuring has led to harm
-# the environment, natural and cultural resources such as water resources,
-# heritage sites etc. There also exists exploitation of villagers as they get paid
-# less by the trek organisers.",
-# transportation:"Rajmachi is located at about 99 kilometres from Mumbai and can
-# be easily reached via road in about couple of hours. It is accessible via train
-# too, but a road trip is more fun and pleasurable. Here is the route for Mumbai-
-# Rajmachi. Best way to cover Mumbai to Rajmachi is: Mumbai – 26 kilometres – Navi
-# Mumbai – 24 kilometre -Bhatan Tunnel – 58 kilometre – Khandala – 15 kilometre –
-# Rajmachi. To reach this place easily, follow Mumbai to Pune Expressway and NH4
-# to Masur to Umbraj Rd in Umbraj. The road is very easy to navigate and in an
-# excellent condition with a lot of ATMs and drive in restaurants.", guided: true
-# )
-
-
-#   rajmachi_experience_two.features << [ features.sample, features.sample, features.sample, features.sample ]
-#   rajmachi_experience_two.activities << [ activities[0], activities[1], activities[2], activities[3] ]
-#   rajmachi_experience_two.areatypes << [ areatypes[1] ]
-#   rajmachi_experience_two.photo_urls = rajmachi_photos_two
-#   rajmachi_experience_two.save!
-
 bali_photos_two = [ seed_image('Tengkudak-Host-1-862x575'), seed_image('L1830689'), seed_image('tengkudak-accommodation'), seed_image('L1840124-1184x662'), seed_image('tengkudak-kitchen') ]
 
-bali_experience_two = Experience.new( user: project_kalpa,   title: "Ceremonies and Cooking in the Balinese Subak",
+bali_experience_two = Experience.new( user: project_kalpa,   title: "Live with warung owner and family in Tengkudak",
 price: 100,   capacity: 5,   status: true,
-address: "Jl. Batu Mejan No. 88",   latitude: -8.417752,   longitude:
+address: "Jalan Raya Batukaru, Wongaya Gede, Penebel, Wongaya Gede, Penebel, Kabupaten Tabanan, Bali 82152, Indonesia",   latitude: -8.417752,   longitude:
 115.117740,   long_description: "Nyoman Sutiani and her two brothers are based
 in the village of Tengkudak. She owns rice fields that are managed by her
 brothers, and has opened a small shop outside of her house a couple months ago
@@ -399,37 +238,4 @@ start_date = Date.today + rand(20..50).days
     trip = Trip.create!(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name , experience_id: [bali_experience_one, bali_experience_two, bali_experience_three].sample.id, status: true, start_date: start_date, user: [rajmachi_rural_aid, project_kalpa].sample, number_of_people: [1, 2, 3].sample)
     contribution = Contribution.create(user_id: [backpacking_couple, toasty_boy].sample.id, fund_id: trip.experience.fund.id, trip_id: trip.id, amount: [50, 20, 40, 60].sample)
 end
-
-# 8.times do
-#   urls = [ pictures.sample, pictures.sample, pictures.sample ]
-#   fund = Fund.create!(user_id: traveler.id, funding_goal_cents: rand(2000000..4000000), title: "Building #{Faker::Educator.campus} for the Community", about: Faker::Lorem.sentence, use_of_funds: Faker::Lorem.paragraphs )
-
-#   experience = Experience.new(
-#     title: "#{Faker::Zelda.location} experience",
-#     short_description: "#{Faker::LordOfTheRings.character}-style #{Faker::GameOfThrones.house} in #{Faker::LordOfTheRings.location}",
-#     long_description: "#{Faker::Lorem.paragraphs}",
-#     price: rand(400..1000),
-#     capacity: rand(1..10),
-#     address: Faker::Address.street_address,
-#     city: Faker::Address.city,
-#     country: Faker::Address.country,
-#     postal_code: Faker::Address.postcode,
-#     latitude: Faker::Address.latitude,
-#     longitude: Faker::Address.longitude,
-#     user: new_user_one,
-#     fund: fund
-#     )
-#   p experience
-#   experience.features << [features.sample, features.sample, features.sample, features.sample, features.sample]
-#   experience.activities << [activities.sample, activities.sample, activities.sample, activities.sample]
-#   experience.areatypes << [areatypes.sample]
-#   experience.photo_urls = urls
-#   experience.save!
-
-
-#   3.times do
-#     trip = Trip.create!(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name , experience_id: experience.id, status: true, start_date: start_date, end_date: start_date + rand(4..10).days, user: traveler)
-#     contribution = Contribution.create(user_id: traveler.id, fund_id: fund.id, trip_id: trip.id, amount: [1500, 220, 415, 600].sample)
-#   end
-# end
 

@@ -2,27 +2,27 @@
   Your Troveko Profile <%= @user.first_name %>
 <% end %>
 
+<body class="profile-background">
+
 <div class="row">
   <div class="col-xs-12 col-md-3">
     <div class="profile-info">
-      <center><h2> <%= @user.first_name %> </h2></center>
+      <center><h1><%= @user.first_name %> <%= @user.last_name %></h1></center>
       <%= image_tag facebook_image(@user), class: "profile-image" %>
       <div class="edit_profile">
-        <p><%= @user.first_name %> <%= @user.last_name %></p>
         <p><%= user.email %></p>
         <%= link_to "Edit profile", edit_user_registration_path(@user) %>
       </div>
     </div>
   </div>
 
-  <div class="col-xs-12 col-md-9">
+  <div class="col-xs-12 col-md-9";">
     <div class="profile-activity">
-      <div class="my-row">
-        <h2 class="flex-item">Hey, <%= @user.first_name %>!</h2>
-      </div>
 
       <div class="traveler-info flex-item">
-        <h4>Welcome to your traveler dashboard where you can manage your pending and confirmed Troveko trips</h4>
+        <h4 style="margin-top: 28px; margin-bottom: 15px;">
+          Welcome to your traveler dashboard where you can manage your pending and confirmed Troveko trips
+        </h4>
       </div>
       <!-- From Boostrap  - other features here https://getbootstrap.com/docs/3.3/javascript/#tabs
       -->
@@ -129,6 +129,9 @@
     </div>
   </div>
 </div>
+
+</body>
+
 
 <%= content_for(:after_js) do %>
 <script>
