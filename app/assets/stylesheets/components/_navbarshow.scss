@@ -166,9 +166,8 @@ font-weight: thick;
 
 
 .navbar-troveko-sticky {
-  position: sticky;
-  top: 0;
-  z-index:10;
+  position: relative;
+  z-index:2;
   width:100%;
   font-weight: lighter !important;
 }
