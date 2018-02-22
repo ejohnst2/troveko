@@ -9,6 +9,7 @@
 
  <h1>Payment Details</h1>
  <h4>Step 2 of 2</h4>
+  <%#= render 'trips/knowledge' %>
   <div class="container" id="payment-box">
   <div class="row" id="experience" style="display: flex; align-items: center; justify-content: space-around;">
     <div class="col-lg-6 col-md-6-col-xs-12 col-sm-12">
@@ -26,10 +27,10 @@
     <div class="col-lg-6 col-md-6-col-xs-12 col-sm-12" style="bottom: 0;">
        <%= render 'payments/new'  %>
     </div>
-
   </div>
 </div>
 <h4>Last step! You're much closer to going to <%= @trip.experience.city %> on <%= @trip.start_date.strftime("%m/%d/%y")%>. Upon successful payment you will be redirected to a confirmation page.</h4>
+
 
 </div>
 
