@@ -17,9 +17,9 @@ Rails.application.configure do
   config.action_controller.perform_caching = true
 
   #actionmailer user PostMark API
-  # config.action_mailer.delivery_method     = :postmark
-  # config.action_mailer.postmark_settings   = { api_key: ENV['POSTMARK_API_KEY'] }
-  # config.action_mailer.default_url_options = { host: "troveko.org" }
+  config.action_mailer.delivery_method     = :postmark
+  config.action_mailer.postmark_settings   = { api_key: ENV['POSTMARK_API_KEY'] }
+  config.action_mailer.default_url_options = { host: "troveko.org" }
 
   # Attempt to read encrypted secrets from `config/secrets.yml.enc`.
   # Requires an encryption key in `ENV["RAILS_MASTER_KEY"]` or
