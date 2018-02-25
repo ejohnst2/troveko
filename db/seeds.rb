@@ -38,6 +38,7 @@ activities = [
 Activity.create!(name: "Hiking", fa_icon: "fa-blind"),
 Activity.create!(name: "Trekking", fa_icon: "fa-blind"),
 Activity.create!(name: "Cooking", fa_icon: "fa fa-cutlery"),
+Activity.create!(name: "Ceremony", fa_icon: "fa fa-check-square"),
 Activity.create!(name: "Camping", fa_icon: "fa-fire"),
 Activity.create!(name: "Fishing", fa_icon: "fa-ship"),
 Activity.create!(name: "Handicrafts", fa_icon: "fa-shopping-basket"),
@@ -70,19 +71,6 @@ project_kalpa = User.new(
   website: "projectkalpa.org"
  )
 project_kalpa.save!
-
-rajmachi_rural_aid = User.new(
-  email: 'admin@rajmachiruralaid.org',
-  password:'ruralaid',
-  ngo: true,
-  facebook_picture_url: ("NGO.png"),
-  first_name: 'Rohan',
-  last_name: 'Keshewar',
-  mission: "Our mission is to protect the livelihoods of those living in and around Rajamachi",
-  programs: "Rajmachi Rural Aid and Development Programme, a non profit non governmental organization (NGO) is engaged in various developmental and social welfare activities at Fort Rajamachi since the year 1976",
-  website: "rajmachiruralaid.org"
-)
-rajmachi_rural_aid.save!
 
 toasty_boy = User.new(
   email: 'toastyboy@gmail.com',
@@ -120,10 +108,15 @@ can be   done on a voluntary basis." )
 
 
 
-bali_photos_one = [ seed_image('L1830789'), seed_image('L1840124-1184x662'), seed_image('L1840058'), seed_image('L1830769'), seed_image('L1830780-768x432'), seed_image('L1840358-1184x666'), seed_image('L1840358-1184x666') ]
+bali_photos_one = [ seed_image('Piling Cover'), seed_image('Piling 1'), seed_image('Piling 2'), seed_image('Piling 3'), seed_image('Piling 4') ]
 
+<<<<<<< HEAD
+bali_experience_one = Experience.new(   user: project_kalpa,   title:
+"Live in the Quaint Village of Piling with Pak Ketut",   price: 150,   capacity: 5,   status: true,
+=======
 bali_experience_one = Experience.new( user: project_kalpa,   title:
 "Live with Pak Ketut and family in quaint village of Piling",   price: 100,   capacity: 5,   status: true,
+>>>>>>> eb4456aeb845589320df779d96ad70d519616fcc
 address: "Jl. Batu Mejan No. 88",   latitude: -8.355552,   longitude:
 115.089274,   long_description: "Ketut Suadha and his family of 5 live in the
 village of Piling. His extended family including brothers, aunts, uncles, and
@@ -150,20 +143,24 @@ untouched forests and see waterfalls, Visit the five surrounding temples.",
 transportation: "The closest airport is Denpasar International Airport. For those
 that are located ",  guided: true   )
 
-  bali_experience_one.features << [ features[5], features[2], features[0], features[7], features[4] ]
-  bali_experience_one.activities << [ activities[2], activities[3], activities[1], activities[6] ]
+  bali_experience_one.features << [ features[0], features[4], features[6], features[7] ]
+  bali_experience_one.activities << [ activities[2], activities[3], activities[1], activities[0] ]
   bali_experience_one.areatypes << [ areatypes[0] ]
   bali_experience_one.photo_urls = bali_photos_one
   bali_experience_one.save!
 
 
 
-bali_photos_three = [ seed_image('L1840124-1184x662'), seed_image('L1840287-768x432'), seed_image('jatiluwih-host-1200x671'), seed_image('L1830827'), seed_image('jatiluwih-gate-1200x800') ]
+bali_photos_three = [ seed_image('Jatiluwih Cover'), seed_image('Jatiluwih 3'), seed_image('Jatiluwih 4'), seed_image('Jatluwih 1'), seed_image('Jatiluwih 2') ]
 
 
 
 
+<<<<<<< HEAD
+bali_experience_three = Experience.new(   user: project_kalpa,   title: "Live in Beautiful Jatiluwih with Pak Nyoman",   price: 150,   capacity: 5,   status: true,   address:
+=======
 bali_experience_three = Experience.new(   user: project_kalpa,   title: "Live with Pak Nyoman and family in beautiful Jatiluwih",   price: 130,   capacity: 5,   status: true,   address:
+>>>>>>> eb4456aeb845589320df779d96ad70d519616fcc
 "Jl. Batu Mejan No. 88",   latitude: -8.371517,   longitude: 115.131846,
 long_description: "Nyoman Sutama and his family of 5 are based in the village of
 Jatiluwih. Nyoman is the Head of the Subak cluster (the 20 communities
@@ -189,18 +186,18 @@ Jatiluwih, Explore untouched forests and see waterfalls, Visit the five
 surrounding temples.",  transportation:"The closest airport is Denpasar
 International Airport. For those that are located.",   guided: true   )
 
-  bali_experience_three.features << [ features[5], features[2], features[0], features[7], features[4] ]
-  bali_experience_three.activities << [ activities.sample, activities.sample ]
+  bali_experience_three.features << [ features[0], features[4], features[6], features[7] ]
+  bali_experience_three.activities << [ activities[2], activities[3], activities[1], activities[0] ]
   bali_experience_three.areatypes << [ areatypes[0] ]
   bali_experience_three.photo_urls = bali_photos_three
   bali_experience_three.save!
 
 bali_photos_two = [ seed_image('Tengkudak-Host-1-862x575'), seed_image('L1830689'), seed_image('tengkudak-accommodation'), seed_image('L1840124-1184x662'), seed_image('tengkudak-kitchen') ]
 
-bali_experience_two = Experience.new( user: project_kalpa,   title: "Live with warung owner and family in Tengkudak",
-price: 100,   capacity: 5,   status: true,
-address: "Jalan Raya Batukaru, Wongaya Gede, Penebel, Wongaya Gede, Penebel, Kabupaten Tabanan, Bali 82152, Indonesia",   latitude: -8.417752,   longitude:
-115.117740,   long_description: "Nyoman Sutiani and her two brothers are based
+bali_experience_two = Experience.new( user: project_kalpa,   title: "Live in the historical Tengkudak with Nyoman Sutiani",
+price: 150,   capacity: 5,   status: true,
+address: "Jl. Batu Mejan No. 88",   latitude: -8.417752,   longitude: 115.117740,
+long_description: "Nyoman Sutiani and her two brothers are based
 in the village of Tengkudak. She owns rice fields that are managed by her
 brothers, and has opened a small shop outside of her house a couple months ago
 to be able to make ends meet. She is the youngest of three, and her middle
@@ -225,17 +222,10 @@ Jatiluwih, Explore untouched forests and see waterfalls, Visit the five
 surrounding temples.",   transportation:"The closest airport is Denpasar
 International Airport. For those that are located",   guided: true   )
 
-bali_experience_two.features << [ features[5], features[2], features[0], features[7], features[4]  ]
-bali_experience_two.activities << [  activities[0], activities[1], activities[2], activities[3] ]
+bali_experience_two.features << [ features[0], features[4], features[6], features[7] ]
+bali_experience_two.activities << [ activities[2], activities[3], activities[1], activities[0] ]
 bali_experience_two.areatypes << [ areatypes[0] ]
 bali_experience_two.photo_urls = bali_photos_two
 bali_experience_two.save!
 
-
-start_date = Date.today + rand(20..50).days
-
-25.times do
-    trip = Trip.create!(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name , experience_id: [bali_experience_one, bali_experience_two, bali_experience_three].sample.id, status: true, start_date: start_date, user: [rajmachi_rural_aid, project_kalpa].sample, number_of_people: [1, 2, 3].sample)
-    contribution = Contribution.create(user_id: [backpacking_couple, toasty_boy].sample.id, fund_id: trip.experience.fund.id, trip_id: trip.id, amount: [50, 20, 40, 60].sample)
-end
 
