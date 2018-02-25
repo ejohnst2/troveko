@@ -1,0 +1,14 @@
+#if the number of people for all trips for an experience on a particular date is greater than the capacity of the experience
+#remove date as an option, don't allow people to book that date
+
+
+
+Trip.experience.all.people >= @experience.capacity
+
+
+before_create: check_date_availability
+
+def self.check_date_availability(trip_params)
+  trips = Trip.where('start_date < ? OR leaving_date > ?', self.arrival_date, self.leaving_date)
+  return bookings.empty?
+end

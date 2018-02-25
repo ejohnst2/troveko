@@ -11,10 +11,19 @@
   margin-top: 25px;
 }
 
+.booking-confirm img {
+  width: 100px;
+  height: 100px;
+}
+
 
 .flex-item {
   align-self: center;
   flex: 0 0 auto;
+}
+
+.profile-background {
+  background-color: rgba(249, 194, 84, 0.7);
 }
 
 /* -----------------------Profile info --------------------- */
@@ -37,8 +46,8 @@
 
 .profile-image {
   border-radius: 50%;
-  width: 150px;
-  height: 150px;
+  width: 200px;
+  height: 200px;
   margin: 15px;
 }
 
@@ -77,7 +86,7 @@ div.edit-profile {
 }
 
 .activity {
-  background-color: white;
+  background-color: rgba(245, 222, 179, 0.8);
   padding: 50px;
   // max-width: 600px;
   border-radius: 7px;
@@ -176,4 +185,63 @@ justify-content: center;
 #main-nav a:hover {
   background-color: transparent;
   border: 2.5px solid $trov-blue;
+}
+
+
+//------------Mobile View---------------------------------
+//-------------------------------------------------------
+@media screen and (max-width: 780px){
+
+  .pending{
+    display: inline-block;
+  }
+
+  .activity {
+    display: block;
+  }
+
+   .profile-activity {
+    display: inline-block;
+  }
+
+  .booking-confirm {
+    display: -webkit-box;
+  }
+
+.traveler-info {
+    margin: 50px 0px;
+}
+  .nav-tabs {
+  border-bottom: 1px solid #ddd;
+  display: flex;
+  margin-bottom: 30px;
+  }
+
+  .nav {
+    padding-left: 0;
+    display: flex;
+  }
+
+  .booking a {
+    display: inline-block;
+  }
+
+  .my-row {
+  display: -webkit-box;
+  display: flex;
+  }
+
+  .profile-activity {
+    display: block;
+    margin-right: 0px;
+    text-align: center;
+  }
+
+  .profile-wrapper {
+    margin: 0px;
+  }
+
+  .traveler-info {
+    margin-bottom: 50px;
+  }
 }

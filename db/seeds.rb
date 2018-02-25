@@ -95,7 +95,7 @@ backpacking_couple.save!
 
 
 
-bali_fund_one = Fund.new(   user: project_kalpa,   funding_goal: 10000,   title:
+bali_fund_one = Fund.new( user: project_kalpa,   funding_goal: 10000,   title:
 "Community Center for Farmers and Youth",   about: "The Subak Landscape   of
 Catur Angga Batukaru has no central meeting place for farmers and no center
 for youth to come together for learning and socializing. In efforts to improve
@@ -110,8 +110,13 @@ can be   done on a voluntary basis." )
 
 bali_photos_one = [ seed_image('Piling Cover'), seed_image('Piling 1'), seed_image('Piling 2'), seed_image('Piling 3'), seed_image('Piling 4') ]
 
+<<<<<<< HEAD
 bali_experience_one = Experience.new(   user: project_kalpa,   title:
 "Live in the Quaint Village of Piling with Pak Ketut",   price: 150,   capacity: 5,   status: true,
+=======
+bali_experience_one = Experience.new( user: project_kalpa,   title:
+"Live with Pak Ketut and family in quaint village of Piling",   price: 100,   capacity: 5,   status: true,
+>>>>>>> eb4456aeb845589320df779d96ad70d519616fcc
 address: "Jl. Batu Mejan No. 88",   latitude: -8.355552,   longitude:
 115.089274,   long_description: "Ketut Suadha and his family of 5 live in the
 village of Piling. His extended family including brothers, aunts, uncles, and
@@ -151,7 +156,11 @@ bali_photos_three = [ seed_image('Jatiluwih Cover'), seed_image('Jatiluwih 3'), 
 
 
 
+<<<<<<< HEAD
 bali_experience_three = Experience.new(   user: project_kalpa,   title: "Live in Beautiful Jatiluwih with Pak Nyoman",   price: 150,   capacity: 5,   status: true,   address:
+=======
+bali_experience_three = Experience.new(   user: project_kalpa,   title: "Live with Pak Nyoman and family in beautiful Jatiluwih",   price: 130,   capacity: 5,   status: true,   address:
+>>>>>>> eb4456aeb845589320df779d96ad70d519616fcc
 "Jl. Batu Mejan No. 88",   latitude: -8.371517,   longitude: 115.131846,
 long_description: "Nyoman Sutama and his family of 5 are based in the village of
 Jatiluwih. Nyoman is the Head of the Subak cluster (the 20 communities
@@ -187,8 +196,8 @@ bali_photos_two = [ seed_image('Tengkudak-Host-1-862x575'), seed_image('L1830689
 
 bali_experience_two = Experience.new( user: project_kalpa,   title: "Live in the historical Tengkudak with Nyoman Sutiani",
 price: 150,   capacity: 5,   status: true,
-address: "Jl. Batu Mejan No. 88",   latitude: -8.417752,   longitude:
-115.117740,   long_description: "Nyoman Sutiani and her two brothers are based
+address: "Jl. Batu Mejan No. 88",   latitude: -8.417752,   longitude: 115.117740,
+long_description: "Nyoman Sutiani and her two brothers are based
 in the village of Tengkudak. She owns rice fields that are managed by her
 brothers, and has opened a small shop outside of her house a couple months ago
 to be able to make ends meet. She is the youngest of three, and her middle
@@ -218,4 +227,5 @@ bali_experience_two.activities << [ activities[2], activities[3], activities[1],
 bali_experience_two.areatypes << [ areatypes[0] ]
 bali_experience_two.photo_urls = bali_photos_two
 bali_experience_two.save!
+
 

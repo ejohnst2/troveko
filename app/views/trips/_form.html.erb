@@ -1,5 +1,4 @@
 <div class="row" style="padding-right: 25px;">
-
     <%= simple_form_for [@experience, @trip] do |f| %>
     <%= f.error_notification %>
     <div class="form-inputs" style="padding-top: 15px;">
@@ -7,17 +6,23 @@
       <%= f.input :first_name, input_html: { value: current_user.first_name } %>
       <%= f.input :last_name, input_html: { value: current_user.last_name } %>
       <%= f.input :email, input_html: { value: current_user.email } %>
-      <%= f.input :start_date, as: :string %>
+      <%= f.input :start_date, collection: [
+        Date.today.at_end_of_week.strftime("%B %d, %Y"),
+        Date.today.next_week.at_end_of_week.strftime("%B %d, %Y"),
+        Date.today.weeks_since(2).at_end_of_week.strftime("%B %d, %Y"),
+        Date.today.weeks_since(3).at_end_of_week.strftime("%B %d, %Y"),
+        Date.today.weeks_since(4).at_end_of_week.strftime("%B %d, %Y"),
+        Date.today.weeks_since(5).at_end_of_week.strftime("%B %d, %Y"),
+        Date.today.weeks_since(6).at_end_of_week.strftime("%B %d, %Y"),
+        Date.today.weeks_since(7).at_end_of_week.strftime("%B %d, %Y"),
+        ] %>
       <%= f.input :number_of_people, collection: [1, 2, 3, 4, 5, 6, 7, 8] %>
-
     </div>
-
     <div class="form-inputs" style="padding-top: 15px;">
        <h3>Your Contribution</h3>
        <h4><%= @experience.fund.about %> You can read more here.</h4>
        <%= f.input :contribution, placeholder: "Suggested: $20", hint: 'Make a contribution to the organization\'s fund to help them execute projects that benefit the community you will be connecting with.' %>
     </div>
-
     <div class="form-inputs" style="padding-top: 15px;">
         <h3>Terms and Conditions</h3>
     <div class="termsx">
@@ -25,19 +30,8 @@
     </div>
         <%= f.input :terms_and_conditions, as: :boolean %>
     </div>
-
    <div class="form-actions text-center">
     <%= f.button :submit, 'Make Your Payment', class: "btn-primary btn-lg" %>
   </div>
   <% end %>
-
-
 </div>
-
-<%= content_for(:after_js) do %>
-  <script>
-    $('#trip-date').datepicker().on('changeDate', function(ev) {
-      setTimeout(function(){ $('.datepicker').data({date-format: "yyyy/mm/dd"}).show(); }, 100);
-    });
-  </script>
-<% end %>
