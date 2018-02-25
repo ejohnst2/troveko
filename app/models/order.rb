@@ -1,4 +1,5 @@
 class Order < ApplicationRecord
+  # after_create :send_request_email
   monetize :amount_cents
   belongs_to :trip
 
@@ -9,5 +10,7 @@ class Order < ApplicationRecord
     charge.capture
 
     order.update(payment: charge.to_json, state: 'fulfilled')
+    UserMailer.trip_confirmation(order.trip, order.trip.email).deliver_now
   end
+
 end

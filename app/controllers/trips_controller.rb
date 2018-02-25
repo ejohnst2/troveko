@@ -31,6 +31,7 @@ class TripsController < ApplicationController
           contribution_order = Order.create!(sku: @contribution.fund.title, amount: @contribution.amount, state: 'pending', trip_id: @trip.id, contribution: true )
         end
       end
+      UserMailer.trip_request(@trip, @trip.email).deliver_now
       redirect_to confirmation_experience_trip_path(@experience.id, @trip.id, order: order, contribution_order: contribution_order )
     else
       render 'new'
@@ -79,6 +80,7 @@ class TripsController < ApplicationController
   end
 
   private
+
   def set_trip
     @trip = Trip.find(params[:id])
   end
@@ -87,6 +89,7 @@ class TripsController < ApplicationController
   end
 
   def trip_params
-    params.require(:trip).permit(:start_date, :first_name, :last_name, :terms, :number_of_people)
+    params.require(:trip).permit(:start_date, :first_name, :last_name, :email, :terms, :number_of_people)
   end
+
 end

@@ -1,4 +1,5 @@
 class Trip < ApplicationRecord
+
   belongs_to :experience
   belongs_to :user
   has_one :contribution#, dependent: :destroy
@@ -11,5 +12,6 @@ class Trip < ApplicationRecord
     errors.add(:start_date, "Can't be in the past") if
       !start_date.blank? and start_date < Date.today
   end
+
 
 end
