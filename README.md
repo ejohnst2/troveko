@@ -60,8 +60,8 @@ __Create psql user and database?__
 ## Janky rails setup playbook
 
 ```
- rm -rf /usr/local/var/postgres && initdb /usr/local/var/postgres -E utf8\n\n
- brew services restart postgresql\n
+ rm -rf /usr/local/var/postgres && initdb /usr/local/var/postgres
+ brew services restart postgresql
  rails s
  rake db:seed
  rake db:setup
