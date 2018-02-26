@@ -25,8 +25,8 @@ module Troveko
       generate.helper false
     end
 
-    config.action_mailer.delivery_method = :postmark
-    config.action_mailer.postmark_settings = { api_key: ENV['POSTMARK_API_KEY'] }
+    # config.action_mailer.delivery_method = :postmark
+    # config.action_mailer.postmark_settings = { api_key: ENV['POSTMARK_API_KEY'] }
 
     # config.action_mailer.delivery_method = :postmark
     # config.action_mailer.postmark_settings = { :api_token => "bb9529de-52e8-42fc-9544-4ce8e2a66449" }
