@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  # after_create :send_welcome_email
+  after_create :send_welcome_email
 
   extend Devise::Models
   has_many :trips, dependent: :destroy
