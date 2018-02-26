@@ -110,13 +110,8 @@ can be   done on a voluntary basis." )
 
 bali_photos_one = [ seed_image('Piling Cover'), seed_image('Piling 1'), seed_image('Piling 2'), seed_image('Piling 3'), seed_image('Piling 4') ]
 
-<<<<<<< HEAD
 bali_experience_one = Experience.new(   user: project_kalpa,   title:
 "Live in the Quaint Village of Piling with Pak Ketut",   price: 150,   capacity: 5,   status: true,
-=======
-bali_experience_one = Experience.new( user: project_kalpa,   title:
-"Live with Pak Ketut and family in quaint village of Piling",   price: 100,   capacity: 5,   status: true,
->>>>>>> eb4456aeb845589320df779d96ad70d519616fcc
 address: "Jl. Batu Mejan No. 88",   latitude: -8.355552,   longitude:
 115.089274,   long_description: "Ketut Suadha and his family of 5 live in the
 village of Piling. His extended family including brothers, aunts, uncles, and
@@ -154,14 +149,8 @@ that are located ",  guided: true   )
 bali_photos_three = [ seed_image('Jatiluwih Cover'), seed_image('Jatiluwih 3'), seed_image('Jatiluwih 4'), seed_image('Jatluwih 1'), seed_image('Jatiluwih 2') ]
 
 
-
-
-<<<<<<< HEAD
-bali_experience_three = Experience.new(   user: project_kalpa,   title: "Live in Beautiful Jatiluwih with Pak Nyoman",   price: 150,   capacity: 5,   status: true,   address:
-=======
-bali_experience_three = Experience.new(   user: project_kalpa,   title: "Live with Pak Nyoman and family in beautiful Jatiluwih",   price: 130,   capacity: 5,   status: true,   address:
->>>>>>> eb4456aeb845589320df779d96ad70d519616fcc
-"Jl. Batu Mejan No. 88",   latitude: -8.371517,   longitude: 115.131846,
+bali_experience_three = Experience.new(   user: project_kalpa,   title: "Live in Beautiful Jatiluwih with Pak Nyoman",   price: 150,   capacity: 5,   status: true,
+address: "Jl. Batu Mejan No. 88",   latitude: -8.371517,   longitude: 115.131846,
 long_description: "Nyoman Sutama and his family of 5 are based in the village of
 Jatiluwih. Nyoman is the Head of the Subak cluster (the 20 communities
 combined), and has over 50 years of experience as a rice farmer, making him
