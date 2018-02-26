@@ -12,6 +12,11 @@
 
 ## Setup
 
+#### Heroku
+
+Start the Heroku server in SSL mode for adding the SSL certificate via [letsencrypt](https://collectiveidea.com/blog/archives/2016/01/12/lets-encrypt-with-a-rails-app-on-heroku)
+- `heroku ps:exec`
+
 #### Rails
 
 [Mac OSX rails setup tutorial](https://launchschool.com/blog/how-to-install-ruby-on-rails-development-environment-for-mac-os-x)
