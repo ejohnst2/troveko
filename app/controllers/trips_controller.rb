@@ -31,7 +31,7 @@ class TripsController < ApplicationController
           contribution_order = Order.create!(sku: @contribution.fund.title, amount: @contribution.amount, state: 'pending', trip_id: @trip.id, contribution: true )
         end
       end
-      UserMailer.trip_request(@trip, @trip.email).deliver_now
+      # UserMailer.trip_request(@trip, @trip.email).deliver_now
       redirect_to confirmation_experience_trip_path(@experience.id, @trip.id, order: order, contribution_order: contribution_order )
     else
       render 'new'
@@ -72,7 +72,7 @@ class TripsController < ApplicationController
     authorize @trip
 
     @trip.update(cancel: true)
-    UserMailer.cancel(current_user, @trip).deliver_now
+    # UserMailer.cancel(current_user, @trip).deliver_now
   end
 
   def destroy
