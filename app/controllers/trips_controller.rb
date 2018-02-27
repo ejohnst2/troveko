@@ -32,6 +32,7 @@ class TripsController < ApplicationController
         end
       end
       UserMailer.trip_request(@trip, @trip.email).deliver_now
+      UserMailer.trip_request_host_notification(@trip, @trip.experience.user).deliver_now
       redirect_to confirmation_experience_trip_path(@experience.id, @trip.id, order: order, contribution_order: contribution_order )
     else
       render 'new'

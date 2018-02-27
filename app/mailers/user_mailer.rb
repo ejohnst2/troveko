@@ -1,5 +1,4 @@
 class UserMailer < ApplicationMailer
-
   # Subject can be set in your I18n file at config/locales/en.yml
   # with the following lookup:
   #
@@ -10,6 +9,8 @@ class UserMailer < ApplicationMailer
 
     mail(to: @user.email, subject: 'Welcome to Troveko')
   end
+
+  #mailers for the travelers
 
   def trip_request(trip, email)
     @greeting = "Hey #{trip.first_name}"
@@ -35,4 +36,21 @@ class UserMailer < ApplicationMailer
 
     mail(to: @user.email, subject: 'Your trip has been canceled')
   end
+
+  def message_receipt(conversation)
+    @conversation = conversation
+    @user = conversation.recipient
+
+    mail(to: @user.email, subject: 'You received a message on Troveko')
+  end
+
+  #mailers for the host organization
+
+  def trip_request_host_notification(trip, user)
+    @trip = trip
+    @user = user
+
+    mail(to: @user.email, subject: 'Your received a new booking')
+  end
+
 end
