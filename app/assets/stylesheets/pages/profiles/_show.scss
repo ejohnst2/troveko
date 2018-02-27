@@ -208,6 +208,10 @@ justify-content: center;
     display: -webkit-box;
   }
 
+  .inline-confirmation {
+    display: inline-block;
+  }
+
 .traveler-info {
     margin: 50px 0px;
 }
@@ -220,6 +224,10 @@ justify-content: center;
   .nav {
     padding-left: 0;
     display: flex;
+  }
+
+  .ngo-spec {
+    display: inline-table;
   }
 
   .booking a {

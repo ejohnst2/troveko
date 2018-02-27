@@ -26,12 +26,11 @@ Your Troveko Profile <%= @user.first_name %>
       </div>
 
       <!-- Tab menu -->
-      <ul class="nav nav-tabs" role="tablist">
+      <ul class="nav nav-tabs ngo-spec" role="tablist">
         <li role="presentation" class="active" id="tab-requests"><a class="tab" href="#booking" aria-controls="requests" role="tab" data-toggle="tab">Booking Requests</a></li>
-        <li role="presentation" id="tab-confirmed"><a href="#confirmed" aria-controls="confirmed" role="tab" data-toggle="tab">Confirmed customers</a></li>
-        <li role="presentation" id="tab-experiences"><a href="#meals" aria-controls="meals" role="tab" data-toggle="tab">My experiences</a></li>
+        <li role="presentation" id="tab-confirmed"><a href="#confirmed" aria-controls="confirmed" role="tab" data-toggle="tab">Confirmed Travelers</a></li>
+        <li role="presentation" id="tab-experiences"><a href="#meals" aria-controls="meals" role="tab" data-toggle="tab">My Experiences</a></li>
         <li role="presentation" id="tab-messages"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">My Messages</a></li>
-        <li role="presentation" id="tab-balance"><a href="#meals" aria-controls="meals" role="tab" data-toggle="tab">My Balance</a></li>
       </ul>
 
       <!-- Tab content -->
@@ -49,13 +48,12 @@ Your Troveko Profile <%= @user.first_name %>
                   <% if trip.status? == false %>
                     <div class="booking-confirm">
                       <%= cl_image_tag trip.experience.photos[0].path, {:class => "experience-image", :effect=>"auto_color", :width=>50} %>
-                      <div>
+                      <div class="inline-confirmation">
                         <%= link_to "#{trip.experience.title}", experience_path(trip.experience), class: "meal-link" %>
                         <p class=date>Start Date: <%=trip.start_date.strftime('%m/%d/%Y')%> <br>
                         Guests: <%=trip.number_of_people%> </p>
-                      </div>
-                      <br>
                       <%= link_to "Confirm", trip_status_path(trip, status: true), method: :patch, class: "meal-link btn btn-primary end" %>
+                       </div>
                     </div>
                   <% end %>
                 </div>
