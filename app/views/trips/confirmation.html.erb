@@ -13,11 +13,11 @@
   <div class="row" id="experience" style="display: inline-block; align-items: center; justify-content: space-around;">
 <!--   <div class="row">
  -->    <h4>Trip Date: <%= @trip.start_date.strftime("%m/%d/%y")%></h4>
-        <h4>Trip Total: <%= money_without_cents_and_with_symbol(@trip.experience.price) %> per person</h4>
+        <h4>Trip Total: Rp. <%= humanized_money(@trip.experience.price_cents) %> per person</h4>
         <h4>Number of People: <%= @trip.number_of_people %></h4>
-        <h4>Fund Contribution: <%= @trip.contribution ? money_without_cents_and_with_symbol(@trip.contribution.amount) : 0 %></h4>
+        <h4>Fund Contribution: Rp. <%= @trip.contribution ? @trip.contribution.amount_cents : 0 %></h4>
 <!--   </div>
- -->        <h2>Your Total: <%= money_without_cents_and_with_symbol(@sum) %></h2>
+ -->        <h2>Your Total: Rp. <%= @sum %></h2>
       </%>
       </div>
     <p>Review the details of your booking, if they are correct click below and you will be redirected to a confirmation page with instructions. Please note that the entire balance of your trip is due in cash (IDR) upon arrival.</p>

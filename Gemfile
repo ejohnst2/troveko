@@ -40,7 +40,7 @@ gem 'postmark-rails'
 gem 'pundit'
 
 gem 'money-rails'
-gem 'stripe'
+# gem 'stripe'
 
 gem 'twilio-ruby'
 gem 'pg_search'

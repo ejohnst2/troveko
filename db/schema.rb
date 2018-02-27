@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180209053630) do
+ActiveRecord::Schema.define(version: 20180227135252) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -86,7 +86,7 @@ ActiveRecord::Schema.define(version: 20180209053630) do
   create_table "experiences", id: :bigserial, force: :cascade do |t|
     t.bigint   "user_id"
     t.string   "title"
-    t.float    "price_cents"
+    t.integer  "price_cents"
     t.integer  "capacity"
     t.boolean  "status",            default: false
     t.string   "address"
