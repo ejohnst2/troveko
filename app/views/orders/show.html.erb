@@ -5,10 +5,11 @@
 <div class="new_trip">
 
   <div class="container">
+  <h1>Trip Confirmation</h1>
+  <h4>Step 3 of 3</h4>
 
     <div class="row">
       <div style="margin: 50px 0px;">
-      <h1>Trip Confirmation</h1>
       <h4>Thanks <%= @order.trip.user.first_name %> for choosing Troveko! We have sent a confirmation to <%= @order.trip.user.email %>.</h4>
     </div>
        <h4><ul>
@@ -25,34 +26,15 @@
       <br>
     <center><i class="fa fa-thumbs-o-up fa-5x" aria-hidden="true"></i></center>
       <% if @order.trip.contribution %>
-      <h4>You've contributed <%= money_without_cents_and_with_symbol(@order.trip.contribution.amount) %>, bringing the community <%= contribution_percentage(@order.trip).round(2) %>% closer to <%= @order.trip.experience.fund.title %></h4>
+      <h4>You commited to contributing <%= money_without_cents_and_with_symbol(@order.trip.contribution.amount) %>, bringing the community <%= contribution_percentage(@order.trip).round(2) %>% closer to <%= @order.trip.experience.fund.title %></h4>
       </center>
       <% else %>
         <h4> We will contact you again following your trip and give you the opportunity to contribute.</h4>
       <% end %>
     </div>
 
-<div class="row" id="confirmation_box">
-  <h3>Guide to an Awesome Experience</h3>
-  <ul>
-    <li><h5>Respect</h5> It is an honor to be invited into a family home, and Balinese culture treats their guests with the utmost respect so please do the same.</li>
-    <li><h5>Attire and Cultural Customs</h5> Please cover shoulders and legs at all times. Besides that, there isn’t anything else you need to prepare for beforehand. Your travel buddy will explain any further customs to you during your experience.</li>
-    <li><h5>Travel Buddies</h5> They are not tour guides, so please do not treat them as such. They are there to aid your understanding, provide context to the experiences, and make your communicate more robust with the hosts. Both the travel
-    buddies and the host families are a wealth of information, so please take advantage.</li>
-    <li><h5>Immersion</h5> It is important to take note of things that you do not agree with but remember that you are taking part in their culture and their family life.</li>
-    <li><h5>Conditions</h5> Do not expect a guest house or a hotel, you are in a family home. You will be living in the same conditions as the family. Do not expect hot water or overhead showers.</li>
-    <li><h5>Safety</h5> We always aim for the most sanitary conditions, including the food you consume and the beverages you drink (most will be packaged). Food will be local made with local ingredients and most beverages you consume will be packaged. Secondly, where your helmet at all times and drive carefully and mindfully on scooters at all
-    times. We are not liable for any injury or sickness.</li>
-    <li><h5>Language</h5> Remember, we are in Indonesia. Please do not get frustrated with the English capability, but rather see it as an opportunity for non-verbal communication and to learn and improve your Bahasa. Also, your travel buddies will be a large help in this respect.</li>
-    <li><h5>Empathy vs. Sympathy</h5> One of our goals is to evoke a sense of bi-directional empathy (not sympathy, at all). This is a learning experience for both parties, as you are the first foreigners to be invited into these homes.</li>
-    <li><h5>Have Context</h5> Having a good base level understanding of the context will do wonders for your experience. Things that you wouldn’t normally find interesting suddenly become interesting, and your experience becomes more meaningful. Our travel buddies and hosts will be able to fill in the gaps and give you a deeper understanding but it’s great to head to your stay having already a foundational knowledge.</li>
-    <li><h5>Have Fun</h5> Be open to new experiences and have fun!</li>
-  </ul>
-</div>
-
     <div class="row" style="display: flex; justify-content: space-between; padding-bottom: 30px;">
       <h4><%= link_to 'See Upcoming Trips', profile_path(current_user.id) %></h4>
-      <!-- <h4><%#= link_to 'Share on Social Media','' %></h4> -->
       <h4><%= link_to 'See More Experiences', experiences_path %></h4>
     </div>
 

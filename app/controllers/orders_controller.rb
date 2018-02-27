@@ -5,7 +5,6 @@ class OrdersController < ApplicationController
     if trip.contribution.amount > 0
       contribution_order = Order.create!(sku: trip.contribution.fund.title, amount: trip.contribution.amount, state: 'pending', trip_id: trip.id, contribution: true )
     end
-    # UserMailer.trip_request(trip, trip.email).deliver_now
     redirect_to new_order_payment_path(order)
   end
 
