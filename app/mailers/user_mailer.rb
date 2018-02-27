@@ -15,6 +15,7 @@ class UserMailer < ApplicationMailer
     @greeting = "Hey #{trip.first_name}"
     @trip = trip
     @email = email
+    # attachments['Guide_to_Experience.pdf'] = File.read('/assets/pdfs/guide_to_experience.pdf')
 
     mail(to: @email, subject: "Request Made")
   end
@@ -23,6 +24,7 @@ class UserMailer < ApplicationMailer
     @email = email
     @trip = trip
     @greeting = "Hi #{trip.first_name}"
+    # attachments['Guide_to_Experience.pdf'] = File.read('/app/assets/PDFs/Guide_to_Experience.pdf')
 
     mail(to: @email, subject: 'Your Troveko stay is confirmed')
   end

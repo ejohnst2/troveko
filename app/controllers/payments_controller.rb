@@ -29,7 +29,7 @@ class PaymentsController < ApplicationController
       @client = Twilio::REST::Client.new ENV['TWILIO_ACCOUNT_SID'], ENV['TWILIO_AUTH_TOKEN']
        @client.messages.create({
          from: ENV['TWILIO_NUMBER'],
-         to: '+14254482177',
+         to: '+14254056694',
          body: "New booking for #{order.trip.number_of_people} people starting #{order.trip.start_date}. Please login to your profile on http://www.troveko.org/users/sign_in and approve it."
        })
 
