@@ -1,5 +1,6 @@
 Identity.destroy_all
 Contribution.destroy_all
+Order.destroy_all
 Trip.destroy_all
 Experience.destroy_all
 Feature.destroy_all
@@ -233,9 +234,4 @@ bali_experience_two.save!
 
 
 start_date = Date.today + rand(20..50).days
-
-25.times do
-    trip = Trip.create!(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name , experience_id: [bali_experience_one, bali_experience_two, bali_experience_three].sample.id, status: true, start_date: start_date, user: [rajmachi_rural_aid, project_kalpa].sample, number_of_people: [1, 2, 3].sample)
-    contribution = Contribution.create(user_id: [backpacking_couple, toasty_boy].sample.id, fund_id: trip.experience.fund.id, trip_id: trip.id, amount: [50, 20, 40, 60].sample)
-end
 
