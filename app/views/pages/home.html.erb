@@ -75,7 +75,7 @@ Troveko - Impact Through Adventure
         <div class="card" style="border-radius: 20px; padding: 10px; background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path experience.photos[0].path if experience.photos.any? %>');">
           <div class="card-description">
       <h3><%= experience.title %></h3>
-      <p style="align;" id="price-card"><%= experience.duration %> days, <%= money_without_cents_and_with_symbol(experience.price) %> per night</p>
+      <p style="align;" id="price-card"><%= experience.duration %> days, Rp. <%= experience.price %></p>
     </div>
     <div class="card-category">
       <h3><%= experience.city %>, <%= experience.country %></h3>
