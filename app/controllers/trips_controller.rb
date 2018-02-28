@@ -23,6 +23,11 @@ class TripsController < ApplicationController
     @trip.experience = @experience
     @trip.user = current_user
 
+    # if @trip.number_of_people >= @trip.start_date.number_of_people
+    #  flash[:warning] = "Sorry, there are only #{@experience.capacity - @trip.start_date.number_of_people} spots for this weekend."
+    #   redirect_to root_path
+    # else
+
     if @trip.save
       order = Order.create!(sku: @trip.experience.title, amount: @trip.experience.price, state: 'pending', trip_id: @trip.id)
       if params[:trip][:contribution].present?

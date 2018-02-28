@@ -1,5 +1,6 @@
 Identity.destroy_all
 Contribution.destroy_all
+Order.destroy_all
 Trip.destroy_all
 Experience.destroy_all
 Feature.destroy_all
@@ -216,5 +217,3 @@ bali_experience_two.activities << [ activities[2], activities[3], activities[1],
 bali_experience_two.areatypes << [ areatypes[0] ]
 bali_experience_two.photo_urls = bali_photos_two
 bali_experience_two.save!
-
-
