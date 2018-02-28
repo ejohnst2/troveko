@@ -27,7 +27,7 @@ class Experience < ApplicationRecord
   validates :user, presence: true, allow_blank: false
   validates :duration, presence: true
 
-  monetize :price_cents
+  monetize :price
 
   geocoded_by :full_address
   after_validation :geocode, if: :full_address_changed?
