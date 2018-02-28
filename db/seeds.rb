@@ -112,7 +112,7 @@ can be   done on a voluntary basis." )
 bali_photos_one = [ seed_image('Piling Cover'), seed_image('Piling 1'), seed_image('Piling 2'), seed_image('Piling 3'), seed_image('Piling 4') ]
 
 bali_experience_one = Experience.new(   user: project_kalpa,   title:
-"Live in the Quaint Village of Piling with Pak Ketut",   price: 150,   capacity: 5,   status: true,
+"Live in the Quaint Village of Piling with Pak Ketut",   price: 2000000,   capacity: 5,   status: true,
 address: "Jl. Batu Mejan No. 88",   latitude: -8.355552,   longitude:
 115.089274,   long_description: "Ketut Suadha and his family of 5 live in the
 village of Piling. His extended family including brothers, aunts, uncles, and
@@ -150,7 +150,7 @@ that are located ",  guided: true   )
 bali_photos_three = [ seed_image('Jatiluwih Cover'), seed_image('Jatiluwih 3'), seed_image('Jatiluwih 4'), seed_image('Jatluwih 1'), seed_image('Jatiluwih 2') ]
 
 
-bali_experience_three = Experience.new(   user: project_kalpa,   title: "Live in Beautiful Jatiluwih with Pak Nyoman",   price: 150,   capacity: 5,   status: true,
+bali_experience_three = Experience.new(   user: project_kalpa,   title: "Live in Beautiful Jatiluwih with Pak Nyoman",   price: 2000000,   capacity: 5,   status: true,
 address: "Jl. Batu Mejan No. 88",   latitude: -8.371517,   longitude: 115.131846,
 long_description: "Nyoman Sutama and his family of 5 are based in the village of
 Jatiluwih. Nyoman is the Head of the Subak cluster (the 20 communities
@@ -185,7 +185,7 @@ International Airport. For those that are located.",   guided: true   )
 bali_photos_two = [ seed_image('Tengkudak-Host-1-862x575'), seed_image('L1830689'), seed_image('tengkudak-accommodation'), seed_image('L1840124-1184x662'), seed_image('tengkudak-kitchen') ]
 
 bali_experience_two = Experience.new( user: project_kalpa,   title: "Live in the historical Tengkudak with Nyoman Sutiani",
-price: 150,   capacity: 5,   status: true,
+price: 1500000,   capacity: 5,   status: true,
 address: "Jl. Batu Mejan No. 88",   latitude: -8.417752,   longitude: 115.117740,
 long_description: "Nyoman Sutiani and her two brothers are based
 in the village of Tengkudak. She owns rice fields that are managed by her

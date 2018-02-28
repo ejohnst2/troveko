@@ -11,7 +11,7 @@
       <%#= render 'experiences/areatypes' %>
       <p style="text-align: center";><i class="fa <%= @experience.areatypes[0].fa_icon %> icon" id="showicon" aria-hidden="true"></i><%= @experience.areatypes[0].name %></p>
       <p style="text-align: center";><i class="fa fa-map-marker" id="showicon"></i><%= @experience.city %>, <%= @experience.country %></p>
-      <p style="text-align: center";><i class="fa fa-money" id="showicon"></i> <%= money_without_cents_and_with_symbol(@experience.price) %> per person</p>
+      <p style="text-align: center";><i class="fa fa-money" id="showicon"></i> Rp. <%= @experience.price %> per person</p>
       <p style="text-align: center";><i class="fa fa-users" id="showicon"></i>Capacity (<%= @experience.capacity %>)</p>
       <p style="text-align: center";><i class="fa  fa-calendar-o" id="showicon"></i><%= @experience.duration %>-day experience</p>
 

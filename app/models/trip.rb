@@ -17,8 +17,11 @@ class Trip < ApplicationRecord
   def cannot_be_overbooking
     total_people_booked = Trip.where(:start_date => start_date).sum(:number_of_people)
 
-    errors.add(:number_of_people, "You've exceeded the host's capacity for this weekend. There are only #{experience.capacity - total_people_booked} spots left. Please choose a different date or take less people.")
     if number_of_people > (experience.capacity - total_people_booked)
+    errors.add(:number_of_people, "You've exceeded the host's capacity for this weekend. There are only #{experience.capacity - total_people_booked} spots left. Please choose a different date or take less people.")
+  end
   end
 
 end
+
+
