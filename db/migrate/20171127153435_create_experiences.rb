@@ -3,7 +3,7 @@ class CreateExperiences < ActiveRecord::Migration[5.0]
     create_table :experiences do |t|
       t.references :user, foreign_key: true
       t.string :title
-      t.float :price
+      t.integer :price
       t.integer :capacity
       t.boolean :status
       t.string :address
