@@ -26,7 +26,7 @@
       <br>
     <center><i class="fa fa-thumbs-o-up fa-5x" aria-hidden="true"></i></center>
       <% if @order.trip.contribution %>
-      <h4>You commited to contributing Rp. <%= @order.trip.contribution.amount %>, bringing the community <%= contribution_percentage(@order.trip).round(2) %>% closer to <%= @order.trip.experience.fund.title %></h4>
+      <h4>You commited to contributing Rp. <%= @order.trip.contribution.amount %>, bringing the community <%= contribution_percentage(@order.trip).round(1) %>% closer to <%= @order.trip.experience.fund.title %></h4>
       </center>
       <% else %>
         <h4> We will contact you again following your trip and give you the opportunity to contribute.</h4>
