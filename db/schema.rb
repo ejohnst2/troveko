@@ -167,7 +167,7 @@ ActiveRecord::Schema.define(version: 20180228104620) do
   create_table "orders", force: :cascade do |t|
     t.string   "state"
     t.string   "sku"
-    t.integer  "amount",       default: 0,     null: false
+    t.integer  "amount", default: 0,     null: false
     t.jsonb    "payment"
     t.datetime "created_at",                   null: false
     t.datetime "updated_at",                   null: false

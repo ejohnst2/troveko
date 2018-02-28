@@ -24,6 +24,6 @@ class ContributionsController < ApplicationController
   private
 
   def contribution_params
-    params.require(:contribution).permit(:amount_cents)
+    params.require(:contribution).permit(:amount)
   end
 end

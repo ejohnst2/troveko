@@ -51,7 +51,7 @@
     <h2>Impact</h2>
 
     <h4><%= @experience.fund.title %></h4>
-    <h2 style="padding-top: 10px;"><%= money_without_cents_and_with_symbol(@experience.fund.contributions.sum(:amount_cents) / 100) %> of <%=  money_without_cents_and_with_symbol(@experience.fund.funding_goal) %> funded</h2>
+    <h2 style="padding-top: 10px;"><%= @experience.fund.contributions.sum(:amount) / 100 %> of <%=  @experience.fund.funding_goal %> funded</h2>
     <%= render 'fund_information' %>
     <h5>Description</h5>
     <p><%= @experience.fund.about %></p>

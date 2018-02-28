@@ -72,7 +72,7 @@
                       <%= cl_image_tag(trip.experience.photos[0].path, :class => "experience-image", :effect=>"auto_color", :width=>50) %>
                       <div>
                         <%= link_to "#{trip.experience.title}", experience_path(trip.experience), class: "meal-link" %>
-                        <p class="date"> Price: <%= money_without_cents_and_with_symbol(trip.experience.price) %></p>
+                        <p class="date"> Price: Rp. <%= trip.experience.price %></p>
                       </div>
                       <br>
                       <% if trip.cancel? == false %>

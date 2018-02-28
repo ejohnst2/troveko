@@ -15,7 +15,7 @@ class Experience < ApplicationRecord
   belongs_to :fund
   has_many :conversations, dependent: :destroy
 
-  validates :price_cents, presence: true
+  validates :price, presence: true
   validates :title, presence: true, length: { minimum: 10 }
   validates :short_description, presence:true, length: { maximum: 100 }
   validates :long_description, presence:true, length: { minimum: 100, maximum: 1000 }
