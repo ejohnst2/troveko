@@ -12,14 +12,6 @@ User.destroy_all
 def seed_image(file_name)
   File.open(File.join(Rails.root, "/app/assets/images/seed/#{file_name}.jpg"))
 end
-new_user_one = User.new(email: 'trovekoboy@troveko.com', password: 'bunky123', ngo: true)
-new_user_one.save!
-
-new_user_two = User.new(email: 'trovekogirl@troveko.com', password: 'bunky123', ngo: true)
-new_user_two.save!
-
-traveler = User.new(email: 'travelergirl@troveko.com', password: 'bunky123', ngo: false)
-traveler.save!
 
 
 features = [
@@ -73,28 +65,6 @@ project_kalpa = User.new(
  )
 project_kalpa.save!
 
-toasty_boy = User.new(
-  email: 'toastyboy@gmail.com',
-  password: 'bunky123',
-  ngo: false,
-  facebook_picture_url: ("http://ling.bu.edu/uploads/person/image/2688/wc.png?1496957069"),
-  first_name: 'Alexander',
-  last_name: 'Clapp'
-)
-toasty_boy.save!
-
-backpacking_couple = User.new(
-  email: 'backpackingcouple@gmail.com',
-  password:'bunky123',
-  ngo: false,
-  facebook_picture_url: ("https://cdn-images-1.medium.com/max/1200/0*Vo_gUNHEIe3X2sHQ.jpg"),
-  first_name: 'Mira',
-  last_name: 'Brock'
-)
-
-backpacking_couple.save!
-
-
 
 bali_fund_one = Fund.new( user: project_kalpa,   funding_goal: 80000000,   title:
 "Community Center for Farmers and Youth",   about: "The Subak Landscape   of
@@ -106,7 +76,6 @@ to   sourcing the land, whether leasing it from a farmer or purchasing it. The
 other   will go towards the raw materials needed to build the structure and put
 basic   interior design. The labor and the organization of the community center
 can be   done on a voluntary basis." )
-
 
 
 bali_photos_one = [ seed_image('Piling Cover'), seed_image('Piling 1'), seed_image('Piling 2'), seed_image('Piling 3'), seed_image('Piling 4') ]
