@@ -96,7 +96,7 @@ backpacking_couple.save!
 
 
 
-bali_fund_one = Fund.new( user: project_kalpa,   funding_goal: 10000,   title:
+bali_fund_one = Fund.new( user: project_kalpa,   funding_goal: 80000000,   title:
 "Community Center for Farmers and Youth",   about: "The Subak Landscape   of
 Catur Angga Batukaru has no central meeting place for farmers and no center
 for youth to come together for learning and socializing. In efforts to improve
