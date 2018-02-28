@@ -27,7 +27,7 @@ gem 'twitter'
 gem 'instagram'
 gem 'omniauth-google-oauth2'
 gem 'social-share-button'
-gem 'bootstrap-datepicker-rails'
+# gem 'bootstrap-datepicker-rails'
 
 
 # gem 'google-api-client', require: 'google/api_client'
@@ -40,7 +40,7 @@ gem 'postmark-rails'
 gem 'pundit'
 
 gem 'money-rails'
-gem 'stripe'
+# gem 'stripe'
 
 gem 'twilio-ruby'
 gem 'pg_search'
