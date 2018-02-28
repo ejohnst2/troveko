@@ -1,6 +1,6 @@
 class Order < ApplicationRecord
   # after_create :send_request_email
-  monetize :amount_cents
+  monetize :amount
   belongs_to :trip
 
   def capture

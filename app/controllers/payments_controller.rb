@@ -36,7 +36,7 @@ end
 
   #   #   charge = Stripe::Charge.create(
   #   #     customer:     customer.id,   # You should store this customer id and re-use it.
-  #   #     amount:       order.amount_cents,
+  #   #     amount:       order.amount,
   #   #     description:  "Payment for experience #{order.sku} for order #{order.id}",
   #   #     currency:     order.amount.currency,
   #   #     capture:      false

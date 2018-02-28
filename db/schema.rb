@@ -65,7 +65,7 @@ ActiveRecord::Schema.define(version: 20180227135252) do
   create_table "contributions", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "fund_id"
-    t.integer  "amount_cents"
+    t.integer  "amount"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
     t.integer  "trip_id"
@@ -167,7 +167,7 @@ ActiveRecord::Schema.define(version: 20180227135252) do
   create_table "orders", force: :cascade do |t|
     t.string   "state"
     t.string   "sku"
-    t.integer  "amount_cents", default: 0,     null: false
+    t.integer  "amount", default: 0,     null: false
     t.jsonb    "payment"
     t.datetime "created_at",                   null: false
     t.datetime "updated_at",                   null: false

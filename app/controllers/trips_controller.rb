@@ -26,7 +26,7 @@ class TripsController < ApplicationController
     if @trip.save
       order = Order.create!(sku: @trip.experience.title, amount: @trip.experience.price, state: 'pending', trip_id: @trip.id)
       if params[:trip][:contribution].present?
-        @contribution = Contribution.new(user: current_user, trip: @trip, fund: @trip.experience.fund, amount_cents: (params[:trip][:contribution].to_i * 100) )
+        @contribution = Contribution.new(user: current_user, trip: @trip, fund: @trip.experience.fund, amount: (params[:trip][:contribution].to_i * 100) )
         if @contribution.amount > 0 && @contribution.save
           contribution_order = Order.create!(sku: @contribution.fund.title, amount: @contribution.amount, state: 'pending', trip_id: @trip.id, contribution: true )
         end
@@ -54,7 +54,7 @@ class TripsController < ApplicationController
   def confirmation
     total = @trip.experience.price * @trip.number_of_people.to_i
     if @trip.contribution.present?
-      @sum = ( @trip.contribution.amount_cents.to_i + total ) / 100
+      @sum = ( @trip.contribution.amount.to_i + total ) / 100
     else
       @sum = total / 100
     end
