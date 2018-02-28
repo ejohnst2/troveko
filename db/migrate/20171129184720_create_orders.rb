@@ -3,7 +3,7 @@ class CreateOrders < ActiveRecord::Migration[5.0]
     create_table :orders do |t|
       t.string :state
       t.string :experience_sku
-      t.monetize :amount, currency: { present: false }
+      t.integer :amount
       t.jsonb :payment
 
       t.timestamps
