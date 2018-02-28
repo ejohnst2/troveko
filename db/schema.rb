@@ -126,7 +126,7 @@ ActiveRecord::Schema.define(version: 20180227135252) do
 
   create_table "funds", force: :cascade do |t|
     t.integer  "user_id"
-    t.integer  "funding_goal_cents"
+    t.integer  "funding_goal"
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
     t.string   "title"
