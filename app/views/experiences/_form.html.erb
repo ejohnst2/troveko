@@ -5,7 +5,7 @@
     <h3 class="form_section">The Experience</h3>
     <%= f.input :title, hint: 'what is the experience?', placeholder: 'A Weekend in The Subak' %>
     <%= f.input :short_description, hint: 'Sum up the experience in a compelling sentence', placeholder: 'Learn about the 1000-year history of the Balinese Subak with Pak Nyoman and his family' %>
-    <%= f.input :price_cents, wrapper_html: { class: 'experience_section' }  %>
+    <%= f.input :price, wrapper_html: { class: 'experience_section' }  %>
     <%= f.input :capacity, placeholder: 'i.e. 3' %>
     <%= f.input :guided, as: :boolean %>
     <%= f.input :duration, collection: [1, 2, 3, 4, 5, 6, 7, 8] %>

@@ -52,7 +52,7 @@ class TripsController < ApplicationController
   end
 
   def confirmation
-    total = @trip.experience.price_cents * @trip.number_of_people.to_i
+    total = @trip.experience.price * @trip.number_of_people.to_i
     if @trip.contribution.present?
       @sum = ( @trip.contribution.amount_cents.to_i + total ) / 100
     else

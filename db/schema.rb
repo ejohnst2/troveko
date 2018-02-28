@@ -86,7 +86,7 @@ ActiveRecord::Schema.define(version: 20180227135252) do
   create_table "experiences", id: :bigserial, force: :cascade do |t|
     t.bigint   "user_id"
     t.string   "title"
-    t.integer  "price_cents"
+    t.integer  "price"
     t.integer  "capacity"
     t.boolean  "status",            default: false
     t.string   "address"
