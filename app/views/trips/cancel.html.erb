@@ -6,9 +6,9 @@
     <div class="col-lg-6 col-md-6-col-xs-12 col-sm-12">
       <h2>Trip Breakdown</h2>
       <br>
-      <h4>Trip Total: <%=money_without_cents_and_with_symbol(@trip.experience.price) %> per person</h4>
+      <h4>Trip Total: <%= @trip.experience.price %> per person</h4>
       <h4>Number of People: <%= @trip.number_of_people %></h4>
-      <h4>Fund Contribution: <%= money_without_cents_and_with_symbol(@trip.contribution.amount) %></h4>
+      <h4>Fund Contribution: <%= @trip.contribution.amount %></h4>
     </div>
     <div class="col-lg-6 col-md-6-col-xs-12 col-sm-12">
       <div class="row" style="display: flex; align-items: center;">
@@ -25,7 +25,7 @@
 
    <div class="row" style="display: flex; align-items: center; justify-content: space-around;">
       <div class="col-lg-6 col-md-6-col-xs-12 col-sm-12">
-        <h1>Your Total: <%= money_without_cents_and_with_symbol(@sum) %></h1>
+        <h1>Your Total: <%= @sum %></h1>
       </div>
       <div class="col-lg-6 col-md-6-col-xs-12 col-sm-12" id="payment-stripe">
         <% %>
