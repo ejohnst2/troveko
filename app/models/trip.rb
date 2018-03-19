@@ -5,7 +5,7 @@ class Trip < ApplicationRecord
   has_one :contribution#, dependent: :destroy
   has_many :orders#, dependent: :destroy
 
-  validates :user, :experience, :start_date, presence: true, allow_blank: false
+  validates :user, :experience, :start_date, :terms_and_conditions, presence: true, allow_blank: false
   validate :start_date_cannot_be_in_the_past
   validate :cannot_be_overbooking
 
