@@ -16,7 +16,8 @@ class UserMailer < ApplicationMailer
     @greeting = "Hey #{trip.first_name}"
     @trip = trip
     @email = email
-    # attachments['Guide_to_Experience.pdf'] = File.read('/assets/pdfs/guide_to_experience.pdf')
+    file = Rails.root + "app/assets/pdfs/guide_to_experience.pdf"
+    attachments['Guide_to_Experience.pdf'] = File.read(file)
 
     mail(to: @email, subject: "Request Made")
   end
