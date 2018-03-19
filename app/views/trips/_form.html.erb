@@ -7,14 +7,14 @@
       <%= f.input :last_name, input_html: { value: current_user.last_name } %>
       <%= f.input :email, input_html: { value: current_user.email } %>
       <%= f.input :start_date, collection: [
-        Date.today.at_end_of_week.strftime("%B %d, %Y"),
-        Date.today.next_week.at_end_of_week.strftime("%B %d, %Y"),
-        Date.today.weeks_since(2).at_end_of_week.strftime("%B %d, %Y"),
-        Date.today.weeks_since(3).at_end_of_week.strftime("%B %d, %Y"),
-        Date.today.weeks_since(4).at_end_of_week.strftime("%B %d, %Y"),
-        Date.today.weeks_since(5).at_end_of_week.strftime("%B %d, %Y"),
-        Date.today.weeks_since(6).at_end_of_week.strftime("%B %d, %Y"),
-        Date.today.weeks_since(7).at_end_of_week.strftime("%B %d, %Y"),
+        Date.today.at_end_of_week.prev_day.strftime("%B %d, %Y"),
+        Date.today.next_week.at_end_of_week.prev_day.strftime("%B %d, %Y"),
+        Date.today.weeks_since(2).at_end_of_week.prev_day.strftime("%B %d, %Y"),
+        Date.today.weeks_since(3).at_end_of_week.prev_day.strftime("%B %d, %Y"),
+        Date.today.weeks_since(4).at_end_of_week.prev_day.strftime("%B %d, %Y"),
+        Date.today.weeks_since(5).at_end_of_week.prev_day.strftime("%B %d, %Y"),
+        Date.today.weeks_since(6).at_end_of_week.prev_day.strftime("%B %d, %Y"),
+        Date.today.weeks_since(7).at_end_of_week.prev_day.strftime("%B %d, %Y"),
         ] %>
       <%= f.input :number_of_people, collection: [1, 2, 3, 4, 5, 6, 7, 8] %>
     </div>
