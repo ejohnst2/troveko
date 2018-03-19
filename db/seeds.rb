@@ -82,7 +82,7 @@ bali_photos_one = [ seed_image('Piling Cover'), seed_image('Piling 1'), seed_ima
 
 bali_experience_one = Experience.new(   user: project_kalpa,   title:
 "Live in the Quaint Village of Piling with Pak Ketut",   price: 2000000,   capacity: 5,   status: true,
-address: "Jl. Batu Mejan No. 88",   latitude: -8.355552,   longitude:
+address: "Babahan, Penebel, Tabanan Regency",   latitude: -8.355552,   longitude:
 115.089274,   long_description: "Ketut Suadha and his family of 5 live in the
 village of Piling. His extended family including brothers, aunts, uncles, and
 cousins live across from him, making it a tight-knit community. Born and raised
@@ -96,7 +96,7 @@ of Mount Batukaru. Piling is also well known for its harmonious relationship
 between Hindu and Christian community, which is evident through its two churches
 in the local settlement.",   short_description: "Enjoy local crafts and live
 with a lovely family in the quaint rice-terraced village of Piling",   city:
-"Bali",   postal_code: "5102060",   country: "Indonesia",   fund: bali_fund_one,
+"Bali",   postal_code: "82152",   country: "Indonesia",   fund: bali_fund_one,
 duration: 3,   highlights: "Travelers will have the chance to: a) get in-depth
 insight on the history, customs, and practices that shape Jatiluwih, b) Learn
 traditional gardening and farming methods as well as age-old ceremonies and
@@ -120,8 +120,8 @@ bali_photos_three = [ seed_image('Jatiluwih Cover'), seed_image('Jatiluwih 3'), 
 
 
 bali_experience_three = Experience.new(   user: project_kalpa,   title: "Live in Beautiful Jatiluwih with Pak Nyoman",   price: 2000000,   capacity: 5,   status: true,
-address: "Jl. Batu Mejan No. 88",   latitude: -8.371517,   longitude: 115.131846,
-long_description: "Nyoman Sutama and his family of 5 are based in the village of
+address: "Jalan Jatiluwih No.Desa, Jatiluwih",
+latitude: -8.371517,   longitude: 115.131846, long_description: "Nyoman Sutama and his family of 5 are based in the village of
 Jatiluwih. Nyoman is the Head of the Subak cluster (the 20 communities
 combined), and has over 50 years of experience as a rice farmer, making him
 highly skilled in traditional Balinese methods that date back centuries. In
@@ -133,7 +133,7 @@ making for an enriching and impactful travel experience. The village of
 Jatiluwih has the most notable Subak community in its cluster, it is a quaint
 and rustic village well knows for it’s beautiful terraced rice fields.",
 short_description: "Stay with the head of the Subak and learn how it works",
-city: "Bali",   postal_code: "5102060",   country: "Indonesia",   fund:
+city: "Bali",   postal_code: "82152",   country: "Indonesia",   fund:
 bali_fund_one,   duration: 3,   highlights: "Travelers will have the chance to:
 a) get in-depth insight on the history, customs, and practices that shape
 Jatiluwih, b) Learn traditional gardening and farming methods as well as age-old
@@ -154,8 +154,8 @@ International Airport. For those that are located.",   guided: true   )
 bali_photos_two = [ seed_image('Tengkudak-Host-1-862x575'), seed_image('L1830689'), seed_image('tengkudak-accommodation'), seed_image('L1840124-1184x662'), seed_image('tengkudak-kitchen') ]
 
 bali_experience_two = Experience.new( user: project_kalpa,   title: "Live in the historical Tengkudak with Nyoman Sutiani",
-price: 1500000,   capacity: 5,   status: true,
-address: "Jl. Batu Mejan No. 88",   latitude: -8.417752,   longitude: 115.117740,
+price: 2000000,   capacity: 5,   status: true,
+address: "Puluk-puluk, Tengkudak, Penebel", latitude: -8.417752,   longitude: 115.117740,
 long_description: "Nyoman Sutiani and her two brothers are based
 in the village of Tengkudak. She owns rice fields that are managed by her
 brothers, and has opened a small shop outside of her house a couple months ago
@@ -169,7 +169,7 @@ Batukaru. Because of its geography it has a slightly colder temperature than
 surrounding villages. The village displays a harmonious relationship of Hinduism
 and Catholicism, and the farmers in this village belong the Subak Penatahan.",
 short_description: "Learn local cooking and take part in temple ceremonies",
-city: "Bali",   postal_code: "5102060",   country: "Indonesia",   fund:
+city: "Bali",   postal_code: "82152",   country: "Indonesia",   fund:
 bali_fund_one,   duration: 3,   highlights: "Travelers will have the chance to:
 a) get in-depth insight on the history, customs, and practices that shape
 Jatiluwih, b) Learn traditional gardening and farming methods as well as age-old
