@@ -65,6 +65,19 @@ project_kalpa = User.new(
  )
 project_kalpa.save!
 
+yudis_walking_tour = User.new(
+  email: 'gedeyudistiraputra@gmail.com',
+  password:'Yudiswalkingt0urs',
+  ngo: true,
+  facebook_picture_url: ("NGO.png"),
+  first_name: 'Yudis',
+  last_name: 'Putra',
+  mission: "You can edit this",
+  programs: "You can edit this",
+  website: "youcaneditthis.com"
+ )
+yudis_walking_tour.save!
+
 
 bali_fund_one = Fund.new( user: project_kalpa,   funding_goal: 80000000,   title:
 "Community Center for Farmers and Youth",   about: "The Subak Landscape   of
