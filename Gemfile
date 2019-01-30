@@ -8,7 +8,7 @@ gem 'rest-client'
 gem 'figaro'
 gem 'jbuilder', '~> 2.0'
 gem 'puma'
-gem 'rails', '5.0'
+gem 'rails', '5.0.1'
 gem 'redis'
 
 gem 'autoprefixer-rails'
